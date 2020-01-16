@@ -1,0 +1,24 @@
+[OWASP 취약점 이론 학습]
+주요 웹 보안 취약점 	https://jeongchul.tistory.com/343?category=542112
+
+[Exploit Database]
+https://www.exploit-db.com/
+
+[웹 해킹 챌린지]
+해커팩토리	https://hackerfactory.co.kr/
+써니나타스 	http://www.suninatas.com/challenges
+
+[웹 모의해킹 실습]
+인프런	https://leeminki.github.io/webhack/2019/02/10/WebHack_Study_13.html
+
+https://net123.tistory.com/441?category=695510
+
+https://securitycode.tistory.com/44?category=753968
+
+[음... 툴 받는곳?]
+https://www.darknet.org.uk/2006/04/top-15-securityhacking-tools-utilities/
+
+[안경잡이 개발자]
+https://blog.naver.com/ndb796/221409941106
+
+https://www.youtube.com/playlist?list=PLRx0vPvlEmdDQxb41uc1G4ecjV-hklFDM
