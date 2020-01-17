@@ -10,7 +10,7 @@
 	int phone = integer.parseInt(request.getParameter("phone");
 	String address = request.getParameter("address");
 	String email = request.getParameter("email");
-	String[] items = request.getParameter("items");
+	String[] items = request.getParameterValues("items");
 	String id = request.getParameter("id");
 	String password = request.getParameter("password");
 	String agr = request.getParameter("agr");
@@ -18,10 +18,10 @@
 
 	Connection con = null;
 	PreparedStatement pstmt = null;
-
+	
 	Class.forName("org.mariadb.jdbc.Driver");
 
-	con = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/ESTDB");
+	con = DriverManager.getConnection("jdbc:mariadb://100.100.100.7:3306/ESTDB","userId","password");
 
 	String sql = "insert into member(name, gender, age, phone, address, email, items, id, password, agr, agr2) values (?,?,?,?,?,?,?,?,?,?,?)";
 	pstmt = con.prepareStatement(sql);
