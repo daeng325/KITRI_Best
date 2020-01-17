@@ -1,6 +1,7 @@
 @media screen and (max-width : 600px) width:100%
 
 
+
 * a{
 	text-decoration : none;
 	color : black;
@@ -87,7 +88,7 @@
 	margin-top : 30px;
 }*/
 
-.orderbutton{
+/*.orderbutton{
 	width : 10px;
 }
 
@@ -95,6 +96,7 @@
 	width : 10px;
 	border-bottom : 2px solid black;
 }
+*/
 
 .description{
 	border-bottom : 2px solid black;
@@ -125,22 +127,63 @@
 	padding-bottom : 20px;
 }
 
-.logininfo{
-	margin-top : 100px;
-	margin-bottom : 100px;
+.loginforgot{
+	text-align : center;
+	font-size : 40px;
+	padding-top : 100px;
+	padding-bottom : 20px;
 }
 
-.logininfo2{
-	margin-top : 100px;
-	margin-bottom : 100px;
+.join{
+	text-align : center;
+	font-size : 40px;
+	padding-top : 100px;
+	padding-bottom : 20px;
 }
 
-.findid{
-	margin-top : 100px;
-	margin-bottom : 100px;
+.addinfo{
+	text-align : center;
+	font-size : 40px;
+	padding-top : 100px;
+	padding-bottom : 20px;
 }
 
-.findpwd{
-	margin-bottom : 100px;
+
+.agr{
+	text-align : center;
+	font-size : 40px;
+	padding-top : 100px;
+	padding-bottom : 20px;
 }
+
+.agr2{
+	text-align : center;
+	font-size : 40px;
+	padding-top : 100px;
+	padding-bottom : 20px;
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"]{
+	width : 198px;
+	height : 38px;
+	line-height : 38px;
+	margin-top : 15px;
+	margin-bottom : 15px;
+	border : 1px solid black;
+	text-indent : 10px;
+	color : #000;
+}
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"]{
+	width : 100px;
+	height : 38px;
+	margin-top : 15px;
+	margin-bottom : 15px;
+	align-self : center;
 }
