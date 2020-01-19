@@ -24,6 +24,12 @@ spring boot와 MariaDB, jsp 연동시킨 게시판 (수정 중)
 3. MariaDB </br>
   version 10.2
 
+### 실행 방법
+1. spring boot로 실행
+2. localhost:8080/main.html 접속
+3. signin 에서 회원가입 폼 작성까지
+4. testdb 의 members 테이블 검색하여 확인
+
 ### 참고사항
 1. testdb 의 members 테이블에 회원가입 정보 저장까지 구현
 2. members 테이블 임시 구현 내용은 아래와 같음
