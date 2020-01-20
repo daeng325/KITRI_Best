@@ -3,6 +3,7 @@ package com.example.demo.board.controller;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +15,7 @@ import com.example.demo.board.service.BoardService;
 @Controller
 public class BoardController {
 
-	@Resource(name="com.example.demo.board.service.BoardService")
+	@Autowired 
 	BoardService mBoardService;
 	
 	@RequestMapping("/homepage")
@@ -38,12 +39,7 @@ public class BoardController {
 	private String boardInsertForm() {
 		return "insert";
 	}
-	/*
-	@RequestMapping("/signin")
-	private String singinComplete() {
-		return "signin";
-	}
-	*/
+
 	@RequestMapping("/insertProc")
     private String boardInsertProc(HttpServletRequest request) throws Exception{
         

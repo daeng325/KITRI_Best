@@ -3,6 +3,7 @@ package com.example.demo.board.controller;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,16 +13,21 @@ import com.example.demo.board.service.MemberService;
 @Controller
 public class MemberController {
 	
-	@Resource(name="com.example.demo.board.service.MemberService")
+	@Autowired 
 	MemberService mService;
+	
 	
 	@RequestMapping("/signin")
 	private String singinComplete() {
 		return "signin";
-
 	}
+		
+	@RequestMapping("/login")
+	private String loginComplete() {
+		return "login";
+	}	
 	
-	
+	/*
 	@RequestMapping("/insertmember")
     private String boardInsertProc(HttpServletRequest request) throws Exception{
         
@@ -44,5 +50,5 @@ public class MemberController {
         
         return "redirect:/main.html";
     }
-	
+	*/
 }
