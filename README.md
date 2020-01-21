@@ -1,8 +1,37 @@
 # KITRI_Best
 
-## * BestShop
+## **BestShop**
+#### 개요
+spring boot와 MariaDB, jsp 연동시킨 게시판 (수정 중)
+#### 개발 환경
+1. Eclipse
+2. java </br항>
+   jdk1.8 </br>
+   jre1.8 </br>
+3. MariaDB </br>
+   version 10.2
 
-## * demo
+#### 참고 사항
+1. web-server-application과 application.properties 의 password 차이
+2. > MariaDB에서 생성한 테이블
+> create table members(
+        name varchar(20) not null,
+        gender varchar(30) ,
+        age varchar(30),
+        phone varchar(30),
+        address varchar(30),
+        email varchar(30),
+        ID varchar(30) primary key,
+	pwd varchar(30) not null,
+        likeit   varchar(30),
+        agree  varchar(30),
+        agree2 varchar(30)
+);
+
+
+
+
+## **demo**
 #### 개요
 spring boot와 MariaDB, jsp 연동시킨 게시판 (수정 중)
 #### 개발 환경
@@ -30,7 +59,8 @@ spring boot와 MariaDB, jsp 연동시킨 게시판 (수정 중)
 	phone varchar(30), 
 	address varchar(30), 
 	email varchar(30), 
-	ID varchar(30) primary key, 
+	ID varchar(30) primary key,
+	pwd varchar(30) not null,
 	likeit   varchar(30), 
 	agree  varchar(30), 
 	agree2 varchar(30) 
