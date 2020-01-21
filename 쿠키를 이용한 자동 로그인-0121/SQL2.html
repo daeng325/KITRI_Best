@@ -1,0 +1,15 @@
+<select id="checkUserInfoWithCookie" resultType="HashMap">
+	SELECT
+		NAME,
+		GENDER,
+		AGE,
+		TEL,
+		ADDRESS,
+		EMAIL,
+		ID,
+		PASSWORD
+	FROM USER_INFO<!--실제 DB 이름으로 수정-->
+	WHERE
+		SESSIONKEY LIKE #{SESSIONID}
+		AND SESSIONLIMIT > SYSDATE
+</select>

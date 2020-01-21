@@ -1,0 +1,9 @@
+<update id = "keeplogin">
+	UPDATE
+		USER_INFO<!--실제 DB파일 이름 입력-->
+	SET
+		SESSIONKEY = #{SESSIONID},
+		SESSIONLIMIT = #{SESSIONLIMIT}
+	WHERE
+		ID LIKE #{loginInfo.ID}
+</update>

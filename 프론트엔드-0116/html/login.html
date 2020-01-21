@@ -4,38 +4,48 @@
 		<title>Beautycloset</title>
 		<meta http-equiv="content-language" content="charset=UTF-8"/>
 		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-		<meta name="viewport" content="width=1260" user-scalable="yes"/>
+		<meta name="viewport" content="width=1260" initial-scale="1" user-scalable="yes"/>
 		<meta name="description" content="아름다움을 선망하는 모든 남녀의 로망, 뷰티클로젯"/>
 		<meta name="keywords" content="여성의류, 남성의류, 상의, 하의, 가방, 신발, 악세사리, 패션"/>
 		<meta property="og:type" content="website"/>
 		<meta property="og:title" content="beautycloset"/>
-		<link rel="stylesheet" href="../css/formain.css" type="text/css"/>
-		<link rel="stylesheet" href="" type="text/css"/>
-		<link rel="stylesheet" href="" type="text/css">
-		<link rel="stylesheet" href="" type="text/css">
-		<link rel="stylesheet" href="" type="text/css">
-		<link rel="stylesheet" href="" type="text/css">
-		<link rel="stylesheet" href="" type="text/css">
+		<link rel="stylesheet" href="./css/formain.css" type="text/css"/>
+		<link rel="stylesheet" href="./css/bootstrap.css" type="text/css"/>
+		<link rel="stylesheet" href="./css/bootstrap-reboot.css" type="text/css">
+		<link rel="stylesheet" href="./css/bootstrap-reboot.min.css" type="text/css">
+		<link rel="stylesheet" href="./css/bootstrap-grid" type="text/css">
+		<link rel="stylesheet" href="./css/bootstrap.grid.min.css" type="text/css">
+		<link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">
 		<link rel="stylesheet" href="" type="text/css">
 		<link rel="stylesheet" href="" type="text/css">
 		<link rel="stylesheet" href="" type="text/css">
 		<link rel="stylesheet" href="" type="text/css">
 	</head>
 	<body>
+		<style type="text/css">
 		<header>
-			<div><h1 class="header"><a href="main.html">Beautycloset</a></h1></div>
-			<div class="menu">
-				<nav class="navbar">
-					<a href="top.html">Top</a>
-					<a href="bottom.html">Bottom</a>
-					<a href="bags.html">Bags&Shoes</a>
-					<a href="acce.html">Accesories</a>
-					<a href="signin.html">Singin</a>
-					<a href="login.html">Login</a>
-					<a href="q&a.html">Q&A</a>
-					<a href="review.html">Review</a>
+			<h1 class="header"><a href="main.html">Beautycloset</a></h1>
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapsed" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<ul class="dropdown-menu">
+					<li><a href="top.html">Top</a></li>
+					<li><a href="bottom.html">Bottom</a></li>
+					<li><a href="bags.html">Bags&Shoes</a></li>
+					<li><a href="acce.html">Accesories</a></li>
+					<li><a href="signin.html">Singin</a></li>
+					<li><a href="login.html">Login</a></li>
+					<li><a href="q&a.html">Q&A</a></li>
+					<li><a href="review.html">Review</a></li>
+				</ul>
 				</nav>
-			</div>
 		</header>
 	<section>
 		<form action="" method="post" onsubmit="return LoginComplete();">
@@ -47,9 +57,10 @@
 				<div class="logininfo" align=center>아이디  <input type="text" name="loginid" placeholder="아이디를 입력하세요"></div>
 				<br>
 				<div class="logininfo2" align=center>비밀번호 <input type="password" name="loginpwd" placeholder="비밀번호를 입력하세요"></div>
-				<div class="loginok" align=center><input type="submit" name="loginok" value="로그인" onclick="">
+				<div class="loginok" align=center><a class="btn btn-primary btn-lg" href="loginsuccess.html" role="submit">로그인</a></div>
+				<br>
 				<!--로그인 버튼-->
-				<div class="loginreset" align=center><input type="reset" name="loginreset" value="초기화" onclick="">
+				<div class="loginreset" align=center><a class="btn btn-primary btn-lg" href="" role="reset">초기화</a>
 				<!--초기화 버튼 : 누르기만 하면 자동으로 폼 내용 초기화-->
 			</fieldset>
 		</form>
