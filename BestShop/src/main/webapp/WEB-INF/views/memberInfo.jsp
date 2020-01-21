@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Jsp page sample</title>
+<title>Insert title here</title>
 </head>
 <body>
-jsp body sample
+	<h1>회원 정보</h1>
+    name : ${memberInfo.name}<br/>
 </body>
 </html>

@@ -1,10 +1,13 @@
 package com.kitri.shop.db.controller;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kitri.shop.db.dto.Member;
 import com.kitri.shop.db.service.MemberService;
@@ -15,33 +18,20 @@ public class MemberController {
 	@Resource(name="com.kitri.shop.db.service.MemberService")
 	MemberService mService;
 	
-	@RequestMapping("/signin")
-	private String singinComplete() {
+	@RequestMapping(value="/signin", method=RequestMethod.GET)
+	public String viewSignin() {
 		return "signin";
 	}
 	
-	
-	@RequestMapping("/insertmember")
-    private String boardInsertProc(HttpServletRequest request) throws Exception{
-        
-        Member member = new Member();
-        
-        member.setName(request.getParameter("name"));
-        member.setAge(request.getParameter("age"));
-        member.setAgree(request.getParameter("agree"));
-        member.setAgree2(request.getParameter("agree2"));
-        member.setAddress(request.getParameter("address"));
-        member.setEmail(request.getParameter("email"));
-        member.setGender(request.getParameter("gender"));
-        member.setID(request.getParameter("ID"));
-        member.setLikeit(request.getParameter("likeit"));
-        member.setName(request.getParameter("name"));
-        member.setPhone(request.getParameter("phone"));
-        member.setPwd(request.getParameter("pwd"));
-
-        mService.memberInsertService(member);
-        
-        return "redirect:/main.html";
-    }
+	@RequestMapping(value="/signin", method=RequestMethod.POST)
+	public String singinComplete(@ModelAttribute("memberInfo") Member member) throws Exception {
+		System.out.println(member.getName());
+		return "login";
+	}
+		
+	@RequestMapping("/login")
+	public String loginComplete() {
+		return "login";
+	}	
 	
 }

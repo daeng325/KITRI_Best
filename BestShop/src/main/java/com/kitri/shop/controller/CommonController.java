@@ -1,20 +1,22 @@
 package com.kitri.shop.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@RestController
+@Controller
 public class CommonController {
 
     @RequestMapping("/")
     public String root_test() throws Exception{
-        return "Hello Root(/)";
+        return "main";
     }
- 
-    @RequestMapping("/demo")
-    public String demo_test() throws Exception{
-        return "Hello demo(/demo)";
-    }
+    
+//    @RequestMapping(value="/signin", method=RequestMethod.GET)
+//    public String signinView(Model model) throws Exception{
+//    	return "signin";
+//    }
  
 }
 
