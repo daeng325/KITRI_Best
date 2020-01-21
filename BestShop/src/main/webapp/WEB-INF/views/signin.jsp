@@ -47,8 +47,8 @@
 					<label for="name">이름</label>
 					<input type="text" name="name" placeholder="이름을 입력하세요"><br>
 					<label for="sex">성별</label>
-					<input type="radio" name="man">남자
-					<input type="radio" name="woman">여자<br>
+					<input type="radio" name="gender">남자
+					<input type="radio" name="gender">여자<br>
 					<label for="age">나이</label>
 					<input type="text" name="age" placeholder="만 나이를 입력하세요"><br>
 					<label for="phonenum">전화번호</label>

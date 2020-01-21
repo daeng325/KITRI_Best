@@ -1,22 +1,19 @@
 package com.kitri.shop.db.controller;
 
-import javax.annotation.Resource;
-import javax.validation.Valid;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kitri.shop.db.dto.Member;
-import com.kitri.shop.db.service.MemberService;
+import com.kitri.shop.repository.MemberRepository;
 
 @Controller
 public class MemberController {
 	
-	@Resource(name="com.kitri.shop.db.service.MemberService")
-	MemberService mService;
+	@Autowired
+	MemberRepository memRepository;
 	
 	@RequestMapping(value="/signin", method=RequestMethod.GET)
 	public String viewSignin() {
@@ -26,6 +23,8 @@ public class MemberController {
 	@RequestMapping(value="/signin", method=RequestMethod.POST)
 	public String singinComplete(@ModelAttribute("memberInfo") Member member) throws Exception {
 		System.out.println(member.getName());
+		System.out.println(member.getID());
+		memRepository.save(member);
 		return "login";
 	}
 		

@@ -12,11 +12,5 @@ public class CommonController {
     public String root_test() throws Exception{
         return "main";
     }
-    
-//    @RequestMapping(value="/signin", method=RequestMethod.GET)
-//    public String signinView(Model model) throws Exception{
-//    	return "signin";
-//    }
- 
 }
 
