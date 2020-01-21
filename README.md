@@ -5,7 +5,7 @@
 spring boot와 MariaDB, jsp 연동시킨 게시판 (수정 중)
 #### 개발 환경
 1. Eclipse
-2. java </br항>
+2. java </br>
    jdk1.8 </br>
    jre1.8 </br>
 3. MariaDB </br>
@@ -13,7 +13,8 @@ spring boot와 MariaDB, jsp 연동시킨 게시판 (수정 중)
 
 #### 참고 사항
 1. web-server-application과 application.properties 의 password 차이
-2. > MariaDB에서 생성한 테이블
+2. best_shop.members
+> MariaDB에서 생성한 테이블
 > create table members(
         name varchar(20) not null,
         gender varchar(30) ,
