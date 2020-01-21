@@ -6,7 +6,7 @@ public Map<String, Object> login(HttpServletRequest request, HttpServletResponse
 	//사용자 정보 조회
 
 	Map<String, Object> resultMap = new HashMap<String, Object>();
-	// 요청에 응답하기 위한 (해쉬 형태의 )맵 객체를 생성함
+	// 요청에 응답하기 위한 맵 객체를 생성함
 
 	if(loginInfo == null)
 	{
@@ -18,7 +18,7 @@ public Map<String, Object> login(HttpServletRequest request, HttpServletResponse
 	{
 		request.getSession().setAttribute("loginInfo", loginInfo);
 		request.getSession().setMaxInactiveInterval(60*30*30);
-		//로그인 세션을 생성하는 과정(setMax는 세션의 최대 유지 기간이며 밀리초 단위)
+		//로그인 세션을 생성하는 과정(setMax는 세션의 최대 유지 기간)
 		if(commandMap.get("isUseCookie").equals("Y"))
 			//로그인 상태 유지 칸이 체크되어 있을 경우
 		{
