@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang = "ko"/>
 <script>
+	alert('${msg}');
 </script>
 	<head>
 		<title>Beautycloset</title>
@@ -34,8 +35,8 @@
 					<a href="bottom.html">Bottom</a>
 					<a href="bags.html">Bags&Shoes</a>
 					<a href="acce.html">Accesories</a>
-					<a href="signin">Singin</a>
-					<a href="login">Login</a>
+					<a href="signin.html">Singin</a>
+					<a href="login.html">Login</a>
 					<a href="q&a.html">Q&A</a>
 					<a href="review.html">Review</a>
 				</nav>

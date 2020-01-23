@@ -33,8 +33,8 @@
 					<a href="bottom.html">Bottom</a>
 					<a href="bags.html">Bags&Shoes</a>
 					<a href="acce.html">Accesories</a>
-					<a href="signin.html">Singin</a>
-					<a href="login.html">Login</a>
+					<a href="signin">Singin</a>
+					<a href="login">Login</a>
 					<a href="q&a.html">Q&A</a>
 					<a href="review.html">Review</a>
 				</nav>
@@ -47,8 +47,8 @@
 					<label for="name">이름</label>
 					<input type="text" name="name" placeholder="이름을 입력하세요"><br>
 					<label for="sex">성별</label>
-					<input type="radio" name="gender">남자
-					<input type="radio" name="gender">여자<br>
+					<input type="radio" name="gender" value="M">남자
+					<input type="radio" name="gender" value="F">여자<br>
 					<label for="age">나이</label>
 					<input type="text" name="age" placeholder="만 나이를 입력하세요"><br>
 					<label for="phonenum">전화번호</label>
@@ -65,19 +65,19 @@
 			<fieldset>
 				<legend class="addinfo">부가정보</legend>
 					<p><label for="items">관심있는 아이템</label>
-					<input type="checkbox" name="likeit">상의
-					<input type="checkbox" name="likeit">하의
-					<input type="checkbox" name="likeit">가방
-					<input type="checkbox" name="likeit">신발
-					<input type="checkbox" name="likeit">액세서리</p>
+					<input type="checkbox" name="likeit" value="top">상의
+					<input type="checkbox" name="likeit" value="bottom">하의
+					<input type="checkbox" name="likeit" value="bag">가방
+					<input type="checkbox" name="likeit" value="shoes">신발
+					<input type="checkbox" name="likeit" value="acc">액세서리</p>
 					<!--type=checkbox : 여러 값을 동시에 선택할 수 있음-->
 					<p><label for="agr">개인정보 제공에 동의합니까?</label>
-					<input type="radio" name="agree">예
-					<input type="radio" name="agree">아니오</p>
+					<input type="radio" name="agree" value="y">예
+					<input type="radio" name="agree" value="n">아니오</p>
 					<!--type=radio : 여러 값 중 하나를 선택할 수 있음-->
 					<p><label for="agr2">이메일, 문자 수신에 동의합니까?</label>
-					<input type="radio" name="agree2">예
-					<input type="radio" name="agree2">아니오</p>
+					<input type="radio" name="agree2" value="y">예
+					<input type="radio" name="agree2" value="n">아니오</p>
 			</fieldset>
 			<fieldset>
 					<span><label for="name"><input type="submit" value="가입"></label><br>

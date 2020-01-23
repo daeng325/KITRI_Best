@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang = "ko"/>
 <script>
+	alert('${msg}');
 </script>
 	<head>
 		<title>Beautycloset</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 		<meta name="viewport" content="width=1260" user-scalable="yes"/>
 		<meta name="description" content="아름다움을 선망하는 모든 남녀의 로망, 뷰티클로젯"/>
@@ -41,36 +43,34 @@
 				</nav>
 			</div>
 		</header>
-	<section>
-		<form action="<%= request.getContextPath() %>/login" method="post" onsubmit="return LoginComplete();"> <!-- onsubmit="return LoginComplete();" -->
-			<!-- action : 연결할 JSP 페이지, method : post는 해당 사이트에서 다른 페이지로 정보를 보낼때 사용--
-				onsubmit : 제출 버튼을 눌렀을때 LoginComplete 기능 동작(반환)-->
-			<fieldset>
-				<legend class="login"><b>로그인</b></legend>
-				<input type="hidden" name="loginhid" value=""/>
-				<div class="logininfo" align=center>아이디  <input type="text" name="loginid" placeholder="아이디를 입력하세요"></div>
-				<br>
-				<div class="logininfo2" align=center>비밀번호 <input type="password" name="loginpwd" placeholder="비밀번호를 입력하세요"></div>
-				<div class="loginok" align=center><input type="submit" name="loginok" value="로그인" onclick="">
-				<!--로그인 버튼-->
-				<div class="loginreset" align=center><input type="reset" name="loginreset" value="초기화" onclick="">
-				<!--초기화 버튼 : 누르기만 하면 자동으로 폼 내용 초기화-->
-			</fieldset>
-		</form>
-		<form action="" method="post">
-			<fieldset>
-				<legend class="loginforgot"><b>아이디 & 비밀번호 찾기</b></legend>
-				<div class="findid" align=center><input type="button" name="findid" value="아이디 찾기" onclick=""></div>
-				<!--아이디 찾기 버튼 : 누르면 아이디 찾는 페이지로 이동-->
-				<br>
-				<div class="findpwd" align=center><input type="button" name="findpwd" value="비밀번호 찾기" onclick=""></div>
-				<!--패스워드 찾기 버튼 : 누르면 패스워드 찾는 페이지로 이동-->
-			</fieldset>
-		</form>
-	</section>
-	<footer class="bottom">
+		<section>
+			<div class="img">
+				<div class="mainvid">
+					<video muted autoplay loop class="mainvid1" align="left" controls>
+						<source src="../movie/woman.mp4" type="video/mp4">
+					</video>
+					<!--<video muted autoplay loop class="mainvid2" align="right" controls>
+						<source src="girl2.mp4" type="video/mp4">
+					</video>-->
+				</div>
+				<div class="favorite">오늘의 인기 상품</div>
+				<table class="tab" align="center">
+					<tr>
+						<th class="tab"><a href="top1.html"><img class="img1" src="../jpg/1.jpg" alt="코튼티셔츠"><a href="top1.html"><p>코튼 티셔츠</p><p>10000원</p></a></a></th>
+						<th class="tab"><a href="top2.html"><img class="img2" src="../jpg/2.jpg" alt="레이스블라우스"><a href="top2.html"><p>화이트 레이스 블라우스</p><p>25000원</p></a></a></th>
+						<th class="tab"><a href="bags1.html"><img class="img14" src="../jpg/14.jpg" alt="노란가죽가방"><a href="bag1.html"><p>미니 숄더백</p><p>40000원</p></a></a></th>
+					</tr>
+					<tr>
+						<th class="tab"><a href="bags2.html"><img class="img12" src="../jpg/12.jpg" alt="화이트펀칭슈즈"><a href="shoes2.html"><p>화이트 펀칭 슈즈</p><p>50000원</p></a></a></th>
+						<th class="tab"><a href="bottom1.html"><img class="img11" src="../jpg/11.jpg" alt="블랙롱스커트"><a href="bottom2.html"><p>블랙 롱 스커트</p><p>30000원</p></a></a></th>
+						<th class="tab"><a href="bottom2.html"><img class="img13" src="../jpg/13.jpg" alt="블랙레이스스커트"><a href="bags2.html"><p>블랙 레이스 스커트</p><p>45000원</p></a></a></th>
+					</tr>
+				</table>				
+			</div>
+		</section>
+		<footer class="bottom">
 			<div class="bottom">
-				<p id="contact">Contact Us<p>
+				<p id="contact"><b>Contact Us</b><p>
 				<p>Tel. : 010-4022-3241</p>
 				<p>E-mail : wsm91@naver.com</p>
 				<p>Address : 서울특별시 구로구 구로동 디지털로34길 43</p>
