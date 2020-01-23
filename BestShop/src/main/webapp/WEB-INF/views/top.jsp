@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,19 +33,19 @@
 			}
 
 		</style>
-		<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="main.jsp">Home</a>
+					<a class="nav-link" href="main">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="login.jsp">Login</a>
+					<a class="nav-link" href="login">Login</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="join.jsp">Join</a>
+					<a class="nav-link" href="join">Join</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="mypage.jsp">Mypage</a>
+					<a class="nav-link" href="mypage">Mypage</a>
 				</li>
 			</ul>
 			<form class="form-inline" action="" method="post">
@@ -60,7 +60,7 @@
 		</div>
 		<div class="container-fluid">
 			<ul class="nav justify-content-center">
-				<li class="nav-item">
+                <li class="nav-item">
 					<a class="nav-link" href="top">Top</a>
 				</li>
 				<li class="nav-item">
@@ -72,34 +72,22 @@
 				<li class="nav-item">
 					<a class="nav-link" href="acce">Accesories</a>
 				</li>
+
 			</ul>
 		</nav>
 		<br>
 		<br>
-		<div class="container-fluid">
-			<div class="jumbotron">
-				<h1 class = "text-center">½Å»óÇ° 50% ÇÒÀÎ</h1>
-				<p class="text-center">»õ·Î¿î »óÇ°µéÀ» ¸¸³ªº¸¼¼¿ä</p>
-				<p class="text-center"><a class="btn btn-primary btn-lg" href="" role="button">Å½ÇèÇÏ±â</a></p>
-			</div>
-		</div>
-		<div class="container-fluid">
-			<video muted autoplay loop controls width=100%>
-			<source src="./video/Woman.mp4" type="video/mp4">
-			</video>
-		</div>
-		<br>
-		<br>
+		<h1 class="text-center">Top</h1>
 		<div class="container-fluid">
 				<ul class="nav justify-content-end">
 				<li class="nav-item">
-					<a class="nav-link" href="">½Å»óÇ°¼ø</a>
+					<a class="nav-link" href="">ì‹ ìƒí’ˆìˆœ</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="">³·Àº°¡°Ý¼ø</a>
+					<a class="nav-link" href="">ë‚®ì€ê°€ê²©ìˆœ</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="">³ôÀº°¡°Ý¼ø</a>
+					<a class="nav-link" href="">ë†’ì€ê°€ê²©ìˆœ</a>
 				</li>
 				</ul>
 		</div>
@@ -107,45 +95,45 @@
 		<br>
 		<div class="row" align=center>
 			<div class="col-md-3">
-				<a href="top1.jsp"><img class="img1" src="./jpg/1.jpg" alt="ÄÚÆ°Æ¼¼ÅÃ÷"><a href="top1.jsp"><p>ÄÚÆ° Æ¼¼ÅÃ÷</p><p>10000¿ø</p></a></a>
+				<a href="top1.html"><img class="img1" src="./jpg/1.jpg" alt="ì½”íŠ¼í‹°ì…”ì¸ "><a href="top1.html"><p>ì½”íŠ¼ í‹°ì…”ì¸ </p><p>10000ì›</p></a></a>
 			</div>
 			<div class="col-md-3">
-				<a href="top2.jsp"><img class="img2" src="./jpg/2.jpg" alt="·¹ÀÌ½ººí¶ó¿ì½º"><a href="top2.jsp"><p>È­ÀÌÆ® ·¹ÀÌ½º ºí¶ó¿ì½º<span class="badge badge-secondary">New</span></p><p>25000¿ø</p></a></a>
+				<a href="top2.html"><img class="img2" src="./jpg/2.jpg" alt="ë ˆì´ìŠ¤ë¸”ë¼ìš°ìŠ¤"><a href="top2.html"><p>í™”ì´íŠ¸ ë ˆì´ìŠ¤ ë¸”ë¼ìš°ìŠ¤<span class="badge badge-secondary">New</span></p><p>25000ì›</p></a></a>
 			</div>
 			<div class="col-md-3">
-				<a href="bags1.jsp"><img class="img14" src="./jpg/14.jpg" alt="³ë¶õ°¡Á×°¡¹æ"><a href="bag1.jsp"><p>¹Ì´Ï ¼ñ´õ¹é</p><p>40000¿ø</p></a></a>
+				<a href="bags1.html"><img class="img14" src="./jpg/14.jpg" alt="ë…¸ëž€ê°€ì£½ê°€ë°©"><a href="bag1.html"><p>ë¯¸ë‹ˆ ìˆ„ë”ë°±</p><p>40000ì›</p></a></a>
 			</div>
 			<div class="col-md-3">
-				<a href="bags2.jsp"><img class="img12" src="./jpg/12.jpg" alt="È­ÀÌÆ®ÆÝÄª½´Áî"><a href="shoes2.jsp"><p>È­ÀÌÆ® ÆÝÄª ½´Áî</p><p>50000¿ø</p></a></a>
-			</div>
-		</div>
-		<div class="row" align=center>
-			<div class="col-md-3">
-				<a href="top1.jsp"><img class="img1" src="./jpg/1.jpg" alt="ÄÚÆ°Æ¼¼ÅÃ÷"><a href="top1.jsp"><p>ÄÚÆ° Æ¼¼ÅÃ÷</p><p>10000¿ø</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="top2.jsp"><img class="img2" src="./jpg/2.jpg" alt="·¹ÀÌ½ººí¶ó¿ì½º"><a href="top2.jsp"><p>È­ÀÌÆ® ·¹ÀÌ½º ºí¶ó¿ì½º</p><p>25000¿ø</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="bags1.jsp"><img class="img14" src="./jpg/14.jpg" alt="³ë¶õ°¡Á×°¡¹æ"><a href="bag1.jsp"><p>¹Ì´Ï ¼ñ´õ¹é</p><p>40000¿ø</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="bags2.jsp"><img class="img12" src="./jpg/12.jpg" alt="È­ÀÌÆ®ÆÝÄª½´Áî"><a href="shoes2.jsp"><p>È­ÀÌÆ® ÆÝÄª ½´Áî<span class="badge badge-secondary">New</span></p><p>50000¿ø</p></a></a>
+				<a href="bags2.html"><img class="img12" src="./jpg/12.jpg" alt="í™”ì´íŠ¸íŽ€ì¹­ìŠˆì¦ˆ"><a href="shoes2.html"><p>í™”ì´íŠ¸ íŽ€ì¹­ ìŠˆì¦ˆ</p><p>50000ì›</p></a></a>
 			</div>
 		</div>
 		<div class="row" align=center>
 			<div class="col-md-3">
-				<a href="bottom1.jsp"><img class="img11" src="./jpg/11.jpg" alt="ºí·¢·Õ½ºÄ¿Æ®"><a href="bottom2.jsp"><p>ºí·¢ ·Õ ½ºÄ¿Æ®</p><p>30000¿ø</p></a></a>
+				<a href="top1.html"><img class="img1" src="./jpg/1.jpg" alt="ì½”íŠ¼í‹°ì…”ì¸ "><a href="top1.html"><p>ì½”íŠ¼ í‹°ì…”ì¸ </p><p>10000ì›</p></a></a>
 			</div>
 			<div class="col-md-3">
-				<a href="bottom2.jsp"><img class="img13" src="./jpg/13.jpg" alt="ºí·¢·¹ÀÌ½º½ºÄ¿Æ®"><a href="bags2.jsp"><p>ºí·¢ ·¹ÀÌ½º ½ºÄ¿Æ®</p><p>45000¿ø</p></a></a>
+				<a href="top2.html"><img class="img2" src="./jpg/2.jpg" alt="ë ˆì´ìŠ¤ë¸”ë¼ìš°ìŠ¤"><a href="top2.html"><p>í™”ì´íŠ¸ ë ˆì´ìŠ¤ ë¸”ë¼ìš°ìŠ¤</p><p>25000ì›</p></a></a>
+			</div>
+			<div class="col-md-3">
+				<a href="bags1.html"><img class="img14" src="./jpg/14.jpg" alt="ë…¸ëž€ê°€ì£½ê°€ë°©"><a href="bag1.html"><p>ë¯¸ë‹ˆ ìˆ„ë”ë°±</p><p>40000ì›</p></a></a>
+			</div>
+			<div class="col-md-3">
+				<a href="bags2.html"><img class="img12" src="./jpg/12.jpg" alt="í™”ì´íŠ¸íŽ€ì¹­ìŠˆì¦ˆ"><a href="shoes2.html"><p>í™”ì´íŠ¸ íŽ€ì¹­ ìŠˆì¦ˆ<span class="badge badge-secondary">New</span></p><p>50000ì›</p></a></a>
+			</div>
+		</div>
+		<div class="row" align=center>
+			<div class="col-md-3">
+				<a href="bottom1.html"><img class="img11" src="./jpg/11.jpg" alt="ë¸”ëž™ë¡±ìŠ¤ì»¤íŠ¸"><a href="bottom2.html"><p>ë¸”ëž™ ë¡± ìŠ¤ì»¤íŠ¸</p><p>30000ì›</p></a></a>
+			</div>
+			<div class="col-md-3">
+				<a href="bottom2.html"><img class="img13" src="./jpg/13.jpg" alt="ë¸”ëž™ë ˆì´ìŠ¤ìŠ¤ì»¤íŠ¸"><a href="bags2.html"><p>ë¸”ëž™ ë ˆì´ìŠ¤ ìŠ¤ì»¤íŠ¸</p><p>45000ì›</p></a></a>
 			</div>
 		</div>
 		<footer style="background-color: #000000; color:#FFFFFF">
 			<div class="container">
 				<br>
 				<div class="row">
-					<div class="col col-lg-6" style="border:1px solid black; text-align: left; font-family:'ariel'">Copyright &copy; 2020<br>KITRIÄ§ÇØ´ëÀÀ20±â¿ì¸®Á¶°¡Â¯ÀÌÁ¶<br>All rights reserved</div>
+					<div class="col col-lg-6" style="border:1px solid black; text-align: left; font-family:'ariel'">Copyright &copy; 2020<br>KITRIì¹¨í•´ëŒ€ì‘20ê¸°ìš°ë¦¬ì¡°ê°€ì§±ì´ì¡°<br>All rights reserved</div>
 					<div class="col-md auto" style="border:1px solid black; text-align: left; font-family:'ariel'">Contact Us<br>tel : 010-4022-3241<br>e-mail : wsm91@naver.com</div>
 				</div>
 			</div>
