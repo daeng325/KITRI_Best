@@ -41,16 +41,16 @@
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="main.jsp">Home</a>
+					<a class="nav-link" href="main">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="login.jsp">Login</a>
+					<a class="nav-link" href="login">Login</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="join.jsp">Join</a>
+					<a class="nav-link" href="join">Join</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="mypage.jsp">Mypage</a>
+					<a class="nav-link" href="mypage">Mypage</a>
 				</li>
 			</ul>
 			<form class="form-inline" action="" method="post">

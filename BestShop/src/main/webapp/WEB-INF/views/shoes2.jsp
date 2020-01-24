@@ -81,7 +81,7 @@
 		</nav>
 		<div class="row">
 		<div class="col-md-7">
-				<img class="img12-1" src="12.jpg" alt="화이트 펀칭 슈즈">
+				<img class="img12-1" src="./jpg/12.jpg" alt="화이트 펀칭 슈즈">
 			</div>
 			<div class="col-md-4" style="margin-top:40px">
 				<div class="card">

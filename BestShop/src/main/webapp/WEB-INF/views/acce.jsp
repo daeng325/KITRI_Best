@@ -94,10 +94,10 @@
 		<br>
 		<div class="row" align=center>
 			<div class="col-md-3">
-				<a href="acce1.jsp"><img class="img27" src="./jpg/27.jpg" alt="미러 선글라스"><a href="acce1.jsp"><p>레인보우 미러 선글라스</p><p>30000원</p></a></a>
+				<a href="acce1.jsp"><img class="img27" src="./jpg/27.jpg" alt="미러 선글라스"><a href="acce1"><p>레인보우 미러 선글라스</p><p>30000원</p></a></a>
 			</div>
 			<div class="col-md-3">
-				<a href="acce2.jsp"><img class="img28" src="./jpg/28.jpg" alt="블랙 페도라"><a href="acce2.jsp"><p>멋쟁이 블랙 페도라</p><p>20000원</p></a></a>
+				<a href="acce2.jsp"><img class="img28" src="./jpg/28.jpg" alt="블랙 페도라"><a href="acce2"><p>멋쟁이 블랙 페도라</p><p>20000원</p></a></a>
 			</div>
 		</div>
 		
@@ -111,6 +111,6 @@
 			</div>
 		</footer>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="../js/bootstrap.js"></script>
+	<script src="./js/bootstrap.js"></script>
 	</body>
 </html>

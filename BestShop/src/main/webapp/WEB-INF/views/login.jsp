@@ -120,7 +120,7 @@ function login_button() {
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">패스워드</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" name="password" required>
+                                    <input type="password" id="pwd" class="form-control" name="pwd" required>
                                 </div>
                             </div>
 
@@ -128,7 +128,7 @@ function login_button() {
                                 <div class="col-md-6 offset-md-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="remember"> 로그인 상태 유지
+                                            <input type="checkbox" name="remember" value=""> 로그인 상태 유지
                                         </label>
                                     </div>
                                 </div>
@@ -138,7 +138,7 @@ function login_button() {
                                 <button type="submit" class="btn btn-primary">
                                     	로그인
                                 </button>
-                                <a href="#" class="btn btn-link">
+                                <a href="" class="btn btn-link">
                                   	          아이디/비밀번호 찾기
                                 </a>
                             </div>
@@ -160,6 +160,6 @@ function login_button() {
             </div>
         </footer>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
+    <script src="./js/bootstrap.js"></script>
     </body>
 </html>

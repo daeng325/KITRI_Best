@@ -81,7 +81,7 @@
 		</nav>
 		<div class="row">
 		<div class="col-md-7">
-				<img class="img8-1" src="25.jpg" alt="쉬폰스커트">
+				<img class="img8-1" src="./jpg/25.jpg" alt="쉬폰스커트">
 			</div>
 			<div class="col-md-4" style="margin-top:40px">
 				<div class="card">

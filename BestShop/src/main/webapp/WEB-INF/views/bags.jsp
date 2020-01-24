@@ -94,16 +94,16 @@
 		<br>
 		<div class="row" align=center>
 			<div class="col-md-3">
-				<a href="bag1.html"><img class="img14" src="./jpg/14.jpg" alt="노란가죽가방"><a href="bag1.jsp"><p>미니 숄더백</p><p>40000원</p></a></a>
+				<a href="bag1.html"><img class="img14" src="./jpg/14.jpg" alt="노란가죽가방"><a href="bag1"><p>미니 숄더백</p><p>40000원</p></a></a>
 			</div>
 			<div class="col-md-3">
-				<a href="shoes1.html"><img class="img25" src="./jpg/26.jpg" alt="왕리본핑크구두"><a href="shoes1.jsp"><p>왕리본 캔디핑크 구두</p><p>60000원</p></a></a>
+				<a href="shoes1.html"><img class="img25" src="./jpg/26.jpg" alt="왕리본핑크구두"><a href="shoes1"><p>왕리본 캔디핑크 구두</p><p>60000원</p></a></a>
 			</div>
 			<div class="col-md-3">
-				<a href="shoes2.html"><img class="img12" src="./jpg/12.jpg" alt="화이트펀칭슈즈"><a href="shoes2.jsp"><p>화이트 펀칭 슈즈</p><p>50000원</p></a></a>
+				<a href="shoes2.html"><img class="img12" src="./jpg/12.jpg" alt="화이트펀칭슈즈"><a href="shoes2"><p>화이트 펀칭 슈즈</p><p>50000원</p></a></a>
 			</div>
 			<div class="col-md-3">
-				<a href="bag2.html"><img class="img15" src="./jpg/15.jpg" alt="브라운소가죽가방"><a href="bag2.jsp"><p>고풍스러운 브라운 소가죽백</p><p>100000원</p></a></a>
+				<a href="bag2.html"><img class="img15" src="./jpg/15.jpg" alt="브라운소가죽가방"><a href="bag2"><p>고풍스러운 브라운 소가죽백</p><p>100000원</p></a></a>
 			</div>
 		</div>
 		
@@ -117,6 +117,6 @@
 			</div>
 		</footer>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="../js/bootstrap.js"></script>
+	<script src="./js/bootstrap.js"></script>
 	</body>
 </html>

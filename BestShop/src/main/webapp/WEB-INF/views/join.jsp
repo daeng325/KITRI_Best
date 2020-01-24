@@ -106,74 +106,74 @@
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">이름</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="ID" class="form-control" name="ID" required autofocus>
+                                    <input type="text" id="name" class="form-control" name="name" autofocus>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="sex" class="col-md-4 col-form-label text-md-right">성별</label>
                                 <div class="col-md-6">
-                                    <input type="radio" name="gender" value="man" required>남자
-                                    <input type="radio" name="gender" value="woman" required>여자
+                                    <input type="radio" name="gender" value="man">남자
+                                    <input type="radio" name="gender" value="woman">여자
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="age" class="col-md-4 col-form-label text-md-right">나이</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="age" class="form-control" name="age" required>
+                                    <input type="text" id="age" class="form-control" name="age">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="phonenum" class="col-md-4 col-form-label text-md-right">전화번호</label>
                                 <div class="col-md-6">
-                                    <input type="tel" id="phone" class="form-control" name="phone" required>
+                                    <input type="tel" id="phone" class="form-control" name="phone">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="address" class="col-md-4 col-form-label text-md-right">집 주소</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="add" class="form-control" name="add" required>
+                                    <input type="text" id="address" class="form-control" name="address">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="emailadd" class="col-md-4 col-form-label text-md-right">이메일 주소</label>
                                 <div class="col-md-6">
-                                    <input type="email" id="email" class="form-control" name="email" required>
+                                    <input type="email" id="email" class="form-control" name="email">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="ID" class="form-control" name="ID" required autofocus>
+                                    <input type="text" id="ID" class="form-control" name="ID" autofocus>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">패스워드</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" name="password" required>
+                                    <input type="password" id="pwd" class="form-control" name="pwd">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="items" class="col-md-4 col-form-label text-md-right">관심 아이템</label>
                                 <div class="col-md-6">
-                                    <input type="checkbox" name="likeit" value="top" required>상의
-                                    <input type="checkbox" name="likeit" value="bottom" required>하의
-                                    <input type="checkbox" name="likeit" value="bags" required>가방
-                                    <input type="checkbox" name="likeit" value="shoes" required>신발
-                                    <input type="checkbox" name="likeit" value="accesories" required>악세사리
+                                    <input type="checkbox" name="likeit" value="top">상의
+                                    <input type="checkbox" name="likeit" value="bottom">하의
+                                    <input type="checkbox" name="likeit" value="bags">가방
+                                    <input type="checkbox" name="likeit" value="shoes">신발
+                                    <input type="checkbox" name="likeit" value="accesories">악세사리
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="sex" class="col-md-4 col-form-label text-md-right">개인정보 제공에 동의합니까?</label>
                                 <div class="col-md-6">
-                                    <input type="radio" name="agree" value="yes" required>예
-                                    <input type="radio" name="agree" value="no" required>아니오
+                                    <input type="radio" name="agree" value="yes">예
+                                    <input type="radio" name="agree" value="no">아니오
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="sex" class="col-md-4 col-form-label text-md-right">이메일, 문자 수신에 동의합니까?</label>
                                 <div class="col-md-6">
-                                    <input type="radio" name="agree2" value="yes" required>예
-                                    <input type="radio" name="agree2" value="no" required>아니오
+                                    <input type="radio" name="agree2" value="yes">예
+                                    <input type="radio" name="agree2" value="no">아니오
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -214,6 +214,6 @@
             </div>
         </footer>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
+    <script src="./js/bootstrap.js"></script>
     </body>
 </html>

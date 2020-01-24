@@ -95,38 +95,16 @@
 		<br>
 		<div class="row" align=center>
 			<div class="col-md-3">
-				<a href="top1.html"><img class="img1" src="./jpg/1.jpg" alt="코튼티셔츠"><a href="top1.html"><p>코튼 티셔츠</p><p>10000원</p></a></a>
+				<a href="top1.html"><img class="img1" src="./jpg/1.jpg" alt="코튼티셔츠"><a href="top1"><p>코튼 티셔츠</p><p>10000원</p></a></a>
 			</div>
 			<div class="col-md-3">
-				<a href="top2.html"><img class="img2" src="./jpg/2.jpg" alt="레이스블라우스"><a href="top2.html"><p>화이트 레이스 블라우스<span class="badge badge-secondary">New</span></p><p>25000원</p></a></a>
+				<a href="top2.html"><img class="img2" src="./jpg/2.jpg" alt="레이스블라우스"><a href="top2"><p>화이트 레이스 블라우스</p><p>25000원</p></a></a>
 			</div>
 			<div class="col-md-3">
-				<a href="bags1.html"><img class="img14" src="./jpg/14.jpg" alt="노란가죽가방"><a href="bag1.html"><p>미니 숄더백</p><p>40000원</p></a></a>
+				<a href="top3.html"><img class="img5" src="./jpg/5.jpg" alt="하드락티셔츠"><a href="top3"><p>하드락 티셔츠</p><p>15000원</p></a></a>
 			</div>
 			<div class="col-md-3">
-				<a href="bags2.html"><img class="img12" src="./jpg/12.jpg" alt="화이트펀칭슈즈"><a href="shoes2.html"><p>화이트 펀칭 슈즈</p><p>50000원</p></a></a>
-			</div>
-		</div>
-		<div class="row" align=center>
-			<div class="col-md-3">
-				<a href="top1.html"><img class="img1" src="./jpg/1.jpg" alt="코튼티셔츠"><a href="top1.html"><p>코튼 티셔츠</p><p>10000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="top2.html"><img class="img2" src="./jpg/2.jpg" alt="레이스블라우스"><a href="top2.html"><p>화이트 레이스 블라우스</p><p>25000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="bags1.html"><img class="img14" src="./jpg/14.jpg" alt="노란가죽가방"><a href="bag1.html"><p>미니 숄더백</p><p>40000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="bags2.html"><img class="img12" src="./jpg/12.jpg" alt="화이트펀칭슈즈"><a href="shoes2.html"><p>화이트 펀칭 슈즈<span class="badge badge-secondary">New</span></p><p>50000원</p></a></a>
-			</div>
-		</div>
-		<div class="row" align=center>
-			<div class="col-md-3">
-				<a href="bottom1.html"><img class="img11" src="./jpg/11.jpg" alt="블랙롱스커트"><a href="bottom2.html"><p>블랙 롱 스커트</p><p>30000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="bottom2.html"><img class="img13" src="./jpg/13.jpg" alt="블랙레이스스커트"><a href="bags2.html"><p>블랙 레이스 스커트</p><p>45000원</p></a></a>
+				<a href="top4.html"><img class="img7" src="./jpg/7.jpg" alt="어깨트임블라우스"><a href="top4"><p>화이트 어깨트임 블라우스</p><p>20000원</p></a></a>
 			</div>
 		</div>
 		<footer style="background-color: #000000; color:#FFFFFF">
@@ -139,6 +117,6 @@
 			</div>
 		</footer>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="../js/bootstrap.js"></script>
+	<script src="./js/bootstrap.js"></script>
 	</body>
 </html>

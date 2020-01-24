@@ -81,7 +81,7 @@
 		</nav>
 		<div class="row">
 		<div class="col-md-7">
-				<img class="img10-1" src="14.jpg" alt="미니숄더백">
+				<img class="img10-1" src="./jpg/14.jpg" alt="미니숄더백">
 			</div>
 			<div class="col-md-4" style="margin-top:40px">
 				<div class="card">

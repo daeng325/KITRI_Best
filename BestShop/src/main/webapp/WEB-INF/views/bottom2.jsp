@@ -81,7 +81,7 @@
 		</nav>
 		<div class="row">
 		<div class="col-md-7">
-				<img class="img7-1" src="24.jpg" alt="테니스미니스커트">
+				<img class="img7-1" src="./jpg/24.jpg" alt="테니스미니스커트">
 			</div>
 			<div class="col-md-4" style="margin-top:40px">
 				<div class="card">
