@@ -19,12 +19,7 @@ public class MemberController {
 	@Autowired
 	MemberRepository memRepo;
 	
-	@RequestMapping(value="/signin", method=RequestMethod.GET)
-	public String viewSignin() {
-		return "signin";
-	}
-	
-	@RequestMapping(value="/signin", method=RequestMethod.POST)
+	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public String singinComplete(@ModelAttribute("memberInfo") Member member) throws Exception {
 		System.out.println(member.getName());
 		System.out.println(member.getID());
@@ -32,16 +27,11 @@ public class MemberController {
 		memRepo.save(member);
 		return "login";
 	}
-	
-	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public String viewLogin() {
-		return "login";
-	}
 		
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String loginComplete(
-			@RequestParam(value="loginid") String id,
-			@RequestParam(value="loginpwd") String pwd,
+			@RequestParam(value="ID") String id,
+			@RequestParam(value="password") String pwd,
 			HttpServletRequest request,
 			ModelMap model){
 		

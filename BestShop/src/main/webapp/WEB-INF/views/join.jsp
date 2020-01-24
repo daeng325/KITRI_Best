@@ -1,13 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
-
-<script>
-function login_button() {
-	alert("login 완료");
-}
-</script>
-
 <html>
 <head>
 <meta charset="UTF-8">
@@ -104,10 +97,55 @@ function login_button() {
 				<div class="row justify-content-center">
 					<div class="col-md-8">
 						<div class="card">
-							<div class="card-header">로그인</div>
+							<div class="card-header" text-align=center>회원가입</div>
 							<div class="card-body">
-								<form action="<%= request.getContextPath() %>/login"
-									method="post">
+								<form action="<%= request.getContextPath() %>/join" method="post">
+									<div class="form-group row">
+										<label for="name"
+											class="col-md-4 col-form-label text-md-right">이름</label>
+										<div class="col-md-6">
+											<input type="text" id="name" class="form-control" name="name"
+												required autofocus>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="sex" class="col-md-4 col-form-label text-md-right">성별</label>
+										<div class="col-md-6">
+											<input type="radio" name="gender" value="man" required>남자
+											<input type="radio" name="gender" value="woman" required>여자
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="age" class="col-md-4 col-form-label text-md-right">나이</label>
+										<div class="col-md-6">
+											<input type="text" id="age" class="form-control" name="age"
+												required>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="phonenum"
+											class="col-md-4 col-form-label text-md-right">전화번호</label>
+										<div class="col-md-6">
+											<input type="tel" id="phone" class="form-control"
+												name="phone" required>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="address"
+											class="col-md-4 col-form-label text-md-right">집 주소</label>
+										<div class="col-md-6">
+											<input type="text" id="address" class="form-control" name="address"
+												required>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="emailadd"
+											class="col-md-4 col-form-label text-md-right">이메일 주소</label>
+										<div class="col-md-6">
+											<input type="email" id="email" class="form-control"
+												name="email" required>
+										</div>
+									</div>
 									<div class="form-group row">
 										<label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>
 										<div class="col-md-6">
@@ -115,21 +153,46 @@ function login_button() {
 												required autofocus>
 										</div>
 									</div>
-
 									<div class="form-group row">
 										<label for="password"
 											class="col-md-4 col-form-label text-md-right">패스워드</label>
 										<div class="col-md-6">
-											<input type="password" id="password" class="form-control"
-												name="password" required>
+											<input type="password" id="pwd" class="form-control"
+												name="pwd" required>
 										</div>
 									</div>
-
+									<div class="form-group row">
+										<label for="items"
+											class="col-md-4 col-form-label text-md-right">관심 아이템</label>
+										<div class="col-md-6">
+											<input type="checkbox" name="likeit" value="top" >상의
+											<input type="checkbox" name="likeit" value="bottom" >하의
+											<input type="checkbox" name="likeit" value="bags" >가방
+											<input type="checkbox" name="likeit" value="shoes" >신발
+											<input type="checkbox" name="likeit" value="accesories">악세사리
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="sex" class="col-md-4 col-form-label text-md-right">개인정보
+											제공에 동의합니까?</label>
+										<div class="col-md-6">
+											<input type="radio" name="agree" value="yes" required>예
+											<input type="radio" name="agree" value="no" required>아니오
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="sex" class="col-md-4 col-form-label text-md-right">이메일,
+											문자 수신에 동의합니까?</label>
+										<div class="col-md-6">
+											<input type="radio" name="agree2" value="yes" required>예
+											<input type="radio" name="agree2" value="no" required>아니오
+										</div>
+									</div>
 									<div class="form-group row">
 										<div class="col-md-6 offset-md-4">
 											<div class="checkbox">
-												<label> <input type="checkbox" name="remember">
-													로그인 상태 유지
+												<label> <input type="checkbox" name="remember"
+													value="loginok"> 로그인 상태 유지
 												</label>
 											</div>
 										</div>
@@ -137,10 +200,11 @@ function login_button() {
 
 									<div class="col-md-6 offset-md-4">
 										<button type="submit" class="btn btn-primary">로그인</button>
-										<a href="#" class="btn btn-link"> 아이디/비밀번호 찾기 </a>
+										<br> <br> <a href="#" class="btn btn-link">
+											아이디/비밀번호 찾기 </a>
 									</div>
-								</form>
 							</div>
+							</form>
 						</div>
 					</div>
 				</div>
