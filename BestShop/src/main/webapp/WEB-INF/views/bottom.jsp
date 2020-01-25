@@ -76,7 +76,7 @@
 		</nav>
 		<br>
 		<br>
-		<h1 class="text-center">Top</h1>
+		<h1 class="text-center">Bottom</h1>
 		<div class="container-fluid">
 				<ul class="nav justify-content-end">
 				<li class="nav-item">

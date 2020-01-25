@@ -1,13 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
 <!DOCTYPE html>
-
-<script>
-function login_button() {
-	alert("login 완료");
-}
-</script>
-
 <html>
     <head>
         <meta charset="UTF-8">
@@ -49,6 +40,7 @@ function login_button() {
                 color: black;
             }
 
+
         </style>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <ul class="navbar-nav">
@@ -76,7 +68,7 @@ function login_button() {
             </div>
         </div>
         <div class="container-fluid">
-            <ul class="nav justify-content-center">
+           <ul class="nav justify-content-center">
                 <li class="nav-item">
 					<a class="nav-link" href="top">Top</a>
 				</li>
@@ -101,57 +93,43 @@ function login_button() {
         </div>
     </div>
 </nav>
-<br>
-<main class="login-form">
-    <div class="cotainer">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">로그인</div>
-                    <div class="card-body">
-                        <form action="<%= request.getContextPath() %>/" method="post">
-                            <div class="form-group row">
-                                <label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="ID" class="form-control" name="ID" required autofocus>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">패스워드</label>
-                                <div class="col-md-6">
-                                    <input type="password" id="pwd" class="form-control" name="pwd" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember" value=""> 로그인 상태 유지
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    	로그인
-                                </button>
-                                <a href="" class="btn btn-link">
-                                  	          아이디/비밀번호 찾기
-                                </a>
-                            </div>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-</main>
-        <footer style="background-color: #000000; color:#FFFFFF">
-            <div class="container">
+<span>
+<h1 class="text-center">Mypage</h1>
+<div class="card" style="width:300px; height:400px">
+<a href="selfuseredit"><img src="user.png" class="rounded" alt="개인정보관리" style="width:100px; height:100px"></a>
+  <div class="card-body">
+    <a href="selfuseredit"><h4 class="card-title" style="text-align:center">개인정보관리</h4></a>
+    <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 개인정보를 
+        <br>수정할 수 있습니다.</p></a>
+  </div>
+</div>
+<div class="card" style="width:300px; height:400px">
+<a href="selforderinfo"><img src="cart.png" class="rounded" alt="주문내역" align="center" style="width:100px; height:100px"></a>
+  <div class="card-body">
+    <a href="selfuseredit"><h4 class="card-title" style="text-align:center">주문내역</h4></a>
+    <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 주문내역을 
+        <br>확인할 수 있습니다.</p></a>
+  </div>
+</div>
+<div class="card" style="width:300px; height:400px">
+<a href="selfuserbasket"><img src="money.jpg" class="rounded" alt="장바구니" style="width:100px; height:100px"></a>
+  <div class="card-body">
+    <a href="selfuseredit"><h4 class="card-title" style="text-align:center">장바구니</h4></a>
+    <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 장바구니에 담긴 
+        <br>상품을 확인할 수 있습니다.</p></a>
+  </div>
+</div>
+<div class="card" style="width:300px; height:400px">
+<a href="selfuserout"><img src="delete.png" class="rounded" alt="회원탈퇴" style="width:100px; height:100px"></a>
+  <div class="card-body">
+    <a href="selfuseredit"><h4 class="card-title" stylㄴe="text-align:center">회원탈퇴</h4></a>
+    <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 탈퇴 및 개인정보 
+        <br>삭제를 진행할 수 있습니다.</p></a>
+  </div>
+</div>
+</span>
+<footer style="background-color: #000000; color:#FFFFFF">
+            <div class="container" style="margin-top:100px">
                 <br>
                 <div class="row">
                     <div class="col col-lg-6" style="border:1px solid black; text-align: left; font-family:'ariel'">Copyright &copy; 2020<br>KITRI침해대응20기우리조가짱이조<br>All rights reserved</div>

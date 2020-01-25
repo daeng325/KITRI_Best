@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width", initial-scale="1">
+		<title>Beautycloset</title>
+		<link rel="stylesheet" href="./css/bootstrap.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  	</head>
+<div>
+	<table class="table table-striped table-bordered table-hover">
+		<thead class="thead-dark">
+			<tr>
+				<th width="10%">번호</th>
+				<th width="20%">작성자</th>
+				<th width="10%">질문종류</th>
+				<th width="40%">제목</th>
+				<th width="20%">날짜</th>
+			</tr>
+			<!--게시판 상단 메뉴-->
+		</thead>
+		<tbody>
+			<c:forEach var="" items="${}" varStatus="status">
+			<tr>
+				<td>${answers.q_id}</td>
+				<td>${questions.u_id}</td>
+				<td>${questions.type}</td>
+				<td>${}</td><!--제목은 게시판 완성되면 코드를 정해야 할듯-->
+				<td>${questions.createTime}</td>
+			</tr>
+			<!--게시물 항목-->
+			</c:forEach>
+		</tbody>
+	</table>
+<div id="paging">
+	${pagecode}
+</div>
+</div>
+</html>
