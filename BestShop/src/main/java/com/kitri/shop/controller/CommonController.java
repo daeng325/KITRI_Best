@@ -46,5 +46,10 @@ public class CommonController {
 	public String viewSignin() {
 		return "acce";
 	}
+    
+    @RequestMapping(value="/upload", method=RequestMethod.GET)
+   	public String viewUpload() {
+   		return "upload";
+   	}
 }
 

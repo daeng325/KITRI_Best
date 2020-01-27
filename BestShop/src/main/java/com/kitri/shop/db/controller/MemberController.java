@@ -23,7 +23,6 @@ public class MemberController {
 	public String singinComplete(@ModelAttribute("memberInfo") Member member) throws Exception {
 		System.out.println(member.getName());
 		System.out.println(member.getID());
-		// try-catch문 필요
 		memRepo.save(member);
 		return "login";
 	}
