@@ -1,87 +1,168 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<!DOCTYPE html>
 
 <script>
 function login_button() {
-	alert("login ¿Ï·á");
+	alert("login ì™„ë£Œ");
 }
 </script>
 
-<html lang = "ko"/>
-	<head>
-		<title>Beautycloset</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-		<meta name="viewport" content="width=1260" user-scalable="yes"/>
-		<meta name="description" content="¾Æ¸§´Ù¿òÀ» ¼±¸ÁÇÏ´Â ¸ğµç ³²³àÀÇ ·Î¸Á, ºäÆ¼Å¬·ÎÁ¬"/>
-		<meta name="keywords" content="¿©¼ºÀÇ·ù, ³²¼ºÀÇ·ù, »óÀÇ, ÇÏÀÇ, °¡¹æ, ½Å¹ß, ¾Ç¼¼»ç¸®, ÆĞ¼Ç"/>
-		<meta property="og:type" content="website"/>
-		<meta property="og:title" content="beautycloset"/>
-		<link rel="stylesheet" href="../css/formain.css" type="text/css"/>
-		<link rel="stylesheet" href="" type="text/css"/>
-		<link rel="stylesheet" href="" type="text/css">
-		<link rel="stylesheet" href="" type="text/css">
-		<link rel="stylesheet" href="" type="text/css">
-		<link rel="stylesheet" href="" type="text/css">
-		<link rel="stylesheet" href="" type="text/css">
-		<link rel="stylesheet" href="" type="text/css">
-		<link rel="stylesheet" href="" type="text/css">
-		<link rel="stylesheet" href="" type="text/css">
-		<link rel="stylesheet" href="" type="text/css">
-	</head>
-	<body>
-		<header>
-			<div><h1 class="header"><a href="main.html">Beautycloset</a></h1></div>
-			<div class="menu">
-				<nav class="navbar">
-					<a href="top.html">Top</a>
-					<a href="bottom.html">Bottom</a>
-					<a href="bags.html">Bags&Shoes</a>
-					<a href="acce.html">Accesories</a>
-					<a href="signin.html">Singin</a>
-					<a href="login.html">Login</a>
-					<a href="q&a.html">Q&A</a>
-					<a href="review.html">Review</a>
-				</nav>
-			</div>
-		</header>
-	<section>
-		<form action="<%= request.getContextPath() %>/" method="post"> <!-- onsubmit="return LoginComplete();" -->
-			<!-- action : ¿¬°áÇÒ JSP ÆäÀÌÁö, method : post´Â ÇØ´ç »çÀÌÆ®¿¡¼­ ´Ù¸¥ ÆäÀÌÁö·Î Á¤º¸¸¦ º¸³¾¶§ »ç¿ë--
-				onsubmit : Á¦Ãâ ¹öÆ°À» ´­·¶À»¶§ LoginComplete ±â´É µ¿ÀÛ(¹İÈ¯)-->
-			<fieldset>
-				<legend class="login"><b>·Î±×ÀÎ</b></legend>
-				<input type="hidden" name="loginhid" value=""/>
-				<div class="logininfo" align=center>¾ÆÀÌµğ  <input type="text" name="loginid" placeholder="¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä"></div>
-				<br>
-				<div class="logininfo2" align=center>ºñ¹Ğ¹øÈ£ <input type="password" name="loginpwd" placeholder="ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä"></div>
-				<div class="loginok" align=center><input type="submit" name="loginok" value="·Î±×ÀÎ" onclick="login_button()">
-				<!--·Î±×ÀÎ ¹öÆ°-->
-				<div class="loginreset" align=center><input type="reset" name="loginreset" value="ÃÊ±âÈ­" onclick="">
-				<!--ÃÊ±âÈ­ ¹öÆ° : ´©¸£±â¸¸ ÇÏ¸é ÀÚµ¿À¸·Î Æû ³»¿ë ÃÊ±âÈ­-->
-			</fieldset>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width" , initial-scale="1">
+<title>Beautycloset</title>
+<link rel="stylesheet" href="./css/bootstrap.css">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
+	rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="icon" href="Favicon.png">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+	<style type="text/css">
+.jumbotron {
+	background-image: url('./jpg/flower.jpg');
+	background-size: cover;
+	text-shadow: black 0.2px 0.2px 0.2px;
+	color: blue;
+	font-weight: bold;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+}
+
+.logo {
+	font-family: 'Segoe Print';
+	font-size: 100px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+* a {
+	text-decoration: none;
+	color: black;
+}
+</style>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="main">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="login">Login</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="join">Join</a></li>
+			<li class="nav-item"><a class="nav-link" href="mypage">Mypage</a>
+			</li>
+		</ul>
+		<form class="form-inline" action="" method="post">
+			<input class="form-control mr-sm-2" type="text" placeholder="Search">
+			<button class="btn btn-success" type="submit">Search</button>
 		</form>
-		<form action="" method="post">
-			<fieldset>
-				<legend class="loginforgot"><b>¾ÆÀÌµğ & ºñ¹Ğ¹øÈ£ Ã£±â</b></legend>
-				<div class="findid" align=center><input type="button" name="findid" value="¾ÆÀÌµğ Ã£±â" onclick=""></div>
-				<!--¾ÆÀÌµğ Ã£±â ¹öÆ° : ´©¸£¸é ¾ÆÀÌµğ Ã£´Â ÆäÀÌÁö·Î ÀÌµ¿-->
-				<br>
-				<div class="findpwd" align=center><input type="button" name="findpwd" value="ºñ¹Ğ¹øÈ£ Ã£±â" onclick=""></div>
-				<!--ÆĞ½º¿öµå Ã£±â ¹öÆ° : ´©¸£¸é ÆĞ½º¿öµå Ã£´Â ÆäÀÌÁö·Î ÀÌµ¿-->
-			</fieldset>
-		</form>
-	</section>
-	<footer class="bottom">
-			<div class="bottom">
-				<p id="contact">Contact Us<p>
-				<p>Tel. : 010-4022-3241</p>
-				<p>E-mail : wsm91@naver.com</p>
-				<p>Address : ¼­¿ïÆ¯º°½Ã ±¸·Î±¸ ±¸·Îµ¿ µğÁöÅĞ·Î34±æ 43</p>
-				<p>@Copyright 2020 KITRI 20±â Ä§ÇØ´ëÀÀ 2Á¶</p>
-				<p>All rights reserved</p>
+	</nav>
+	<div class="container">
+		<div class="logo">
+			<h1 class="text-center">
+				<a href="main">Beautycloset</a>
+			</h1>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<ul class="nav justify-content-center">
+			<li class="nav-item"><a class="nav-link" href="top">Top</a></li>
+			<li class="nav-item"><a class="nav-link" href="bottom">Bottom</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="bags">Bags & Shoes</a></li>
+			<li class="nav-item"><a class="nav-link" href="acce">Accesories</a>
+			</li>
+		</ul>
+		</nav>
+		<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+			<div class="container">
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				</div>
 			</div>
-		</footer>
-	</body>
+		</nav>
+
+		<main class="login-form">
+			<div class="cotainer">
+				<div class="row justify-content-center">
+					<div class="col-md-8">
+						<div class="card">
+							<div class="card-header">ë¡œê·¸ì¸</div>
+							<div class="card-body">
+								<form action="<%= request.getContextPath() %>/login"
+									method="post">
+									<div class="form-group row">
+										<label for="ID" class="col-md-4 col-form-label text-md-right">ì•„ì´ë””</label>
+										<div class="col-md-6">
+											<input type="text" id="ID" class="form-control" name="ID"
+												required autofocus>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label for="password"
+											class="col-md-4 col-form-label text-md-right">íŒ¨ìŠ¤ì›Œë“œ</label>
+										<div class="col-md-6">
+											<input type="password" id="password" class="form-control" name="password" required>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<div class="col-md-6 offset-md-4">
+											<div class="checkbox">
+												<label> <input type="checkbox" name="remember">
+													ë¡œê·¸ì¸ ìƒíƒœ ìœ ì§€
+												</label>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-6 offset-md-4">
+										<button type="submit" class="btn btn-primary">ë¡œê·¸ì¸</button>
+										<a href="#" class="btn btn-link"> ì•„ì´ë””/ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° </a>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	</main>
+	<footer style="background-color: #000000; color: #FFFFFF">
+		<div class="container">
+			<br>
+			<div class="row">
+				<div class="col col-lg-6"
+					style="border: 1px solid black; text-align: left; font-family: 'ariel'">
+					Copyright &copy; 2020<br>KITRIì¹¨í•´ëŒ€ì‘20ê¸°ìš°ë¦¬ì¡°ê°€ì§±ì´ì¡°<br>All
+					rights reserved
+				</div>
+				<div class="col-md auto"
+					style="border: 1px solid black; text-align: left; font-family: 'ariel'">
+					Contact Us<br>tel : 010-4022-3241<br>e-mail :
+					wsm91@naver.com
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+</body>
 </html>

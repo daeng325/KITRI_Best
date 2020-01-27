@@ -14,21 +14,24 @@ spring boot와 MariaDB, jsp 연동시킨 게시판 (수정 중)
 #### 참고 사항
 1. web-server-application과 application.properties 의 password 차이
 2. best_shop.members
-> MariaDB에서 생성한 테이블
-> create table members(
-        name varchar(20) not null,
-        gender varchar(30) ,
-        age varchar(30),
-        phone varchar(30),
-        address varchar(30),
-        email varchar(30),
-        ID varchar(30) primary key,
-	pwd varchar(30) not null,
-        likeit   varchar(30),
-        agree  varchar(30),
-        agree2 varchar(30)
-);
 
+#### check list
+- [x] products 데이터베이스에서 main.jsp로 가져오는 기능 구현 (이미지 제외)
+- [x] products 데이터베이스에서 detail.jsp로 가져오는 기능 구현 (이미지 제외)
+- [ ] products 데이터베이스 top/bottom/bag&shoes/accesories 구분위한 컬럼 추가 고려
+---
+- [x] admin - user 삭제
+- [x] admin - user 추가
+- [x] admin - user 검색
+- [ ] admin - user 수정
+
+- [ ] delete/update/에서 없는 id 입력시 alert창 추가 필요
+- [ ] AdminController에서 GET / POST 정리 필요
+- [ ] admin에서 id 제외한 컬럼으로 검색 불가능
+- [ ] 전체 user 목록 기능 추가 고려
+- [ ] id 중복 경고 메시지
+- [ ] 관리자 계정으로 로그인 시, 관리자 페이지 보여주기
+- [ ] 로그인 성공시, main과 다른 페이지 보여주기(login 대신 logout 등)
 
 
 
