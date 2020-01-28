@@ -33,7 +33,7 @@ public class MemberController {
 			@RequestParam(value="password") String pwd,
 			HttpServletRequest request,
 			ModelMap model){
-		
+		/*
 		if(memRepo.existsById(id)) {
 			Member member = memRepo.findById(id).get();
 			
@@ -50,6 +50,14 @@ public class MemberController {
 			model.addAttribute("msg","no id" );	
 			return "loginFail";
 		}
+		*/
+		
+		if(memRepo.checkIdPwd(id, pwd) != null) {
+			model.addAttribute("msg","welcome" );
+			return "loginSuccess";
+		}
+		model.addAttribute("msg","no");	
+		return "loginFail";
 	}
 }
 

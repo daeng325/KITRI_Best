@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,11 @@ public class ProductController {
 
 	@Autowired
 	ProductRepository proRepo;
+	
+	@RequestMapping(value = "/upload", method = RequestMethod.GET)
+	public String tmpuploadProduct() throws Exception {
+		return "upload";
+	}	
 	
 	// 상품 등록
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
@@ -67,5 +73,16 @@ public class ProductController {
 	@RequestMapping(value="/search", method=RequestMethod.GET)
 	public String searchProduct(@RequestParam("name") String name) {
 		return "main";
+	}
+	
+	@RequestMapping("/detail/{id}")
+	public String top_detail_page(@PathVariable("id") String id, Model model) {
+		
+		System.out.println(id);
+		Product product = proRepo.findById(id).get();
+		
+		model.addAttribute("product",product);
+		
+		return "detail";
 	}
 }
