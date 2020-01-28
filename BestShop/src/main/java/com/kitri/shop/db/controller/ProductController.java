@@ -28,7 +28,8 @@ public class ProductController {
 	// 상품 등록
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public String uploadProduct(@RequestParam("id") String id, @RequestParam("name") String name,
-			@RequestParam("price") int price, @RequestParam("description") String description,
+			@RequestParam("price") int price
+			, @RequestParam("description") String description,
 			@RequestParam("image") MultipartFile file, @RequestParam("status") String status) throws Exception {
 				
 		Product product = new Product(id, name, price, description, file.getBytes(), status);

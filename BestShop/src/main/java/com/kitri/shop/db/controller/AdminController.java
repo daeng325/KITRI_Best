@@ -35,7 +35,7 @@ public class AdminController {
 		return "usermanage";
 	}
 		
-	@RequestMapping(value="/searchUser", method=RequestMethod.POST)
+	@RequestMapping(value="/searchUser", method=RequestMethod.GET)
 	public String searchUser(HttpServletRequest request, ModelMap model) {
 		String userID = request.getParameter("userId");		
 		Member member = memRepo.findById(userID).get();
