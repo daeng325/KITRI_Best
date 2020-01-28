@@ -110,24 +110,24 @@
                     <div class="card-header" text-align=center>계정관리</div>
                     <div class="card-body">
                         <div class="col-md-6 offset-md-4">
-                            <form class="form-inline" action="<%= request.getContextPath() %>/searchUser" method="post">
+                            <form class="form-inline" action="<%= request.getContextPath() %>/admin/searchUser" method="post">
                                 <span class="glyphicon glyphicon-search" style="margin-right:5px"></span>
                                 <input class="form-control mr-sm-2" type="text" placeholder="관리할 계정을 검색하세요" name="userId">
                                 <button class="btn btn-success" type="submit")>Search</button>
                             </form>
                             <br>
-                            <form class="form-inline" action="<%= request.getContextPath() %>/editUser" method="post">
+                            <form class="form-inline" action="<%= request.getContextPath() %>/admin/editUser" method="post">
                             <input class="form-control mr-sm-2" type="text" placeholder="수정할 계정" name="userId">
                             <span><button type="submit" class="btn btn-primary" value="edit">수정</button></span>
                             </form>
                             <br>
                             
-                            <form class="form-inline" action="<%= request.getContextPath() %>/deleteUser" method="get">
+                            <form class="form-inline" action="<%= request.getContextPath() %>/admin/deleteUser" method="get">
                             <span><button type="submit" class="btn btn-primary" value="delete">삭제</button></span>
                             </form>
                             <br>
                             
-                            <form class="form-inline" action="<%= request.getContextPath() %>/addUser" method="get">
+                            <form class="form-inline" action="<%= request.getContextPath() %>/admin/addUser" method="get">
                             <span><button type="submit" class="btn btn-primary" value="add">계정추가</button></span>
                             </form>
                             <br>

@@ -21,14 +21,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     </head>
     <body>
-    	<script type="text/javascript">
-    	
-    		function searchUser(){
-    			document.write("Heloo");
-    			System.out.println("test");
-    		}
-    	
-    	</script>
         <style type="text/css">
             .jumbotron{
                 background-image: url('./jpg/flower.jpg');
@@ -123,7 +115,7 @@
                                 agree1 : ${user.agree } <br>
                                 agree2: ${user.agree2 } <br>
                              
-                            <form class="form-inline" action="<%= request.getContextPath() %>/usermanage" method="post">    
+                            <form class="form-inline" action="<%= request.getContextPath() %>/admin/usermanage" method="post">    
                                 <button class="btn btn-success" type="submit")>return</button>
                             </form>
                             <br>

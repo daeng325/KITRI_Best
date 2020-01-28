@@ -98,7 +98,7 @@
 						<div class="card">
 							<div class="card-header" text-align=center>회원추가</div>
 							<div class="card-body">
-								<form action="<%= request.getContextPath() %>/addUser" method="post">
+								<form action="<%= request.getContextPath() %>/admin/addUser" method="post">
 									<div class="form-group row">
 										<label for="name"
 											class="col-md-4 col-form-label text-md-right">이름</label>

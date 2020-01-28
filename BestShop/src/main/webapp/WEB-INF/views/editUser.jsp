@@ -80,7 +80,7 @@ Edit User
                     <div class="card-header" text-align=center>계정수정</div>
                     <div class="card-body">
                         <div class="col-md-6 offset-md-4">
-                            <form class="form-inline" action="<%= request.getContextPath()%>/usermanage" method="post">
+                            <form class="form-inline" action="<%= request.getContextPath()%>/admin/usermanage" method="post">
                              
  									<div class="form-group row">
 										<label for="name"

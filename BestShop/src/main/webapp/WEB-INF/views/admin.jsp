@@ -110,7 +110,7 @@
                         
                         
                         <div class="col-md-6 offset-md-4">    
-                               <form action="<%= request.getContextPath() %>/usermanage" method="post">           	
+                               <form action="<%= request.getContextPath() %>/admin/usermanage" method="post">           	
                                 <button type="submit" class="btn btn-primary">계정관리</button>
                                 </form>
                         </div>

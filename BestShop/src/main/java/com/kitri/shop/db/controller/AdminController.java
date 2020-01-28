@@ -15,6 +15,7 @@ import com.kitri.shop.db.dto.Member;
 import com.kitri.shop.repository.MemberRepository;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
 
 	
@@ -60,9 +61,16 @@ public class AdminController {
 	
 	@RequestMapping(value="/deleteUser", method=RequestMethod.POST)
 	public String deleteUserDB(HttpServletRequest request, ModelMap model) {
-		String userID = request.getParameter("userId");
-		memRepo.deleteById(userID);
-		System.out.println("delete");
+		
+		if(memRepo.existsById(request.getParameter("userId"))) {
+			String userID = request.getParameter("userId");
+			memRepo.deleteById(userID);
+			System.out.println("delete");
+		}
+		else {
+			return "deleteUser";
+		}
+		
 		return "usermanage";
 	}
 	

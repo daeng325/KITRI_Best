@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -81,7 +80,7 @@
 			<div class="jumbotron">
 				<h1 class = "text-center">신상품 50% 할인</h1>
 				<p class="text-center">새로운 상품들을 만나보세요</p>
-				<p class="text-center"><a class="btn btn-primary btn-lg" href="/main" role="button">탐험하기</a></p>
+				<p class="text-center"><a class="btn btn-primary btn-lg" href="" role="button">탐험하기</a></p>
 			</div>
 		</div>
 		<div class="container-fluid">
@@ -107,13 +106,40 @@
 		<br>
 		<br>
 		<div class="row" align=center>
-		<c:forEach items="${products}" var="products">
-				<div class="col-md-3">			
-				<a href="/detail/${products.id}"><img class="img1" src="./jpg/1.jpg" alt="${products.name}"><a href="/detail/${products.id}"><p>${products.name}</p><p>${products.price}원</p></a></a>
-				</div>		
-		</c:forEach>
-
-
+			<div class="col-md-3">
+				<a href="top1.jsp"><img class="img1" src="./jpg/1.jpg" alt="코튼티셔츠"><a href="top1.jsp"><p>코튼 티셔츠</p><p>10000원</p></a></a>
+			</div>
+			<div class="col-md-3">
+				<a href="top2.jsp"><img class="img2" src="./jpg/2.jpg" alt="레이스블라우스"><a href="top2.jsp"><p>화이트 레이스 블라우스<span class="badge badge-secondary">New</span></p><p>25000원</p></a></a>
+			</div>
+			<div class="col-md-3">
+				<a href="bags1.jsp"><img class="img14" src="./jpg/14.jpg" alt="노란가죽가방"><a href="bag1.jsp"><p>미니 숄더백</p><p>40000원</p></a></a>
+			</div>
+			<div class="col-md-3">
+				<a href="bags2.jsp"><img class="img12" src="./jpg/12.jpg" alt="화이트펀칭슈즈"><a href="shoes2.jsp"><p>화이트 펀칭 슈즈</p><p>50000원</p></a></a>
+			</div>
+		</div>
+		<div class="row" align=center>
+			<div class="col-md-3">
+				<a href="top1.jsp"><img class="img1" src="./jpg/1.jpg" alt="코튼티셔츠"><a href="top1.jsp"><p>코튼 티셔츠</p><p>10000원</p></a></a>
+			</div>
+			<div class="col-md-3">
+				<a href="top2.jsp"><img class="img2" src="./jpg/2.jpg" alt="레이스블라우스"><a href="top2.jsp"><p>화이트 레이스 블라우스</p><p>25000원</p></a></a>
+			</div>
+			<div class="col-md-3">
+				<a href="bags1.jsp"><img class="img14" src="./jpg/14.jpg" alt="노란가죽가방"><a href="bag1.jsp"><p>미니 숄더백</p><p>40000원</p></a></a>
+			</div>
+			<div class="col-md-3">
+				<a href="bags2.jsp"><img class="img12" src="./jpg/12.jpg" alt="화이트펀칭슈즈"><a href="shoes2.jsp"><p>화이트 펀칭 슈즈<span class="badge badge-secondary">New</span></p><p>50000원</p></a></a>
+			</div>
+		</div>
+		<div class="row" align=center>
+			<div class="col-md-3">
+				<a href="bottom1.jsp"><img class="img11" src="./jpg/11.jpg" alt="블랙롱스커트"><a href="bottom2.jsp"><p>블랙 롱 스커트</p><p>30000원</p></a></a>
+			</div>
+			<div class="col-md-3">
+				<a href="bottom2.jsp"><img class="img13" src="./jpg/13.jpg" alt="블랙레이스스커트"><a href="bags2.jsp"><p>블랙 레이스 스커트</p><p>45000원</p></a></a>
+			</div>
 		</div>
 		<footer style="background-color: #000000; color:#FFFFFF">
 			<div class="container">

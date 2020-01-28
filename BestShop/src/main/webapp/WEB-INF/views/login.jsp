@@ -79,7 +79,8 @@ function login_button() {
 			<li class="nav-item"><a class="nav-link" href="top">Top</a></li>
 			<li class="nav-item"><a class="nav-link" href="bottom">Bottom</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="bags">Bags & Shoes</a></li>
+			<li class="nav-item"><a class="nav-link" href="bags">Bags &
+					Shoes</a></li>
 			<li class="nav-item"><a class="nav-link" href="acce">Accesories</a>
 			</li>
 		</ul>
@@ -119,7 +120,8 @@ function login_button() {
 										<label for="password"
 											class="col-md-4 col-form-label text-md-right">패스워드</label>
 										<div class="col-md-6">
-											<input type="password" id="password" class="form-control" name="password" required>
+											<input type="password" id="password" class="form-control"
+												name="password" required>
 										</div>
 									</div>
 

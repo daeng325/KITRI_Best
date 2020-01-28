@@ -1,37 +1,19 @@
 package com.kitri.shop.controller;
 
-import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.kitri.shop.db.dto.Product;
-import com.kitri.shop.repository.ProductRepository;
-
 @Controller
 public class CommonController {
-	
-	@Autowired
-	ProductRepository productRepo;
-	
+
     @RequestMapping("/")
     public String root_test() throws Exception{
         return "main";
     }
     
     @RequestMapping(value="/main", method=RequestMethod.GET)
-	public String viewMain(ModelMap model) throws IOException {
-
-    	List<Product> products = (List<Product>) productRepo.findAll();
-		model.addAttribute("products",products);  	
-    	
+	public String viewMain() {
 		return "main";
 	}
     
@@ -69,11 +51,9 @@ public class CommonController {
    	public String viewUpload() {
    		return "upload";
    	}
-    
-    @RequestMapping(value="/admin")
-    public String admin_home() throws Exception{
-        return "admin";
-    }
-
+    @RequestMapping(value="/admin", method=RequestMethod.GET)
+   	public String adminPage() {
+   		return "admin";
+   	}
 }
 

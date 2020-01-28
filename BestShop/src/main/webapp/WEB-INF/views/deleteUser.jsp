@@ -80,7 +80,7 @@ Delete User
                     <div class="card-header" text-align=center>계정관리</div>
                     <div class="card-body">
                         <div class="col-md-6 offset-md-4">
-                            <form class="form-inline" action="<%= request.getContextPath()%>/deleteUser" method="post">
+                            <form class="form-inline" action="<%= request.getContextPath()%>/admin/deleteUser" method="post">
                                 <span class="glyphicon glyphicon-search" style="margin-right:5px"></span>
                                 <input class="form-control mr-sm-2" type="text" placeholder="삭제할 계정" name="userId">
                                 <button class="btn btn-success" type="submit")>삭제</button>
