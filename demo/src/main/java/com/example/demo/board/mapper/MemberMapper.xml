@@ -5,9 +5,15 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 		
 <mapper namespace = "com.example.demo.board.mapper.MemberMapper">
 
-	<insert id = "signinInsert" parameterType="com.example.demo.board.domain.MemberVO">
-		INSERT 	INTO MEMBERS (name, gender, age, phone, address, email , ID , pwd, likeit, agree, agree2)
-		VALUES(#{name}, #{gender}, #{age}, #{phone}, #{address}, #{email}, #{ID}, #{pwd}, #{likeit}, #{agree}, #{agree2})
+	<!-- join -->
+	<insert id = "join" parameterType="com.example.demo.board.domain.MemberVO">
+		INSERT 	INTO MEMBERS(name, gender, age, phone, address, email , ID , pwd, likeit, agree, agree2)
+		VALUES(${name}, ${gender}, ${age}, ${phone}, ${address}, ${email}, ${ID}, ${pwd}, ${likeit}, ${agree}, ${agree2})
 	</insert>
 
+	<!-- login -->
+	<select id="login" parameterType="String" resultType="com.example.demo.board.domain.MemberVO">
+		SELECT * FROM MEMBERS WHERE ID= ${id} AND pwd=${pwd}
+	
+	</select>
  </mapper>

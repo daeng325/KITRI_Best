@@ -80,4 +80,9 @@ public class MemberVO {
 	public void setAgree2(String agree2) {
 		this.agree2 = agree2;
 	}	
+	
+	@Override
+	public String toString() {
+		return "MemberVO [userId=" + ID + ", userPass=" + pwd + ", userName=" + name  + "]";
+	}
 }
