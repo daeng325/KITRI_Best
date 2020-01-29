@@ -19,14 +19,16 @@ public class Product {
 	@Id
 	private String id;
 	private String name;	
+	private String type;
 	private int price;
 	private String description;
 	private byte[] image;
 	private String status;
 	
-	public Product(String id, String name, int price, String description, byte[] image, String status) {
+	public Product(String id, String name, String type, int price, String description, byte[] image, String status) {
 		this.id = id;
 		this.name = name;
+		this.type = type;
 		this.price = price;
 		this.description = description;
 		this.image = image;

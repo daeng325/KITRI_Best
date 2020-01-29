@@ -10,7 +10,7 @@
 <fieldset>
      <legend>파일 업로드</legend>
      <table>
-     <form action="<% request.getContextPath(); %>/upload" method='post' enctype="multipart/form-data">
+     <form action="<% request.getContextPath(); %>/product/upload" method='post' enctype="multipart/form-data">
           <tr>
               <td>id: </td>
               <td><input type="text" name="id"/></td>
@@ -18,6 +18,10 @@
           <tr>
               <td>name : </td>
               <td><input type="text" name="name"/></td>
+          </tr>
+          <tr>
+              <td>type : </td>
+              <td><input type="text" name="type"/></td>
           </tr>
           <tr>
               <td>price: </td>

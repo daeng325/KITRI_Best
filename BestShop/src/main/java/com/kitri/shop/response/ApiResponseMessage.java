@@ -18,7 +18,12 @@ public class ApiResponseMessage {
     private String errorCode;
  
     public ApiResponseMessage() {}
- 
+    
+    public ApiResponseMessage(String status, String message) {
+    	this.status = status;
+    	this.message = message;
+    }
+    
     public ApiResponseMessage(String status, String message, String errorCode, String errorMessage) {
         this.status = status;
         this.message = message;
