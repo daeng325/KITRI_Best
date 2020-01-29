@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,6 +10,8 @@
 		<link rel="stylesheet" href="./css/bootstrap.css">
 	</head>
 	<body>
+	login : ${login}
+		
 		<style type="text/css">
 			.jumbotron{
 				background-image: url('./jpg/flower.jpg');
@@ -39,13 +42,20 @@
 					<a class="nav-link" href="">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="login">Login</a>
+					<c:if test = "${login eq null }">
+						<a class="nav-link" href="login">Login</a>
+					</c:if>
+					<c:if test = "${login ne null }">
+						<a class="nav-link" href="logout">Logout</a>
+					</c:if>					
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="join">Join</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="mypage">Mypage</a>
+
+					<a class="nav-link" href="mypage">Mypage(${member.ID })</a>
+
 				</li>
 			</ul>
 			<form class="form-inline" action="" method="post">

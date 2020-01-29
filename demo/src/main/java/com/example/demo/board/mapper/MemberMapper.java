@@ -1,5 +1,6 @@
 package com.example.demo.board.mapper;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -17,5 +18,10 @@ public interface MemberMapper {
 	// 로그인
 	public List<MemberVO> login(@Param("id") String id, @Param("pwd") String pwd);
 	
+	// 자동로그인 체크한 경우 사용자 테이블에 세션과 유효시간을 저장
+	public void keepLogin(String id, String sessionId, Date next);
+	
+	// 이전에 로그인한 적 있는지, 유효시간이 넘지 않은 세션을 가지고 있는지 확인
+	public MemberVO checkUserWithSessionKey(String sessionId);
 	
 }
