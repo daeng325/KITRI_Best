@@ -59,12 +59,15 @@ public class MemberController {
 		String id = "\'" + request.getParameter("ID")+"\'";
 		String pwd = "\'" + request.getParameter("password")+"\'";
 		
-		System.out.println(id + " " + pwd);
-		
 		List<MemberVO> member = mService.login(id, pwd);
 		
-		if(member != null) {
+		System.out.println(member.size());
+		
+		if(member.size() != 0) {
 			model.addAttribute("msg","welcome" );
+			
+			
+			
 			return "loginSuccess";
 		}
 		model.addAttribute("msg","try again" );
