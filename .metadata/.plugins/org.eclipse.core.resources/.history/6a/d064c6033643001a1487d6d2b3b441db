@@ -59,7 +59,7 @@ public class ProductController {
 		List<ProductVO> products = pService.findByName(search_name);
 		
 		System.out.println(products.toString());
-		mav.setViewName("main");
+		mav.setViewName("searched_products");
 		mav.addObject("products", products);
 		return mav;
 	}

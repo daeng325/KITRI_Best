@@ -86,25 +86,11 @@
 		</nav>
 		<br>
 		<br>
-		<c:if test = "${products eq null }">
-			<div class="container-fluid">
-				<video muted autoplay loop controls width=100%>
-				<source src="./video/Woman.mp4" type="video/mp4">
-				</video>
-			</div>
-		</c:if>
-		<c:if test = "${products ne null }">
-			<div class="row" align=center>
-				<c:forEach var="item" items="${products}">
-				<div class="col-md-3">
-					<a href="top1.html"><img class="img1" src="${ item.image }"
-						alt="${ item.name }"><a href="top1.html"><p>${ item.name }</p>
-							<p>${ item.price }</p></a></a>
-				</div>
-				</c:forEach>
-			</div>
-		</c:if>					
-		
+		<div class="container-fluid">
+			<video muted autoplay loop controls width=100%>
+			<source src="./video/Woman.mp4" type="video/mp4">
+			</video>
+		</div>
 		<br>
 		<br>
 		<br>

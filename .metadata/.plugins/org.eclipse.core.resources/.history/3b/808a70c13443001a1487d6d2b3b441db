@@ -48,7 +48,7 @@ public class ProductController {
 		
 		pService.productInsertService(product);
 		model.addAttribute("msg", "product upload complete");
-		return "redirect:/";
+		return "redirect:";
 	}
 
 
@@ -59,7 +59,7 @@ public class ProductController {
 		List<ProductVO> products = pService.findByName(search_name);
 		
 		System.out.println(products.toString());
-		mav.setViewName("main");
+		mav.setViewName("searched_products");
 		mav.addObject("products", products);
 		return mav;
 	}
@@ -73,10 +73,10 @@ public class ProductController {
 			pService.deleteById(product.getId());
 			System.out.println("delete");
 			model.addAttribute("msg", "delete");
-			return "redirect:/";
+			return "redirect:";
 		}
 		model.addAttribute("msg", "no product id");
-		return "redirect:/";
+		return "main";
 	}
 
 	
@@ -103,7 +103,7 @@ public class ProductController {
 		pService.updateProduct(product);
 		model.addAttribute("msg", "product update complete");
 		
-		return "redirect:/";
+		return "main";
 	}
 	
 }
