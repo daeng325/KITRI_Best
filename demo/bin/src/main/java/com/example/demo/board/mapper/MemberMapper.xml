@@ -26,4 +26,18 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM USERS WHERE sessionKey = ${sessionId} and sessionLimit > now()
 	</select>
 	
+		<!-- edit -->
+	<update id="selfuseredit" parameterType="com.example.demo.board.domain.MemberVO">
+		UPDATE 	USERS
+		SET		name = ${name},
+				age = ${age},
+				phone =${phone},
+				address = ${address},
+				email = ${email},
+				pwd = ${pwd},
+				likeit = ${likeit},
+				agree = ${agree},
+				agree2 = ${agree2}
+		WHERE	ID = ${ID}
+	</update>
  </mapper>

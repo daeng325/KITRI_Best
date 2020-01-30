@@ -121,25 +121,25 @@
                             <div class="form-group row">
                                 <label for="age" class="col-md-4 col-form-label text-md-right">나이</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="age" class="form-control" name="age" value=${member.age }>
+                                    <input type="text" id="age" class="form-control" name="age" value=${member.age }  required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="phonenum" class="col-md-4 col-form-label text-md-right">전화번호</label>
                                 <div class="col-md-6">
-                                    <input type="tel" id="phone" class="form-control" name="phone" value=${member.phone }>
+                                    <input type="tel" id="phone" class="form-control" name="phone" value=${member.phone }  required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="address" class="col-md-4 col-form-label text-md-right">집 주소</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="address" class="form-control" name="address" value=${member.address }>
+                                    <input type="text" id="address" class="form-control" name="address" value=${member.address }  required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="emailadd" class="col-md-4 col-form-label text-md-right">이메일 주소</label>
                                 <div class="col-md-6">
-                                    <input type="email" id="email" class="form-control" name="email" value=${member.email }>
+                                    <input type="email" id="email" class="form-control" name="email" value=${member.email } required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -151,25 +151,25 @@
                             <div class="form-group row">
                                 <label for="items" class="col-md-4 col-form-label text-md-right">관심 아이템</label>
                                 <div class="col-md-6">
-                                    <input type="checkbox" name="likeit" value="top">상의
-                                    <input type="checkbox" name="likeit" value="bottom">하의
-                                    <input type="checkbox" name="likeit" value="bags">가방
-                                    <input type="checkbox" name="likeit" value="shoes">신발
-                                    <input type="checkbox" name="likeit" value="accesories">악세사리
+                                    <input type="checkbox" name="likeit" value="top" required>상의
+                                    <input type="checkbox" name="likeit" value="bottom" required>하의
+                                    <input type="checkbox" name="likeit" value="bags" required>가방
+                                    <input type="checkbox" name="likeit" value="shoes" required>신발
+                                    <input type="checkbox" name="likeit" value="accesories" required>악세사리
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="sex" class="col-md-4 col-form-label text-md-right">개인정보 제공에 동의합니까?</label>
                                 <div class="col-md-6">
-                                    <input type="radio" name="agree" value="yes">예
-                                    <input type="radio" name="agree" value="no">아니오
+                                    <input type="radio" name="agree" value="yes" required>예
+                                    <input type="radio" name="agree" value="no" required>아니오
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="sex" class="col-md-4 col-form-label text-md-right">이메일, 문자 수신에 동의합니까?</label>
                                 <div class="col-md-6">
-                                    <input type="radio" name="agree2" value="yes">예
-                                    <input type="radio" name="agree2" value="no">아니오
+                                    <input type="radio" name="agree2" value="yes" required>예
+                                    <input type="radio" name="agree2" value="no" required>아니오
                                 </div>
                             </div>
                             <div class="form-group row">
