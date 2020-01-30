@@ -1,0 +1,12 @@
+package com.example.demo.board.mapper;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.board.domain.ProductVO;
+
+@Repository("com.example.demo.board.mapper.ProductMapper")
+public interface ProductMapper {
+
+	// 상품 업로드
+	public int upload(ProductVO product) throws Exception;
+}

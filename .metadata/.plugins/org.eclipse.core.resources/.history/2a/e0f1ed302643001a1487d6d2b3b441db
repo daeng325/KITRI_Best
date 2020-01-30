@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+<mapper namespace = "com.example.demo.board.mapper.ProductMapper">
+
+	<!-- upload -->
+	<insert id = "upload" parameterType="com.example.demo.board.domain.ProductVO">
+		INSERT 	INTO PRODUCTS(id, name, type, price, description, image, status)
+		VALUES(${id}, ${name}, ${type}, ${price}, ${description}, '${image}', ${status});
+	</insert>
+
+	<!-- search -->
+	<select id="search" parameterType="map" resultType="com.example.demo.board.domain.ProductVO">
+		SELECT * FROM PRODUCTS WHERE name LIKE %${name}%;
+	</select>
+	
+	
+ </mapper>

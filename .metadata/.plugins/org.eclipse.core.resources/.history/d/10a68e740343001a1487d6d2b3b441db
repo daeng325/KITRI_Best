@@ -1,0 +1,12 @@
+package com.example.demo.board.mapper;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.board.domain.ProductVO;
+
+@Repository("com.example.demo.board.mapper.ProductMapper")
+public interface ProductMapper {
+
+	// 회원가입 작성
+		public int upload(ProductVO member) throws Exception;
+}

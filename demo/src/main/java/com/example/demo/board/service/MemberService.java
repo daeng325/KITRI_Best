@@ -7,7 +7,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ import com.example.demo.board.mapper.MemberMapper;
 public class MemberService {
 	
 	@Autowired
-	SqlSession sqlsession;
+	SqlSessionTemplate sqlsession;
 	
 	@Resource(name="com.example.demo.board.mapper.MemberMapper")
 	MemberMapper memberMapper;

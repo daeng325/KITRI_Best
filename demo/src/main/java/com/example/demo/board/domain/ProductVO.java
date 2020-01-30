@@ -3,10 +3,17 @@ package com.example.demo.board.domain;
 public class ProductVO {
 	private String id;
 	private String name;	
+	private String type;
 	private int price;
 	private String description;
 	private byte[] image;
 	private String status;
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public String getId() {
 		return id;
 	}

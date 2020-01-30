@@ -1,0 +1,109 @@
+package com.example.demo.board.controller;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.validation.Valid;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.example.demo.board.domain.ProductVO;
+import com.example.demo.board.service.ProductService;
+
+@Controller
+@RequestMapping("/product")
+public class ProductController {
+
+	@Resource
+	ProductService pService;
+	
+	// 상품 등록
+	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+	public String uploadProduct(MultipartHttpServletRequest request, Model model) throws Exception {
+
+		ProductVO product = new ProductVO();
+		MultipartFile image = request.getFile("image");
+		
+		System.out.println(image.getSize());
+		System.out.println(image.getOriginalFilename());
+		System.out.println(image.getContentType());
+		System.out.println(image.getBytes().length);
+		
+		product.setId("\'"+request.getParameter("id")+"\'");
+		product.setName("\'"+request.getParameter("name")+"\'");
+		product.setType("\'"+request.getParameter("type")+"\'");
+		product.setPrice(Integer.parseInt(request.getParameter("price")));
+		product.setDescription("\'"+request.getParameter("description")+"\'");
+		product.setImage(image.getBytes());
+		product.setStatus("\'"+request.getParameter("status")+"\'");
+		//proRepo.save(product);
+		
+		pService.productInsertService(product);
+		model.addAttribute("msg", "product upload complete");
+		return "main";
+	}
+
+
+	
+	// 상품 검색
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public ModelAndView searchProduct(@RequestParam("search") String search_name, ModelAndView mav) throws Exception{
+		List<ProductVO> products = pService.findByName(search_name);
+		
+		System.out.println(products.toString());
+		mav.setViewName("searched_products");
+		mav.addObject("products", products);
+		return mav;
+	}
+	
+
+
+	// 상품 삭제
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String deleteProduct(@ModelAttribute @Valid ProductVO product, Model model) throws Exception {
+		if (pService.findById(product.getId()) != null) {
+			pService.deleteById(product.getId());
+			System.out.println("delete");
+			model.addAttribute("msg", "delete");
+			return "main";
+		}
+		model.addAttribute("msg", "no product id");
+		return "main";
+	}
+
+	
+	// 상품 수정
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String updateProduct(MultipartHttpServletRequest request, Model model) throws Exception {
+
+		ProductVO product = new ProductVO();
+		MultipartFile image = request.getFile("image");
+		
+		System.out.println(image.getSize());
+		System.out.println(image.getOriginalFilename());
+		System.out.println(image.getContentType());
+		System.out.println(image.getBytes().length);
+		
+		product.setId("\'"+request.getParameter("id")+"\'");
+		product.setName("\'"+request.getParameter("name")+"\'");
+		product.setType("\'"+request.getParameter("type")+"\'");
+		product.setPrice(Integer.parseInt(request.getParameter("price")));
+		product.setDescription("\'"+request.getParameter("description")+"\'");
+		product.setImage(image.getBytes());
+		product.setStatus("\'"+request.getParameter("status")+"\'");
+		
+		pService.updateProduct(product);
+		model.addAttribute("msg", "product update complete");
+		
+		return "main";
+	}
+	
+}
