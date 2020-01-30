@@ -24,4 +24,6 @@ public interface MemberMapper {
 	// 이전에 로그인한 적 있는지, 유효시간이 넘지 않은 세션을 가지고 있는지 확인
 	public MemberVO checkUserWithSessionKey(String sessionId);
 	
+	// 유저 정보 수정
+	public void selfuseredit(MemberVO member);
 }

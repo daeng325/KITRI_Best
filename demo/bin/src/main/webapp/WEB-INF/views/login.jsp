@@ -124,7 +124,7 @@ function login_button() {
 									<div class="form-group row">
 										<div class="col-md-6 offset-md-4">
 											<div class="checkbox">
-												<label> <input type="checkbox" name="remember">
+												<label> <input type="checkbox" id="chk_cookie" name="remember">
 													로그인 상태 유지
 												</label>
 											</div>

@@ -56,5 +56,9 @@ public class MemberService {
 		// return memberMapper.checkUserWithSessionKey(sessionId);
 		return sqlsession.selectOne("com.example.demo.board.mapper.MemberMapper.checkMeberWithSessionKey", sessionId);
 	}
+	
+	public void selfuseredit(MemberVO member) {
+		memberMapper.selfuseredit(member);
+	}
     
 }

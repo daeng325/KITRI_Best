@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -53,7 +54,7 @@ public class MemberController {
 		
 		mService.memberInsertService(member);
 				
-		return "main";
+		return "redirect:";
 	}
 		
 	@RequestMapping(value="/login", method=RequestMethod.GET)
@@ -108,7 +109,7 @@ public class MemberController {
 			String tmp = session.getAttribute("login").toString();
 			model.addAttribute("tmp",tmp);
 			System.out.println(session.getAttribute("login"));
-			return "main";
+			return "redirect:";
 			//return "loginSuccess";
 		}
 		
@@ -158,12 +159,60 @@ public class MemberController {
 			}
 		}
 		
-		return "main";
+		return "redirect:";
 		
 	}
 	
 	@RequestMapping("/mypage")
 	public String myPage() {
 		return "mypage";
+	}
+
+	
+	@RequestMapping(value = "/selfuseredit", method = RequestMethod.GET)
+	public String selfUserEdit(HttpSession session, HttpServletRequest request, Model model) {
+		
+		Object obj = session.getAttribute("login");
+		MemberVO member = (MemberVO)obj;
+		
+		System.out.println(member.getID());
+		model.addAttribute("member", member);
+		
+		return "selfuseredit";
+	}
+	
+	@RequestMapping(value = "/selfuseredit", method = RequestMethod.POST)
+	public String selfUserEditComplete(HttpSession session, HttpServletRequest request) {
+		Object obj = session.getAttribute("login");
+		MemberVO member = (MemberVO)obj;
+		
+		member.setAddress("\'"+request.getParameter("address")+"\'");
+		member.setAge(request.getParameter("age"));
+		member.setAgree("\'"+request.getParameter("agree")+"\'");
+		member.setAgree2("\'"+request.getParameter("agree2")+"\'");
+		member.setEmail("\'"+request.getParameter("email")+"\'");
+		member.setLikeit("\'"+request.getParameter("likeit")+"\'");
+		member.setName("\'"+request.getParameter("name")+"\'");
+		member.setPhone("\'"+request.getParameter("phone")+"\'");
+		member.setPwd("\'"+request.getParameter("password")+"\'");
+		member.setID("\'"+member.getID()+"\'" );
+		member.setGender("\'"+member.getGender() +"\'" );
+		
+		
+		System.out.println(member.getAddress());
+		System.out.println(member.getAge());
+		System.out.println(member.getAgree());
+		System.out.println(member.getAgree2());
+		System.out.println(member.getEmail());
+		System.out.println(member.getGender());
+		System.out.println(member.getID());
+		System.out.println(member.getLikeit());
+		System.out.println(member.getName());
+		System.out.println(member.getPhone());
+		System.out.println(member.getPwd());
+		
+		mService.selfuseredit(member);
+		
+		return "main";
 	}
 }

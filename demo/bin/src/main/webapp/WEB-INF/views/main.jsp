@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,6 +10,8 @@
 		<link rel="stylesheet" href="./css/bootstrap.css">
 	</head>
 	<body>
+	login : ${login}
+		
 		<style type="text/css">
 			.jumbotron{
 				background-image: url('./jpg/flower.jpg');
@@ -39,17 +42,24 @@
 					<a class="nav-link" href="">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="login">Login</a>
+					<c:if test = "${login eq null }">
+						<a class="nav-link" href="login">Login</a>
+					</c:if>
+					<c:if test = "${login ne null }">
+						<a class="nav-link" href="logout">Logout</a>
+					</c:if>					
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="join">Join</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="mypage">Mypage</a>
+
+					<a class="nav-link" href="mypage">Mypage(${member.ID })</a>
+
 				</li>
 			</ul>
-			<form class="form-inline" action="" method="post">
-				<input class="form-control mr-sm-2" type="text" placeholder="Search">
+			<form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
+				<input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
 				<button class="btn btn-success" type="submit">Search</button>
 			</form>
 		</nav>
@@ -76,11 +86,25 @@
 		</nav>
 		<br>
 		<br>
-		<div class="container-fluid">
-			<video muted autoplay loop controls width=100%>
-			<source src="./video/Woman.mp4" type="video/mp4">
-			</video>
-		</div>
+		<c:if test = "${products eq null }">
+			<div class="container-fluid">
+				<video muted autoplay loop controls width=100%>
+				<source src="./video/Woman.mp4" type="video/mp4">
+				</video>
+			</div>
+		</c:if>
+		<c:if test = "${products ne null }">
+			<div class="row" align=center>
+				<c:forEach var="item" items="${products}">
+				<div class="col-md-3">
+					<a href="top1.html"><img class="img1" src="${ item.image }"
+						alt="${ item.name }"><a href="top1.html"><p>${ item.name }</p>
+							<p>${ item.price }</p></a></a>
+				</div>
+				</c:forEach>
+			</div>
+		</c:if>					
+		
 		<br>
 		<br>
 		<br>
