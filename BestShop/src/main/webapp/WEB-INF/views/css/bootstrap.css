@@ -4,6 +4,17 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+ @font-face{font-family: 'NanumBarunGothic';
+ src: url('/fonts/NanumBarunGothic.eot');
+ src: url('/fonts/NanumBarunGothic.eot') format('embedded-opentype'),
+ url('/fonts/NanumBarunGothic.woff') format('woff');}
+
+
+.prcontent{
+  text-align : center;
+}
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
