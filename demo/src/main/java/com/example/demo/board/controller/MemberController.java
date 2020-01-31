@@ -54,11 +54,12 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	private String loginPage(Model model, @CookieValue(value = "cookie", required = false) Cookie storeIdCookie) {
+	private String loginPage(Model model, @CookieValue(value = "loginCookie", required = false) Cookie storeIdCookie) {
 		if (storeIdCookie != null) {
 			model.addAttribute("loginInfo", storeIdCookie.getValue());
+			model.addAttribute("storeID", true);
+			return "login";
 		}
-		model.addAttribute("loginInfo", null);
 		return "login";
 	}
 
@@ -103,12 +104,8 @@ public class MemberController {
 				String sessionId = "\'" + session.getId() + "\'";
 				mService.keepLogin(memId, sessionId, sessionLimit);
 			}
-			System.out.println("here is?"+ session.getAttribute("login").toString());
-			String tmp = session.getAttribute("login").toString();
-			model.addAttribute("tmp", null);
 			return "redirect:";
 		}
-
 		session.setAttribute("login", null);
 		model.addAttribute("msg", "try again");
 		return "loginFail";
