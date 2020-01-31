@@ -1,13 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-
-<script>
-function login_button() {
-	alert("login 완료");
-}
-</script>
-
 <html>
 <head>
 <meta charset="UTF-8">
@@ -106,18 +100,39 @@ function login_button() {
 							<div class="card-header">로그인</div>
 							<div class="card-body">
 								<form action="<%= request.getContextPath() %>/login" method="post">
-									<div class="form-group row">
-										<label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>
-										<div class="col-md-6">
-											<input type="text" id="ID" class="form-control" name="ID" required autofocus>
+									<c:if test = "${loginInfo eq null }">
+										<div class="form-group row">
+											<label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>
+											<div class="col-md-6">
+												<input type="text" id="ID" class="form-control" name="ID" required autofocus>
+											</div>
 										</div>
-									</div>
+									</c:if>
+									
+									<c:if test = "${loginInfo ne null }">
+										<div class="form-group row">
+											<label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>
+											<div class="col-md-6">
+												<input type="text" id="ID" class="form-control" name="ID" value="${loginInfo}" required autofocus>
+											</div>
+										</div>
+									</c:if>
 
 									<div class="form-group row">
 										<label for="password"
 											class="col-md-4 col-form-label text-md-right">패스워드</label>
 										<div class="col-md-6">
 											<input type="password" id="password" class="form-control" name="password" required>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<div class="col-md-6 offset-md-4">
+											<div class="checkbox">
+												<label> <input type="checkbox" name="id_remember"
+													value=""> 아이디 저장
+												</label>
+											</div>
 										</div>
 									</div>
 

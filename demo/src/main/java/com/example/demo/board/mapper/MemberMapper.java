@@ -2,7 +2,6 @@ package com.example.demo.board.mapper;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -26,4 +25,7 @@ public interface MemberMapper {
 	
 	// 유저 정보 수정
 	public void selfuseredit(MemberVO member);
+	
+	// 회원 탈퇴
+	public void selfuserout (@Param("id") String id);
 }

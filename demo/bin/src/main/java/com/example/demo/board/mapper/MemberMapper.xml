@@ -13,7 +13,7 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- login -->
 	<select id="login" parameterType="String" resultType="com.example.demo.board.domain.MemberVO">
-		SELECT * FROM USERS WHERE ID= ${id} AND pwd=${pwd}	
+		SELECT * FROM USERS WHERE ID= '${id}' AND pwd='${pwd}';	
 	</select>
  
 	<!-- login -> session_id & session_limit(time) setting -->

@@ -57,8 +57,14 @@ public class MemberService {
 		return sqlsession.selectOne("com.example.demo.board.mapper.MemberMapper.checkMeberWithSessionKey", sessionId);
 	}
 	
+	// 개인정보 수정
 	public void selfuseredit(MemberVO member) {
 		memberMapper.selfuseredit(member);
+	}
+	
+	// 회원 탈퇴
+	public void selfuserout (String id) {
+		memberMapper.selfuserout(id);
 	}
     
 }

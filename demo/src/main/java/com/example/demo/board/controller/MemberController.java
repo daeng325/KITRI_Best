@@ -126,29 +126,9 @@ public class MemberController {
 		Object obj = session.getAttribute("login");
 
 		if (obj != null) {
-			MemberVO member = (MemberVO) obj;
-
 			// null이 아닐 경우 제거
-			session.removeAttribute("login");
-			session.invalidate();
-
-			// 쿠키 확인
-			Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
-
-			if (loginCookie != null) {
-				// null이 아니면 (존재)
-				loginCookie.setPath("/");
-				// 쿠키는 없앨 때 유효시간을 0으로 설정
-				loginCookie.setMaxAge(0);
-				// 쿠키 설정 적용
-				response.addCookie(loginCookie);
-
-				String memId = "\'" + member.getID() + "\'";
-				String sessionId = "\'" + session.getId() + "\'";
-				// 사용자 테이블에서도 유효기간을 현재시간으로 다시 세팅
-				Date date = new Date(System.currentTimeMillis());
-				mService.keepLogin(memId, sessionId, date);
-			}
+			MemberVO member = (MemberVO) obj;
+			member = sessionExpire(session, request, response, member);
 		}
 
 		return "redirect:";
@@ -166,7 +146,6 @@ public class MemberController {
 		Object obj = session.getAttribute("login");
 		MemberVO member = (MemberVO) obj;
 
-		System.out.println(member.getID());
 		model.addAttribute("member", member);
 
 		return "selfuseredit";
@@ -189,20 +168,48 @@ public class MemberController {
 		member.setID("\'" + member.getID() + "\'");
 		member.setGender("\'" + member.getGender() + "\'");
 
-		System.out.println(member.getAddress());
-		System.out.println(member.getAge());
-		System.out.println(member.getAgree());
-		System.out.println(member.getAgree2());
-		System.out.println(member.getEmail());
-		System.out.println(member.getGender());
-		System.out.println(member.getID());
-		System.out.println(member.getLikeit());
-		System.out.println(member.getName());
-		System.out.println(member.getPhone());
-		System.out.println(member.getPwd());
-
 		mService.selfuseredit(member);
 
-		return "main";
+		return "mypage";
 	}
+	
+	@RequestMapping(value="/selfuserout")
+	public String selfUserOut(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+		MemberVO member = (MemberVO)session.getAttribute("login");
+		
+		if (member != null) {
+			// null이 아닐 경우 제거
+			member = sessionExpire(session, request, response, member);
+		}
+		
+		mService.selfuserout("\'" + member.getID() + "\'");
+		return "redirect:";
+	}
+	
+	
+	public MemberVO sessionExpire(HttpSession session, HttpServletRequest request, HttpServletResponse response, MemberVO member) {
+
+		session.removeAttribute("login");
+		session.invalidate();
+
+		// 쿠키 확인
+		Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+
+		if (loginCookie != null) {
+			// null이 아니면 (존재)
+			loginCookie.setPath("/");
+			// 쿠키는 없앨 때 유효시간을 0으로 설정
+			loginCookie.setMaxAge(0);
+			// 쿠키 설정 적용
+			response.addCookie(loginCookie);
+
+			String memId = "\'" + member.getID() + "\'";
+			String sessionId = "\'" + session.getId() + "\'";
+			// 사용자 테이블에서도 유효기간을 현재시간으로 다시 세팅
+			Date date = new Date(System.currentTimeMillis());
+			mService.keepLogin(memId, sessionId, date);
+		}
+		return member;	
+	}
+	
 }
