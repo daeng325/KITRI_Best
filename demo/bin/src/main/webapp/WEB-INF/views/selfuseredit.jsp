@@ -57,19 +57,17 @@
  					<a class="nav-link" href="main">Home</a> 
  				</li> 
  				<li class="nav-item"> 
- 					<a class="nav-link" href="login">Login</a> 
- 				</li> 
- 				<li class="nav-item"> 
- 					<a class="nav-link" href="join">Join</a> 
+ 					<a class="nav-link" href="logout">Logout</a> 
  				</li> 
  				<li class="nav-item"> 
  					<a class="nav-link" href="mypage">Mypage</a> 
  				</li> 
              </ul> 
-             <form class="form-inline" action="" method="post"> 
-                 <input class="form-control mr-sm-2" type="text" placeholder="Search"> 
-                 <button class="btn btn-success" type="submit">Search</button> 
-             </form> 
+            
+            <form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
+				<input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
+				<button class="btn btn-success" type="submit">Search</button>
+			</form>
          </nav> 
          <div class="container"> 
              <div class="logo"> 

@@ -16,7 +16,7 @@ public class MainController {
 		return "main";
 	}
 	
-	@RequestMapping(value="upload", method=RequestMethod.GET)
+	@RequestMapping(value="/upload", method=RequestMethod.GET)
 	public String viewUploadProduct() {
 		return "uploadProduct";
 	}

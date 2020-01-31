@@ -26,6 +26,11 @@ public class ProductController {
 	@Resource
 	ProductService pService;
 	
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	private String joinPage() {
+		return "productDetail";
+	}
+	
 	// 상품 등록
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public String uploadProduct(MultipartHttpServletRequest request, Model model) throws Exception {
