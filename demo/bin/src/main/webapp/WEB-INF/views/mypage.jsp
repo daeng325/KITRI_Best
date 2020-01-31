@@ -52,14 +52,10 @@
 					<a class="nav-link" href="main">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="login">Login</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="join">Join</a>
+					<a class="nav-link" href="logout">Logout</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="mypage">Mypage</a>
-					    	${login }
 				</li>
             </ul>
             <form class="form-inline" action="" method="post">
@@ -127,8 +123,8 @@
 <div class="card" style="width:300px; height:400px">
 <a href="selfuserout"><img src="delete.png" class="rounded" alt="회원탈퇴" style="width:100px; height:100px"></a>
   <div class="card-body">
-    <a href="selfuseredit"><h4 class="card-title" stylㄴe="text-align:center">회원탈퇴</h4></a>
-    <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 탈퇴 및 개인정보 
+    <a href="selfuserout"><h4 class="card-title" stylㄴe="text-align:center">회원탈퇴</h4></a>
+    <a href="selfuserout"><p class="card-text" style="text-align:center">회원님의 탈퇴 및 개인정보 
         <br>삭제를 진행할 수 있습니다.</p></a>
   </div>
 </div>
