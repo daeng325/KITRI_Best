@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.board.domain.ProductVO;
 import com.example.demo.board.service.ProductService;
@@ -55,13 +56,15 @@ public class ProductController {
 	
 	// 상품 검색
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public ModelAndView searchProduct(@RequestParam("search") String search_name, ModelAndView mav) throws Exception{
+	public String searchProduct(@RequestParam("search") String search_name, RedirectAttributes redirect) throws Exception{
+		
 		List<ProductVO> products = pService.findByName(search_name);
 		
 		System.out.println(products.toString());
-		mav.setViewName("main");
-		mav.addObject("products", products);
-		return mav;
+//		mav.setViewName("main");
+//		mav.addObject("products", products);
+		redirect.addFlashAttribute("products", products);
+		return "redirect:/";
 	}
 	
 
