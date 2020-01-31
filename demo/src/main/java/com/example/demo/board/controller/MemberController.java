@@ -107,7 +107,6 @@ public class MemberController {
 			String tmp = session.getAttribute("login").toString();
 			model.addAttribute("tmp", null);
 			return "redirect:";
-			// return "loginSuccess";
 		}
 
 		session.setAttribute("login", null);
@@ -170,7 +169,7 @@ public class MemberController {
 
 		mService.selfuseredit(member);
 
-		return "mypage";
+		return "redirect:/mypage";
 	}
 	
 	@RequestMapping(value="/selfuserout")
