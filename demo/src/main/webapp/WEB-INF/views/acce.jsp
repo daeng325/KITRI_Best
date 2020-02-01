@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -76,7 +77,7 @@
 		</nav>
 		<br>
 		<br>
-		<h1 class="text-center">Top</h1>
+		<h1 class="text-center">Accesories</h1>
 		<div class="container-fluid">
 				<ul class="nav justify-content-end">
 				<li class="nav-item">
@@ -93,12 +94,15 @@
 		<br>
 		<br>
 		<div class="row" align=center>
-			<div class="col-md-3">
-				<a href="acce1.jsp"><img class="img27" src="./jpg/27.jpg" alt="미러 선글라스"><a href="acce1"><p>레인보우 미러 선글라스</p><p>30000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="acce2.jsp"><img class="img28" src="./jpg/28.jpg" alt="블랙 페도라"><a href="acce2"><p>멋쟁이 블랙 페도라</p><p>20000원</p></a></a>
-			</div>
+				<c:forEach var="item" items="${products}">
+				<div class="col-md-3">
+					<a href="detail${item.name}"><img class="img1" src="${ item.image }"
+						alt="${ item.name }"><a href="detail${item.name}"><p>${ item.name }</p>
+						<p>${ item.price }</p>
+						</a>
+					</a>
+				</div>
+				</c:forEach>
 		</div>
 		
 		<footer style="background-color: #000000; color:#FFFFFF">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -94,18 +95,15 @@
 		<br>
 		<br>
 		<div class="row" align=center>
-			<div class="col-md-3">
-				<a href="top1.html"><img class="img1" src="./jpg/1.jpg" alt="코튼티셔츠"><a href="top1"><p>코튼 티셔츠</p><p>10000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="top2.html"><img class="img2" src="./jpg/2.jpg" alt="레이스블라우스"><a href="top2"><p>화이트 레이스 블라우스</p><p>25000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="top3.html"><img class="img5" src="./jpg/5.jpg" alt="하드락티셔츠"><a href="top3"><p>하드락 티셔츠</p><p>15000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="top4.html"><img class="img7" src="./jpg/7.jpg" alt="어깨트임블라우스"><a href="top4"><p>화이트 어깨트임 블라우스</p><p>20000원</p></a></a>
-			</div>
+				<c:forEach var="item" items="${products}">
+				<div class="col-md-3">
+					<a href="detail${item.name}"><img class="img1" src="${ item.image }"
+						alt="${ item.name }"><a href="detail${item.name}"><p>${ item.name }</p>
+						<p>${ item.price }</p>
+						</a>
+					</a>
+				</div>
+				</c:forEach>
 		</div>
 		<footer style="background-color: #000000; color:#FFFFFF">
 			<div class="container">

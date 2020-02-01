@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <!DOCTYPE html>
 <html>
 	<head>
@@ -93,18 +95,15 @@
 		<br>
 		<br>
 		<div class="row" align=center>
-			<div class="col-md-3">
-				<a href="bag1.html"><img class="img14" src="./jpg/14.jpg" alt="노란가죽가방"><a href="bag1"><p>미니 숄더백</p><p>40000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="shoes1.html"><img class="img25" src="./jpg/26.jpg" alt="왕리본핑크구두"><a href="shoes1"><p>왕리본 캔디핑크 구두</p><p>60000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="shoes2.html"><img class="img12" src="./jpg/12.jpg" alt="화이트펀칭슈즈"><a href="shoes2"><p>화이트 펀칭 슈즈</p><p>50000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="bag2.html"><img class="img15" src="./jpg/15.jpg" alt="브라운소가죽가방"><a href="bag2"><p>고풍스러운 브라운 소가죽백</p><p>100000원</p></a></a>
-			</div>
+				<c:forEach var="item" items="${products}">
+				<div class="col-md-3">
+					<a href="detail${item.name}"><img class="img1" src="${ item.image }"
+						alt="${ item.name }"><a href="detail${item.name}"><p>${ item.name }</p>
+						<p>${ item.price }</p>
+						</a>
+					</a>
+				</div>
+				</c:forEach>
 		</div>
 		
 		<footer style="background-color: #000000; color:#FFFFFF">

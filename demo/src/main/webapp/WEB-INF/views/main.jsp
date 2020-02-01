@@ -44,7 +44,7 @@
 					<c:if test = "${login eq null }">
 						<a class="nav-link" href="login">Login</a>
 					</c:if>
-					<c:if test = "${login ne null }">
+					<c:if test = "${login ne null }">			
 						<a class="nav-link" href="logout">Logout</a>
 					</c:if>					
 				</li>
@@ -84,6 +84,7 @@
 				</li>
 			</ul>
 		</nav>
+		<!--
 		<br>
 		<br>
 		<c:if test = "${products eq null }">
@@ -99,17 +100,37 @@
 				<div class="col-md-3">
 					<a href="top1.html"><img class="img1" src="${ item.image }"
 						alt="${ item.name }"><a href="top1.html"><p>${ item.name }</p>
-							<p>${ item.price }</p></a></a>
+						<p>${ item.price }</p>
+						</a>
+					</a>
 				</div>
 				</c:forEach>
 			</div>
 		</c:if>					
+		  -->
+		<br>
+			<div class="container-fluid">
+				<video muted autoplay loop controls width=100%>
+				<source src="./video/Woman.mp4" type="video/mp4">
+				</video>
+			</div>
 		
 		<br>
 		<br>
+			<div class="row" align=center>
+				<c:forEach var="item" items="${products}">
+				<div class="col-md-3">
+					<a href="top1.html"><img class="img1" src="${ item.image }"
+						alt="${ item.name }"><a href="top1.html"><p>${ item.name }</p>
+						<p>${ item.price }</p>
+						</a>
+					</a>
+				</div>
+				</c:forEach>
+			</div>				
 		<br>
 		<br>
-
+		<br>
 
 
 		<footer style="background-color: #000000; color:#FFFFFF">

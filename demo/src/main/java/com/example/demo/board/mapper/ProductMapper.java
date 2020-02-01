@@ -21,4 +21,8 @@ public interface ProductMapper {
 	public int delete(@Param("id") String id) throws Exception;
 
 	public int update(@Param("id") String id) throws Exception;
+	
+	public List<ProductVO> printAllProducts() throws Exception;
+	
+	public List<ProductVO> printProductsByType(@Param("type") String type) throws Exception;
 }

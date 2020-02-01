@@ -3,6 +3,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.board.domain.ProductVO;
@@ -32,6 +33,15 @@ public class ProductService {
 
 	public int updateProduct(ProductVO product) throws Exception {
 		return productMapper.update(product.getId());
+	}
+	
+	public List<ProductVO> printAllProducts()  throws Exception{
+		return productMapper.printAllProducts();
+		
+	}
+	
+	public List<ProductVO> printProductsByType(@Param("type") String type) throws Exception{
+		return productMapper.printProductsByType(type);
 	}
     
 }
