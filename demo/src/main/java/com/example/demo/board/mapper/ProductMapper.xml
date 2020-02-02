@@ -48,4 +48,10 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="printProductsByType" parameterType="String" resultType="com.example.demo.board.domain.ProductVO">
 		SELECT * FROM PRODUCTS WHERE type = ${type};
 	</select>
+	
+	<!-- select product detail -->
+	<select id="printProductDetail" parameterType="String" resultType="com.example.demo.board.domain.ProductVO">
+		SELECT * FROM PRODUCTS WHERE id = ${id};
+	</select>
+	
 </mapper>

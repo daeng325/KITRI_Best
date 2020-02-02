@@ -51,6 +51,8 @@ public class ProductController {
 		product.setStatus("\'"+request.getParameter("status")+"\'");
 		//proRepo.save(product);
 		
+		System.out.println(product.getImage());
+		
 		pService.productInsertService(product);
 		model.addAttribute("msg", "product upload complete");
 		return "redirect:/";

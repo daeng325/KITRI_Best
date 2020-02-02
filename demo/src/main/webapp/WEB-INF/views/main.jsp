@@ -120,8 +120,8 @@
 			<div class="row" align=center>
 				<c:forEach var="item" items="${products}">
 				<div class="col-md-3">
-					<a href="top1.html"><img class="img1" src="${ item.image }"
-						alt="${ item.name }"><a href="top1.html"><p>${ item.name }</p>
+					<a href="productDetail?id=${item.id }"><img class="img1" src="${ item.image }"
+						alt="${ item.name }"><a href="productDetail?id=${item.id }"><p>${ item.name }</p>
 						<p>${ item.price }</p>
 						</a>
 					</a>

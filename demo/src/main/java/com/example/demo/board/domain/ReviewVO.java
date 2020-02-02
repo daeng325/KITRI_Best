@@ -11,10 +11,12 @@ public class ReviewVO {
 	private double rev_ship;
 	private double rev_agv;
 	
-	private byte[] content;
+	private String content;
 	private byte[] image_1;
 	private byte[] image_2;
 	private byte[] image_3;
+	
+	
 	public String getId() {
 		return id;
 	}
@@ -57,10 +59,10 @@ public class ReviewVO {
 	public void setRev_agv(double rev_agv) {
 		this.rev_agv = rev_agv;
 	}
-	public byte[] getContent() {
+	public String getContent() {
 		return content;
 	}
-	public void setContent(byte[] content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 	public byte[] getImage_1() {

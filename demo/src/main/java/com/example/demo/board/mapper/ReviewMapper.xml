@@ -8,7 +8,7 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- upload -->
 	<insert id="upload" parameterType="com.example.demo.board.domain.ReviewVO">
 		INSERT INTO REVIEWS (id, o_id, u_id, rev_price, rev_quality, rev_ship, rev_agv, content, image_1, image_2, image_3)
-		VALUES(${id}, ${o_id}, ${u_id}, ${rev_price}, ${rev_quality}, ${rev_ship}, ${rev_agv}, ${content}, ${image_1}, ${image_2}, ${image_3});
+		VALUES(${id}, ${o_id}, ${u_id}, ${rev_price}, ${rev_quality}, ${rev_ship}, ${rev_agv}, ${content}, ${image_1}, null, null);
 	</insert>
 	
 	<!-- READ() -->

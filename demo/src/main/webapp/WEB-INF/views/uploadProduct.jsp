@@ -40,9 +40,9 @@
               <td><input type="text" name="status"/></td>
           </tr>
           <tr>
-              <td colspan="2"><input type="submit" value="업로드"/></td>
+              <td colspan="2"><input type="submit" value="��濡���"/></td>
           </tr>
-          </form>
+         </form>
      </table>
 </fieldset>
 

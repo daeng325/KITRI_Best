@@ -43,5 +43,9 @@ public class ProductService {
 	public List<ProductVO> printProductsByType(@Param("type") String type) throws Exception{
 		return productMapper.printProductsByType(type);
 	}
+	
+	public ProductVO printProductDetail(@Param("id") String id) throws Exception{
+		return productMapper.printProductDetail(id);
+	}
     
 }

@@ -49,13 +49,20 @@
 					<a class="nav-link" href="main">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="login">Login</a>
+					<c:if test = "${login eq null }">
+						<a class="nav-link" href="login">Login</a>
+					</c:if>
+					<c:if test = "${login ne null }">			
+						<a class="nav-link" href="logout">Logout</a>
+					</c:if>					
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="join">Join</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="mypage">Mypage</a>
+					<c:if test = "${login eq null }">
+						<a class="nav-link" href="join">Join</a>
+					</c:if>
+					<c:if test = "${login ne null }">
+						<a class="nav-link" href="mypage">Mypage</a>
+					</c:if>
 				</li>
 			</ul>
 			<form class="form-inline" action="" method="post">

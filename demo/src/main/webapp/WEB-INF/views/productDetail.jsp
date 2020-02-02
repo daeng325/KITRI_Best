@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -45,18 +46,25 @@
     </style>          
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="main">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="join">Join</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="mypage">Mypage</a>
-        </li>
+      		<li class="nav-item">
+				<a class="nav-link" href="main">Home</a>
+			</li>
+			<li class="nav-item">
+				<c:if test = "${login eq null }">
+					<a class="nav-link" href="login">Login</a>
+				</c:if>
+				<c:if test = "${login ne null }">			
+					<a class="nav-link" href="logout">Logout</a>
+				</c:if>					
+			</li>
+			<li class="nav-item">
+				<c:if test = "${login eq null }">
+					<a class="nav-link" href="join">Join</a>
+				</c:if>
+				<c:if test = "${login ne null }">
+					<a class="nav-link" href="mypage">Mypage</a>
+				</c:if>
+			</li>
       </ul>
       <form class="form-inline" action="" method="post">
         <input class="form-control mr-sm-2" type="text" placeholder="Search">
@@ -86,11 +94,11 @@
     </nav>
     <div class="row">
     <div class="col-md-7">
-        <img class="img1-1" src="./jpg/1.jpg" alt="코튼티셔츠">
+        <img class="img1-1" src="${products.image }" alt="${products.name}">
       </div>
       <div class="col-md-4" style="margin-top:40px">
         <div class="card">
-        <div class="card-header">코튼티셔츠</div>
+        <div class="card-header">${products.name}</div>
         <div class="card-body">
         <div class="container mt-3">
                      <div class="row">
@@ -158,22 +166,12 @@
 </div>
   </div>
 
-  <div class="tab-pane fade in active" id="상품정보"><br>
-          통풍이 잘되는 코튼티셔츠입니다.<br>
-          초봄~초가을까지 계속 착용하기 좋고<br>
-          순면이라서 피부에도 자극이 없어요^^<br>
-          현재 와인, 블루, 그린, 차콜 4가지 옵션이 있어요.<br>
-          지금 빨리 주문하세요^^
-          <br>
-        <div class="cotton1" align="center"><img src="./jpg/21.jpg" alt="파란색"></div>
-        <div class="productn1" align="center">블루</div>
-        <br>
-        <div class="cotton2" align="center"><img src="./jpg/22.jpg" alt="초록색"></div>
-        <div class="productn2" align="center">그린</div>
-        <br>
-        <div class="cotton3" align="center"><img src="./jpg/23.jpg" alt="차콜"></div>
-        <div class="productn3" align="center">차콜</div>
-        <br>
+<div class="tab-pane fade in active" id="상품정보">
+  	<br>
+		${products.description}
+     <br>
+	     가격 : ${products.price }
+     <br>
   </div>
 
 <div class="tab-pane fade" id="Review"><br>
@@ -193,13 +191,13 @@
     <tbody>
     </tbody>
   </table>
-<form action="" method="post">
-      <div class="row justify-content-center" style="margin-bottom:50px">
-<input type="button" class="btn btn-primary" value="수정" onclick="location.href='revieweditform'" style="margin-right:10px">
-<input type="button" class="btn btn-primary" value="추가" onclick="location.href='reviewuploadform'" style="margin-right:10px">
-<input type="reset" class="btn btn-primary" value="삭제" onclick="">
+
+  <div class="row justify-content-center" style="margin-bottom:50px">
+	<input type="button" class="btn btn-primary" value="수정" onclick="location.href='reviewedit'" style="margin-right:10px">
+	<input type="button" class="btn btn-primary" value="추가" onclick="location.href='reviewupload'" style="margin-right:10px">
+	<input type="reset" class="btn btn-primary" value="삭제" onclick="">
   </div>
-</form>
+
   </div>
   </div>
 

@@ -25,4 +25,6 @@ public interface ProductMapper {
 	public List<ProductVO> printAllProducts() throws Exception;
 	
 	public List<ProductVO> printProductsByType(@Param("type") String type) throws Exception;
+	
+	public ProductVO printProductDetail(@Param("id") String id) throws Exception;
 }

@@ -41,13 +41,21 @@
 					<a class="nav-link" href="main">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="login">Login</a>
+				<li class="nav-item">
+					<c:if test = "${login eq null }">
+						<a class="nav-link" href="login">Login</a>
+					</c:if>
+					<c:if test = "${login ne null }">			
+						<a class="nav-link" href="logout">Logout</a>
+					</c:if>					
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="join">Join</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="mypage">Mypage</a>
+					<c:if test = "${login eq null }">
+						<a class="nav-link" href="join">Join</a>
+					</c:if>
+					<c:if test = "${login ne null }">
+						<a class="nav-link" href="mypage">Mypage</a>
+					</c:if>
 				</li>
 			</ul>
 			<form class="form-inline" action="" method="post">
@@ -97,8 +105,8 @@
 		<div class="row" align=center>
 				<c:forEach var="item" items="${products}">
 				<div class="col-md-3">
-					<a href="detail${item.name}"><img class="img1" src="${ item.image }"
-						alt="${ item.name }"><a href="detail${item.name}"><p>${ item.name }</p>
+					<a href="productDetail?id=${item.id }"><img class="img1" src="${ item.image }"
+						alt="${ item.name }"><a href="productDetail?id=${item.id }"><p>${ item.name }</p>
 						<p>${ item.price }</p>
 						</a>
 					</a>
