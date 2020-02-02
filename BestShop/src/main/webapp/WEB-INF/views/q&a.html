@@ -1,11 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib uri="http://java.sun.com/jstl/core-rt" prefix="c-rt" %>
-<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt-rt" %>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -96,7 +88,7 @@
 		<tbody>
 			<tr>
 				<td>작성자</td>
-				<td>${%= name %}</td>
+				<td>&nbsp;${%= name %}</td>
 				<!--DB에 있는 회원 이름이 표시되도록 ${}부분을 수정-->
 			</tr>
 			<tr>
@@ -120,7 +112,8 @@
 			</tr>
 			<tr>
 				<td>작성날짜</td>
-				<td>${%= Date.now() %}</td>
+				<td class="date"></td>
+				<script>document.getElementById("date").innerHTML = newDate();</script>
 				<!-- 현재 날짜가 자동으로 표시되도록 바꿈-->
 			</tr>
 			<tr>
@@ -138,17 +131,3 @@
 </form>
 </div>
 </div>
-</div>
-<footer style="background-color: #000000; color:#FFFFFF">
-			<div class="container">
-				<br>
-				<div class="row">
-					<div class="col col-lg-6" style="border:1px solid black; text-align: left; font-family:'ariel'">Copyright &copy; 2020<br>KITRI침해대응20기우리조가짱이조<br>All rights reserved</div>
-					<div class="col-md auto" style="border:1px solid black; text-align: left; font-family:'ariel'">Contact Us<br>tel : 010-4022-3241<br>e-mail : wsm91@naver.com</div>
-				</div>
-			</div>
-		</footer>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="./js/bootstrap.js"></script>
-	</body>
-</html>
