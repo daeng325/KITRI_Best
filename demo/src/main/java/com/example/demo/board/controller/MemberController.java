@@ -22,6 +22,7 @@ import com.example.demo.board.domain.MemberVO;
 import com.example.demo.board.service.MemberService;
 
 @Controller
+@RequestMapping("/user")
 public class MemberController {
 
 	@Resource
@@ -50,7 +51,7 @@ public class MemberController {
 
 		mService.memberInsertService(member);
 
-		return "redirect:";
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -104,7 +105,7 @@ public class MemberController {
 				String sessionId = "\'" + session.getId() + "\'";
 				mService.keepLogin(memId, sessionId, sessionLimit);
 			}
-			return "redirect:";
+			return "redirect:/";
 		}
 		session.setAttribute("login", null);
 		model.addAttribute("msg", "try again");
@@ -127,7 +128,7 @@ public class MemberController {
 			member = sessionExpire(session, request, response, member);
 		}
 
-		return "redirect:";
+		return "redirect:/";
 
 	}
 
@@ -147,7 +148,7 @@ public class MemberController {
 		return "selfuseredit";
 	}
 
-	@RequestMapping(value = "/selfuseredit", method = RequestMethod.POST)
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	public String selfUserEditComplete(HttpSession session, HttpServletRequest request) {
 		Object obj = session.getAttribute("login");
 		MemberVO member = (MemberVO) obj;
@@ -166,7 +167,7 @@ public class MemberController {
 
 		mService.selfuseredit(member);
 
-		return "redirect:/mypage";
+		return "redirect:/user/mypage";
 	}
 	
 	@RequestMapping(value="/selfuserout")
@@ -179,7 +180,7 @@ public class MemberController {
 		}
 		
 		mService.selfuserout(member.getID());
-		return "redirect:";
+		return "redirect:/";
 	}
 	
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,17 +49,25 @@
 </style>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="main">Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="login">Login</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="join">Join</a></li>
-			<li class="nav-item"><a class="nav-link" href="mypage">Mypage</a>
-			</li>
+			<li class="nav-item"><a class="nav-link"
+				href="<%request.getContextPath();%>/main">Home</a></li>
+			<li class="nav-item"><c:if test="${login eq null }">
+					<a class="nav-link" href="login">Login</a>
+				</c:if> <c:if test="${login ne null }">
+					<a class="nav-link" href="logout">Logout</a>
+				</c:if></li>
+			<li class="nav-item"><c:if test="${login eq null }">
+					<a class="nav-link" href="join">Join</a>
+				</c:if> <c:if test="${login ne null }">
+					<a class="nav-link" href="mypage">Mypage</a>
+				</c:if></li>
 		</ul>
-			<form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
-				<input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
-				<button class="btn btn-success" type="submit">Search</button>
-			</form>
+		<form class="form-inline"
+			action="<%request.getContextPath();%>/product/search" method="post">
+			<input class="form-control mr-sm-2" type="text" placeholder="Search"
+				name="search">
+			<button class="btn btn-success" type="submit">Search</button>
+		</form>
 	</nav>
 	<div class="container">
 		<div class="logo">
@@ -99,7 +108,8 @@
 						<div class="card">
 							<div class="card-header" text-align=center>회원가입</div>
 							<div class="card-body">
-								<form action="<%= request.getContextPath() %>/join" method="post">
+								<form action="<%=request.getContextPath()%>/user/join"
+									method="post">
 									<div class="form-group row">
 										<label for="name"
 											class="col-md-4 col-form-label text-md-right">이름</label>
@@ -134,8 +144,8 @@
 										<label for="address"
 											class="col-md-4 col-form-label text-md-right">집 주소</label>
 										<div class="col-md-6">
-											<input type="text" id="address" class="form-control" name="address"
-												required>
+											<input type="text" id="address" class="form-control"
+												name="address" required>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -149,7 +159,8 @@
 									<div class="form-group row">
 										<label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>
 										<div class="col-md-6">
-											<input type="text" id="ID" class="form-control" name="ID" required autofocus>
+											<input type="text" id="ID" class="form-control" name="ID"
+												required autofocus>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -164,10 +175,10 @@
 										<label for="items"
 											class="col-md-4 col-form-label text-md-right">관심 아이템</label>
 										<div class="col-md-6">
-											<input type="checkbox" name="likeit" value="top" >상의
-											<input type="checkbox" name="likeit" value="bottom" >하의
-											<input type="checkbox" name="likeit" value="bags" >가방
-											<input type="checkbox" name="likeit" value="shoes" >신발
+											<input type="checkbox" name="likeit" value="top">상의
+											<input type="checkbox" name="likeit" value="bottom">하의
+											<input type="checkbox" name="likeit" value="bags">가방
+											<input type="checkbox" name="likeit" value="shoes">신발
 											<input type="checkbox" name="likeit" value="accesories">악세사리
 										</div>
 									</div>

@@ -43,22 +43,22 @@
 				<li class="nav-item">
 				<li class="nav-item">
 					<c:if test = "${login eq null }">
-						<a class="nav-link" href="login">Login</a>
+						<a class="nav-link" href="user/login">Login</a>
 					</c:if>
 					<c:if test = "${login ne null }">			
-						<a class="nav-link" href="logout">Logout</a>
+						<a class="nav-link" href="user/logout">Logout</a>
 					</c:if>					
 				</li>
 				<li class="nav-item">
 					<c:if test = "${login eq null }">
-						<a class="nav-link" href="join">Join</a>
+						<a class="nav-link" href="user/join">Join</a>
 					</c:if>
 					<c:if test = "${login ne null }">
-						<a class="nav-link" href="mypage">Mypage</a>
+						<a class="nav-link" href="user/mypage">Mypage</a>
 					</c:if>
 				</li>
 			</ul>
-			<form class="form-inline" action="" method="post">
+			<form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
 				<input class="form-control mr-sm-2" type="text" placeholder="Search">
 				<button class="btn btn-success" type="submit">Search</button>
 			</form>
