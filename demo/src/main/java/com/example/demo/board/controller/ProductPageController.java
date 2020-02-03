@@ -14,12 +14,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.board.domain.ProductVO;
 import com.example.demo.board.service.ProductService;
+import com.example.demo.board.service.ReviewService;
 
 @Controller
 public class ProductPageController {
 	
 	@Resource
 	ProductService pService;	
+	@Resource
+	ReviewService reviewService;
 	
 	@RequestMapping(value = "/top")
 	public String topPageLoad(Model model) throws Exception {
@@ -54,8 +57,12 @@ public class ProductPageController {
 	@RequestMapping(value = "/productDetail", method = RequestMethod.GET)
 	public ModelAndView productDetailPage(@RequestParam String id) throws Exception {
 		ModelAndView mov = new ModelAndView();
+		System.out.println(reviewService.readAllReview().size());
+		
 		mov.setViewName("productDetail");
 		mov.addObject("products",pService.findById("\'"+id+"\'"));
+		mov.addObject("reviews",reviewService.readAllReview());
+		
 		return mov;
 	}
 }

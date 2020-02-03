@@ -38,5 +38,20 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 		${name}, type= ${type}, price= ${price}, description= ${description},
 		image= '${image}', status= ${status} WHERE id= {$id};
 	</update>
-
+	
+	<!-- find all -->
+	<select id="printAllProducts" resultType="com.example.demo.board.domain.ProductVO">
+		SELECT * FROM PRODUCTS;
+	</select>
+	
+	<!-- find by type -->
+	<select id="printProductsByType" parameterType="String" resultType="com.example.demo.board.domain.ProductVO">
+		SELECT * FROM PRODUCTS WHERE type = ${type};
+	</select>
+	
+	<!-- select product detail -->
+	<select id="printProductDetail" parameterType="String" resultType="com.example.demo.board.domain.ProductVO">
+		SELECT * FROM PRODUCTS WHERE id = ${id};
+	</select>
+	
 </mapper>

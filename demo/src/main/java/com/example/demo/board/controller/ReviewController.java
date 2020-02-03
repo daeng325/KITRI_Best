@@ -10,8 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.board.domain.MemberVO;
 import com.example.demo.board.domain.ReviewVO;
@@ -46,7 +48,7 @@ public class ReviewController {
 		MultipartFile image = request.getFile("image");
 		
 		review.setId("\'"+request.getParameter("boardtitle")+"\'");
-		review.setO_id("\'top_01\'");
+		review.setO_id("\'order01\'");
 		review.setU_id("\'" + member.getID() + "\'");
 		review.setContent("\'" +request.getParameter("content") + "\'");
 		review.setImage_1(image.getBytes());
@@ -75,4 +77,17 @@ public class ReviewController {
 		
 		return "redirect:/";
 	}
+	
+	
+	// 리뷰 상세 보기
+	@RequestMapping(value = "/reviewDetail", method = RequestMethod.GET)
+	public ModelAndView productDetailPage(@RequestParam String id) throws Exception {
+		ModelAndView mov = new ModelAndView();
+		
+		mov.setViewName("reviewDetail");
+		mov.addObject("reviews",reviewService.printDetailReview("\'"+id+"\'"));
+		
+		return mov;
+	}
+	
 }

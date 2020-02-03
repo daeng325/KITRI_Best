@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.board.domain.ReviewVO;
@@ -35,5 +36,9 @@ public class ReviewService {
 	// Search
 	public List<ReviewVO> searchReview(String name){
 		return reviewMapper.search(name);
+	}
+	
+	public ReviewVO printDetailReview(String id) {
+		return reviewMapper.printDetailReview(id);
 	}
 }

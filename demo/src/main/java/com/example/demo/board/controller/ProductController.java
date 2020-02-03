@@ -48,6 +48,9 @@ public class ProductController {
 		product.setPrice(Integer.parseInt(request.getParameter("price")));
 		product.setDescription("\'"+request.getParameter("description")+"\'");
 		product.setImage(image.getBytes());
+		
+		System.out.println(image.getBytes());
+		
 		product.setStatus("\'"+request.getParameter("status")+"\'");
 		//proRepo.save(product);
 		

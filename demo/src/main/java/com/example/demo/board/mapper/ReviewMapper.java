@@ -23,4 +23,7 @@ public interface ReviewMapper {
 		
 	// Search
 	public List<ReviewVO> search(@Param("name") String name);
+	
+	// review detail
+	public ReviewVO printDetailReview(@Param("id") String id);
 }
