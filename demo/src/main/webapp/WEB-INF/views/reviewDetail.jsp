@@ -99,7 +99,7 @@
 	ship : ${reviews.rev_ship} <br>
 	agv : ${reviews.rev_agv} <br>
 	내용 : ${reviews.content }<br>
-	이미지 : ${reviews.image_1 }
+	이미지 : <img class="img1-1" src="${reviews.image_1 }" alt="${reviews.id}">
 	
 	
 </body>
