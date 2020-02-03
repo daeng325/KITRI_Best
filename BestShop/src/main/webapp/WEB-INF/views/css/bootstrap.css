@@ -11,6 +11,11 @@
  url('/fonts/NanumBarunGothic.woff') format('woff');}
 
 
+* a {
+      text-decoration: none;
+      color: black;           
+}
+
 .prcontent{
   text-align : center;
 }
