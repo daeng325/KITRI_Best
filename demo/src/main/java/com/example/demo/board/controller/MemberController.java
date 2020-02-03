@@ -178,7 +178,7 @@ public class MemberController {
 			member = sessionExpire(session, request, response, member);
 		}
 		
-		mService.selfuserout("\'" + member.getID() + "\'");
+		mService.selfuserout(member.getID());
 		return "redirect:";
 	}
 	

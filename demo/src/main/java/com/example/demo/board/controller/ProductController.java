@@ -72,7 +72,7 @@ public class ProductController {
 		System.out.println(products.toString());
 //		mav.setViewName("main");
 //		mav.addObject("products", products);
-		redirect.addFlashAttribute("products", products);
+		redirect.addFlashAttribute("product", products);
 		return "redirect:/";
 	}
 	

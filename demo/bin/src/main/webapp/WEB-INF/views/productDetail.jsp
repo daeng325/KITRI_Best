@@ -149,13 +149,14 @@
         <th>이름</th>
         <th>상품명</th>
         <th>내용</th>
-        <th>작성시간</th>
-        <th>수정시간</th>
       </tr>
     </thead>
     <tbody>
+
     </tbody>
   </table>
+  
+
 <form action="" method="post">
       <div class="row justify-content-center" style="margin-bottom:50px">
 <input type="button" class="btn btn-primary" value="수정" onclick="location.href='q&aeditform'" style="margin-right:10px">
@@ -177,6 +178,9 @@
 <div class="tab-pane fade" id="Review"><br>
   <div class="container">
   <h2 style="text-align:center">Review</h2><br>
+    		
+			
+		
   <p style="text-align:center">상품에 대해 리뷰 올려주시면 적립금 드립니다.</p>
   <table class="table">
     <thead class="thead-dark">
@@ -184,12 +188,17 @@
         <th>이름</th>
         <th>상품명</th>
         <th>내용</th>
-        <th>작성시간</th>
-        <th>수정시간</th>
       </tr>
     </thead>
+    <c:forEach items="${reviews }" var="rev">
     <tbody>
+    	<tr>
+    		<td><a href="reviewDetail?id=${rev.id }">${rev.id }</a></td>
+    		<td>${rev.id }</td>
+    		<td>${rev.content }</td>
+    	</tr>
     </tbody>
+    </c:forEach>
   </table>
 
   <div class="row justify-content-center" style="margin-bottom:50px">
