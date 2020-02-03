@@ -17,6 +17,7 @@
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	</head>
 	<body>
 		<style type="text/css">
@@ -96,12 +97,28 @@
 		<tbody>
 			<tr>
 				<td>작성자</td>
-				<td>${%= name %}</td>
+				<td>${name}</td>
 				<!--DB에 있는 회원 이름이 표시되도록 ${}부분을 수정-->
 			</tr>
 			<tr>
 				<td>제목</td>
 				<td><input type="text" id="boardtitle" name="boardtitle" class="form-control" placeholder="제목을 입력하세요" autofocus required></td>
+			</tr>
+			<tr>
+				<td>상품 평가</td>
+				<td><div class="stars">
+    			<input class="star star-5" id="star-5" type="radio" name="star" onclick=""/>
+    			<label class="star star-5" for="star-5"></label>
+    			<input class="star star-4" id="star-4" type="radio" name="star" onclick=""/>
+    			<label class="star star-4" for="star-4"></label>
+    			<input class="star star-3" id="star-3" type="radio" name="star" onclick=""/>
+    			<label class="star star-3" for="star-3"></label>
+    			<input class="star star-2" id="star-2" type="radio" name="star" onclick=""/>
+    			<label class="star star-2" for="star-2"></label>
+    			<input class="star star-1" id="star-1" type="radio" name="star" onclick=""/>
+    			<label class="star star-1" for="star-1"></label>
+				</div></td>
+				<!--별 5개를 클릭할 수 있게 구현-->
 			</tr>
 			<tr>
 				<td>내용</td>
@@ -116,8 +133,9 @@
 						let year = today.getFullYear(); // 년도
 						let month = today.getMonth()  // 월
 						let date = today.getDate();  // 날짜
+						todaydate = year + '-' + month + '-' + date // 년-월-일 형식으로 표현
 
-						document.write(year + '-' + month + '-' + date) // 년-월-일 형식으로 표현
+						document.write(todaydate)
 					</script></td>
 				<!-- 현재 날짜가 자동으로 표시되도록 바꿈-->
 			</tr>

@@ -86,63 +86,42 @@
 		</div>
 		<br>
 		<br>
-		<h2 style="text-align:center;text-decoration:bold">게시글 작성</h2>
-		<br>
-<div class="cotainer" style="margin-bottom:50px">
-     <div class="row justify-content-center">
+		<h2 style="text-align:center;text-decoration:bold">주문내역</h2>
+		<h3 style="text-align:center;text-decoration:bold;margin-bottom:50px">${users.id}님의 주문내역입니다</h3>
+			<div class="container" style="margin-bottom:50px">
+     <div class="row justify-content-center" style="border-bottom : 2px solid black">
 	<div class="card">
 		<form action="" method="post">
-	<table class="table">
+	<table class="table-dark" class="table-bordered">
+		<thead>
+			<tr>
+				<th>이미지</th>
+				<th>상품번호</th>
+				<th>상품명</th>
+				<th>수량</th>
+				<th>주문날짜</th>
+				<th>배송상태</th>
+				<th>입금상태</th>
+			</tr>
+		</thead>
 		<tbody>
 			<tr>
-				<td>작성자</td>
-				<td>${%= name %}</td>
-				<!--DB에 있는 회원 이름이 표시되도록 ${}부분을 수정-->
-			</tr>
-			<tr>
-				<td>질문종류</td>
-				<td>
-					<select class="form-control" id="type" required>
-						<option>상품문의</option>
-						<option>배송문의</option>
-						<option>환불문의</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>제목</td>
-				<td><input type="text" id="boardtitle" name="boardtitle" class="form-control" placeholder="제목을 입력하세요" autofocus required></td>
-			</tr>
-			<tr>
-				<td>내용</td>
-				<td><textarea rows="10" cols="50" placeholder="내용을 입력하세요" class="form-control" required></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td>작성날짜</td>
-				<td><script>
-						let today = new Date();   // 현재 날짜를 표시함(특정한 포맷 없이)
-
-						let year = today.getFullYear(); // 년도
-						let month = today.getMonth()  // 월
-						let date = today.getDate();  // 날짜
-						todaydate = year + '-' + month + '-' + date // 년-월-일 형식으로 표현
-
-						document.write(todaydate)
-					</script></td>
-				<!-- 현재 날짜가 자동으로 표시되도록 바꿈-->
-			</tr>
-			<tr>
-				<td>파일 업로드</td>
-				<td><input type="file" id="fileup" name="fileup" class="form-control">
-				</td>
+				<td colspan = "3" rowspan = "4">${products.image}</td>
+				<td colspan = "3" rowspan = "4">${orders.p_id}</td>
+				<td colspan = "5" rowspan = "4">${products.name}</td>
+				<td colspan = "2" rowspan = "4">${.count}<br><input type="number" id="qty_input" class="form-control form-control-sm" value="1" min="1"><br><button type="button" value="수량변경" class="btn btn-primary btn-xs" onclick=""></button></td><!--추후 order 테이블에 수량 컬럼 등록되면 수정-->
+				<td colspan = "2" rowspan = "4">${order.createTime}</td>
+				<td colspan = "2" rowspan = "4">${order.status}</td>
+				<td colspan = "2" rowspan = "4"><!--만약 입금이 되어있으면 입금완료라고 뜨고, 입금이 안되어있으면 입금바람이라고 뜸--></td>
 			</tr>
 		</tbody>
 	</table>
-<div class="row justify-content-center" style="margin-bottom:50px">
-<input type="button" class="btn btn-primary" value="완료" onclick="" style="margin-right:10px">
-<input type="button" class="btn btn-primary" value="작성취소" onclick="location.href='history.back()'" style="margin-right:10px">
-<input type="reset" class="btn btn-primary" value="초기화">
+	<br>
+</form>
+</div>
+</div>
+</div>
+	<input type="button" class="btn btn-primary" value="마이페이지로" onclick="location.href='mypage'" style="margin-right:10px">
 </div>
 </form>
 </div>

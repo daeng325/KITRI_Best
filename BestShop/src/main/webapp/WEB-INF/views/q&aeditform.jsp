@@ -121,17 +121,7 @@
 			</tr>
 			<tr>
 				<td>작성날짜</td>
-				<td>
-					<script>
-						let today = new Date();   // 현재 날짜를 표시함(특정한 포맷 없이)
-
-						let year = today.getFullYear(); // 년도
-						let month = today.getMonth()  // 월
-						let date = today.getDate();  // 날짜
-
-						document.write(year + '-' + month + '-' + date) // 년-월-일 형식으로 표현
-					</script>
-				</td>
+				<td>${%= questions.createTime %}</td>
 				<!-- 현재 날짜가 자동으로 표시되도록 바꿈-->
 			</tr>
 			<tr>

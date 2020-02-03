@@ -96,12 +96,12 @@
 		<tbody>
 			<tr>
 				<td>작성자</td>
-				<td>${%= users.id %}</td>
+				<td>${reviews.u_id}</td>
 				<!--DB에 있는 회원 이름이 표시되도록 ${}부분을 수정-->
 			</tr>
 			<tr>
 				<td>제목</td>
-				<td><input type="text" id="boardtitle" name="boardtitle" class="form-control" value="${}" autofocus required></td>
+				<td><input type="text" id="boardtitle" name="boardtitle" class="form-control" value="${reviews.id}" autofocus required></td>
 				<!--제목에 해당하는 테이블 컬럼이 어떤것인지?-->
 			</tr>
 			<tr>
@@ -111,15 +111,7 @@
 			</tr>
 			<tr>
 				<td>작성날짜</td>
-				<td><script>
-						let today = new Date();   // 현재 날짜를 표시함(특정한 포맷 없이)
-
-						let year = today.getFullYear(); // 년도
-						let month = today.getMonth()  // 월
-						let date = today.getDate();  // 날짜
-
-						document.write(year + '-' + month + '-' + date) // 년-월-일 형식으로 표현
-					</script></td>
+				<td>${review.createTime}</td>
 				<!-- 현재 날짜가 자동으로 표시되도록 바꿈-->
 			</tr>
 			<tr>
@@ -130,7 +122,7 @@
 		</tbody>
 	</table>
 <div class="row justify-content-center" style="margin-bottom:50px">
-<input type="button" class="btn btn-primary" value="완료" onclick="" style="margin-right:10px">
+<input type="button" class="btn btn-primary" value="완료" onclick="alert('리뷰 수정이 완료되었습니다')" style="margin-right:10px">
 <input type="button" class="btn btn-primary" value="수정취소" onclick="location.href='history.back()'" style="margin-right:10px">
 </div>
 </form>
