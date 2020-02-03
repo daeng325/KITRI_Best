@@ -106,12 +106,12 @@
     <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 개인정보를 
         <br>수정할 수 있습니다.</p></a></td>
     <td></td>
-    <td><a href="orderedlist"><img src="cart.png" class="rounded" alt="주문내역" align="center" style="width:100px; height:100px"></a>
+    <td><a href="orderedlist"><img src="money.jpg" class="rounded" alt="주문내역" align="center" style="width:100px; height:100px"></a>
     <a href="orderedlist"><h4 class="card-title" style="text-align:center">주문내역</h4></a>
     <a href="orderedlist"><p class="card-text" style="text-align:center">회원님의 주문내역을 
         <br>확인할 수 있습니다.</p></a></td>
     <td></td>
-    <td><a href="baskets"><img src="money.jpg" class="rounded" alt="장바구니" style="width:100px; height:100px"></a>
+    <td><a href="baskets"><img src="cart.png" class="rounded" alt="장바구니" style="width:100px; height:100px"></a>
     <a href="baskets"><h4 class="card-title" style="text-align:center">장바구니</h4></a>
     <a href="baskets"><p class="card-text" style="text-align:center">회원님의 장바구니에 담긴 
         <br>상품을 확인할 수 있습니다.</p></a></td>
