@@ -190,24 +190,12 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                로그인
-                                </button>
-                                <br>
-                                <br>
-                                <a href="#" class="btn btn-link">
-                                아이디/비밀번호 찾기
-                                </a>
-                            </div>
+                            </form>
+                        </div>
                     </div>
-                    </form>
                 </div>
-            </div>
-        </div>
-    </div>
-    </div>
+                </div>
+                </div>
 </main>
         <footer style="background-color: #000000; color:#FFFFFF">
             <div class="container">
