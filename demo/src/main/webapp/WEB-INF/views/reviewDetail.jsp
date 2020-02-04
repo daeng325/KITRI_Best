@@ -66,29 +66,31 @@
 				</c:if>
 			</li>
       </ul>
-      <form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-success" type="submit">Search</button>
-      </form>
+		<form class="form-inline"
+			action="<% request.getContextPath(); %>/product/search" method="post">
+			<input class="form-control mr-sm-2" type="text" placeholder="Search"
+				name="search">
+			<button class="btn btn-success" type="submit">Search</button>
+		</form>
     </nav>
     <div class="container">
       <div class="logo">
-        <h1 class = "text-center"><a href="main">Beautycloset</a></h1>
+        <h1 class = "text-center"><a href="<% request.getContextPath(); %>/">Beautycloset</a></h1>
       </div>
     </div>
     <div class="container-fluid">
       <ul class="nav justify-content-center">
                 <li class="nav-item">
-          <a class="nav-link" href="top">Top</a>
+          <a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="bottom">Bottom</a>
+          <a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="bags">Bags & Shoes</a>
+          <a class="nav-link" href="<% request.getContextPath(); %>/bags">Bags & Shoes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="acce">Accesories</a>
+          <a class="nav-link" href="<% request.getContextPath(); %>/acce">Accesories</a>
         </li>
       </ul>
     </nav>
