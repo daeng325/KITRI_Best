@@ -51,6 +51,11 @@ label.star:before {
 }
 
 
+* a {
+      text-decoration: none;
+      color: black;           
+}
+
 .prcontent{
   text-align : center;
 }
