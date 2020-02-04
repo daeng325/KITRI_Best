@@ -54,7 +54,7 @@
          <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"> 
              <ul class="navbar-nav"> 
                  <li class="nav-item"> 
- 					<a class="nav-link" href="main">Home</a> 
+ 					<a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a> 
  				</li> 
  				<li class="nav-item"> 
  					<a class="nav-link" href="logout">Logout</a> 
@@ -108,7 +108,7 @@
                 <div class="card">
                     <div class="card-header" text-align=center>${member.ID } 회원 정보수정</div>
                     <div class="card-body">
-                        <form action="selfuseredit" method="post">
+                        <form action="edit" method="post">
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">이름</label>
                                 <div class="col-md-6">

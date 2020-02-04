@@ -1,9 +1,18 @@
 package com.example.demo.board.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.sql.Blob;
+import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import javax.sql.rowset.serial.SerialBlob;
+import javax.sql.rowset.serial.SerialException;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 import com.example.demo.board.domain.ProductVO;
 import com.example.demo.board.service.ProductService;
@@ -36,11 +46,19 @@ public class ProductController {
 
 		ProductVO product = new ProductVO();
 		MultipartFile image = request.getFile("image");
+		/*
+		String originalFile = image.getOriginalFilename();
+		String originalFileExtension = originalFile.substring(originalFile.lastIndexOf("."));
+		String storedFileName = UUID.randomUUID().toString().replaceAll("-", "") + originalFileExtension;
+		String filePath = "C:\\KITRIRepo\\KITRI_Best\\demo\\src\\main\\webapp\\WEB-INF\\resource\\";
+
+		File file = new File(filePath + storedFileName);
 		
-		System.out.println(image.getSize());
-		System.out.println(image.getOriginalFilename());
-		System.out.println(image.getContentType());
-		System.out.println(image.getBytes().length);
+		image.transferTo(file);
+		*/
+		
+		
+		
 		
 		product.setId(request.getParameter("id"));
 		product.setName(request.getParameter("name"));
@@ -118,4 +136,31 @@ public class ProductController {
 		return "redirect:/";
 	}
 	
+	// blob 출력
+	public Map blobSave(MultipartFile file) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		String fileName = file.getOriginalFilename();
+		System.out.println(fileName);
+		
+		byte[] bytes;
+		try {
+			bytes = file.getBytes();
+			
+			try {
+				Blob blob = new javax.sql.rowset.serial.SerialBlob(bytes);
+				param.put("file", blob);
+				param.put("file_name", fileName);
+				param.put("file_size",blob.length());
+				
+			} catch(SerialException e1) {
+				e1.printStackTrace();
+			}
+		}catch(SQLException e1) {
+			e1.printStackTrace();
+		}catch(IOException e2) {
+			e2.printStackTrace();
+		}
+		return param;
+	}
+
 }

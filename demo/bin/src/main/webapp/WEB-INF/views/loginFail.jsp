@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko" />
 <script>
@@ -50,14 +51,20 @@
 }
 </style>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-	<ul class="navbar-nav">
-		<li class="nav-item"><a class="nav-link" href="main">Home</a></li>
-		<li class="nav-item"><a class="nav-link" href="login">Login</a></li>
-		<li class="nav-item"><a class="nav-link" href="join">Join</a></li>
-		<li class="nav-item"><a class="nav-link" href="mypage">Mypage</a>
-		</li>
-	</ul>
-	<form class="form-inline" action="" method="post">
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a></li>
+			<li class="nav-item"><c:if test="${login eq null }">
+					<a class="nav-link" href="login">Login</a>
+				</c:if> <c:if test="${login ne null }">
+					<a class="nav-link" href="logout">Logout</a>
+				</c:if></li>
+			<li class="nav-item"><c:if test="${login eq null }">
+					<a class="nav-link" href="join">Join</a>
+				</c:if> <c:if test="${login ne null }">
+					<a class="nav-link" href="mypage">Mypage</a>
+				</c:if></li>
+		</ul>
+	<form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
 		<input class="form-control mr-sm-2" type="text" placeholder="Search">
 		<button class="btn btn-success" type="submit">Search</button>
 	</form>
@@ -101,7 +108,7 @@
 					<div class="card">
 						<div class="card-header">로그인</div>
 						<div class="card-body">
-							<form action="<%= request.getContextPath() %>/login"
+							<form action="<%= request.getContextPath() %>/user/login"
 								method="post">
 								<div class="form-group row">
 									<label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>

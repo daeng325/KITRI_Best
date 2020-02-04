@@ -7,8 +7,8 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- upload -->
 	<insert id="upload" parameterType="com.example.demo.board.domain.ReviewVO">
-		INSERT INTO REVIEWS (id, o_id, u_id, rev_price, rev_quality, rev_ship, rev_agv, content, image_1, image_2, image_3)
-		VALUES('${id}', '${o_id}', '${u_id}', ${rev_price}, ${rev_quality}, ${rev_ship}, ${rev_agv}, '${content}', '${image_1}', null, null);
+		INSERT INTO REVIEWS (id, o_id, u_id, rev_price, rev_quality, rev_ship, rev_agv, content, image_1, image_2, image_3, ext)
+		VALUES('${id}', '${o_id}', '${u_id}', ${rev_price}, ${rev_quality}, ${rev_ship}, ${rev_agv}, '${content}', '${image_1}', null, null,'${ext}');
 	</insert>
 	
 	<!-- READ() -->
@@ -45,5 +45,10 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="search" parameterType="String" resultType="com.example.demo.board.domain.ReviewVO">
 		SELECT * FROM REVIEWS WHERE 
 	</select>-->
-
+	
+	
+	<!-- image -->
+	<select id="imagePrint" parameterType="String" resultType="byte[]">
+		SELECT image_1 FROM REVIEWS WHERE id='${id}';
+	</select>
 </mapper>

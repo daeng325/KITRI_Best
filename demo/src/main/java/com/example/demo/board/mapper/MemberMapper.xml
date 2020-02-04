@@ -8,7 +8,7 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- join -->
 	<insert id = "join" parameterType="com.example.demo.board.domain.MemberVO">
 		INSERT 	INTO USERS(name, gender, age, phone, address, email , ID , pwd, likeit, agree, agree2)
-		VALUES('${name}', '${gender}', ${age}, '${phone}', '${address}', '${email}', '${ID}', '${pwd}', '${likeit}', ${agree}, '${agree2}')
+		VALUES('${name}', '${gender}', ${age}, '${phone}', '${address}', '${email}', '${ID}', '${pwd}', '${likeit}', '${agree}', '${agree2}')
 	</insert>
 
 	<!-- login -->

@@ -49,7 +49,7 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <ul class="navbar-nav">
                 <li class="nav-item">
-					<a class="nav-link" href="main">Home</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="logout">Logout</a>
@@ -97,7 +97,7 @@
 <span>
 <h1 class="text-center">Mypage</h1>
 <div class="card" style="width:300px; height:400px">
-<a href="selfuseredit"><img src="user.png" class="rounded" alt="개인정보관리" style="width:100px; height:100px"></a>
+<a href="user/selfuseredit"><img src="user.png" class="rounded" alt="개인정보관리" style="width:100px; height:100px"></a>
   <div class="card-body">
     <a href="selfuseredit"><h4 class="card-title" style="text-align:center">개인정보관리</h4></a>
     <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 개인정보를 

@@ -8,7 +8,7 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- join -->
 	<insert id = "join" parameterType="com.example.demo.board.domain.MemberVO">
 		INSERT 	INTO USERS(name, gender, age, phone, address, email , ID , pwd, likeit, agree, agree2)
-		VALUES(${name}, ${gender}, ${age}, ${phone}, ${address}, ${email}, ${ID}, ${pwd}, ${likeit}, ${agree}, ${agree2})
+		VALUES('${name}', '${gender}', ${age}, '${phone}', '${address}', '${email}', '${ID}', '${pwd}', '${likeit}', ${agree}, '${agree2}')
 	</insert>
 
 	<!-- login -->
@@ -18,7 +18,7 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
  
 	<!-- login -> session_id & session_limit(time) setting -->
 	<update id="keepLogin">
-		UPDATE USERS SET SESSIONKEY = ${sessionId}, SESSIONLIMIT=#{next} WHERE ID=${id}
+		UPDATE USERS SET SESSIONKEY = '${sessionId}', SESSIONLIMIT=#{next} WHERE ID='${id}'
 	</update>
 	
 	<!-- session_limit && sessionId member -->
@@ -29,22 +29,22 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- edit -->
 	<update id="selfuseredit" parameterType="com.example.demo.board.domain.MemberVO">
 		UPDATE 	USERS
-		SET		name = ${name},
+		SET		name = '${name}',
 				age = ${age},
-				phone =${phone},
-				address = ${address},
-				email = ${email},
-				pwd = ${pwd},
-				likeit = ${likeit},
-				agree = ${agree},
-				agree2 = ${agree2}
-		WHERE	ID = ${ID}
+				phone ='${phone}',
+				address = '${address}',
+				email = '${email}',
+				pwd = '${pwd}',
+				likeit = '${likeit}',
+				agree = '${agree}',
+				agree2 = '${agree2}'
+		WHERE	ID = '${ID}'
 	</update>
 	
 	<!-- withdrawal -->
 	<delete id="selfuserout" parameterType="String">
 		DELETE	FROM	USERS
-				WHERE	ID = ${id}
+				WHERE	ID = '${id}';
 	</delete>
 	
  </mapper>

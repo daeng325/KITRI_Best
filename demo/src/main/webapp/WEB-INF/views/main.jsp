@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -121,7 +121,7 @@
 				<div class="row">
 					<div class="col col-lg-6"
 						style="border: 1px solid black; text-align: left; font-family: 'ariel'">
-						Copyright &copy; 2020<br>KITRIħ�ش���20��츮����¯����<br>All
+						Copyright &copy; 2020<br>KITRI침해대응20기우리조가짱이조<br>All
 						rights reserved
 					</div>
 					<div class="col-md auto"

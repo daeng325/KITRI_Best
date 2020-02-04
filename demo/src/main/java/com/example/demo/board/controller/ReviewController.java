@@ -1,11 +1,18 @@
 package com.example.demo.board.controller;
 
 import java.io.IOException;
+import java.sql.Blob;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.sql.rowset.serial.SerialBlob;
+import javax.sql.rowset.serial.SerialException;
 
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,7 +47,7 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value="/complete", method=RequestMethod.POST)
-	public String viewUploadComplete(HttpSession session, MultipartHttpServletRequest request) throws Exception {
+	public String reviewUploadComplete(HttpSession session, MultipartHttpServletRequest request, Model model) throws Exception {
 		ReviewVO review = new ReviewVO();
 		
 		Object obj = session.getAttribute("login");
@@ -53,33 +60,76 @@ public class ReviewController {
 		review.setU_id(member.getID());
 		review.setContent(request.getParameter("content"));
 		review.setImage_1(image.getBytes());
-				
 		review.setRev_price(Double.parseDouble(request.getParameter("revprice")));
 		review.setRev_agv(Double.parseDouble(request.getParameter("revagv")));
 		review.setRev_quality(Double.parseDouble(request.getParameter("revquality")));
 		review.setRev_ship(Double.parseDouble(request.getParameter("revship")));
+		review.setExt(image.getOriginalFilename().substring(image.getOriginalFilename().lastIndexOf(".")+1));
 		
-				
 		reviewService.reviewInsert(review);
 			
 		return "redirect:/";
 	}
-	
-	
+		
 	// 리뷰 상세 보기
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
-	public ModelAndView reviewDetailPage(@RequestParam String id, Model model) throws Exception {
+	public String reviewDetailPage(@RequestParam String id, Model model) throws Exception {
+		model.addAttribute("review", reviewService.printDetailReview(id));		
+		try {			
+			byte[] encoded = org.apache.commons.codec.binary.Base64.encodeBase64(reviewService.printDetailReview(id).getImage_1());
 
+			String encodedString = new String(encoded);		
+			model.addAttribute("resultimage", encodedString);			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return "reviewDetail";
+		
+		/*
 		ModelAndView mov = new ModelAndView();
 		mov.setViewName("reviewDetail");
-		mov.addObject("reviews",reviewService.printDetailReview(id));		
+		mov.addObject("reviews",reviewService.imagePrint(id));	
 		return mov;
+		*/
+		
+
 		/*
 		ReviewVO review = reviewService.printDetailReview(id);
 		model.addAttribute("reviews",review);
 		
 		return "reviewDetail";
+
 		*/
+		
 	}
 	
+	@RequestMapping("/test")
+	public String test(@RequestParam("image") MultipartFile file) {
+		
+		Map<String,Object> param = new HashMap<String,Object>();
+		String fileName = file.getOriginalFilename();
+		byte[] bytes;
+		
+		try {
+			bytes = file.getBytes();
+			try {
+				Blob blob = new javax.sql.rowset.serial.SerialBlob(bytes);
+				param.put("file", blob);
+				param.put("file_name", fileName);
+				param.put("file_size", blob.length());
+				System.out.println(blob);
+			} catch(SerialException e1) {
+				e1.printStackTrace();
+			}catch(SQLException e2) {
+				e2.printStackTrace();
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+		
+		return "redirect:/";
+	}
 }

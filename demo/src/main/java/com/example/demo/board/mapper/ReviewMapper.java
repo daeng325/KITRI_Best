@@ -26,4 +26,6 @@ public interface ReviewMapper {
 	
 	// review detail
 	public ReviewVO printDetailReview(@Param("id") String id);
+	
+	public byte[] imagePrint(String id);
 }

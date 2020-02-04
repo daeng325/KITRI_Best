@@ -57,7 +57,6 @@ public class ProductPageController {
 	@RequestMapping(value = "/productDetail", method = RequestMethod.GET)
 	public ModelAndView productDetailPage(@RequestParam String id) throws Exception {
 		ModelAndView mov = new ModelAndView();
-		System.out.println(reviewService.readAllReview().size());
 		
 		mov.setViewName("productDetail");
 		mov.addObject("products",pService.findById(id));

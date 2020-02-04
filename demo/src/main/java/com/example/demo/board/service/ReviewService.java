@@ -41,4 +41,8 @@ public class ReviewService {
 	public ReviewVO printDetailReview(String id) {
 		return reviewMapper.printDetailReview(id);
 	}
+	
+	public byte[] imagePrint(String id) {
+		return reviewMapper.imagePrint(id);
+	}
 }

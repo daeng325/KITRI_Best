@@ -16,7 +16,14 @@ public class ReviewVO {
 	private byte[] image_2;
 	private byte[] image_3;
 	
+	private String ext;
 	
+	public String getExt() {
+		return ext;
+	}
+	public void setExt(String ext) {
+		this.ext = ext;
+	}
 	public String getId() {
 		return id;
 	}

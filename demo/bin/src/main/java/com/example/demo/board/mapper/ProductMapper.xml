@@ -10,8 +10,8 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 		parameterType="com.example.demo.board.domain.ProductVO">
 		INSERT INTO PRODUCTS(id, name, type, price, description,
 		image, status)
-		VALUES(${id}, ${name}, ${type}, ${price},
-		${description}, '${image}', ${status});
+		VALUES('${id}', '${name}', '${type}', ${price},
+		'${description}', '${image}', '${status}');
 	</insert>
 
 	<!-- search -->
@@ -23,20 +23,20 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- find by id -->
 	<select id="findById" parameterType="String"
 		resultType="com.example.demo.board.domain.ProductVO">
-		SELECT * FROM PRODUCTS WHERE id=${id};
+		SELECT * FROM PRODUCTS WHERE id='${id}';
 	</select>
 
 	<!-- delete -->
 	<delete id="delete" parameterType="String">
 		DELETE FROM PRODUCTS WHERE
-		id=${id};
+		id='${id}';
 	</delete>
 
 	<!-- update -->
 	<update id="update" parameterType="String">
 		UPDATE PRODUCTS SET name=
-		${name}, type= ${type}, price= ${price}, description= ${description},
-		image= '${image}', status= ${status} WHERE id= {$id};
+		'${name}', type= '${type}', price= ${price}, description= '${description}',
+		image= '${image}', status= ${status} WHERE id= '{$id}';
 	</update>
 	
 	<!-- find all -->
@@ -46,12 +46,12 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- find by type -->
 	<select id="printProductsByType" parameterType="String" resultType="com.example.demo.board.domain.ProductVO">
-		SELECT * FROM PRODUCTS WHERE type = ${type};
+		SELECT * FROM PRODUCTS WHERE type = '${type}';
 	</select>
 	
 	<!-- select product detail -->
 	<select id="printProductDetail" parameterType="String" resultType="com.example.demo.board.domain.ProductVO">
-		SELECT * FROM PRODUCTS WHERE id = ${id};
+		SELECT * FROM PRODUCTS WHERE id = '${id}';
 	</select>
 	
 </mapper>
