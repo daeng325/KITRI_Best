@@ -86,63 +86,38 @@
 		</div>
 		<br>
 		<br>
-		<h2 style="text-align:center;text-decoration:bold">리뷰 수정</h2>
+		<h2 style="text-align:center;text-decoration:bold">결제완료</h2>
 		<br>
-<div class="cotainer" style="margin-bottom:50px">
-     <div class="row justify-content-center">
-	<div class="card">
-		<form action="" method="post">
-	<table class="table">
-		<tbody>
-			<tr>
-				<td>작성자</td>
-				<td>${}</td>
-				<!--DB에 있는 회원 이름이 표시되도록 ${}부분을 수정-->
-			</tr>
-			<tr>
-				<td>제목</td>
-				<td><input type="text" id="boardtitle" name="boardtitle" class="form-control" value="${}" autofocus required></td>
-				<!--제목에 해당하는 테이블 컬럼이 어떤것인지?-->
-			</tr>
-			<tr>
-				<td>상품명</td>
-				<td><input type="text" id="reviewprodname" name="reviewprodname" class="form-control" value="${}" required></td>
-			</tr>
-			<tr>
-				<td>내용</td>
-				<td><textarea rows="10" cols="50" value="${}" class="form-control" required></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td>작성날짜</td>
-				<td>${}</td>
-				<!-- 현재 날짜가 자동으로 표시되도록 바꿈-->
-			</tr>
-			<tr>
-				<td>파일 업로드</td>
-				<td><input type="file" id="image_1" name="image_1" class="form-control">
-				</td>
-			</tr>
-		</tbody>
-	</table>
-<div class="row justify-content-center" style="margin-bottom:50px">
-<input type="button" class="btn btn-primary" value="완료" onclick="alert('리뷰 수정이 완료되었습니다')" style="margin-right:10px">
-<input type="button" class="btn btn-primary" value="수정취소" onclick="location.href='history.back()'" style="margin-right:10px">
-</div>
-</form>
-</div>
-</div>
-</div>
+		<br>
+		<main class="login-form">
+    	<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card" style="width:auto;margin-bottom:50px;margin-left:auto; margin-right:auto">
+                	<div class="card-header">
+                		<img src="ecommerce.jpg" alt="결제완료" style="width:500px;height:300px;">
+                	</div>
+                	<div class="card-body" style="text-align:center;width:500px;height:150px;margin-left:20px">
+                		회원님의 주문이 완료되었습니다.<br>
+                		<input type="button" class="btn btn-primary" value="메인으로" onclick="location.href='main'" style="margin-top:20px">
+                		<input type="button" class="btn btn-primary" value="주문내역보기" onclick="location.href='orderedlist'" style="margin-top:20px">
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 <footer style="background-color: #000000; color:#FFFFFF">
-			<div class="container">
-				<br>
-				<div class="row">
-					<div class="col col-lg-6" style="border:1px solid black; text-align: left; font-family:'ariel'">Copyright &copy; 2020<br>KITRI침해대응20기우리조가짱이조<br>All rights reserved</div>
-					<div class="col-md auto" style="border:1px solid black; text-align: left; font-family:'ariel'">Contact Us<br>tel : 010-4022-3241<br>e-mail : wsm91@naver.com</div>
-				</div>
-			</div>
-		</footer>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="./js/bootstrap.js"></script>
-	</body>
+            <div class="container">
+                <br>
+                <div class="row">
+                    <div class="col col-lg-6" style="border:1px solid black; text-align: left; font-family:'ariel'">Copyright &copy; 2020<br>KITRI침해대응20기우리조가짱이조<br>All rights reserved</div>
+                    <div class="col-md auto" style="border:1px solid black; text-align: left; font-family:'ariel'">Contact Us<br>tel : 010-4022-3241<br>e-mail : wsm91@naver.com</div>
+                </div>
+            </div>
+        </footer>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    </body>
 </html>
+

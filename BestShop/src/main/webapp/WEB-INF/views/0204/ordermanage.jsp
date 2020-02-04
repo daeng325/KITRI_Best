@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,6 +5,8 @@
         <meta name="viewport" content="width=device-width", initial-scale="1">
         <title>Beautycloset</title>
         <link rel="stylesheet" href="./css/bootstrap.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -43,7 +42,6 @@
                 color: black;
             }
 
-            img { display: block; margin: 0px auto;}
 
         </style>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
@@ -89,41 +87,36 @@
         </nav>
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
     <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         </div>
     </div>
 </nav>
-<h1 class="text-center" style="margin-bottom:50px">Mypage</h1>
-<table class="table-bordered" style="height:350px;margin-left:auto;margin-right:auto">
-<tbody>
-<tr>
-    <td><a href="selfuseredit"><img src="user.png" class="rounded" alt="개인정보관리" style="width:100px; height:100px"></a>
-    <a href="selfuseredit"><h4 class="card-title" style="text-align:center">개인정보관리</h4></a>
-    <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 개인정보를 
-        <br>수정할 수 있습니다.</p></a></td>
-    <td></td>
-    <td><a href="selforderinfo"><img src="cart.png" class="rounded" alt="주문내역" align="center" style="width:100px; height:100px"></a>
-    <a href="selfuseredit"><h4 class="card-title" style="text-align:center">주문내역</h4></a>
-    <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 주문내역을 
-        <br>확인할 수 있습니다.</p></a></td>
-    <td></td>
-    <td><a href="selfuserbasket"><img src="money.jpg" class="rounded" alt="장바구니" style="width:100px; height:100px"></a>
-    <a href="selfuseredit"><h4 class="card-title" style="text-align:center">장바구니</h4></a>
-    <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 장바구니에 담긴 
-        <br>상품을 확인할 수 있습니다.</p></a></td>
-    <td></td>
-    <td><a href="selfuserout"><img src="delete.png" class="rounded" alt="회원탈퇴" style="width:100px; height:100px"></a>
-    <a href="selfuseredit"><h4 class="card-title" style="text-align:center">회원탈퇴</h4></a>
-    <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 탈퇴 및 개인정보 
-        <br>삭제를 진행할 수 있습니다.</p></a></td>
-</tr>
-</tbody>
-</table>
-</div>
+<br>
+<main class="login-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header" text-align=center>주문정보관리</div>
+                    <div class="card-body">
+                        <div class="col-md-6 offset-md-4">
+                            <form class="form-inline" action="" method="post">
+                                <span class="glyphicon glyphicon-search" style="margin-right:5px"></span>
+                                <input class="form-control mr-sm-2" type="text" placeholder="회원이름이나 아이디, 또는 주문번호를 검색하세요" autofocus>
+                                <button class="btn btn-success" type="submit">Search</button>
+                            </form>
+                            <br>
+                            <form class="form-inline" action="" method="post">
+                            <span><button type="submit" class="btn btn-primary" value="delete">삭제</button></span>
+                            <br>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 <footer style="background-color: #000000; color:#FFFFFF">
             <div class="container" style="margin-top:100px">
                 <br>

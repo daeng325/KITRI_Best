@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-  pageEncoding="utf-8">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib uri="http://java.sun.com/jstl/core-rt" prefix="c-rt" %>
-<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt-rt" %>
+  pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="c-rt" uri="http://java.sun.com/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt-rt"%>
 
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,7 @@
   <body>
     <style type="text/css">
       .jumbotron{
-        background-image: url('flower.jpg');
+        background-image: url('./jpg/flower.jpg');
         background-size: cover;
         text-shadow: black 0.2px 0.2px 0.2px;
         color: blue;
@@ -92,7 +92,7 @@
     </nav>
     <div class="row">
     <div class="col-md-7">
-        <img class="img1-1" src="1.jpg" alt="코튼티셔츠">
+        <img class="img1-1" src="./jpg/1.jpg" alt="코튼티셔츠">
       </div>
       <div class="col-md-4" style="margin-top:40px">
         <div class="card">
@@ -104,9 +104,11 @@
                         <div class="col-sm-12 col-sm-offset-5">
                             <div class="input-group mb-5">
                                 수량 : <div class="input-group-prepend">
+                                    <button class="btn btn-dark btn-sm" id="minus-btn"><i class="fa fa-minus"></i></button>
                                 </div>
                                 <input type="number" id="qty_input" class="form-control form-control-sm" value="1" min="1">
                                 <div class="input-group-prepend">
+                                    <button class="btn btn-dark btn-sm" id="plus-btn"><i class="fa fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +146,7 @@
       <tr>
         <th>이름</th>
         <th>상품명</th>
-        <th>내용</th>
+        <th>제목</th>
         <th>작성시간</th>
         <th>수정시간</th>
       </tr>
@@ -169,13 +171,13 @@
           현재 와인, 블루, 그린, 차콜 4가지 옵션이 있어요.<br>
           지금 빨리 주문하세요^^
           <br>
-        <div class="cotton1" align="center"><img src="21.jpg" alt="파란색"></div>
+        <div class="cotton1" align="center"><img src="./jpg/21.jpg" alt="파란색"></div>
         <div class="productn1" align="center">블루</div>
         <br>
-        <div class="cotton2" align="center"><img src="22.jpg" alt="초록색"></div>
+        <div class="cotton2" align="center"><img src="./jpg/22.jpg" alt="초록색"></div>
         <div class="productn2" align="center">그린</div>
         <br>
-        <div class="cotton3" align="center"><img src="23.jpg" alt="차콜"></div>
+        <div class="cotton3" align="center"><img src="./jpg/23.jpg" alt="차콜"></div>
         <div class="productn3" align="center">차콜</div>
         <br>
   </div>
@@ -189,7 +191,7 @@
       <tr>
         <th>이름</th>
         <th>상품명</th>
-        <th>내용</th>
+        <th>제목</th>
         <th>작성시간</th>
         <th>수정시간</th>
       </tr>

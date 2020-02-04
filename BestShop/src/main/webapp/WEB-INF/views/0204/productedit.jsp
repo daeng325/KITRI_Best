@@ -1,11 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib prefix="c-rt" uri="http://java.sun.com/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt-rt"%>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -86,7 +78,7 @@
 		</div>
 		<br>
 		<br>
-		<h2 style="text-align:center;text-decoration:bold">리뷰 수정</h2>
+		<h2 style="text-align:center;text-decoration:bold">상품 정보 수정</h2>
 		<br>
 <div class="cotainer" style="margin-bottom:50px">
      <div class="row justify-content-center">
@@ -95,39 +87,58 @@
 	<table class="table">
 		<tbody>
 			<tr>
-				<td>작성자</td>
+				<td>관리자</td>
 				<td>${}</td>
 				<!--DB에 있는 회원 이름이 표시되도록 ${}부분을 수정-->
 			</tr>
 			<tr>
-				<td>제목</td>
-				<td><input type="text" id="boardtitle" name="boardtitle" class="form-control" value="${}" autofocus required></td>
-				<!--제목에 해당하는 테이블 컬럼이 어떤것인지?-->
+				<td>상품번호/아이디</td>
+				<td><input type="text" id="product_id" name="product_id" class="form-control" placeholder="상품번호 입력" value="${}" autofocus required></td>
 			</tr>
 			<tr>
-				<td>상품명</td>
-				<td><input type="text" id="reviewprodname" name="reviewprodname" class="form-control" value="${}" required></td>
-			</tr>
-			<tr>
-				<td>내용</td>
-				<td><textarea rows="10" cols="50" value="${}" class="form-control" required></textarea>
+				<td>종류</td>
+				<td>
+					<select class="form-control" id="type" required>
+						<option>Top</option>
+						<option>Bottom</option>
+						<option>Bag</option>
+						<option>Shoes</option>
+						<option>Accesories</option>
+					</select>
 				</td>
 			</tr>
 			<tr>
-				<td>작성날짜</td>
-				<td>${}</td>
+				<td>가격</td>
+				<td><input type="number" id="price" name="price" class="form-control" placeholder="상품가격 입력" value="${}" required></td>
+			</tr>
+			<tr>
+				<td>설명</td>
+				<td><textarea rows="10" cols="50" placeholder="상품 상세정보 입력" class="form-control" required value="${}"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>상품이미지</td>
+				<td><input type="file" id="fileup" name="fileup" class="form-control">
+				</td>
+			</tr>
+			<tr>
+				<td>생성날짜</td>
+				<td><script>
+						let today = new Date();   // 현재 날짜를 표시함(특정한 포맷 없이)
+
+						let year = today.getFullYear(); // 년도
+						let month = today.getMonth()  // 월
+						let date = today.getDate();  // 날짜
+
+						document.write(year + '-' + month + '-' + date) // 년-월-일 형식으로 표현
+					</script></td>
 				<!-- 현재 날짜가 자동으로 표시되도록 바꿈-->
-			</tr>
-			<tr>
-				<td>파일 업로드</td>
-				<td><input type="file" id="image_1" name="image_1" class="form-control">
-				</td>
 			</tr>
 		</tbody>
 	</table>
 <div class="row justify-content-center" style="margin-bottom:50px">
-<input type="button" class="btn btn-primary" value="완료" onclick="alert('리뷰 수정이 완료되었습니다')" style="margin-right:10px">
-<input type="button" class="btn btn-primary" value="수정취소" onclick="location.href='history.back()'" style="margin-right:10px">
+<input type="button" class="btn btn-primary" value="완료" onclick="" style="margin-right:10px">
+<input type="button" class="btn btn-primary" value="취소" onclick="location.href='history.back()'" style="margin-right:10px">
 </div>
 </form>
 </div>

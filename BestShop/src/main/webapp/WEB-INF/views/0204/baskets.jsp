@@ -5,7 +5,6 @@
 <%@ taglib prefix="c-rt" uri="http://java.sun.com/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt-rt"%>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -86,48 +85,35 @@
 		</div>
 		<br>
 		<br>
-		<h2 style="text-align:center;text-decoration:bold">리뷰 수정</h2>
-		<br>
-<div class="cotainer" style="margin-bottom:50px">
+		<h2 style="text-align:center;text-decoration:bold;margin-bottom:50px">장바구니</h2>
+			<div class="cotainer" style="margin-bottom:50px">
      <div class="row justify-content-center">
 	<div class="card">
 		<form action="" method="post">
-	<table class="table">
+	<table class="table-dark" class="table-bordered">
+		<thead>
+			<tr>
+				<th>이미지</th>
+				<th>상품번호</th>
+				<th>상품명</th>
+				<th>수량</th>
+				<th>날짜</th>
+			</tr>
+		</thead>
 		<tbody>
 			<tr>
-				<td>작성자</td>
 				<td>${}</td>
-				<!--DB에 있는 회원 이름이 표시되도록 ${}부분을 수정-->
-			</tr>
-			<tr>
-				<td>제목</td>
-				<td><input type="text" id="boardtitle" name="boardtitle" class="form-control" value="${}" autofocus required></td>
-				<!--제목에 해당하는 테이블 컬럼이 어떤것인지?-->
-			</tr>
-			<tr>
-				<td>상품명</td>
-				<td><input type="text" id="reviewprodname" name="reviewprodname" class="form-control" value="${}" required></td>
-			</tr>
-			<tr>
-				<td>내용</td>
-				<td><textarea rows="10" cols="50" value="${}" class="form-control" required></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td>작성날짜</td>
 				<td>${}</td>
-				<!-- 현재 날짜가 자동으로 표시되도록 바꿈-->
-			</tr>
-			<tr>
-				<td>파일 업로드</td>
-				<td><input type="file" id="image_1" name="image_1" class="form-control">
-				</td>
+				<td>${}</td>
+				<td>${}<br><input type="number" id="qty_input" class="form-control form-control-sm" value="1" min="1"><br><button type="button" value="수량변경" class="btn btn-primary btn-xs" onclick=""></td>
+				<!-- 혹시 나중에 max 값을 정해놓지 않아서 오버플로우가 발생하는 시뮬을 돌려볼 수 있으므로 일부러 추가안함-->
+				<td>${orders.createTime}</td>
 			</tr>
 		</tbody>
 	</table>
-<div class="row justify-content-center" style="margin-bottom:50px">
-<input type="button" class="btn btn-primary" value="완료" onclick="alert('리뷰 수정이 완료되었습니다')" style="margin-right:10px">
-<input type="button" class="btn btn-primary" value="수정취소" onclick="location.href='history.back()'" style="margin-right:10px">
+		<br>
+	<input type="button" class="btn btn-primary" value="주문하기" onclick="location.href='order'" style="margin-left:160px; margin-right:10px">
+	<input type="button" class="btn btn-primary" value="계속 쇼핑하기" onclick="location.href='main'" style="margin-right:10px">
 </div>
 </form>
 </div>

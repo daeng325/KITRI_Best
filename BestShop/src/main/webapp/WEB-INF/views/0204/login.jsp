@@ -1,7 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="c-rt" uri="http://java.sun.com/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt-rt"%>
 <!DOCTYPE html>
+
+<script>
+function login_button() {
+	alert("login 완료");
+}
+</script>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -43,8 +54,6 @@
                 color: black;
             }
 
-            img { display: block; margin: 0px auto;}
-
         </style>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <ul class="navbar-nav">
@@ -72,7 +81,7 @@
             </div>
         </div>
         <div class="container-fluid">
-           <ul class="nav justify-content-center">
+            <ul class="nav justify-content-center">
                 <li class="nav-item">
 					<a class="nav-link" href="top">Top</a>
 				</li>
@@ -97,35 +106,57 @@
         </div>
     </div>
 </nav>
-<h1 class="text-center" style="margin-bottom:50px">Mypage</h1>
-<table class="table-bordered" style="height:350px;margin-left:auto;margin-right:auto">
-<tbody>
-<tr>
-    <td><a href="selfuseredit"><img src="user.png" class="rounded" alt="개인정보관리" style="width:100px; height:100px"></a>
-    <a href="selfuseredit"><h4 class="card-title" style="text-align:center">개인정보관리</h4></a>
-    <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 개인정보를 
-        <br>수정할 수 있습니다.</p></a></td>
-    <td></td>
-    <td><a href="orderedlist"><img src="money.jpg" class="rounded" alt="주문내역" align="center" style="width:100px; height:100px"></a>
-    <a href="orderedlist"><h4 class="card-title" style="text-align:center">주문내역</h4></a>
-    <a href="orderedlist"><p class="card-text" style="text-align:center">회원님의 주문내역을 
-        <br>확인할 수 있습니다.</p></a></td>
-    <td></td>
-    <td><a href="baskets"><img src="cart.png" class="rounded" alt="장바구니" style="width:100px; height:100px"></a>
-    <a href="baskets"><h4 class="card-title" style="text-align:center">장바구니</h4></a>
-    <a href="baskets"><p class="card-text" style="text-align:center">회원님의 장바구니에 담긴 
-        <br>상품을 확인할 수 있습니다.</p></a></td>
-    <td></td>
-    <td><a href=""><img src="delete.png" class="rounded" alt="회원탈퇴" style="width:100px; height:100px"></a>
-    <a href=""><h4 class="card-title" style="text-align:center">회원탈퇴</h4></a>
-    <a href=""><p class="card-text" style="text-align:center">회원님의 탈퇴 및 개인정보 
-        <br>삭제를 진행할 수 있습니다.</p></a></td>
-</tr>
-</tbody>
-</table>
-</div>
-<footer style="background-color: #000000; color:#FFFFFF">
-            <div class="container" style="margin-top:100px">
+<br>
+<main class="login-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">로그인</div>
+                    <div class="card-body">
+                        <form action="<%= request.getContextPath() %>/" method="post">
+                            <div class="form-group row">
+                                <label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="ID" class="form-control" name="ID" required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">패스워드</label>
+                                <div class="col-md-6">
+                                    <input type="password" id="pwd" class="form-control" name="pwd" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="remember" value="" onclick=""> 로그인 상태 유지
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary" onclick="">
+                                    	로그인
+                                </button>
+                                <a href="idpassfind" class="btn btn-link">
+                                  	          아이디/비밀번호 찾기
+                                </a>
+                            </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+        <footer style="background-color: #000000; color:#FFFFFF">
+            <div class="container">
                 <br>
                 <div class="row">
                     <div class="col col-lg-6" style="border:1px solid black; text-align: left; font-family:'ariel'">Copyright &copy; 2020<br>KITRI침해대응20기우리조가짱이조<br>All rights reserved</div>
