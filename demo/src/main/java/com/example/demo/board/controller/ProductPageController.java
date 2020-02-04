@@ -26,29 +26,29 @@ public class ProductPageController {
 	
 	@RequestMapping(value = "/top")
 	public String topPageLoad(Model model) throws Exception {
-		List<ProductVO> products = pService.printProductsByType("\"top\"");				
+		List<ProductVO> products = pService.printProductsByType("top");				
 		model.addAttribute("products", products);		
 		return "top";
 	}
 
 	@RequestMapping(value = "/bottom")
 	public String bottomPageLoad(Model model) throws Exception {
-		List<ProductVO> products = pService.printProductsByType("\"bottom\"");				
+		List<ProductVO> products = pService.printProductsByType("bottom");				
 		model.addAttribute("products", products);		
 		return "bottom";
 	}
 
 	@RequestMapping(value = "/bags")
 	public String bag_shoesPageLoad(Model model) throws Exception {
-		List<ProductVO> products = pService.printProductsByType("\"bag\"");
-		products.addAll(pService.printProductsByType("\"shoes\""));
+		List<ProductVO> products = pService.printProductsByType("bag");
+		products.addAll(pService.printProductsByType("shoes"));
 		model.addAttribute("products", products);		
 		return "bags";
 	}	
 	
 	@RequestMapping(value = "/acce")
 	public String AccesoriesPageLoad(Model model) throws Exception {
-		List<ProductVO> products = pService.printProductsByType("\"Accesorie\"");				
+		List<ProductVO> products = pService.printProductsByType("Accesorie");				
 		model.addAttribute("products", products);		
 		return "acce";
 	}	
@@ -60,7 +60,7 @@ public class ProductPageController {
 		System.out.println(reviewService.readAllReview().size());
 		
 		mov.setViewName("productDetail");
-		mov.addObject("products",pService.findById("\'"+id+"\'"));
+		mov.addObject("products",pService.findById(id));
 		mov.addObject("reviews",reviewService.readAllReview());
 		
 		return mov;

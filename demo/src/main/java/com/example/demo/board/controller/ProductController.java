@@ -42,16 +42,16 @@ public class ProductController {
 		System.out.println(image.getContentType());
 		System.out.println(image.getBytes().length);
 		
-		product.setId("\'"+request.getParameter("id")+"\'");
-		product.setName("\'"+request.getParameter("name")+"\'");
-		product.setType("\'"+request.getParameter("type")+"\'");
+		product.setId(request.getParameter("id"));
+		product.setName(request.getParameter("name"));
+		product.setType(request.getParameter("type"));
 		product.setPrice(Integer.parseInt(request.getParameter("price")));
-		product.setDescription("\'"+request.getParameter("description")+"\'");
+		product.setDescription(request.getParameter("description"));
 		product.setImage(image.getBytes());
 		
 		System.out.println(image.getBytes());
 		
-		product.setStatus("\'"+request.getParameter("status")+"\'");
+		product.setStatus(request.getParameter("status"));
 		//proRepo.save(product);
 		
 		System.out.println(product.getImage());
@@ -104,13 +104,13 @@ public class ProductController {
 		System.out.println(image.getContentType());
 		System.out.println(image.getBytes().length);
 		
-		product.setId("\'"+request.getParameter("id")+"\'");
-		product.setName("\'"+request.getParameter("name")+"\'");
-		product.setType("\'"+request.getParameter("type")+"\'");
+		product.setId(request.getParameter("id"));
+		product.setName(request.getParameter("name"));
+		product.setType(request.getParameter("type"));
 		product.setPrice(Integer.parseInt(request.getParameter("price")));
-		product.setDescription("\'"+request.getParameter("description")+"\'");
+		product.setDescription(request.getParameter("description"));
 		product.setImage(image.getBytes());
-		product.setStatus("\'"+request.getParameter("status")+"\'");
+		product.setStatus(request.getParameter("status"));
 		
 		pService.updateProduct(product);
 		model.addAttribute("msg", "product update complete");

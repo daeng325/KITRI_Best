@@ -56,10 +56,10 @@
 					</c:if>
 				</li>
 			</ul>
-			<form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
-				<input class="form-control mr-sm-2" type="text" placeholder="Search">
-				<button class="btn btn-success" type="submit">Search</button>
-			</form>
+		<form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
+			<input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
+			<button class="btn btn-success" type="submit">Search</button>
+		</form>
 		</nav>
 		<div class="container">
 			<div class="logo">

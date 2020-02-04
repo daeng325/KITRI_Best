@@ -47,22 +47,22 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <ul class="navbar-nav">
       		<li class="nav-item">
-				<a class="nav-link" href="main">Home</a>
+				<a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a>
 			</li>
 			<li class="nav-item">
 				<c:if test = "${login eq null }">
-					<a class="nav-link" href="user/login">Login</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/login">Login</a>
 				</c:if>
 				<c:if test = "${login ne null }">			
-					<a class="nav-link" href="user/logout">Logout</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/logout">Logout</a>
 				</c:if>					
 			</li>
 			<li class="nav-item">
 				<c:if test = "${login eq null }">
-					<a class="nav-link" href="user/join">Join</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/join">Join</a>
 				</c:if>
 				<c:if test = "${login ne null }">
-					<a class="nav-link" href="user/mypage">Mypage</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/mypage">Mypage</a>
 				</c:if>
 			</li>
       </ul>

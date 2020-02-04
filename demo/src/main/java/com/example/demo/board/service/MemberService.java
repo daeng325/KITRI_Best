@@ -23,7 +23,7 @@ public class MemberService {
 	@Resource(name="com.example.demo.board.mapper.MemberMapper")
 	MemberMapper memberMapper;
 	
-    public int memberInsertService(MemberVO member) throws Exception{
+    public int join(MemberVO member) throws Exception{
         return memberMapper.join(member);
         }
 	

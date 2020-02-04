@@ -36,20 +36,20 @@ public class MemberController {
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	private String joinComplete(HttpServletRequest request) throws Exception {
 		MemberVO member = new MemberVO();
-		member.setID("\'" + request.getParameter("ID") + "\'");
-		member.setPwd("\'" + request.getParameter("pwd") + "\'");
-		member.setAddress("\'" + request.getParameter("address") + "\'");
+		member.setID(request.getParameter("ID"));
+		member.setPwd(request.getParameter("pwd"));
+		member.setAddress(request.getParameter("address"));
 		member.setAge(request.getParameter("age"));
-		member.setAgree("\'" + request.getParameter("agree") + "\'");
-		member.setAgree2("\'" + request.getParameter("agree2") + "\'");
+		member.setAgree(request.getParameter("agree"));
+		member.setAgree2(request.getParameter("agree2"));
 
-		member.setEmail("\'" + request.getParameter("email") + "\'");
-		member.setGender("\'" + request.getParameter("gender") + "\'");
-		member.setLikeit("\'" + request.getParameter("likeit") + "\'");
-		member.setName("\'" + request.getParameter("name") + "\'");
-		member.setPhone("\'" + request.getParameter("phone") + "\'");
+		member.setEmail(request.getParameter("email"));
+		member.setGender(request.getParameter("gender"));
+		member.setLikeit(request.getParameter("likeit"));
+		member.setName(request.getParameter("name"));
+		member.setPhone(request.getParameter("phone") );
 
-		mService.memberInsertService(member);
+		mService.join(member);
 
 		return "redirect:/";
 	}
@@ -101,8 +101,8 @@ public class MemberController {
 				System.out.println(sessionLimit);
 
 				// 현재 세션 id와 유효시간을 사용자 테이블에 저장
-				String memId = "\'" + mem.getID() + "\'";
-				String sessionId = "\'" + session.getId() + "\'";
+				String memId = mem.getID();
+				String sessionId = session.getId();
 				mService.keepLogin(memId, sessionId, sessionLimit);
 			}
 			return "redirect:/";
@@ -153,17 +153,17 @@ public class MemberController {
 		Object obj = session.getAttribute("login");
 		MemberVO member = (MemberVO) obj;
 
-		member.setAddress("\'" + request.getParameter("address") + "\'");
+		member.setAddress(request.getParameter("address"));
 		member.setAge(request.getParameter("age"));
-		member.setAgree("\'" + request.getParameter("agree") + "\'");
-		member.setAgree2("\'" + request.getParameter("agree2") + "\'");
-		member.setEmail("\'" + request.getParameter("email") + "\'");
-		member.setLikeit("\'" + request.getParameter("likeit") + "\'");
-		member.setName("\'" + request.getParameter("name") + "\'");
-		member.setPhone("\'" + request.getParameter("phone") + "\'");
-		member.setPwd("\'" + request.getParameter("password") + "\'");
-		member.setID("\'" + member.getID() + "\'");
-		member.setGender("\'" + member.getGender() + "\'");
+		member.setAgree(request.getParameter("agree"));
+		member.setAgree2(request.getParameter("agree2"));
+		member.setEmail(request.getParameter("email"));
+		member.setLikeit(request.getParameter("likeit"));
+		member.setName(request.getParameter("name"));
+		member.setPhone(request.getParameter("phone"));
+		member.setPwd(request.getParameter("password"));
+		member.setID(member.getID());
+		member.setGender(member.getGender());
 
 		mService.selfuseredit(member);
 

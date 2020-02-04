@@ -48,10 +48,10 @@ public class ReviewController {
 
 		MultipartFile image = request.getFile("image");
 		
-		review.setId("\'"+request.getParameter("boardtitle")+"\'");
-		review.setO_id("\'order01\'");
-		review.setU_id("\'" + member.getID() + "\'");
-		review.setContent("\'" +request.getParameter("content") + "\'");
+		review.setId(request.getParameter("boardtitle"));
+		review.setO_id("order01");
+		review.setU_id(member.getID());
+		review.setContent(request.getParameter("content"));
 		review.setImage_1(image.getBytes());
 				
 		review.setRev_price(Double.parseDouble(request.getParameter("revprice")));
@@ -59,16 +59,6 @@ public class ReviewController {
 		review.setRev_quality(Double.parseDouble(request.getParameter("revquality")));
 		review.setRev_ship(Double.parseDouble(request.getParameter("revship")));
 		
-		System.out.println(review.getId());
-		System.out.println(review.getO_id());
-		System.out.println(review.getU_id());
-		System.out.println(review.getContent());
-		System.out.println(review.getImage_1());
-		
-		System.out.println(review.getRev_agv());
-		System.out.println(review.getRev_price());
-		System.out.println(review.getRev_quality());
-		System.out.println(review.getRev_ship());
 				
 		reviewService.reviewInsert(review);
 			
@@ -78,7 +68,7 @@ public class ReviewController {
 	
 	// 리뷰 상세 보기
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
-	public ModelAndView productDetailPage(@RequestParam String id, Model model) throws Exception {
+	public ModelAndView reviewDetailPage(@RequestParam String id, Model model) throws Exception {
 
 		ModelAndView mov = new ModelAndView();
 		mov.setViewName("reviewDetail");

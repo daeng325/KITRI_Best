@@ -99,7 +99,7 @@
      <div class="row justify-content-center">
 	<div class="card">
 	
-	<form action="review/complete" method="post" enctype="multipart/form-data">
+	<form action="complete" method="post" enctype="multipart/form-data">
 			<table class="table">
 				<tbody>
 					<tr>
