@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kitri.shop.db.dto.Product;
-import com.kitri.shop.repository.ProductRepository;
+import com.kitri.shop.db.repository.ProductRepository;
 import com.kitri.shop.response.ApiResponseMessage;
 
 @Controller
@@ -28,7 +28,7 @@ public class ProductController {
 
 	// 상품 등록
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-	public String uploadProduct(@RequestParam("id") String id, @RequestParam("name") String name,
+	public String uploadProduct(@RequestParam("id") Long id, @RequestParam("name") String name,
 			@RequestParam("type") String type, @RequestParam("price") int price,
 			@RequestParam("description") String description, @RequestParam("image") MultipartFile file,
 			@RequestParam("status") String status) throws Exception {
@@ -54,23 +54,18 @@ public class ProductController {
 	
 	// 상품 검색
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public ModelAndView searchProduct(@RequestParam("search") String search_name, ModelAndView mav) {
+	public String searchProduct(@RequestParam("search") String search_name, RedirectAttributes redirect) throws Exception{
+		
 		List<Product> products = proRepo.findByName(search_name);
-		mav.setViewName("searched_products");
-		mav.addObject("products", products);
-		return mav;
-	}
-	
-	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String searchedProduct() {
+		redirect.addFlashAttribute("product", products);
 		return "redirect:/";
 	}
 
 	// 상품 삭제
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public @ResponseBody ApiResponseMessage deleteProduct(@ModelAttribute @Valid Product product, Model model) {
-		if (proRepo.existsById(product.getId())) {
-			proRepo.deleteById(product.getId());
+		if (proRepo.existsById(product.getId().toString())) {
+			proRepo.deleteById(product.getId().toString());
 			System.out.println("delete");
 			return new ApiResponseMessage("200", "delete");
 		}
@@ -80,13 +75,12 @@ public class ProductController {
 	}
 
 	// 상품 수정
-	// 상품 상세 페이지 -> 수정 버튼 -> 클릭 -> 상품정보를 POST로 보내주기
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String updateProduct(@RequestParam("id") String id, @RequestParam("name") String name,
+	public String updateProduct(@RequestParam("id") Long id, @RequestParam("name") String name,
 			@RequestParam("type") String type, @RequestParam("price") int price,
 			@RequestParam("description") String description, @RequestParam("image") MultipartFile file,
 			@RequestParam("status") String status, Model model) throws Exception {
-		if (proRepo.existsById(id)) {
+		if (proRepo.existsById(id.toString())) {
 			Product product = new Product(id, name, type, price, description, file.getBytes(), status);
 			proRepo.save(product);
 			ApiResponseMessage result = new ApiResponseMessage("200", "update");

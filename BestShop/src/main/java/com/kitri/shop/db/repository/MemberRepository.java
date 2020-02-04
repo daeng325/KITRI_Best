@@ -1,4 +1,4 @@
-package com.kitri.shop.repository;
+package com.kitri.shop.db.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
