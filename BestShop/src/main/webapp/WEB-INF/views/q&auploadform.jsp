@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="c-rt"uri="http://java.sun.com/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt-rt" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,6 +13,10 @@
 		<meta name="viewport" content="width=device-width", initial-scale="1">
 		<title>Beautycloset</title>
 		<link rel="stylesheet" href="./css/bootstrap.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<style type="text/css">
@@ -77,39 +86,64 @@
 				<li class="nav-item">
 					<a class="nav-link" href="acce">Accesories</a>
 				</li>
-
 			</ul>
-		</nav>
-		<br>
-		<br>
-		<h1 class="text-center">Top</h1>
-		<div class="container-fluid">
-				<ul class="nav justify-content-end">
-				<li class="nav-item">
-					<a class="nav-link" href="">신상품순</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="">낮은가격순</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="">높은가격순</a>
-				</li>
-				</ul>
 		</div>
 		<br>
 		<br>
-		<div class="row" align=center>
-				<c:forEach var="item" items="${products}">
-				<div class="col-md-3">
-					<a href="productDetail?id=${item.id }"><img class="img1" src="${ item.image }"
-						alt="${ item.name }"><a href="productDetail?id=${item.id }"><p>${ item.name }</p>
-						<p>${ item.price }</p>
-						</a>
-					</a>
-				</div>
-				</c:forEach>
-		</div>
-		<footer style="background-color: #000000; color:#FFFFFF">
+		<h2 style="text-align:center;text-decoration:bold">게시글 작성</h2>
+		<br>
+<div class="cotainer" style="margin-bottom:50px">
+     <div class="row justify-content-center">
+	<div class="card">
+		<form action="" method="post">
+	<table class="table">
+		<tbody>
+			<tr>
+				<td>작성자</td>
+				<td>&nbsp;${ name }</td>
+				<!--DB에 있는 회원 이름이 표시되도록 ${}부분을 수정-->
+			</tr>
+			<tr>
+				<td>질문종류</td>
+				<td>
+					<select class="form-control" id="type" required>
+						<option>상품문의</option>
+						<option>배송문의</option>
+						<option>환불문의</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>제목</td>
+				<td><input type="text" id="boardtitle" name="boardtitle" class="form-control" placeholder="제목을 입력하세요" autofocus required></td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td><textarea rows="10" cols="50" placeholder="내용을 입력하세요" class="form-control" required></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>작성날짜</td>
+				<%-- <td><%= nowDate %></td> --%>
+				<!-- 현재 날짜가 자동으로 표시되도록 바꿈-->
+			</tr>
+			<tr>
+				<td>파일 업로드</td>
+				<td><input type="file" id="fileup" name="fileup" class="form-control">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+<div class="row justify-content-center" style="margin-bottom:50px">
+<input type="button" class="btn btn-primary" value="완료" onclick="" style="margin-right:10px">
+<input type="button" class="btn btn-primary" value="작성취소" onclick="location.href='history.go(-1)'" style="margin-right:10px">
+<input type="reset" class="btn btn-primary" value="초기화">
+</div>
+</form>
+</div>
+</div>
+</div>
+<footer style="background-color: #000000; color:#FFFFFF">
 			<div class="container">
 				<br>
 				<div class="row">
