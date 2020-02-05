@@ -167,12 +167,13 @@
 				</table>
 
 
-				<form action="" method="post">
+				<form name="qnaForm" method="get">
+					
 					<div class="row justify-content-center" style="margin-bottom: 50px">
+					<input type="hidden" name="productId" value="id">
 						<input type="button" class="btn btn-primary" value="수정"
 							onclick="location.href='q&aeditform'" style="margin-right: 10px">
-						<input type="button" class="btn btn-primary" value="추가"
-							onclick="location.href='q&auploadform'"
+						<input type="button" class="btn btn-primary" value="추가" onclick="location.href='qna/upload'"
 							style="margin-right: 10px"> <input type="reset"
 							class="btn btn-primary" value="삭제" onclick="">
 					</div>

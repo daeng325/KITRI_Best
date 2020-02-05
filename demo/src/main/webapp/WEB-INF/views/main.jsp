@@ -50,7 +50,7 @@
 
 		</ul>
 		<form class="form-inline"
-			action="<% request.getContextPath(); %>/product/search" method="post">
+			action="<%request.getContextPath();%>/product/search" method="post">
 			<input class="form-control mr-sm-2" type="text" placeholder="Search"
 				name="search">
 			<button class="btn btn-success" type="submit">Search</button>
@@ -63,7 +63,7 @@
 			</h1>
 		</div>
 	</div>
-	
+
 	<div class="container-fluid">
 		<ul class="nav justify-content-center">
 			<li class="nav-item"><a class="nav-link" href="top">Top</a></li>
@@ -89,10 +89,13 @@
 			<div class="row" align=center>
 				<c:forEach var="item" items="${product}">
 					<div class="col-md-3">
-						<a href="productDetail?id=${item.key.id }">
-						<img class="img1" width="175" height="250" src='data:image/jpg;base64,${ item.value }' alt="${ item.key.name }">
-						<a href="productDetail?id=${item.key.id }"><p>${ item.key.name }</p>
-								<p>${ item.key.price }</p> </a> </a>
+						<a href="productDetail?id=${item.key.id }"> <img class="img1"
+							width="175" height="250"
+							src='data:image/jpg;base64,${ item.value }'
+							alt="${ item.key.name }"> <a
+							href="productDetail?id=${item.key.id }"><p>${ item.key.name }</p>
+								<p>${ item.key.price }</p> </a>
+						</a>
 					</div>
 
 				</c:forEach>
@@ -105,11 +108,12 @@
 			<div class="row" align=center>
 				<c:forEach var="item" items="${products}">
 					<div class="col-md-3">
-						<a href="productDetail?id=${item.key.id }"><img class="img1" width="175" height="250" src='data:image/jpg;base64,${ item.value }' alt="${ item.key.name }">
-							<a href="productDetail?id=${item.key.id }"><p>${ item.key.name }</p>
-								<p>${ item.key.price }</p> 
-							</a>
-						</a>
+						<a href="productDetail?id=${item.key.id }"><img class="img1"
+							width="175" height="250"
+							src='data:image/jpg;base64,${ item.value }'
+							alt="${ item.key.name }"> <a
+							href="productDetail?id=${item.key.id }"><p>${ item.key.name }</p>
+								<p>${ item.key.price }</p> </a> </a>
 					</div>
 				</c:forEach>
 				<br>

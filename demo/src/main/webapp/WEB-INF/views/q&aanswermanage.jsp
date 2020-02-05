@@ -52,14 +52,17 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <ul class="navbar-nav">
                 <li class="nav-item">
-					<a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a>
-				</li>
-				 <li class="nav-item">
-					<a class="nav-link" href="main">Admin</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="<% request.getContextPath(); %>/logout">logout</a>
-				</li>
+          <a class="nav-link" href="main">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="join">Join</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mypage">Mypage</a>
+        </li>
             </ul>
             <form class="form-inline" action="" method="post">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
@@ -74,61 +77,66 @@
         <div class="container-fluid">
            <ul class="nav justify-content-center">
                 <li class="nav-item">
-					<a class="nav-link" href="top">Top</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="bottom">Bottom</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="bags">Bags & Shoes</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="acce">Accesories</a>
-				</li>
+          <a class="nav-link" href="top">Top</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="bottom">Bottom</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="bags">Bags & Shoes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="acce">Accesories</a>
+        </li>
             </ul>
         </nav>
-    </div>
 
 <main class="login-form">
     <div class="cotainer">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header" text-align=center>관리자 페이지</div>
+                    <div class="card-header" text-align=center>Q&A관리</div>
                     <div class="card-body">
+                        <form action="" method="get">
+                        <table class="table">
+                          <thead class="thead-dark">
+                           <tr>
+                            <th></th>
+                            <th>작성자</th>
+                             <th>질문종류</th>
+                               <th>제목</th>
+                                 <th>상품명</th>
+                                  <th>내용</th>
+                                    <th>내용</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><input type="radio" value="q&adelete" name="q&adelete"></td>
+                                <td>${}</td>
+                                <td>${}</td>
+                                <td>${}</td>
+                                <td>${}</td>
+                                <td>${}</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                        </form>
                         <form action="" method="post">
                         <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" onclick="location.href='productmanage'">
-                                상품관리</button>
+                                <button type="submit" class="btn btn-primary" onclick="location.href='q&aanswer'">
+                                답변달기</button>
+                                <button type="submit" class="btn btn-primary" onclick="">
+                                삭제</button>
                         </div>
                         </form>
-                        <br>
-                        <form action="" method="post">
-                        <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" onclick="location.href='usermanage'">
-                                계정관리</button>
-                        </div>
-                        </form>
-                        <br>
-                        <form action="" method="post">
-                        <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" onclick="location.href='ordermanage'">
-                                주문정보관리</button>
-                        </div>
-                        </form>
-                        <form action="" method="post">
-                        <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" onclick="location.href='q&aanswermanage'">
-                                Q&A관리</button>
-                        </div>
-                        </form>
-                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</main>
-
+              </main>              
         <footer style="background-color: #000000; color:#FFFFFF">
             <div class="container" style="margin-top:100px">
                 <br>

@@ -34,7 +34,7 @@ PUBLIC 	"-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- Delete -->
 	<delete id="delete" parameterType="String">
-		DELETE FROM REVIEWS WHERE id=${id};
+		DELETE FROM REVIEWS WHERE id='${id}';
 	</delete>
 	
 	<!-- detail -->

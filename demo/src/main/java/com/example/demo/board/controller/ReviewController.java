@@ -56,6 +56,7 @@ public class ReviewController {
 
 		MultipartFile image = request.getFile("image");
 		
+		
 		review.setId(request.getParameter("boardtitle"));
 		review.setO_id("order01");
 		review.setU_id(member.getID());
@@ -76,6 +77,18 @@ public class ReviewController {
 		
 		reviewService.reviewInsert(review);
 			
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/edit")
+	public String reviewUpdate() {
+		
+		return "revieweditform";
+	}
+	
+	@RequestMapping(value="/delete")
+	public String reviewDelete() {
+		
 		return "redirect:/";
 	}
 		
