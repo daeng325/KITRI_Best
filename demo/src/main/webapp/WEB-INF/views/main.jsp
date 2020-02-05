@@ -37,11 +37,13 @@
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="">Home</a></li>
-			<li class="nav-item"><c:if test="${login eq null }">
+			<li class="nav-item">
+			<c:if test="${login eq null }">
 					<a class="nav-link" href="user/login">Login</a>
-				</c:if> <c:if test="${login ne null }">
+			</c:if> 
+			<c:if test="${login ne null }">
 					<a class="nav-link" href="user/logout">Logout</a>
-				</c:if></li>
+			</c:if></li>
 			<li class="nav-item"><c:if test="${login eq null }">
 					<a class="nav-link" href="user/join">Join</a>
 				</c:if> <c:if test="${login ne null }">
@@ -89,10 +91,12 @@
 			<div class="row" align=center>
 				<c:forEach var="item" items="${product}">
 					<div class="col-md-3">
-						<a href="productDetail?id=${item.id }"><img class="img1"
-							src="${ item.image }" alt="${ item.name }"><a href="productDetail?id=${item.id }"><p>${ item.name }</p>
-								<p>${ item.price }</p> </a> </a>
+						<a href="productDetail?id=${item.key.id }">
+						<img class="img1" width="175" height="250" src='data:image/jpg;base64,${ item.value }' alt="${ item.key.name }">
+						<a href="productDetail?id=${item.key.id }"><p>${ item.key.name }</p>
+								<p>${ item.key.price }</p> </a> </a>
 					</div>
+
 				</c:forEach>
 			</div>
 		</c:if>
@@ -103,9 +107,9 @@
 			<div class="row" align=center>
 				<c:forEach var="item" items="${products}">
 					<div class="col-md-3">
-						<a href="productDetail?id=${item.id }"><img class="img1" src="${ item.image }" alt="${ item.name }">
-							<a href="productDetail?id=${item.id }"><p>${ item.name }</p>
-								<p>${ item.price }</p> 
+						<a href="productDetail?id=${item.key.id }"><img class="img1" width="175" height="250" src='data:image/jpg;base64,${ item.value }' alt="${ item.key.name }">
+							<a href="productDetail?id=${item.key.id }"><p>${ item.key.name }</p>
+								<p>${ item.key.price }</p> 
 							</a>
 						</a>
 					</div>

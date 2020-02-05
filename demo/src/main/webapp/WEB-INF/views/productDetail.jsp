@@ -94,7 +94,7 @@
 		</nav>
 		<div class="row">
 			<div class="col-md-7">
-				<img class="img1-1" src="${products.image }" alt="${products.name}">
+				<img class="img1-1" width="175" height="250" src='data:image/jpg;base64,${resultimage}' alt="${products.name}">
 			</div>
 			<div class="col-md-4" style="margin-top: 40px">
 				<div class="card">
@@ -181,7 +181,7 @@
 		</div>
 
 		<div class="tab-pane fade in active" id="상품정보">
-			<br> ${products.description} <br> 가격 : ${products.price } <br>
+			<br> ${products.description } <br> 가격 : ${products.price } <br>
 		</div>
 
 		<div class="tab-pane fade" id="Review">
@@ -189,19 +189,22 @@
 			<div class="container">
 				<h2 style="text-align: center">Review</h2>
 				<br>
-
+				<!--  -->
 				<p style="text-align: center">상품에 대해 리뷰 올려주시면 적립금 드립니다.</p>
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
+							<th></th>
 							<th>이름</th>
 							<th>상품명</th>
 							<th>내용</th>
+							<th>작성날짜</th>
 						</tr>
 					</thead>
 					<c:forEach items="${reviews }" var="rev">
 						<tbody>
 							<tr>
+								<td><input type="checkbox" name="reviewchk" value="${rev.id }"></td>
 								<td><a href="review/detail?id=${rev.id }">${rev.id }</a></td>
 								<td>${rev.id }</td>
 								<td>${rev.content }</td>
@@ -209,15 +212,13 @@
 						</tbody>
 					</c:forEach>
 				</table>
-
-				<div class="row justify-content-center" style="margin-bottom: 50px">
-					<input type="button" class="btn btn-primary" value="수정"
-						onclick="location.href='reviewedit'" style="margin-right: 10px">
-					<input type="button" class="btn btn-primary" value="추가"
-						onclick="location.href='review/upload'" style="margin-right: 10px">
-					<input type="reset" class="btn btn-primary" value="삭제" onclick="">
 				</div>
-
+					<input type="button" class="btn btn-primary" value="수정"
+						onclick="location.href='review/edit'" >
+					<input type="button" class="btn btn-primary" value="추가"
+						onclick="location.href='review/upload'">
+					<input type="reset" class="btn btn-primary" value="삭제" 
+						onclick="location.href='review/delete'">
 			</div>
 		</div>
 

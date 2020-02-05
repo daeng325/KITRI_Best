@@ -22,11 +22,13 @@
 <link rel="stylesheet" href="css/style.css">
 
 <link rel="icon" href="Favicon.png">
+<link rel="icon" href="Favicon.png">
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
+
 <body>
 	<style type="text/css">
 .jumbotron {
@@ -53,7 +55,8 @@
 </style>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/">Home</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="<%request.getContextPath();%>/main">Home</a></li>
 			<li class="nav-item"><c:if test="${login eq null }">
 					<a class="nav-link" href="login">Login</a>
 				</c:if> <c:if test="${login ne null }">
@@ -64,10 +67,9 @@
 				</c:if> <c:if test="${login ne null }">
 					<a class="nav-link" href="mypage">Mypage</a>
 				</c:if></li>
-
 		</ul>
 		<form class="form-inline"
-			action="<% request.getContextPath(); %>/product/search" method="post">
+			action="<%request.getContextPath();%>/product/search" method="post">
 			<input class="form-control mr-sm-2" type="text" placeholder="Search"
 				name="search">
 			<button class="btn btn-success" type="submit">Search</button>
@@ -76,18 +78,18 @@
 	<div class="container">
 		<div class="logo">
 			<h1 class="text-center">
-				<a href="<% request.getContextPath(); %>/main">Beautycloset</a>
+				<a href="main">Beautycloset</a>
 			</h1>
 		</div>
 	</div>
 	<div class="container-fluid">
 		<ul class="nav justify-content-center">
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a>
+			<li class="nav-item"><a class="nav-link" href="top">Top</a></li>
+			<li class="nav-item"><a class="nav-link" href="bottom">Bottom</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bags">Bags &
+			<li class="nav-item"><a class="nav-link" href="bags">Bags &
 					Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/acce">Accesories</a>
+			<li class="nav-item"><a class="nav-link" href="acce">Accesories</a>
 			</li>
 		</ul>
 		</nav>
@@ -104,7 +106,7 @@
 				</div>
 			</div>
 		</nav>
-		<br>
+
 		<main class="login-form">
 			<div class="cotainer">
 				<div class="row justify-content-center">
@@ -112,26 +114,28 @@
 						<div class="card">
 							<div class="card-header" text-align=center>회원가입</div>
 							<div class="card-body">
-								<form action="<% request.getContextPath(); %>/" method="post">
+								<form action="<%=request.getContextPath()%>/user/join"
+									method="post">
 									<div class="form-group row">
 										<label for="name"
 											class="col-md-4 col-form-label text-md-right">이름</label>
 										<div class="col-md-6">
 											<input type="text" id="name" class="form-control" name="name"
-												autofocus>
+												required autofocus>
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="sex" class="col-md-4 col-form-label text-md-right">성별</label>
 										<div class="col-md-6">
-											<input type="radio" name="gender" value="man">남자 <input
-												type="radio" name="gender" value="woman">여자
+											<input type="radio" name="gender" value="man" required>남자
+											<input type="radio" name="gender" value="woman" required>여자
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="age" class="col-md-4 col-form-label text-md-right">나이</label>
 										<div class="col-md-6">
-											<input type="text" id="age" class="form-control" name="age">
+											<input type="text" id="age" class="form-control" name="age"
+												required>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -139,7 +143,7 @@
 											class="col-md-4 col-form-label text-md-right">전화번호</label>
 										<div class="col-md-6">
 											<input type="tel" id="phone" class="form-control"
-												name="phone">
+												name="phone" required>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -147,7 +151,7 @@
 											class="col-md-4 col-form-label text-md-right">집 주소</label>
 										<div class="col-md-6">
 											<input type="text" id="address" class="form-control"
-												name="address">
+												name="address" required>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -155,14 +159,14 @@
 											class="col-md-4 col-form-label text-md-right">이메일 주소</label>
 										<div class="col-md-6">
 											<input type="email" id="email" class="form-control"
-												name="email">
+												name="email" required>
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>
 										<div class="col-md-6">
 											<input type="text" id="ID" class="form-control" name="ID"
-												autofocus>
+												required autofocus>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -170,7 +174,7 @@
 											class="col-md-4 col-form-label text-md-right">패스워드</label>
 										<div class="col-md-6">
 											<input type="password" id="pwd" class="form-control"
-												name="pwd">
+												name="pwd" required>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -188,49 +192,59 @@
 										<label for="sex" class="col-md-4 col-form-label text-md-right">개인정보
 											제공에 동의합니까?</label>
 										<div class="col-md-6">
-											<input type="radio" name="agree" value="yes">예 <input
-												type="radio" name="agree" value="no">아니오
+											<input type="radio" name="agree" value="yes" required>예
+											<input type="radio" name="agree" value="no" required>아니오
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="sex" class="col-md-4 col-form-label text-md-right">이메일,
 											문자 수신에 동의합니까?</label>
 										<div class="col-md-6">
-											<input type="radio" name="agree2" value="yes">예 <input
-												type="radio" name="agree2" value="no">아니오
+											<input type="radio" name="agree2" value="yes" required>예
+											<input type="radio" name="agree2" value="no" required>아니오
 										</div>
 									</div>
 									<div class="form-group row">
 										<div class="col-md-6 offset-md-4">
-											<button type="submit" class="btn btn-primary" onclick="">
-												가입</button>
+											<div class="checkbox">
+												<label> <input type="checkbox" name="remember"
+													value="loginok"> 로그인 상태 유지
+												</label>
+											</div>
 										</div>
 									</div>
-								</form>
+
+									<div class="col-md-6 offset-md-4">
+										<button type="submit" class="btn btn-primary">회원가입</button>
+										<br> <br> <a href="#" class="btn btn-link">
+											아이디/비밀번호 찾기 </a>
+									</div>
 							</div>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-		</main>
-		<footer style="background-color: #000000; color: #FFFFFF">
-			<div class="container">
-				<br>
-				<div class="row">
-					<div class="col col-lg-6"
-						style="border: 1px solid black; text-align: left; font-family: 'ariel'">
-						Copyright &copy; 2020<br>KITRI침해대응20기우리조가짱이조<br>All
-						rights reserved
-					</div>
-					<div class="col-md auto"
-						style="border: 1px solid black; text-align: left; font-family: 'ariel'">
-						Contact Us<br>tel : 010-4022-3241<br>e-mail :
-						wsm91@naver.com
-					</div>
+	</div>
+	</main>
+	<footer style="background-color: #000000; color: #FFFFFF">
+		<div class="container">
+			<br>
+			<div class="row">
+				<div class="col col-lg-6"
+					style="border: 1px solid black; text-align: left; font-family: 'ariel'">
+					Copyright &copy; 2020<br>KITRI침해대응20기우리조가짱이조<br>All
+					rights reserved
+				</div>
+				<div class="col-md auto"
+					style="border: 1px solid black; text-align: left; font-family: 'ariel'">
+					Contact Us<br>tel : 010-4022-3241<br>e-mail :
+					wsm91@naver.com
 				</div>
 			</div>
-		</footer>
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-		<script src="./js/bootstrap.js"></script>
+		</div>
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
 </body>
 </html>

@@ -131,11 +131,27 @@ public class MemberController {
 		return "redirect:/";
 
 	}
+	
+	@RequestMapping(value="/admin", method=RequestMethod.GET)
+	public String admin(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+
+		Object obj = session.getAttribute("login");
+
+		if (obj != null) {
+			// null이 아닐 경우 제거
+			MemberVO member = (MemberVO) obj;
+			member = sessionExpire(session, request, response, member);
+		}
+
+		return "redirect:/";
+
+	}
 
 	@RequestMapping("/mypage")
 	public String myPage() {
 		return "mypage";
 	}
+	
 
 	@RequestMapping(value = "/selfuseredit", method = RequestMethod.GET)
 	public String selfUserEdit(HttpSession session, HttpServletRequest request, Model model) {
@@ -170,7 +186,7 @@ public class MemberController {
 		return "redirect:/user/mypage";
 	}
 	
-	@RequestMapping(value="/selfuserout")
+	@RequestMapping(value="/selfuserout")//회원탈퇴
 	public String selfUserOut(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 		MemberVO member = (MemberVO)session.getAttribute("login");
 		

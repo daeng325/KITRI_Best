@@ -1,6 +1,8 @@
 package com.example.demo.board.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -26,36 +28,88 @@ public class ProductPageController {
 	
 	@RequestMapping(value = "/top")
 	public String topPageLoad(Model model) throws Exception {
-		List<ProductVO> products = pService.printProductsByType("top");				
-		model.addAttribute("products", products);		
+		Map<ProductVO, String> products = new HashMap<ProductVO, String>();
+		List<ProductVO> productList = pService.printProductsByType("top");
+		
+		for(int i=0;i<productList.size();i++) {
+			ProductVO product = productList.get(i);
+			byte[] byteImage = org.apache.commons.codec.binary.Base64.encodeBase64(product.getImage());
+			String encoded = new String(byteImage);
+			products.put(product, encoded);
+		}
+				
+		model.addAttribute("products", products);	
 		return "top";
 	}
 
 	@RequestMapping(value = "/bottom")
-	public String bottomPageLoad(Model model) throws Exception {
-		List<ProductVO> products = pService.printProductsByType("bottom");				
+	public String bottomPageLoad(Model model) throws Exception {		
+		Map<ProductVO, String> products = new HashMap<ProductVO, String>();
+		List<ProductVO> productList = pService.printProductsByType("bottom");
+		
+		for(int i=0;i<productList.size();i++) {
+			ProductVO product = productList.get(i);
+			byte[] byteImage = org.apache.commons.codec.binary.Base64.encodeBase64(product.getImage());
+			String encoded = new String(byteImage);
+			products.put(product, encoded);
+		}
+				
 		model.addAttribute("products", products);		
+		
 		return "bottom";
 	}
 
 	@RequestMapping(value = "/bags")
 	public String bag_shoesPageLoad(Model model) throws Exception {
-		List<ProductVO> products = pService.printProductsByType("bag");
-		products.addAll(pService.printProductsByType("shoes"));
+		Map<ProductVO, String> products = new HashMap<ProductVO, String>();
+		List<ProductVO> productList = pService.printProductsByType("bags");
+		productList.addAll(pService.printProductsByType("shoes"));
+		
+		for(int i=0;i<productList.size();i++) {
+			ProductVO product = productList.get(i);
+			byte[] byteImage = org.apache.commons.codec.binary.Base64.encodeBase64(product.getImage());
+			String encoded = new String(byteImage);
+			products.put(product, encoded);
+		}
+		
 		model.addAttribute("products", products);		
 		return "bags";
 	}	
 	
 	@RequestMapping(value = "/acce")
 	public String AccesoriesPageLoad(Model model) throws Exception {
-		List<ProductVO> products = pService.printProductsByType("Accesorie");				
+		Map<ProductVO, String> products = new HashMap<ProductVO, String>();
+		List<ProductVO> productList = pService.printProductsByType("accesorie");
+		
+		for(int i=0;i<productList.size();i++) {
+			ProductVO product = productList.get(i);
+			byte[] byteImage = org.apache.commons.codec.binary.Base64.encodeBase64(product.getImage());
+			String encoded = new String(byteImage);
+			products.put(product, encoded);
+		}
+				
 		model.addAttribute("products", products);		
 		return "acce";
 	}	
 	
 	// 상품 상세 보기
 	@RequestMapping(value = "/productDetail", method = RequestMethod.GET)
-	public ModelAndView productDetailPage(@RequestParam String id) throws Exception {
+	public String productDetailPage(@RequestParam String id, Model model) throws Exception {
+		ProductVO product = pService.findById(id);
+		
+		model.addAttribute("products", product);		
+		model.addAttribute("reviews", reviewService.readAllReview());
+		try {			
+			byte[] encoded = org.apache.commons.codec.binary.Base64.encodeBase64(product.getImage());
+			String encodedString = new String(encoded);		
+			model.addAttribute("resultimage", encodedString);			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}		
+		
+		
+		
+		/*
 		ModelAndView mov = new ModelAndView();
 		
 		mov.setViewName("productDetail");
@@ -63,5 +117,7 @@ public class ProductPageController {
 		mov.addObject("reviews",reviewService.readAllReview());
 		
 		return mov;
+		*/
+		return "productDetail";
 	}
 }

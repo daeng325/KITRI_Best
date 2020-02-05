@@ -1,10 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib prefix="c-rt" uri="http://java.sun.com/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt-rt"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+  
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,6 +20,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     </head>
     <body>
+
         <style type="text/css">
             .jumbotron{
                 background-image: url('./jpg/flower.jpg');
@@ -47,28 +44,24 @@
                 color: black;
             }
 
-            img { display: block; margin: 0px auto;}
 
         </style>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <ul class="navbar-nav">
                 <li class="nav-item">
-					<a class="nav-link" href="main">Home</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="login">Login</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="join">Join</a>
+					<a class="nav-link" href="logout">Logout</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="mypage">Mypage</a>
 				</li>
             </ul>
-            <form class="form-inline" action="" method="post">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-success" type="submit">Search</button>
-            </form>
+			<form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
+				<input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
+				<button class="btn btn-success" type="submit">Search</button>
+			</form>
         </nav>
         <div class="container">
             <div class="logo">
@@ -78,16 +71,16 @@
         <div class="container-fluid">
            <ul class="nav justify-content-center">
                 <li class="nav-item">
-					<a class="nav-link" href="top">Top</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="bottom">Bottom</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="bags">Bags & Shoes</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/bags">Bags & Shoes</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="acce">Accesories</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/acce">Accesories</a>
 				</li>
             </ul>
         </nav>
@@ -101,33 +94,41 @@
         </div>
     </div>
 </nav>
-<h1 class="text-center" style="margin-bottom:50px">Mypage</h1>
-<table class="table-bordered" style="height:350px;margin-left:auto;margin-right:auto">
-<tbody>
-<tr>
-    <td><a href="selfuseredit"><img src="user.png" class="rounded" alt="개인정보관리" style="width:100px; height:100px"></a>
+<span>
+<h1 class="text-center">Mypage</h1>
+<div class="card" style="width:300px; height:400px">
+<a href="user/selfuseredit"><img src="user.png" class="rounded" alt="개인정보관리" style="width:100px; height:100px"></a>
+  <div class="card-body">
     <a href="selfuseredit"><h4 class="card-title" style="text-align:center">개인정보관리</h4></a>
     <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 개인정보를 
-        <br>수정할 수 있습니다.</p></a></td>
-    <td></td>
-    <td><a href="orderedlist"><img src="money.jpg" class="rounded" alt="주문내역" align="center" style="width:100px; height:100px"></a>
-    <a href="orderedlist"><h4 class="card-title" style="text-align:center">주문내역</h4></a>
-    <a href="orderedlist"><p class="card-text" style="text-align:center">회원님의 주문내역을 
-        <br>확인할 수 있습니다.</p></a></td>
-    <td></td>
-    <td><a href="baskets"><img src="cart.png" class="rounded" alt="장바구니" style="width:100px; height:100px"></a>
-    <a href="baskets"><h4 class="card-title" style="text-align:center">장바구니</h4></a>
-    <a href="baskets"><p class="card-text" style="text-align:center">회원님의 장바구니에 담긴 
-        <br>상품을 확인할 수 있습니다.</p></a></td>
-    <td></td>
-    <td><a href=""><img src="delete.png" class="rounded" alt="회원탈퇴" style="width:100px; height:100px"></a>
-    <a href=""><h4 class="card-title" style="text-align:center">회원탈퇴</h4></a>
-    <a href=""><p class="card-text" style="text-align:center">회원님의 탈퇴 및 개인정보 
-        <br>삭제를 진행할 수 있습니다.</p></a></td>
-</tr>
-</tbody>
-</table>
+        <br>수정할 수 있습니다.</p></a>
+  </div>
 </div>
+<div class="card" style="width:300px; height:400px">
+<a href="selforderinfo"><img src="cart.png" class="rounded" alt="주문내역" align="center" style="width:100px; height:100px"></a>
+  <div class="card-body">
+    <a href="selfuseredit"><h4 class="card-title" style="text-align:center">주문내역</h4></a>
+    <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 주문내역을 
+        <br>확인할 수 있습니다.</p></a>
+  </div>
+</div>
+<div class="card" style="width:300px; height:400px">
+<a href="selfuserbasket"><img src="money.jpg" class="rounded" alt="장바구니" style="width:100px; height:100px"></a>
+  <div class="card-body">
+    <a href="selfuseredit"><h4 class="card-title" style="text-align:center">장바구니</h4></a>
+    <a href="selfuseredit"><p class="card-text" style="text-align:center">회원님의 장바구니에 담긴 
+        <br>상품을 확인할 수 있습니다.</p></a>
+  </div>
+</div>
+<div class="card" style="width:300px; height:400px">
+<a href="selfuserout"><img src="delete.png" class="rounded" alt="회원탈퇴" style="width:100px; height:100px"></a>
+  <div class="card-body">
+    <a href="selfuserout"><h4 class="card-title" stylㄴe="text-align:center">회원탈퇴</h4></a>
+    <a href="selfuserout"><p class="card-text" style="text-align:center">회원님의 탈퇴 및 개인정보 
+        <br>삭제를 진행할 수 있습니다.</p></a>
+  </div>
+</div>
+</span>
 <footer style="background-color: #000000; color:#FFFFFF">
             <div class="container" style="margin-top:100px">
                 <br>

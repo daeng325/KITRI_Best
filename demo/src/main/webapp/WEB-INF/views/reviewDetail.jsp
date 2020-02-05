@@ -87,5 +87,6 @@
 		agv : ${review.rev_agv} <br>
 		내용 : ${review.content }<br> 
 		이미지 : <img class="img1-1" src='data:image/${review.ext };base64,${resultimage}' alt="${review.id}"> <br>
+		data:image/${review.ext };base64,${resultimage }
 </body>
 </html>

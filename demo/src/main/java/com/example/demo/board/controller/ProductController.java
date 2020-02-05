@@ -1,18 +1,12 @@
 package com.example.demo.board.controller;
 
-import java.io.File;
-import java.io.IOException;
-import java.sql.Blob;
-import java.sql.SQLException;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import javax.sql.rowset.serial.SerialBlob;
-import javax.sql.rowset.serial.SerialException;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,20 +40,7 @@ public class ProductController {
 
 		ProductVO product = new ProductVO();
 		MultipartFile image = request.getFile("image");
-		/*
-		String originalFile = image.getOriginalFilename();
-		String originalFileExtension = originalFile.substring(originalFile.lastIndexOf("."));
-		String storedFileName = UUID.randomUUID().toString().replaceAll("-", "") + originalFileExtension;
-		String filePath = "C:\\KITRIRepo\\KITRI_Best\\demo\\src\\main\\webapp\\WEB-INF\\resource\\";
 
-		File file = new File(filePath + storedFileName);
-		
-		image.transferTo(file);
-		*/
-		
-		
-		
-		
 		product.setId(request.getParameter("id"));
 		product.setName(request.getParameter("name"));
 		product.setType(request.getParameter("type"));
@@ -70,7 +51,6 @@ public class ProductController {
 		System.out.println(image.getBytes());
 		
 		product.setStatus(request.getParameter("status"));
-		//proRepo.save(product);
 		
 		System.out.println(product.getImage());
 		
@@ -84,10 +64,15 @@ public class ProductController {
 	// 상품 검색
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public String searchProduct(@RequestParam("search") String search_name, RedirectAttributes redirect) throws Exception{
+		Map <ProductVO, String> products = new HashMap<ProductVO, String>();
+		List<ProductVO> productList = pService.findByName(search_name);
 		
-		List<ProductVO> products = pService.findByName(search_name);
-		
-		System.out.println(products.toString());
+		for(int i=0;i<productList.size();i++) {
+			ProductVO product = productList.get(i);
+			byte[] byteImage = org.apache.commons.codec.binary.Base64.encodeBase64(product.getImage());
+			String encoded = new String(byteImage);
+			products.put(product, encoded);
+		}
 //		mav.setViewName("main");
 //		mav.addObject("products", products);
 		redirect.addFlashAttribute("product", products);
@@ -134,33 +119,6 @@ public class ProductController {
 		model.addAttribute("msg", "product update complete");
 		
 		return "redirect:/";
-	}
-	
-	// blob 출력
-	public Map blobSave(MultipartFile file) {
-		Map<String, Object> param = new HashMap<String, Object>();
-		String fileName = file.getOriginalFilename();
-		System.out.println(fileName);
-		
-		byte[] bytes;
-		try {
-			bytes = file.getBytes();
-			
-			try {
-				Blob blob = new javax.sql.rowset.serial.SerialBlob(bytes);
-				param.put("file", blob);
-				param.put("file_name", fileName);
-				param.put("file_size",blob.length());
-				
-			} catch(SerialException e1) {
-				e1.printStackTrace();
-			}
-		}catch(SQLException e1) {
-			e1.printStackTrace();
-		}catch(IOException e2) {
-			e2.printStackTrace();
-		}
-		return param;
 	}
 
 }

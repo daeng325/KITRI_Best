@@ -104,13 +104,13 @@
 		<br>
 		<div class="row" align=center>
 				<c:forEach var="item" items="${products}">
-				<div class="col-md-3">
-					<a href="productDetail?id=${item.id }"><img class="img1" src="${ item.image }"
-						alt="${ item.name }"><a href="productDetail?id=${item.id }"><p>${ item.name }</p>
-						<p>${ item.price }</p>
+					<div class="col-md-3">
+						<a href="productDetail?id=${item.key.id }"><img class="img1" width="175" height="250"  src='data:image/jpg;base64,${ item.value }' alt="${ item.key.name }">
+							<a href="productDetail?id=${item.key.id }"><p>${ item.key.name }</p>
+								<p>${ item.key.price }</p> 
+							</a>
 						</a>
-					</a>
-				</div>
+					</div>
 				</c:forEach>
 		</div>
 		

@@ -1,5 +1,6 @@
 package com.example.demo.board.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
@@ -46,6 +47,20 @@ public class ReviewController {
 		return "reviewuploadform";
 	}
 	
+	@RequestMapping(value="/edit")
+	public String editReview(HttpSession session, HttpServletRequest request, Model model) throws IOException {
+		
+		Object obj = session.getAttribute("login");
+		MemberVO member = (MemberVO)obj;
+		
+		if(obj == null) {
+			return "login";
+		}
+		
+		model.addAttribute("member", member);
+		return "revieweditform";
+	}
+	
 	@RequestMapping(value="/complete", method=RequestMethod.POST)
 	public String reviewUploadComplete(HttpSession session, MultipartHttpServletRequest request, Model model) throws Exception {
 		ReviewVO review = new ReviewVO();
@@ -66,6 +81,13 @@ public class ReviewController {
 		review.setRev_ship(Double.parseDouble(request.getParameter("revship")));
 		review.setExt(image.getOriginalFilename().substring(image.getOriginalFilename().lastIndexOf(".")+1));
 		
+		
+		try {
+			image.transferTo(new File("C:\\Users\\한국정보기술\\Documents\\GitHub\\KITRI_Best\\demo\\src\\main\\resources\\image\\"+image.getOriginalFilename()));
+		}catch(IllegalStateException | IOException e) {
+			e.printStackTrace();
+		}
+		
 		reviewService.reviewInsert(review);
 			
 		return "redirect:/";
@@ -83,53 +105,7 @@ public class ReviewController {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		return "reviewDetail";
-		
-		/*
-		ModelAndView mov = new ModelAndView();
-		mov.setViewName("reviewDetail");
-		mov.addObject("reviews",reviewService.imagePrint(id));	
-		return mov;
-		*/
-		
-
-		/*
-		ReviewVO review = reviewService.printDetailReview(id);
-		model.addAttribute("reviews",review);
-		
-		return "reviewDetail";
-
-		*/
-		
+		return "reviewDetail";		
 	}
-	
-	@RequestMapping("/test")
-	public String test(@RequestParam("image") MultipartFile file) {
-		
-		Map<String,Object> param = new HashMap<String,Object>();
-		String fileName = file.getOriginalFilename();
-		byte[] bytes;
-		
-		try {
-			bytes = file.getBytes();
-			try {
-				Blob blob = new javax.sql.rowset.serial.SerialBlob(bytes);
-				param.put("file", blob);
-				param.put("file_name", fileName);
-				param.put("file_size", blob.length());
-				System.out.println(blob);
-			} catch(SerialException e1) {
-				e1.printStackTrace();
-			}catch(SQLException e2) {
-				e2.printStackTrace();
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 
-		
-		return "redirect:/";
-	}
 }

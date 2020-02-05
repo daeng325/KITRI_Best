@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib prefix="c-rt" uri="http://java.sun.com/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt-rt"%>
+	pageEncoding="utf-8"%>
 
 <!DOCTYPE html> 
  <html> 
@@ -28,7 +23,7 @@
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
      </head> 
      <body> 
-         <style type="text/css"> 
+              <style type="text/css"> 
              .jumbotron{ 
                  background-image: url('./jpg/flower.jpg'); 
                  background-size: cover; 
@@ -59,22 +54,20 @@
          <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"> 
              <ul class="navbar-nav"> 
                  <li class="nav-item"> 
- 					<a class="nav-link" href="main">Home</a> 
+ 					<a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a> 
  				</li> 
  				<li class="nav-item"> 
- 					<a class="nav-link" href="login">Login</a> 
- 				</li> 
- 				<li class="nav-item"> 
- 					<a class="nav-link" href="join">Join</a> 
+ 					<a class="nav-link" href="logout">Logout</a> 
  				</li> 
  				<li class="nav-item"> 
  					<a class="nav-link" href="mypage">Mypage</a> 
  				</li> 
              </ul> 
-             <form class="form-inline" action="" method="post"> 
-                 <input class="form-control mr-sm-2" type="text" placeholder="Search"> 
-                 <button class="btn btn-success" type="submit">Search</button> 
-             </form> 
+            
+            <form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
+				<input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
+				<button class="btn btn-success" type="submit">Search</button>
+			</form>
          </nav> 
          <div class="container"> 
              <div class="logo"> 
@@ -113,80 +106,68 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header" text-align=center>회원정보수정</div>
+                    <div class="card-header" text-align=center>${member.ID } 회원 정보수정</div>
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="edit" method="post">
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">이름</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="ID" class="form-control" name="ID" value="${}" required autofocus>
+                                    <input type="text" id="name" class="form-control" name="name" value=${member.name } required autofocus>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="sex" class="col-md-4 col-form-label text-md-right">성별</label>
-                                <div class="col-md-6">
-                                    <input type="radio" name="gender" value="man" required>남자
-                                    <input type="radio" name="gender" value="woman" required>여자
-                                </div>
-                            </div>
+
                             <div class="form-group row">
                                 <label for="age" class="col-md-4 col-form-label text-md-right">나이</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="age" class="form-control" name="age" required value="${}">
+                                    <input type="text" id="age" class="form-control" name="age" value=${member.age }>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="phonenum" class="col-md-4 col-form-label text-md-right">전화번호</label>
                                 <div class="col-md-6">
-                                    <input type="tel" id="phone" class="form-control" name="phone" required value="${}">
+                                    <input type="tel" id="phone" class="form-control" name="phone" value=${member.phone }>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="address" class="col-md-4 col-form-label text-md-right">집 주소</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="add" class="form-control" name="add" required value="${}">
+                                    <input type="text" id="address" class="form-control" name="address" value=${member.address }>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="emailadd" class="col-md-4 col-form-label text-md-right">이메일 주소</label>
                                 <div class="col-md-6">
-                                    <input type="email" id="email" class="form-control" name="email" required value="${}">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="ID" class="form-control" name="ID" required value="${}">
+                                    <input type="email" id="email" class="form-control" name="email" value=${member.email }>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">패스워드</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" name="password" required value="${}">
+                                    <input type="password" id="password" class="form-control" name="password" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="items" class="col-md-4 col-form-label text-md-right">관심 아이템</label>
                                 <div class="col-md-6">
-                                    <input type="checkbox" name="likeit" value="top" required>상의
-                                    <input type="checkbox" name="likeit" value="bottom" required>하의
-                                    <input type="checkbox" name="likeit" value="bags" required>가방
-                                    <input type="checkbox" name="likeit" value="shoes" required>신발
-                                    <input type="checkbox" name="likeit" value="accesories" required>악세사리
+                                    <input type="checkbox" name="likeit" value="top">상의
+                                    <input type="checkbox" name="likeit" value="bottom">하의
+                                    <input type="checkbox" name="likeit" value="bags">가방
+                                    <input type="checkbox" name="likeit" value="shoes">신발
+                                    <input type="checkbox" name="likeit" value="accesories">악세사리
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="sex" class="col-md-4 col-form-label text-md-right">개인정보 제공에 동의합니까?</label>
                                 <div class="col-md-6">
-                                    <input type="radio" name="agree" value="yes" required>예
-                                    <input type="radio" name="agree" value="no" required>아니오
+                                    <input type="radio" name="agree" value="yes">예
+                                    <input type="radio" name="agree" value="no">아니오
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="sex" class="col-md-4 col-form-label text-md-right">이메일, 문자 수신에 동의합니까?</label>
                                 <div class="col-md-6">
-                                    <input type="radio" name="agree2" value="yes" required>예
-                                    <input type="radio" name="agree2" value="no" required>아니오
+                                    <input type="radio" name="agree2" value="yes">예
+                                    <input type="radio" name="agree2" value="no">아니오
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -198,8 +179,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">
-                                수정
+                            <button type="submit" class="btn btn-primary">수정
                             </button>
                         </form>
                     <footer style="background-color: #000000; color:#FFFFFF"> 
@@ -213,5 +193,6 @@
          </footer> 
      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
      <script src="./js/bootstrap.js"></script> 
+		
      </body> 
  </html> 
