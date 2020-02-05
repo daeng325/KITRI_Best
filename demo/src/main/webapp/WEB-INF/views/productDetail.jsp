@@ -94,7 +94,7 @@
 		</nav>
 		<div class="row">
 			<div class="col-md-7">
-				<img class="img1-1" src="${products.image }" alt="${products.name}">
+				<img class="img1-1" width="175" height="250" src='data:image/jpg;base64,${resultimage}' alt="${products.name}">
 			</div>
 			<div class="col-md-4" style="margin-top: 40px">
 				<div class="card">
@@ -212,10 +212,10 @@
 
 				<div class="row justify-content-center" style="margin-bottom: 50px">
 					<input type="button" class="btn btn-primary" value="수정"
-						onclick="location.href='reviewedit'" style="margin-right: 10px">
+						onclick="location.href='review/edit'" style="margin-right: 10px">
 					<input type="button" class="btn btn-primary" value="추가"
 						onclick="location.href='review/upload'" style="margin-right: 10px">
-					<input type="reset" class="btn btn-primary" value="삭제" onclick="">
+					<input type="reset" class="btn btn-primary" value="삭제" onclick="location.href='review/delete'">
 				</div>
 
 			</div>

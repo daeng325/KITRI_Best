@@ -3,6 +3,7 @@ package com.example.demo.board.controller;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,15 +29,33 @@ public class MainController {
 	
 	@RequestMapping("/")
 	private String homePate(Model model) throws Exception{
-		List<ProductVO> products = pService.printAllProducts();		
-		model.addAttribute("products", products);
+		Map<ProductVO, String> products = new HashMap<ProductVO, String>();
+		List<ProductVO> productList = pService.printAllProducts();
+		
+		for(int i=0;i<productList.size();i++) {
+			ProductVO product = productList.get(i);
+			byte[] byteImage = org.apache.commons.codec.binary.Base64.encodeBase64(product.getImage());
+			String encoded = new String(byteImage);
+			products.put(product, encoded);
+		}
+				
+		model.addAttribute("products", products);		
 		return "main";
 	}
 	
 	@RequestMapping("/main")
 	private String homePage(Model model) throws Exception{
-		List<ProductVO> products = pService.printAllProducts();		
-		model.addAttribute("products", products);
+		Map<ProductVO, String> products = new HashMap<ProductVO, String>();
+		List<ProductVO> productList = pService.printAllProducts();
+		
+		for(int i=0;i<productList.size();i++) {
+			ProductVO product = productList.get(i);
+			byte[] byteImage = org.apache.commons.codec.binary.Base64.encodeBase64(product.getImage());
+			String encoded = new String(byteImage);
+			products.put(product, encoded);
+		}
+				
+		model.addAttribute("products", products);		
 		return "main";
 	}
 	
@@ -44,13 +63,5 @@ public class MainController {
 	public String viewUploadProduct() {
 		return "uploadProduct";
 	}
-	
-	@RequestMapping(value="/test", method=RequestMethod.GET)
-	public String test(){
-		return "test";
-	}
-	
-	
-
 
 }

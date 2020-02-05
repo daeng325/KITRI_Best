@@ -56,14 +56,16 @@
 				</c:if> <c:if test="${login ne null }">
 					<a class="nav-link"
 						href="<% request.getContextPath(); %>/user/logout">Logout</a>
-				</c:if></li>
+				</c:if>
+			</li>
 			<li class="nav-item"><c:if test="${login eq null }">
 					<a class="nav-link"
 						href="<% request.getContextPath(); %>/user/join">Join</a>
 				</c:if> <c:if test="${login ne null }">
 					<a class="nav-link"
 						href="<% request.getContextPath(); %>/user/mypage">Mypage</a>
-				</c:if></li>
+				</c:if>
+			</li>
 		</ul>
 		<form class="form-inline"
 			action="<% request.getContextPath(); %>/product/search" method="post">
@@ -81,12 +83,12 @@
 	</div>
 	<div class="container-fluid">
 		<ul class="nav justify-content-center">
-			<li class="nav-item"><a class="nav-link" href="top">Top</a></li>
-			<li class="nav-item"><a class="nav-link" href="bottom">Bottom</a>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="bags">Bags &
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bags">Bags &
 					Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="acce">Accesories</a>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/acce">Accesories</a>
 			</li>
 		</ul>
 	</div>

@@ -71,16 +71,16 @@
         <div class="container-fluid">
            <ul class="nav justify-content-center">
                 <li class="nav-item">
-					<a class="nav-link" href="top">Top</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="bottom">Bottom</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="bags">Bags & Shoes</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/bags">Bags & Shoes</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="acce">Accesories</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/acce">Accesories</a>
 				</li>
             </ul>
         </nav>
