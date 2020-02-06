@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -39,13 +40,20 @@
 					<a class="nav-link" href="main">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="login">Login</a>
+					<c:if test = "${login eq null }">
+						<a class="nav-link" href="login">Login</a>
+					</c:if>
+					<c:if test = "${login ne null }">			
+						<a class="nav-link" href="logout">Logout</a>
+					</c:if>					
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="join">Join</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="mypage">Mypage</a>
+					<c:if test = "${login eq null }">
+						<a class="nav-link" href="join">Join</a>
+					</c:if>
+					<c:if test = "${login ne null }">
+						<a class="nav-link" href="mypage">Mypage</a>
+					</c:if>
 				</li>
 			</ul>
 			<form class="form-inline" action="" method="post">
@@ -76,7 +84,7 @@
 		</nav>
 		<br>
 		<br>
-		<h1 class="text-center">Top</h1>
+		<h1 class="text-center">Bottom</h1>
 		<div class="container-fluid">
 				<ul class="nav justify-content-end">
 				<li class="nav-item">
@@ -93,18 +101,15 @@
 		<br>
 		<br>
 		<div class="row" align=center>
-			<div class="col-md-3">
-				<a href="bottom1.html"><img class="img11" src="./jpg/11.jpg" alt="블랙롱스커트"><a href="bottom1.jsp"><p>블랙 롱 스커트</p><p>30000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="bottom2.html"><img class="img24" src="./jpg/24.jpg" alt="흰색테니스미니스커트"><a href="bottom2.jsp"><p>흰색 테니스 미니 스커트</p><p>30000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="bottom3.html"><img class="img25" src="./jpg/25.jpg" alt="플라워쉬폰스커트"><a href="bottom3.jsp"><p>플라워 쉬폰 스커트</p><p>35000원</p></a></a>
-			</div>
-			<div class="col-md-3">
-				<a href="bottom4.html"><img class="img13" src="./jpg/13.jpg" alt="블랙레이스스커트"><a href="bottom4.jsp"><p>블랙 레이스 스커트</p><p>45000원</p></a></a>
-			</div>
+				<c:forEach var="item" items="${products}">
+				<div class="col-md-3">
+					<a href="productDetail?id=${item.id }"><img class="img1" src="${ item.image }"
+						alt="${ item.name }"><a href="productDetail?id=${item.id }"><p>${ item.name }</p>
+						<p>${ item.price }</p>
+						</a>
+					</a>
+				</div>
+				</c:forEach>
 		</div>
 		
 		<footer style="background-color: #000000; color:#FFFFFF">
@@ -117,6 +122,6 @@
 			</div>
 		</footer>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="../js/bootstrap.js"></script>
+	<script src="./js/bootstrap.js"></script>
 	</body>
 </html>

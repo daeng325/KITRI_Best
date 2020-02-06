@@ -1,13 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-
-<script>
-function login_button() {
-	alert("login 완료");
-}
-</script>
-
 <html>
 <head>
 <meta charset="UTF-8">
@@ -40,112 +34,119 @@ function login_button() {
 	opacity: 0.5;
 	filter: alpha(opacity = 50);
 }
-
 .logo {
 	font-family: 'Segoe Print';
 	font-size: 100px;
 	margin-top: 100px;
 	margin-bottom: 100px;
 }
-
 * a {
 	text-decoration: none;
 	color: black;
 }
 </style>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="main">Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="login">Login</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="join">Join</a></li>
-			<li class="nav-item"><a class="nav-link" href="mypage">Mypage</a>
-			</li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a></li>
+			<li class="nav-item"><c:if test="${login eq null }">
+					<a class="nav-link" href="login">Login</a>
+				</c:if> <c:if test="${login ne null }">
+					<a class="nav-link" href="logout">Logout</a>
+				</c:if></li>
+			<li class="nav-item"><c:if test="${login eq null }">
+					<a class="nav-link" href="join">Join</a>
+				</c:if> <c:if test="${login ne null }">
+					<a class="nav-link" href="mypage">Mypage</a>
+				</c:if></li>
 		</ul>
-		<form class="form-inline" action="" method="post">
-			<input class="form-control mr-sm-2" type="text" placeholder="Search">
+		<form class="form-inline"
+			action="<%request.getContextPath();%>/product/search" method="post">
+			<input class="form-control mr-sm-2" type="text" placeholder="Search"
+				name="search">
 			<button class="btn btn-success" type="submit">Search</button>
 		</form>
 	</nav>
-	<div class="container">
-		<div class="logo">
-			<h1 class="text-center">
-				<a href="main">Beautycloset</a>
-			</h1>
-		</div>
-	</div>
-	<div class="container-fluid">
-		<ul class="nav justify-content-center">
-			<li class="nav-item"><a class="nav-link" href="top">Top</a></li>
-			<li class="nav-item"><a class="nav-link" href="bottom">Bottom</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="bags">Bags &
-					Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="acce">Accesories</a>
-			</li>
-		</ul>
-		</nav>
-		<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
-			<div class="container">
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+	<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+		<div class="container">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				</div>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			</div>
-		</nav>
+		</div>
+	</nav>
 
-		<main class="login-form">
-			<div class="cotainer">
-				<div class="row justify-content-center">
-					<div class="col-md-8">
-						<div class="card">
-							<div class="card-header">로그인</div>
-							<div class="card-body">
-								<form action="<%= request.getContextPath() %>/login"
-									method="post">
+	<main class="login-form">
+		<div class="cotainer">
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<div class="card">
+						<div class="card-header">로그인</div>
+						<div class="card-body">
+							<form action="<% request.getContextPath(); %>/user/login" method="post">
+								<c:if test="${loginInfo eq null }">
 									<div class="form-group row">
 										<label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>
 										<div class="col-md-6">
-											<input type="text" id="ID" class="form-control" name="ID"
+											<input type="text" id="id" class="form-control" name="id"
 												required autofocus>
 										</div>
 									</div>
+								</c:if>
 
+								<c:if test="${loginInfo ne null }">
 									<div class="form-group row">
-										<label for="password"
-											class="col-md-4 col-form-label text-md-right">패스워드</label>
+										<label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>
 										<div class="col-md-6">
-											<input type="password" id="password" class="form-control"
-												name="password" required>
+											<input type="text" id="id" class="form-control" name="id"
+												value="${loginInfo}" required autofocus>
 										</div>
 									</div>
+								</c:if>
 
-									<div class="form-group row">
-										<div class="col-md-6 offset-md-4">
-											<div class="checkbox">
-												<label> <input type="checkbox" name="remember">
-													로그인 상태 유지
-												</label>
-											</div>
-										</div>
+								<div class="form-group row">
+									<label for="password"
+										class="col-md-4 col-form-label text-md-right">패스워드</label>
+									<div class="col-md-6">
+										<input type="password" id="password" class="form-control"
+											name="password" required>
 									</div>
+								</div>
 
+								<div class="form-group row">
 									<div class="col-md-6 offset-md-4">
-										<button type="submit" class="btn btn-primary">로그인</button>
-										<a href="#" class="btn btn-link"> 아이디/비밀번호 찾기 </a>
+										<div class="checkbox">
+											<label> <input type="checkbox" name="id_remember"
+												value=""> 아이디 저장
+											</label>
+										</div>
 									</div>
-								</form>
-							</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-md-6 offset-md-4">
+										<div class="checkbox">
+											<label> <input type="checkbox" id="chk_cookie"
+												name="remember"> 로그인 상태 유지
+											</label>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-6 offset-md-4">
+									<button type="submit" class="btn btn-primary">로그인</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-	</div>
+		</div>
+		</div>
 	</main>
 	<footer style="background-color: #000000; color: #FFFFFF">
 		<div class="container">

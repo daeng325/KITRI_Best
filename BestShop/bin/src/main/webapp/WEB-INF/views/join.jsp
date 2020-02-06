@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,15 +49,23 @@
 </style>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="main">Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="login">Login</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="join">Join</a></li>
-			<li class="nav-item"><a class="nav-link" href="mypage">Mypage</a>
-			</li>
+			<li class="nav-item"><a class="nav-link"
+				href="<%request.getContextPath();%>/main">Home</a></li>
+			<li class="nav-item"><c:if test="${login eq null }">
+					<a class="nav-link" href="login">Login</a>
+				</c:if> <c:if test="${login ne null }">
+					<a class="nav-link" href="logout">Logout</a>
+				</c:if></li>
+			<li class="nav-item"><c:if test="${login eq null }">
+					<a class="nav-link" href="join">Join</a>
+				</c:if> <c:if test="${login ne null }">
+					<a class="nav-link" href="mypage">Mypage</a>
+				</c:if></li>
 		</ul>
-		<form class="form-inline" action="" method="post">
-			<input class="form-control mr-sm-2" type="text" placeholder="Search">
+		<form class="form-inline"
+			action="<%request.getContextPath();%>/product/search" method="post">
+			<input class="form-control mr-sm-2" type="text" placeholder="Search"
+				name="search">
 			<button class="btn btn-success" type="submit">Search</button>
 		</form>
 	</nav>
@@ -99,7 +108,8 @@
 						<div class="card">
 							<div class="card-header" text-align=center>회원가입</div>
 							<div class="card-body">
-								<form action="<%= request.getContextPath() %>/join" method="post">
+								<form action="<%=request.getContextPath()%>/user/join" method="post">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 									<div class="form-group row">
 										<label for="name"
 											class="col-md-4 col-form-label text-md-right">이름</label>
@@ -134,8 +144,8 @@
 										<label for="address"
 											class="col-md-4 col-form-label text-md-right">집 주소</label>
 										<div class="col-md-6">
-											<input type="text" id="address" class="form-control" name="address"
-												required>
+											<input type="text" id="address" class="form-control"
+												name="address" required>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -149,7 +159,7 @@
 									<div class="form-group row">
 										<label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>
 										<div class="col-md-6">
-											<input type="text" id="ID" class="form-control" name="ID"
+											<input type="text" id="id" class="form-control" name="id"
 												required autofocus>
 										</div>
 									</div>
@@ -165,11 +175,11 @@
 										<label for="items"
 											class="col-md-4 col-form-label text-md-right">관심 아이템</label>
 										<div class="col-md-6">
-											<input type="checkbox" name="likeit" value="top" >상의
-											<input type="checkbox" name="likeit" value="bottom" >하의
-											<input type="checkbox" name="likeit" value="bags" >가방
-											<input type="checkbox" name="likeit" value="shoes" >신발
-											<input type="checkbox" name="likeit" value="accesories">악세사리
+											<input type="checkbox" name="likeit" value="top">상의 <input
+												type="checkbox" name="likeit" value="bottom">하의 <input
+												type="checkbox" name="likeit" value="bags">가방 <input
+												type="checkbox" name="likeit" value="shoes">신발 <input
+												type="checkbox" name="likeit" value="accesories">악세사리
 										</div>
 									</div>
 									<div class="form-group row">
@@ -188,22 +198,12 @@
 											<input type="radio" name="agree2" value="no" required>아니오
 										</div>
 									</div>
-									<div class="form-group row">
-										<div class="col-md-6 offset-md-4">
-											<div class="checkbox">
-												<label> <input type="checkbox" name="remember"
-													value="loginok"> 로그인 상태 유지
-												</label>
-											</div>
-										</div>
-									</div>
 
 									<div class="col-md-6 offset-md-4">
-										<button type="submit" class="btn btn-primary">로그인</button>
+										<button type="submit" class="btn btn-primary">회원가입</button>
 										<br> <br> <a href="#" class="btn btn-link">
 											아이디/비밀번호 찾기 </a>
 									</div>
-							</div>
 							</form>
 						</div>
 					</div>

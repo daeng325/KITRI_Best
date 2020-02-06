@@ -1,17 +1,23 @@
 package com.kitri.shop.db.controller;
 
+import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.kitri.shop.db.dto.Product;
-import com.kitri.shop.repository.ProductRepository;
+import com.kitri.shop.db.domain.Product;
+import com.kitri.shop.db.repository.ProductRepository;
+import com.kitri.shop.response.ApiResponseMessage;
 
 @Controller
 @RequestMapping("/product")
@@ -20,70 +26,63 @@ public class ProductController {
 	@Autowired
 	ProductRepository proRepo;
 	
-	@RequestMapping(value = "/upload", method = RequestMethod.GET)
-	public String tmpuploadProduct() throws Exception {
-		return "upload";
-	}	
+	@RequestMapping(value="/upload", method=RequestMethod.GET)
+   	public String viewUpload(Model model) throws Exception{
+   		return "upload";
+   	}
 	
-	// ÏÉÅÌíà Îì±Î°ù
+	// ªÛ«∞ æ˜∑ŒµÂ
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-	public String uploadProduct(@RequestParam("id") String id, @RequestParam("name") String name,
-			@RequestParam("price") int price
-			, @RequestParam("description") String description,
-			@RequestParam("image") MultipartFile file, @RequestParam("status") String status) throws Exception {
-				
-		Product product = new Product(id, name, price, description, file.getBytes(), status);
+	public String uploadProduct(@RequestParam("id") Long id, @RequestParam("name") String name,
+			@RequestParam("type") String type, @RequestParam("price") int price,
+			@RequestParam("description") String description, @RequestParam("image") MultipartFile file,
+			@RequestParam("status") String status) throws Exception {
+
+		Product product = new Product(id, name, type, price, description, file.getBytes(), status);
 		proRepo.save(product);
-		return "main";
+		return "redirect:/";
 	}
-	
-	// ÏÉÅÌíà Ïù¥ÎØ∏ÏßÄ display (Ïïà Îê®)
-	@RequestMapping(value="/display", method=RequestMethod.GET)
-	public String displayImage(Model model) {
-		String id = "test1";
-		if(proRepo.existsById(id)) {
-			Product product = proRepo.findById(id).get();
-			model.addAttribute("img", product.getImage());
-			return "display";
+
+
+	// ªÛ«∞ ∞Àªˆ
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public String searchProduct(@RequestParam("search") String search_name, RedirectAttributes redirect) throws Exception{
+		
+		List<Product> products = proRepo.findByName(search_name);
+		redirect.addFlashAttribute("product", products);
+		return "redirect:/";
+	}
+
+	// ªÛ«∞ ªË¡¶
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public @ResponseBody ApiResponseMessage deleteProduct(@ModelAttribute @Valid Product product, Model model) {
+		if (proRepo.existsById(product.getId().toString())) {
+			proRepo.deleteById(product.getId().toString());
+			System.out.println("delete");
+			return new ApiResponseMessage("200", "delete");
 		}
 		else {
-			model.addAttribute("img","no image" );	
-			return "display";
+			return new ApiResponseMessage("200", "delete", "PDE" ,"Product Doesn't Exist");
 		}
 	}
-	
-	// ÏÉÅÌíà ÏÇ≠Ï†ú
-	@RequestMapping(value="/delete", method=RequestMethod.POST)
-	public Model deleteProduct(@ModelAttribute Product product, Model model) {
-		if (proRepo.existsById(product.getId())) {
-			//model.addAttribute("delete", proRepo.deleteById(product.getId()));
-		}
-		return model;
-	}
-	
-	// ÏÉÅÌíà ÏàòÏ†ï
-	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public Model updateProduct(@ModelAttribute Product product, Model model) {
-		if (proRepo.existsById(product.getId())) {
+
+	// ªÛ«∞ ºˆ¡§
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String updateProduct(@RequestParam("id") Long id, @RequestParam("name") String name,
+			@RequestParam("type") String type, @RequestParam("price") int price,
+			@RequestParam("description") String description, @RequestParam("image") MultipartFile file,
+			@RequestParam("status") String status, Model model) throws Exception {
+		if (proRepo.existsById(id.toString())) {
+			Product product = new Product(id, name, type, price, description, file.getBytes(), status);
 			proRepo.save(product);
+			ApiResponseMessage result = new ApiResponseMessage("200", "update");
+			model.addAttribute("result", result);
+			return "redirect:/";
 		}
-		return model;
-	}
-	
-	// ÏÉÅÌíà Í≤ÄÏÉâ
-	@RequestMapping(value="/search", method=RequestMethod.GET)
-	public String searchProduct(@RequestParam("name") String name) {
-		return "main";
-	}
-	
-	@RequestMapping("/detail/{id}")
-	public String top_detail_page(@PathVariable("id") String id, Model model) {
-		
-		System.out.println(id);
-		Product product = proRepo.findById(id).get();
-		
-		model.addAttribute("product",product);
-		
-		return "detail";
+		else {
+			ApiResponseMessage result = new ApiResponseMessage("200", "update", "PDE" ,"Product Doesn't Exist");
+			model.addAttribute("result", result);
+			return "redirect:/";
+		}
 	}
 }
