@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.kitri.shop.db.dto.SecurityMember;
+import com.kitri.shop.db.domain.SecurityMember;
 import com.kitri.shop.db.repository.MemberRepository;
 
 @Service
@@ -22,7 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 		return
 				Optional.ofNullable(memberRepository.findById(id))
 				.filter(m -> m!= null)
-				.map(m -> new SecurityMember(m)).get();
+				.map(m -> new SecurityMember(m.get())).get();
 	}
 
 }

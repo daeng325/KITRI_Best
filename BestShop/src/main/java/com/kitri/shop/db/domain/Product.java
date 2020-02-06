@@ -1,4 +1,4 @@
-package com.kitri.shop.db.dto;
+package com.kitri.shop.db.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

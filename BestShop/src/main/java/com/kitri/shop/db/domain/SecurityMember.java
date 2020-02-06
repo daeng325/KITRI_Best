@@ -1,4 +1,4 @@
-package com.kitri.shop.db.dto;
+package com.kitri.shop.db.domain;
 
 import java.util.ArrayList;
 import java.util.List;

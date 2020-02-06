@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.kitri.shop.db.dto.Review;
+import com.kitri.shop.db.domain.Review;
 import com.kitri.shop.db.repository.ReviewRepository;
 
 
@@ -84,7 +84,7 @@ public class ReviewController {
 	
 	
 	
-//	// 리뷰 상세 보기
+
 //	@RequestMapping(value = "/reviewDetail", method = RequestMethod.GET)
 //	public ModelAndView productDetailPage(@RequestParam String id) throws Exception {
 //		ModelAndView mov = new ModelAndView();

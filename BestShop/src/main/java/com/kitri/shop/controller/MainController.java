@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.kitri.shop.db.dto.Product;
+import com.kitri.shop.db.domain.Product;
 import com.kitri.shop.db.repository.ProductRepository;
 
 @Controller
@@ -58,10 +58,5 @@ public class MainController {
 		model.addAttribute("products", products);
 		return "acce";
 	}
-    
-    @RequestMapping(value="/upload", method=RequestMethod.GET)
-   	public String viewUpload(Model model) throws Exception{
-   		return "upload";
-   	}
 }
 

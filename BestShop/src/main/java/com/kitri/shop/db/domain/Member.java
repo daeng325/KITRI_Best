@@ -1,6 +1,5 @@
-package com.kitri.shop.db.dto;
+package com.kitri.shop.db.domain;
 
-import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,10 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

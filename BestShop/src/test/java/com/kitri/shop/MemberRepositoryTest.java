@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.kitri.shop.db.dto.Member;
-import com.kitri.shop.db.dto.MemberRole;
 import com.kitri.shop.db.repository.MemberRepository;
+import com.kitri.shop.db.domain.Member;
+import com.kitri.shop.db.domain.MemberRole;
 
 import lombok.extern.java.Log;
 

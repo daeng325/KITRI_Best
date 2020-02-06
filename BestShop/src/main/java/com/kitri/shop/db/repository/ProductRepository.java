@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.kitri.shop.db.dto.Product;
+import com.kitri.shop.db.domain.Product;
 
 public interface ProductRepository extends CrudRepository<Product, String>{
 

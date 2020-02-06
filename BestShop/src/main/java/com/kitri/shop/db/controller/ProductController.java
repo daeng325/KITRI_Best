@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.kitri.shop.db.dto.Product;
+import com.kitri.shop.db.domain.Product;
 import com.kitri.shop.db.repository.ProductRepository;
 import com.kitri.shop.response.ApiResponseMessage;
 
@@ -25,8 +25,13 @@ public class ProductController {
 
 	@Autowired
 	ProductRepository proRepo;
-
-	// ìƒí’ˆ ë“±ë¡
+	
+	@RequestMapping(value="/upload", method=RequestMethod.GET)
+   	public String viewUpload(Model model) throws Exception{
+   		return "upload";
+   	}
+	
+	// »óÇ° ¾÷·Îµå
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public String uploadProduct(@RequestParam("id") Long id, @RequestParam("name") String name,
 			@RequestParam("type") String type, @RequestParam("price") int price,
@@ -38,21 +43,8 @@ public class ProductController {
 		return "redirect:/";
 	}
 
-	// ìƒí’ˆ ì´ë¯¸ì§€ display (ì•ˆ ë¨)
-	@RequestMapping(value = "/display", method = RequestMethod.GET)
-	public String displayImage(Model model) {
-		String id = "test1";
-		if (proRepo.existsById(id)) {
-			Product product = proRepo.findById(id).get();
-			model.addAttribute("img", product.getImage());
-			return "display";
-		} else {
-			model.addAttribute("img", "no image");
-			return "display";
-		}
-	}
-	
-	// ìƒí’ˆ ê²€ìƒ‰
+
+	// »óÇ° °Ë»ö
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public String searchProduct(@RequestParam("search") String search_name, RedirectAttributes redirect) throws Exception{
 		
@@ -61,7 +53,7 @@ public class ProductController {
 		return "redirect:/";
 	}
 
-	// ìƒí’ˆ ì‚­ì œ
+	// »óÇ° »èÁ¦
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public @ResponseBody ApiResponseMessage deleteProduct(@ModelAttribute @Valid Product product, Model model) {
 		if (proRepo.existsById(product.getId().toString())) {
@@ -74,7 +66,7 @@ public class ProductController {
 		}
 	}
 
-	// ìƒí’ˆ ìˆ˜ì •
+	// »óÇ° ¼öÁ¤
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String updateProduct(@RequestParam("id") Long id, @RequestParam("name") String name,
 			@RequestParam("type") String type, @RequestParam("price") int price,
