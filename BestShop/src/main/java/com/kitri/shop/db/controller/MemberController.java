@@ -69,29 +69,5 @@ public class MemberController {
 		return "mypage";
 	}
     
-//	@RequestMapping(value="/login", method=RequestMethod.POST)
-//	public String loginComplete(
-//			@RequestParam(value="ID") String id,
-//			@RequestParam(value="password") String pwd,
-//			HttpServletRequest request,
-//			ModelMap model){
-//		
-//		if(memRepo.existsById(id)) {
-//			Member member = memRepo.findById(id).get();
-//			
-//			if(pwd.equals(member.getPwd())) {
-//				model.addAttribute("msg","welcome" );
-//				return "loginSuccess";
-//			}
-//			else {
-//				model.addAttribute("msg","incorrect pw" );
-//				return "loginFail";
-//			}
-//		}
-//		else {
-//			model.addAttribute("msg","no id" );	
-//			return "loginFail";
-//		}
-//	}
 }
 
