@@ -99,7 +99,7 @@
 		<span>
 			<h1 class="text-center">Mypage</h1>
 			<div class="card" style="width: 300px; height: 400px">
-				<a href="user/selfuseredit"><img src="../icon/user.png" class="rounded"
+				<a href="selfuseredit"><img src="../icon/user.png" class="rounded"
 					alt="개인정보관리" style="width: 100px; height: 100px"></a>
 				<div class="card-body">
 					<a href="selfuseredit"><h4 class="card-title"

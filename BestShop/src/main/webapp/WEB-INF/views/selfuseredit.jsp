@@ -52,7 +52,7 @@
 </style>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="main">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a></li>
 			<li class="nav-item"><a class="nav-link" href="logout">Logout</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="mypage">Mypage</a>
@@ -76,12 +76,12 @@
 	</div>
 	<div class="container-fluid">
 		<ul class="nav justify-content-center">
-			<li class="nav-item"><a class="nav-link" href="top">Top</a></li>
-			<li class="nav-item"><a class="nav-link" href="bottom">Bottom</a>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="bags">Bags &
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bags">Bags &
 					Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="acce">Accesories</a>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/acce">Accesories</a>
 			</li>
 		</ul>
 		</nav>
