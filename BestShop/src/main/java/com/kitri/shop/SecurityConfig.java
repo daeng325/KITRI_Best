@@ -1,5 +1,7 @@
 package com.kitri.shop;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +13,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import com.kitri.shop.db.service.CustomUserDetailsService;
 
@@ -24,6 +28,9 @@ import lombok.extern.java.Log;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
+	DataSource dataSource;
+	
+	@Autowired
 	CustomUserDetailsService customUserDetailsService;
 
 //	@Autowired
@@ -35,12 +42,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	  return new BCryptPasswordEncoder();
 	}
 	
-//	// 인증방식
-//	@Autowired
-//	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//		log.info("build Auth global.............");
-//		auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
-//	}
+	// 인증방식
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		log.info("build Auth global.............");
+		auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
+	}
+	
+	private PersistentTokenRepository getJDBCRepository() {
+		JdbcTokenRepositoryImpl repo = new JdbcTokenRepositoryImpl();
+		repo.setDataSource(dataSource);
+		return repo;
+	}
 	
 	// Security 제외 패턴 
 	@Override
@@ -78,7 +91,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 403 예외처리 핸들링
                 .exceptionHandling().accessDeniedPage("/user/denied")
             .and()
-            	.userDetailsService(customUserDetailsService);
+            	.rememberMe()// 기본 로그인 시간+2주 쿠키
+            	.key("bestshop")
+            	.userDetailsService(customUserDetailsService)
+            	.tokenRepository(getJDBCRepository())
+            	.tokenValiditySeconds(60*60*24); 
     }
 	
 	@Bean

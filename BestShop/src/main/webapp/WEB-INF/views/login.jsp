@@ -143,7 +143,7 @@
 									<div class="col-md-6 offset-md-4">
 										<div class="checkbox">
 											<label> <input type="checkbox" id="chk_cookie"
-												name="remember"> 로그인 상태 유지
+												name="remember-me"> 로그인 상태 유지
 											</label>
 										</div>
 									</div>

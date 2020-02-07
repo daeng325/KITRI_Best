@@ -32,10 +32,6 @@
 	text-decoration: none;
 	color: black;
 }
-	<a href="${CONTEXT }/j_spring_security_check">로그인</a>
-<sec:authorize access="isAuthenticated()">
-	<a href="${CONTEXT }/j_spring_security_logout">로그아웃</a>
-</sec:authorize>
 
 </style>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
