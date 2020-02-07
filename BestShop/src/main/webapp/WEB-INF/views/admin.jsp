@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width" , initial-scale="1">
 <title>Beautycloset</title>
-<link rel="stylesheet" href="./css/bootstrap.css">
+<link rel="stylesheet" href="../css/bootstrap.css">
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
@@ -19,7 +19,7 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
 	rel="stylesheet" type="text/css">
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 
 <link rel="icon" href="Favicon.png">
 
@@ -76,12 +76,12 @@
 	</div>
 	<div class="container-fluid">
 		<ul class="nav justify-content-center">
-			<li class="nav-item"><a class="nav-link" href="top">Top</a></li>
-			<li class="nav-item"><a class="nav-link" href="bottom">Bottom</a>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="bags">Bags &
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bags">Bags &
 					Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="acce">Accesories</a>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/acce">Accesories</a>
 			</li>
 		</ul>
 		</nav>
@@ -94,7 +94,7 @@
 					<div class="card">
 						<div class="card-header" text-align=center>관리자 페이지</div>
 						<div class="card-body">
-							<form action="" method="post">
+							<form action="productmanage" method="post">
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<div class="col-md-6 offset-md-4">
 									<button type="submit" class="btn btn-primary"
@@ -102,7 +102,7 @@
 								</div>
 							</form>
 							<br>
-							<form action="" method="post">
+							<form action="usermanage" method="post">
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<div class="col-md-6 offset-md-4">
 									<button type="submit" class="btn btn-primary"
@@ -110,14 +110,14 @@
 								</div>
 							</form>
 							<br>
-							<form action="" method="post">
+							<form action="ordermanage" method="post">
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<div class="col-md-6 offset-md-4">
 									<button type="submit" class="btn btn-primary"
 										onclick="location.href='ordermanage'">주문정보관리</button>
 								</div>
 							</form>
-							<form action="" method="post">
+							<form action="q&aanswermanage" method="post">
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<div class="col-md-6 offset-md-4">
 									<button type="submit" class="btn btn-primary"

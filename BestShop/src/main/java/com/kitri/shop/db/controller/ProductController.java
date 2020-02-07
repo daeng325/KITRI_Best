@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,12 +27,13 @@ public class ProductController {
 	@Autowired
 	ProductRepository proRepo;
 	
+	@Secured("ROLE_ADMIN")
 	@RequestMapping(value="/upload", method=RequestMethod.GET)
-   	public String viewUpload(Model model) throws Exception{
-   		return "upload";
+   	public String viewUpload() throws Exception{
+   		return "productadd";
    	}
 	
-	// 상품 업로드
+	// 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public String uploadProduct(@RequestParam("id") Long id, @RequestParam("name") String name,
 			@RequestParam("type") String type, @RequestParam("price") int price,
@@ -44,7 +46,7 @@ public class ProductController {
 	}
 
 
-	// 상품 검색
+	// 
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public String searchProduct(@RequestParam("search") String search_name, RedirectAttributes redirect) throws Exception{
 		
@@ -53,7 +55,7 @@ public class ProductController {
 		return "redirect:/";
 	}
 
-	// 상품 삭제
+	// 
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public @ResponseBody ApiResponseMessage deleteProduct(@ModelAttribute @Valid Product product, Model model) {
 		if (proRepo.existsById(product.getId().toString())) {
@@ -65,8 +67,13 @@ public class ProductController {
 			return new ApiResponseMessage("200", "delete", "PDE" ,"Product Doesn't Exist");
 		}
 	}
-
-	// 상품 수정
+	
+	@Secured("ROLE_ADMIN")
+	@RequestMapping(value="/update", method = RequestMethod.GET)
+	public String updateProductPage() {
+		return "";
+	}
+	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String updateProduct(@RequestParam("id") Long id, @RequestParam("name") String name,
 			@RequestParam("type") String type, @RequestParam("price") int price,
