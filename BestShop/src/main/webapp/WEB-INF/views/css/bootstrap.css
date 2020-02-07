@@ -15,6 +15,17 @@
 }
 
 
+#star_grade a{
+        text-decoration: none;
+        color: gray;
+    }
+
+
+#star_grade a.on{
+        color: red;
+    }
+
+
 div.stars {
   width: 270px;
   display: inline-block;
