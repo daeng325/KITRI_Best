@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import com.kitri.shop.db.service.CustomUserDetailsService;
 
@@ -35,12 +35,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	  return new BCryptPasswordEncoder();
 	}
 	
-	// 인증방식
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		log.info("build Auth global.............");
-		auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
-	}
+//	// 인증방식
+//	@Autowired
+//	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//		log.info("build Auth global.............");
+//		auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
+//	}
 	
 	// Security 제외 패턴 
 	@Override
@@ -55,9 +55,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 // 페이지 권한 설정
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/mypage").hasRole("MEMBER")
+                .antMatchers("/user/mypage").hasRole("BASIC")
                 .antMatchers("/**").permitAll()
-                .antMatchers("/board/**").authenticated()
+//                .antMatchers("/board/**").authenticated()
 //                .anyRequest().authenticated()
             .and() // 로그인 설정
                 .formLogin()
@@ -65,23 +65,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/user/login")
                 .defaultSuccessUrl("/")
                 .usernameParameter("id")
-                .failureUrl("/login")
+                .failureUrl("/user/loginFail")
                 .permitAll()
             .and() // 로그아웃 설정
                 .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-                .logoutSuccessUrl("/")
+                .logoutUrl("/user/logout")
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
+                .logoutSuccessUrl("/user/login")
                 .invalidateHttpSession(true)
 //                .deleteCookies("login")
             .and()
                 // 403 예외처리 핸들링
-                .exceptionHandling().accessDeniedPage("/user/denied");
+                .exceptionHandling().accessDeniedPage("/user/denied")
+            .and()
+            	.userDetailsService(customUserDetailsService);
     }
 	
-//	@Bean
-//	public AuthenticationSuccessHandler successHandler() {
-//	    return new CustomLoginSuccessHandler("/"); //default로 이동할 url
-//	}
+	@Bean
+	public AuthenticationSuccessHandler successHandler() {
+	    return new CustomLoginSuccessHandler("/"); //default로 이동할 url
+	}
 
 	
 	

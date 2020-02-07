@@ -87,7 +87,8 @@
 					<div class="card">
 						<div class="card-header">로그인</div>
 						<div class="card-body">
-							<form action="<% request.getContextPath(); %>/user/login" method="post">
+							<form action="<% request.getContextPath(); %>/user/login" method="post"> 
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<c:if test="${loginInfo eq null }">
 									<div class="form-group row">
 										<label for="ID" class="col-md-4 col-form-label text-md-right">아이디</label>

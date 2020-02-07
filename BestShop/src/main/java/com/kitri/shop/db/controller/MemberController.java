@@ -43,10 +43,30 @@ public class MemberController {
 		
     
     @RequestMapping(value="/login", method=RequestMethod.GET)
-	public String loginForm(HttpServletRequest req) {
+	public String viewLoginForm(HttpServletRequest req) {
 		String referer = req.getHeader("Referer");
 		req.getSession().setAttribute("prevPage", referer);
 		return "login";
+	}
+    
+    @RequestMapping(value="/loginFail", method=RequestMethod.GET)
+	public String loginFail() {
+		return "loginFail";
+	}
+    
+    @RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logout() {
+    	return "logout";
+	}
+    
+    @RequestMapping(value="/denied", method=RequestMethod.GET)
+    public String accessDenied() {
+    	return "accessDenied";
+    }
+    
+    @RequestMapping("/mypage")
+	public String myPage() {
+		return "mypage";
 	}
     
 //	@RequestMapping(value="/login", method=RequestMethod.POST)

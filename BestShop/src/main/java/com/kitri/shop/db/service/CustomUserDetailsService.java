@@ -1,7 +1,5 @@
 package com.kitri.shop.db.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,14 +13,14 @@ import com.kitri.shop.db.repository.MemberRepository;
 public class CustomUserDetailsService implements UserDetailsService{
 	
 	@Autowired
-	MemberRepository memberRepository;
+	MemberRepository memRepo;
 	
 	@Override
 	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 		return
-				Optional.ofNullable(memberRepository.findById(id))
-				.filter(m -> m!= null)
-				.map(m -> new SecurityMember(m.get())).get();
+				memRepo.findById(id)
+				.filter(m -> m != null)
+				.map(m -> new SecurityMember(m)).get();
 	}
 
 }

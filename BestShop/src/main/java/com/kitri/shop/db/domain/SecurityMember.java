@@ -15,9 +15,11 @@ import lombok.Setter;
 public class SecurityMember extends User {
 	private static final String ROLE_PREFIX = "ROLE_";
 	private static final long serialVersionUID = 1L;
+	private Member member;
 	
 	public SecurityMember(Member member) {
 		super(member.getId(), member.getPwd(), makeGrantedAuthority(member.getRoles()));
+		this.member = member;
 	}
 	
 	private static List<GrantedAuthority> makeGrantedAuthority(List<MemberRole> roles){
