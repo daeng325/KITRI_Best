@@ -181,7 +181,7 @@
 		</div>
 
 		<div class="tab-pane fade in active" id="상품정보">
-			<br> ${products.description } <br> 가격 : ${products.price } <br>
+			<br> <img src="../jpg/blackskirt.jpg" alt="블랙레이스스커트"> <br> 가격 : ${products.price } <br>
 		</div>
 
 		<div class="tab-pane fade" id="Review">

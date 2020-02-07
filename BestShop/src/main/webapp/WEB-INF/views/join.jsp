@@ -182,13 +182,11 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember" value="loginok"> 로그인 상태 유지
-                                        </label>
-                                    </div>
-                                </div>
+                                    <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary" onclick="">
+                                        가입
+                                </button>
+                            </div>
                             </div>
                             </form>
                         </div>

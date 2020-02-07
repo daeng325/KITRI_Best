@@ -1,3 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="c-rt" uri="http://java.sun.com/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt-rt"%>
+
 <!DOCTYPE html>
 <html>
     <head>
