@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
@@ -33,20 +33,6 @@
 	color: black;
 }
 
-
-
-	<a href="${CONTEXT }/j_spring_security_check">·Î±×ÀÎ</a>
-
-
-
-<sec:authorize access="isAuthenticated()">
-
-	<a href="${CONTEXT }/j_spring_security_logout">·Î±×¾Æ¿ô</a>
-
-</sec:authorize>
-
-
-
 </style>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
@@ -71,8 +57,9 @@
 		</ul>
 		<form class="form-inline"
 			action="<% request.getContextPath(); %>/product/search" method="post">
-			<input class="form-control mr-sm-2" type="text" placeholder="Search"
-				name="search">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" /> <input class="form-control mr-sm-2"
+				type="text" placeholder="Search" name="search">
 			<button class="btn btn-success" type="submit">Search</button>
 		</form>
 	</nav>
@@ -141,7 +128,7 @@
 				<div class="row">
 					<div class="col col-lg-6"
 						style="border: 1px solid black; text-align: left; font-family: 'ariel'">
-						Copyright &copy; 2020<br>KITRIÄ§ÇØ´ëÀÀ20±â¿ì¸®Á¶°¡Â¯ÀÌÁ¶<br>All
+						Copyright &copy; 2020<br>KITRIì¹¨í•´ëŒ€ì‘20ê¸°ìš°ë¦¬ì¡°ê°€ì§±ì´ì¡°<br>All
 						rights reserved
 					</div>
 					<div class="col-md auto"
