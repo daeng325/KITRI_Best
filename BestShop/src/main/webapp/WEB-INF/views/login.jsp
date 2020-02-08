@@ -25,6 +25,12 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
+	<script>
+		var msg = "${msg}";
+		if (msg === "Registered") {
+			alert("회원가입이 완료되었습니다. 로그인해주세요.")
+		}
+	</script>
 	<style type="text/css">
 .jumbotron {
 	background-image: url('./jpg/flower.jpg');

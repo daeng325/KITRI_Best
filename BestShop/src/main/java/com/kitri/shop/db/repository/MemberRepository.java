@@ -18,4 +18,7 @@ public interface MemberRepository extends CrudRepository<Member, String> {
 			+ "pwd = :#{#member.pwd}, likeit = :#{#member.likeit}, agree = :#{#member.agree}, agree2 = :#{#member.agree2}"
 			+ " WHERE id = :#{#member.id}")
 	public int updateMember(@Param("member") Member member);
+	
+	@Query("SELECT m.pwd FROM Member m WHERE id=?1")
+	public String checkPassword(String id);
 }

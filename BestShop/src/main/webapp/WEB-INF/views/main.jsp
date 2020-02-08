@@ -5,35 +5,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" , initial-scale="1">
-<title>Beautycloset</title>
-<link rel="stylesheet" href="./css/bootstrap.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" , initial-scale="1">
+	<title>Beautycloset</title>
+	<link rel="stylesheet" href="./css/bootstrap.css">
+	
+	<style type="text/css">
+	.jumbotron {
+		background-image: url('./jpg/flower.jpg');
+		background-size: cover;
+		text-shadow: black 0.2px 0.2px 0.2px;
+		color: blue;
+		font-weight: bold;
+		opacity: 0.5;
+		filter: alpha(opacity = 50);
+	}
+	.logo {
+		font-family: 'Segoe Print';
+		font-size: 100px;
+		margin-top: 100px;
+		margin-bottom: 100px;
+	}
+	* a {
+		text-decoration: none;
+		color: black;
+	}
+	
+	</style>
+
 </head>
 <body>
 
-	<style type="text/css">
-.jumbotron {
-	background-image: url('./jpg/flower.jpg');
-	background-size: cover;
-	text-shadow: black 0.2px 0.2px 0.2px;
-	color: blue;
-	font-weight: bold;
-	opacity: 0.5;
-	filter: alpha(opacity = 50);
-}
-.logo {
-	font-family: 'Segoe Print';
-	font-size: 100px;
-	margin-top: 100px;
-	margin-bottom: 100px;
-}
-* a {
-	text-decoration: none;
-	color: black;
-}
-
-</style>
+	<script>
+		var msg = "${msg}";
+		if (msg === "Deleted") {
+			alert("회원탈퇴가 완료되었습니다.");
+		}
+	</script>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="">Home</a></li>
