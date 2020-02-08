@@ -1,6 +1,10 @@
 package com.kitri.shop.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +30,7 @@ public class MainController {
     
     @RequestMapping(value="/main", method=RequestMethod.GET)
 	public String viewMain(Model model) throws Exception{
-    	List<Product> products = proRepo.printAllProducts();
+       	List<Product> products = proRepo.printAllProducts();   	
     	model.addAttribute("products", products);
 		return "main";
 	}
@@ -35,28 +39,33 @@ public class MainController {
 	public String viewTop(Model model) throws Exception{
     	List<Product> products = proRepo.printProductsByType("top");				
 		model.addAttribute("products", products);	
-		return "top";
+		model.addAttribute("type","Top");
+		return "productPage";
 	}
     
     @RequestMapping(value="/bottom", method=RequestMethod.GET)
 	public String viewBottom(Model model) throws Exception{
     	List<Product> products = proRepo.printProductsByType("bottom");				
 		model.addAttribute("products", products);
-		return "bottom";
+		model.addAttribute("type","Bottom");
+		return "productPage";
 	}
     
     @RequestMapping(value="/bags", method=RequestMethod.GET)
 	public String viewBags(Model model) throws Exception{
-    	List<Product> products = proRepo.printProductsByType("bag");				
+    	List<Product> products = proRepo.printProductsByType("bag");	
+    	products.addAll(proRepo.printProductsByType("shoes"));
 		model.addAttribute("products", products);
-		return "bags";
+		model.addAttribute("type","Bags & Shoes");
+		return "productPage";
 	}
     
     @RequestMapping(value="/acce", method=RequestMethod.GET)
 	public String viewSignin(Model model) throws Exception{
     	List<Product> products = proRepo.printProductsByType("Accesorie");				
 		model.addAttribute("products", products);
-		return "acce";
+		model.addAttribute("type","Accesories");
+		return "productPage";
 	}
 }
 

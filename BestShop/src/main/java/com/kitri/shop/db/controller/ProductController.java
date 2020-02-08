@@ -35,14 +35,27 @@ public class ProductController {
 	
 	// 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-	public String uploadProduct(@RequestParam("id") Long id, @RequestParam("name") String name,
+	public String uploadProduct(@RequestParam("name") String name,
 			@RequestParam("type") String type, @RequestParam("price") int price,
-			@RequestParam("description") String description, @RequestParam("image") MultipartFile file,
-			@RequestParam("status") String status) throws Exception {
+			@RequestParam("description") String description, @RequestParam("image_thumbnail") MultipartFile image_thumbnail, 
+			@RequestParam("image_detail") MultipartFile image_detail, @RequestParam("count") int count,
+			@RequestParam("image") MultipartFile image, @RequestParam("status") String status) throws Exception {
 
-		Product product = new Product(id, name, type, price, description, file.getBytes(), status);
+		
+		byte[] byteThumbnailImage = org.apache.commons.codec.binary.Base64.encodeBase64(image_thumbnail.getBytes());
+		String encodedThumbnailImage = new String(byteThumbnailImage);
+
+		byte[] byteImage = org.apache.commons.codec.binary.Base64.encodeBase64(image.getBytes());
+		String encodedImage = new String(byteImage);
+		
+		byte[] byteDetailImage = org.apache.commons.codec.binary.Base64.encodeBase64(image_detail.getBytes());
+		String encodedDetailImage = new String(byteDetailImage);	
+		
+		Product product = new Product(name, type, price, description, encodedThumbnailImage, encodedImage, count, encodedDetailImage, status);
+
+		
 		proRepo.save(product);
-		return "redirect:/";
+		return "redirect:/admin/productmanage";
 	}
 
 
@@ -74,22 +87,23 @@ public class ProductController {
 		return "";
 	}
 	
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String updateProduct(@RequestParam("id") Long id, @RequestParam("name") String name,
-			@RequestParam("type") String type, @RequestParam("price") int price,
-			@RequestParam("description") String description, @RequestParam("image") MultipartFile file,
-			@RequestParam("status") String status, Model model) throws Exception {
-		if (proRepo.existsById(id.toString())) {
-			Product product = new Product(id, name, type, price, description, file.getBytes(), status);
-			proRepo.save(product);
-			ApiResponseMessage result = new ApiResponseMessage("200", "update");
-			model.addAttribute("result", result);
-			return "redirect:/";
-		}
-		else {
-			ApiResponseMessage result = new ApiResponseMessage("200", "update", "PDE" ,"Product Doesn't Exist");
-			model.addAttribute("result", result);
-			return "redirect:/";
-		}
-	}
+//	@RequestMapping(value = "/update", method = RequestMethod.POST)
+//	public String updateProduct(Model model, @RequestParam("product_name") String name,
+//			@RequestParam("type") String type, @RequestParam("price") int price,
+//			@RequestParam("description") String description, @RequestParam("image_thumbnail") MultipartFile image_thumbnail, 
+//			@RequestParam("image_detail") MultipartFile image_detail, @RequestParam("count") int count,
+//			@RequestParam("image") MultipartFile image, @RequestParam("status") String status) {
+//			Product product = new Product(name, type, price, description, image_thumbnail.getBytes(), image_detail.getBytes(), count, image.getBytes(), status);
+//
+//			proRepo.save(product);
+//			ApiResponseMessage result = new ApiResponseMessage("200", "update");
+//			model.addAttribute("result", result);
+//			return "redirect:/";
+//		}
+//		else {
+//			ApiResponseMessage result = new ApiResponseMessage("200", "update", "PDE" ,"Product Doesn't Exist");
+//			model.addAttribute("result", result);
+//			return "redirect:/";
+//		}
+//	}
 }

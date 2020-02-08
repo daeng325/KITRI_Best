@@ -23,15 +23,34 @@ public class Product {
 	private String type;
 	private int price;
 	private String description;
-	private byte[] image;
+	private String image_thumbnail;
+	private String image_detail;
+	private int count;
 	private String status;
+	private String image;
+
 	
-	public Product(Long id, String name, String type, int price, String description, byte[] image, String status) {
+	public Product(Long id, String name, String type, int price, String description, String image_thumbmail, String image_detail, int count, String image, String status) {
 		this.id = id;
 		this.name = name;
 		this.type = type;
 		this.price = price;
 		this.description = description;
+		this.image_thumbnail = image_thumbmail;
+		this.image_detail = image_detail;
+		this.count = count;
+		this.image = image;
+		this.status = status;
+	}
+	
+	public Product(String name, String type, int price, String description, String image_thumbmail, String image_detail, int count, String image, String status) {
+		this.name = name;
+		this.type = type;
+		this.price = price;
+		this.description = description;
+		this.image_thumbnail = image_thumbmail;
+		this.image_detail = image_detail;
+		this.count = count;
 		this.image = image;
 		this.status = status;
 	}

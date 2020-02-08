@@ -63,11 +63,9 @@
 			</li>
 
 		</ul>
-		<form class="form-inline"
-			action="<% request.getContextPath(); %>/product/search" method="post">
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" /> <input class="form-control mr-sm-2"
-				type="text" placeholder="Search" name="search">
+		<form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			<input class="form-control mr-sm-2"	type="text" placeholder="Search" name="search">
 			<button class="btn btn-success" type="submit">Search</button>
 		</form>
 	</nav>
@@ -104,9 +102,12 @@
 			<div class="row" align=center>
 				<c:forEach var="item" items="${product}">
 					<div class="col-md-3">
-						<a href="productDetail?id=${item.id }"><img class="img1"
-							src="${ item.image }" alt="${ item.name }"><a href="productDetail?id=${item.id }"><p>${ item.name }</p>
-								<p>${ item.price }</p> </a> </a>
+						<a href="productDetail?id=${item.id }">
+							<img class="img" width="175" height="250" src='data:image/jpg;base64,${ item.image_thumbnail }' alt="${ item.name }">
+						</a>
+						<a href="productDetail?id=${item.id }"><p>${ item.name }</p>
+								<p>${ item.price }</p> 
+						</a>
 					</div>
 				</c:forEach>
 			</div>
@@ -118,10 +119,11 @@
 			<div class="row" align=center>
 				<c:forEach var="item" items="${products}">
 					<div class="col-md-3">
-						<a href="productDetail?id=${item.id }"><img class="img1" src="${ item.image }" alt="${ item.name }">
-							<a href="productDetail?id=${item.id }"><p>${ item.name }</p>
+						<a href="productDetail?id=${item.id }">
+							<img class="img" width="175" height="250" src='data:image/jpg;base64,${ item.image_thumbnail }' alt="${ item.name }">
+						</a>
+						<a href="productDetail?id=${item.id }"><p>${ item.name }</p>
 								<p>${ item.price }</p> 
-							</a>
 						</a>
 					</div>
 				</c:forEach>

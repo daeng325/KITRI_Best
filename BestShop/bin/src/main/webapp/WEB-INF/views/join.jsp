@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,22 +52,24 @@
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link"
-				href="<%request.getContextPath();%>/main">Home</a></li>
-			<li class="nav-item"><c:if test="${login eq null }">
+				href="<%request.getContextPath();%>/">Home</a></li>
+			<li class="nav-item"><sec:authorize access="isAnonymous()">
 					<a class="nav-link" href="login">Login</a>
-				</c:if> <c:if test="${login ne null }">
+				</sec:authorize> <sec:authorize access="isAuthenticated()">
 					<a class="nav-link" href="logout">Logout</a>
-				</c:if></li>
-			<li class="nav-item"><c:if test="${login eq null }">
+				</sec:authorize></li>
+			<li class="nav-item"><sec:authorize access="isAnonymous()">
 					<a class="nav-link" href="join">Join</a>
-				</c:if> <c:if test="${login ne null }">
+				</sec:authorize> <sec:authorize access="isAuthenticated()">
 					<a class="nav-link" href="mypage">Mypage</a>
-				</c:if></li>
+				</sec:authorize></li>
+
 		</ul>
 		<form class="form-inline"
-			action="<%request.getContextPath();%>/product/search" method="post">
-			<input class="form-control mr-sm-2" type="text" placeholder="Search"
-				name="search">
+			action="<% request.getContextPath(); %>/product/search" method="post">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" /> <input class="form-control mr-sm-2"
+				type="text" placeholder="Search" name="search">
 			<button class="btn btn-success" type="submit">Search</button>
 		</form>
 	</nav>
@@ -108,8 +112,10 @@
 						<div class="card">
 							<div class="card-header" text-align=center>회원가입</div>
 							<div class="card-body">
-								<form action="<%=request.getContextPath()%>/user/join" method="post">
-								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+								<form action="<%=request.getContextPath()%>/user/join"
+									method="post">
+									<input type="hidden" name="${_csrf.parameterName}"
+										value="${_csrf.token}" />
 									<div class="form-group row">
 										<label for="name"
 											class="col-md-4 col-form-label text-md-right">이름</label>
@@ -204,31 +210,31 @@
 										<br> <br> <a href="#" class="btn btn-link">
 											아이디/비밀번호 찾기 </a>
 									</div>
-							</form>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-	</div>
-	</main>
-	<footer style="background-color: #000000; color: #FFFFFF">
-		<div class="container">
-			<br>
-			<div class="row">
-				<div class="col col-lg-6"
-					style="border: 1px solid black; text-align: left; font-family: 'ariel'">
-					Copyright &copy; 2020<br>KITRI침해대응20기우리조가짱이조<br>All
-					rights reserved
-				</div>
-				<div class="col-md auto"
-					style="border: 1px solid black; text-align: left; font-family: 'ariel'">
-					Contact Us<br>tel : 010-4022-3241<br>e-mail :
-					wsm91@naver.com
+		</main>
+		<footer style="background-color: #000000; color: #FFFFFF">
+			<div class="container">
+				<br>
+				<div class="row">
+					<div class="col col-lg-6"
+						style="border: 1px solid black; text-align: left; font-family: 'ariel'">
+						Copyright &copy; 2020<br>KITRI침해대응20기우리조가짱이조<br>All
+						rights reserved
+					</div>
+					<div class="col-md auto"
+						style="border: 1px solid black; text-align: left; font-family: 'ariel'">
+						Contact Us<br>tel : 010-4022-3241<br>e-mail :
+						wsm91@naver.com
+					</div>
 				</div>
 			</div>
-		</div>
-	</footer>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="../js/bootstrap.js"></script>
+		</footer>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="../js/bootstrap.js"></script>
 </body>
 </html>

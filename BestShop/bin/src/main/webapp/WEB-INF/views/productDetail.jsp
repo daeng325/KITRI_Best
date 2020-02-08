@@ -36,12 +36,14 @@
 	opacity: 0.5;
 	filter: alpha(opacity = 50);
 }
+
 .logo {
 	font-family: 'Segoe Print';
 	font-size: 100px;
 	margin-top: 100px;
 	margin-bottom: 100px;
 }
+
 * a {
 	text-decoration: none;
 	color: black;
@@ -50,24 +52,23 @@
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="main">Home</a></li>
-			<li class="nav-item"><c:if test="${login eq null }">
-					<a class="nav-link"
-						href="<% request.getContextPath(); %>/user/login">Login</a>
-				</c:if> <c:if test="${login ne null }">
-					<a class="nav-link"
-						href="<% request.getContextPath(); %>/user/logout">Logout</a>
-				</c:if></li>
-			<li class="nav-item"><c:if test="${login eq null }">
-					<a class="nav-link"
-						href="<% request.getContextPath(); %>/user/join">Join</a>
-				</c:if> <c:if test="${login ne null }">
-					<a class="nav-link"
-						href="<% request.getContextPath(); %>/user/mypage">Mypage</a>
-				</c:if></li>
+			<li class="nav-item"><sec:authorize access="isAnonymous()">
+					<a class="nav-link" href="user/login">Login</a>
+				</sec:authorize> <sec:authorize access="isAuthenticated()">
+					<a class="nav-link" href="user/logout">Logout</a>
+				</sec:authorize></li>
+			<li class="nav-item"><sec:authorize access="isAnonymous()">
+					<a class="nav-link" href="user/join">Join</a>
+				</sec:authorize> <sec:authorize access="isAuthenticated()">
+					<a class="nav-link" href="user/mypage">Mypage</a>
+				</sec:authorize></li>
+
 		</ul>
 		<form class="form-inline"
 			action="<% request.getContextPath(); %>/product/search" method="post">
-			<input class="form-control mr-sm-2" type="text" placeholder="Search">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" /> <input class="form-control mr-sm-2"
+				type="text" placeholder="Search" name="search">
 			<button class="btn btn-success" type="submit">Search</button>
 		</form>
 	</nav>
