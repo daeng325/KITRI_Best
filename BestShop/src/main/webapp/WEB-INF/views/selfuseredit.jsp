@@ -104,12 +104,13 @@
 				<div class="row justify-content-center">
 					<div class="col-md-8">
 						<div class="card">
-							<div class="card-header" text-align=center>${member.ID }회원
+							<div class="card-header" text-align=center>${member.id }회원
 								정보수정</div>
 							<div class="card-body">
-								<form action="selfuseredit" method="post">
+								<form action="<% request.getContextPath(); %>/user/update" method="post">
 									<input type="hidden" name="${_csrf.parameterName}"
 										value="${_csrf.token}" />
+									<input type="hidden" id="id" class="form-control" name="id" value="${member.id }"/>
 									<div class="form-group row">
 										<label for="name"
 											class="col-md-4 col-form-label text-md-right">이름</label>
@@ -154,8 +155,8 @@
 										<label for="password"
 											class="col-md-4 col-form-label text-md-right">패스워드</label>
 										<div class="col-md-6">
-											<input type="password" id="password" class="form-control"
-												name="password" required>
+											<input type="password" id="pwd" class="form-control"
+												name="pwd" required>
 										</div>
 									</div>
 									<div class="form-group row">
