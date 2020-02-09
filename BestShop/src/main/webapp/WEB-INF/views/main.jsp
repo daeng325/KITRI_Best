@@ -82,9 +82,9 @@
 			<li class="nav-item"><a class="nav-link" href="top">Top</a></li>
 			<li class="nav-item"><a class="nav-link" href="bottom">Bottom</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="bags">Bags &
+			<li class="nav-item"><a class="nav-link" href="bag">Bags &
 					Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="acce">Accesories</a>
+			<li class="nav-item"><a class="nav-link" href="Accesorie">Accesories</a>
 			</li>
 		</ul>
 		</nav>

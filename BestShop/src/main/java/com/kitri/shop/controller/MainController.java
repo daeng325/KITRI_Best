@@ -34,38 +34,20 @@ public class MainController {
     	model.addAttribute("products", products);
 		return "main";
 	}
-    
-    @RequestMapping(value="/top", method=RequestMethod.GET)
-	public String viewTop(Model model) throws Exception{
-    	List<Product> products = proRepo.printProductsByType("top");				
-		model.addAttribute("products", products);	
-		model.addAttribute("type","Top");
-		return "productPage";
-	}
-    
-    @RequestMapping(value="/bottom", method=RequestMethod.GET)
-	public String viewBottom(Model model) throws Exception{
-    	List<Product> products = proRepo.printProductsByType("bottom");				
-		model.addAttribute("products", products);
-		model.addAttribute("type","Bottom");
-		return "productPage";
-	}
-    
-    @RequestMapping(value="/bags", method=RequestMethod.GET)
-	public String viewBags(Model model) throws Exception{
-    	List<Product> products = proRepo.printProductsByType("bag");	
-    	products.addAll(proRepo.printProductsByType("shoes"));
-		model.addAttribute("products", products);
-		model.addAttribute("type","Bags & Shoes");
-		return "productPage";
-	}
-    
-    @RequestMapping(value="/acce", method=RequestMethod.GET)
-	public String viewSignin(Model model) throws Exception{
-    	List<Product> products = proRepo.printProductsByType("Accesorie");				
-		model.addAttribute("products", products);
-		model.addAttribute("type","Accesories");
-		return "productPage";
-	}
+    @RequestMapping(value= {"/top", "/bottom", "/bag", "/Accesorie"}, method=RequestMethod.GET)
+    public String veiwProductType(HttpServletRequest request, Model model) {
+    	String type = request.getServletPath().substring(1);   	
+    	List<Product> products = proRepo.printProductsByType(type);
+
+    	if(type.equals("bag")) {
+    		products.addAll(proRepo.printProductsByType("shoes"));
+    		type = "Bags & Shoes";
+    	}
+	
+    	model.addAttribute("products",products);
+    	model.addAttribute("type",type.toUpperCase());
+    	return "productPage";
+    }
+
 }
 

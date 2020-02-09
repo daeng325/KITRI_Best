@@ -82,68 +82,88 @@
 		</div>
 		<br>
 		<br>
-		<h2 style="text-align:center;text-decoration:bold">ìí ì ë³´ ì¶ê°</h2>
+		<h2 style="text-align:center;text-decoration:bold">상품 정보 추가</h2>
 		<br>
 <div class="cotainer" style="margin-bottom:50px">
      <div class="row justify-content-center">
 	<div class="card">
-		<form action="" method="post">
+	<form method='post' enctype="multipart/form-data">
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	<table class="table">
 		<tbody>
 			<tr>
-				<td>ê´ë¦¬ì</td>
-				<td>id</td>
-				<!--DBì ìë íì ì´ë¦ì´ íìëëë¡ ¶ë¶ì ìì -->
+				<td>상품명</td>
+				<td><input type="text" id="name" name="name" class="form-control" placeholder="상품명 입력" autofocus required></td>
 			</tr>
 			<tr>
-				<td>ìíë²í¸/ìì´ë</td>
-				<td><input type="text" id="product_id" name="product_id" class="form-control" placeholder="ìíë²í¸ ìë ¥" autofocus required></td>
-			</tr>
-			<tr>
-				<td>ì¢ë¥</td>
+				<td>종류</td>
 				<td>
-					<select class="form-control" id="type" required>
-						<option>Top</option>
-						<option>Bottom</option>
-						<option>Bag</option>
-						<option>Shoes</option>
-						<option>Accesories</option>
+					<select class="form-control" id="type" name="type" required>
+						<option value="top">Top</option>
+						<option value="bottom">Bottom</option>
+						<option value="bag">Bag</option>
+						<option value="shoes">Shoes</option>
+						<option value="Accesorie">Accesories</option>
 					</select>
 				</td>
 			</tr>
 			<tr>
-				<td>ê°ê²©</td>
-				<td><input type="number" id="price" name="price" class="form-control" placeholder="ìíê°ê²© ìë ¥" required></td>
+				<td>가격</td>
+				<td><input type="number" id="price" name="price" class="form-control" placeholder="상품가격 입력" required></td>
 			</tr>
 			<tr>
-				<td>ì¤ëª</td>
-				<td><textarea rows="10" cols="50" placeholder="ìí ìì¸ì ë³´ ìë ¥" class="form-control" required></textarea>
+				<td>설명</td>
+				<td><textarea id="description" name="description" rows="10" cols="50" placeholder="상품 상세정보 입력" class="form-control" required></textarea>
 				</td>
 			</tr>
 			<tr>
-				<td>ìíì´ë¯¸ì§</td>
-				<td><input type="file" id="fileup" name="fileup" class="form-control">
+				<td>대표 이미지</td>
+				<td><input type="file" id="image_thumbnail" name="image_thumbnail" class="form-control" required> 
 				</td>
 			</tr>
 			<tr>
-				<td>ìì±ë ì§</td>
+				<td>상세 이미지</td>
+				<td><input type="file" id="image_detail" name="image_detail" class="form-control" required>
+				</td>
+			</tr>
+			<tr>
+				<td>이미지</td>
+				<td><input type="file" id="image" name="image" class="form-control" required>
+				</td>
+			</tr>
+			<tr>
+				<td>수량</td>
+				<td><input type="number" id="count" name="count" class="form-control" placeholder="재고량 입력" required></td>
+			</tr>			
+			<tr>
+				<td>상태</td>
+				<td>
+					<select class="form-control" id="status" name="status" required>
+						<option value="out_of_stock">out of stock</option>
+						<option value="in_stock">in stock</option>
+						<option value="running_low">running low</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>생성날짜</td>
 				<td><script>
-						let today = new Date();   // íì¬ ë ì§ë¥¼ íìí¨(í¹ì í í¬ë§· ìì´)
+						let today = new Date();   // 현재 날짜를 표시함(특정한 포맷 없이) 
 
-						let year = today.getFullYear(); // ëë
-						let month = today.getMonth()  // ì
-						let date = today.getDate();  // ë ì§
+						let year = today.getFullYear(); // 년도
+						let month = today.getMonth()  // 월
+						let date = today.getDate();  // 날짜
 
-						document.write(year + '-' + month + '-' + date) // ë-ì-ì¼ íìì¼ë¡ íí
+						document.write(year + '-' + month + '-' + date) // 년-월-일 형식으로 표현
 					</script></td>
-				<!-- íì¬ ë ì§ê° ìëì¼ë¡ íìëëë¡ ë°ê¿-->
+				<!-- 현재 날짜가 자동으로 표시되도록 바꿈-->
 			</tr>
 		</tbody>
 	</table>
 <div class="row justify-content-center" style="margin-bottom:50px">
-<input type="button" class="btn btn-primary" value="ìë£" onclick="" style="margin-right:10px">
-<input type="button" class="btn btn-primary" value="ì·¨ì" onclick="location.href='history.back()'" style="margin-right:10px">
-<input type="reset" class="btn btn-primary" value="ì´ê¸°í">
+<button type="submit" class="btn btn-primary" formaction="<% request.getContextPath(); %>/product/upload" style="margin-right:10px">완료</button>
+<button type="submit"  class="btn btn-primary" formaction="<% request.getContextPath(); %>admin/productmanage" style="margin-right:10px">취소</button>
+<input type="reset" class="btn btn-primary" value="초기화">
 </div>
 </form>
 </div>

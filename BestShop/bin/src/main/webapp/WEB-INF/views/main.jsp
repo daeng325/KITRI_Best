@@ -5,35 +5,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" , initial-scale="1">
-<title>Beautycloset</title>
-<link rel="stylesheet" href="./css/bootstrap.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" , initial-scale="1">
+	<title>Beautycloset</title>
+	<link rel="stylesheet" href="./css/bootstrap.css">
+	
+	<style type="text/css">
+	.jumbotron {
+		background-image: url('./jpg/flower.jpg');
+		background-size: cover;
+		text-shadow: black 0.2px 0.2px 0.2px;
+		color: blue;
+		font-weight: bold;
+		opacity: 0.5;
+		filter: alpha(opacity = 50);
+	}
+	.logo {
+		font-family: 'Segoe Print';
+		font-size: 100px;
+		margin-top: 100px;
+		margin-bottom: 100px;
+	}
+	* a {
+		text-decoration: none;
+		color: black;
+	}
+	
+	</style>
+
 </head>
 <body>
 
-	<style type="text/css">
-.jumbotron {
-	background-image: url('./jpg/flower.jpg');
-	background-size: cover;
-	text-shadow: black 0.2px 0.2px 0.2px;
-	color: blue;
-	font-weight: bold;
-	opacity: 0.5;
-	filter: alpha(opacity = 50);
-}
-.logo {
-	font-family: 'Segoe Print';
-	font-size: 100px;
-	margin-top: 100px;
-	margin-bottom: 100px;
-}
-* a {
-	text-decoration: none;
-	color: black;
-}
-
-</style>
+	<script>
+		var msg = "${msg}";
+		if (msg === "Deleted") {
+			alert("회원탈퇴가 완료되었습니다.");
+		}
+	</script>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="">Home</a></li>
@@ -55,11 +63,9 @@
 			</li>
 
 		</ul>
-		<form class="form-inline"
-			action="<% request.getContextPath(); %>/product/search" method="post">
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" /> <input class="form-control mr-sm-2"
-				type="text" placeholder="Search" name="search">
+		<form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			<input class="form-control mr-sm-2"	type="text" placeholder="Search" name="search">
 			<button class="btn btn-success" type="submit">Search</button>
 		</form>
 	</nav>
@@ -96,9 +102,12 @@
 			<div class="row" align=center>
 				<c:forEach var="item" items="${product}">
 					<div class="col-md-3">
-						<a href="productDetail?id=${item.id }"><img class="img1"
-							src="${ item.image }" alt="${ item.name }"><a href="productDetail?id=${item.id }"><p>${ item.name }</p>
-								<p>${ item.price }</p> </a> </a>
+						<a href="productDetail?id=${item.id }">
+							<img class="img" width="175" height="250" src='data:image/jpg;base64,${ item.image_thumbnail }' alt="${ item.name }">
+						</a>
+						<a href="productDetail?id=${item.id }"><p>${ item.name }</p>
+								<p>${ item.price }</p> 
+						</a>
 					</div>
 				</c:forEach>
 			</div>
@@ -110,10 +119,11 @@
 			<div class="row" align=center>
 				<c:forEach var="item" items="${products}">
 					<div class="col-md-3">
-						<a href="productDetail?id=${item.id }"><img class="img1" src="${ item.image }" alt="${ item.name }">
-							<a href="productDetail?id=${item.id }"><p>${ item.name }</p>
+						<a href="productDetail?id=${item.id }">
+							<img class="img" width="175" height="250" src='data:image/jpg;base64,${ item.image_thumbnail }' alt="${ item.name }">
+						</a>
+						<a href="productDetail?id=${item.id }"><p>${ item.name }</p>
 								<p>${ item.price }</p> 
-							</a>
 						</a>
 					</div>
 				</c:forEach>
