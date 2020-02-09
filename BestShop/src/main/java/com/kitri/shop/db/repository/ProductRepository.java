@@ -12,6 +12,9 @@ public interface ProductRepository extends CrudRepository<Product, String>{
 	@Query("SELECT p FROM Product p WHERE name LIKE %?1%")
 	List<Product> findByName(String search_name);
 	
+	@Query("SELECT p FROM Product p WHERE id=?1")
+	Product findProductDetail(long id);
+	
 	@Query("SELECT p FROM Product p")
 	List<Product> printAllProducts();
 	

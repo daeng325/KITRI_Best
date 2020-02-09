@@ -1,20 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width" , initial-scale="1">
 <title>Beautycloset</title>
-<link rel="stylesheet" href="./css/bootstrap.css">
+<link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
 	integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
 	crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="./js/bootstrap.js"></script>
-<script src="./js/quantity.jquery.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/quantity.jquery.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -51,21 +52,21 @@
 </style>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="main">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a></li>
 			<li class="nav-item"><sec:authorize access="isAnonymous()">
-					<a class="nav-link" href="user/login">Login</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/login">Login</a>
 				</sec:authorize> <sec:authorize access="isAuthenticated()">
-					<a class="nav-link" href="user/logout">Logout</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/logout">Logout</a>
 				</sec:authorize></li>
 			<li class="nav-item"><sec:authorize access="isAnonymous()">
-					<a class="nav-link" href="user/join">Join</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/join">Join</a>
 				</sec:authorize> <sec:authorize access="isAuthenticated()">
-					<a class="nav-link" href="user/mypage">Mypage</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/mypage">Mypage</a>
 				</sec:authorize></li>
 
 		</ul>
 		<form class="form-inline"
-			action="<% request.getContextPath(); %>/product/search" method="post">
+			action="search" method="post">
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" /> <input class="form-control mr-sm-2"
 				type="text" placeholder="Search" name="search">
@@ -75,7 +76,7 @@
 	<div class="container">
 		<div class="logo">
 			<h1 class="text-center">
-				<a href="main">Beautycloset</a>
+				<a href="<% request.getContextPath(); %>/main">Beautycloset</a>
 			</h1>
 		</div>
 	</div>
@@ -93,7 +94,7 @@
 		</nav>
 		<div class="row">
 			<div class="col-md-7">
-				<img class="img1-1" src="${products.image }" alt="${products.name}">
+				<img class="img" width="175" height="250" src='data:image/jpg;base64,${ products.image_thumbnail }' alt="${ products.name }">
 			</div>
 			<div class="col-md-4" style="margin-top: 40px">
 				<div class="card">
@@ -181,6 +182,12 @@
 
 		<div class="tab-pane fade in active" id="상품정보">
 			<br> ${products.description} <br> 가격 : ${products.price } <br>
+			<br>
+			<img class="img" width="175" height="250" src='data:image/jpg;base64,${ products.image }' alt="${ products.name }">
+			<br>
+			<br>
+			<img class="img" width="175" height="250" src='data:image/jpg;base64,${ products.image_detail }' alt="${ products.name }">
+			<br>
 		</div>
 
 		<div class="tab-pane fade" id="Review">

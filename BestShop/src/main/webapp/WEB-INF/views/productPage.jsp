@@ -88,10 +88,10 @@
 		<div class="row" align=center>
 			<c:forEach var="item" items="${products}">
 				<div class="col-md-3">
-					<a href="productDetail?id=${item.id }">
+					<a href="product/detail?num=${item.id }">
 						<img class="img" width="175" height="250" src='data:image/jpg;base64,${ item.image_thumbnail }' alt="${ item.name }">
 					</a>
-					<a href="productDetail?id=${item.id }"><p>${ item.name }</p>
+					<a href="product/detail?id=${item.id }"><p>${ item.name }</p>
 							<p>${ item.price }</p> 
 					</a>
 				</div>

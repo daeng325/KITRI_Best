@@ -51,8 +51,13 @@ public class ProductController {
 		byte[] byteDetailImage = org.apache.commons.codec.binary.Base64.encodeBase64(image_detail.getBytes());
 		String encodedDetailImage = new String(byteDetailImage);	
 		
-		Product product = new Product(name, type, price, description, encodedThumbnailImage, encodedImage, count, encodedDetailImage, status);
-
+		Product product = new Product(name, type, price, description, encodedThumbnailImage, encodedDetailImage, count, encodedImage, status);
+		String s1 = product.getImage();
+		String s2 = product.getImage_thumbnail();
+		
+		System.out.println(s1.length());
+		System.out.println(s2.length());
+		System.out.println(s1.equals(s2));
 		
 		proRepo.save(product);
 		return "redirect:/admin/productmanage";
@@ -66,6 +71,24 @@ public class ProductController {
 		List<Product> products = proRepo.findByName(search_name);
 		redirect.addFlashAttribute("product", products);
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/detail", method=RequestMethod.GET)
+	public String detailProduct(@RequestParam("num") long id, Model model) throws Exception {
+		Product product = proRepo.findProductDetail(id);
+		model.addAttribute("products",product);
+		
+		String s1 = product.getImage();
+		String s2 = product.getImage_thumbnail();
+		
+		System.out.println(s1.length());
+		System.out.println(s2.length());
+		System.out.println(s1.equals(s2));
+		for(int i=0;i<5;i++) {
+			System.out.println();
+		}
+		
+		return "productDetail";
 	}
 
 	// 
