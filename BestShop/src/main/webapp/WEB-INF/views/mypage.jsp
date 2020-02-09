@@ -79,7 +79,7 @@
 			</li>
 			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bag">Bags &
 					Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/Accesorie">Accesories</a>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/accesorie">Accesories</a>
 			</li>
 		</ul>
 		</nav>

@@ -83,7 +83,7 @@
 			<li class="nav-item"><a class="nav-link" href="bottom">Bottom</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="bag">Bags & Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="Accesorie">Accesories</a>
+			<li class="nav-item"><a class="nav-link" href="accesorie">Accesories</a>
 			</li>
 		</ul>
 		</nav>

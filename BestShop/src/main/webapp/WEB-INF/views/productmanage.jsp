@@ -83,7 +83,7 @@
 				<li class="nav-item">
 					<a class="nav-link" href="<% request.getContextPath(); %>/bag">Bags & Shoes</a></li>
 				<li class="nav-item">
-					<a class="nav-link" href="<% request.getContextPath(); %>/Accesorie">Accesories</a></li>
+					<a class="nav-link" href="<% request.getContextPath(); %>/accesorie">Accesories</a></li>
 			</ul>
 		</nav>
 		<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
@@ -102,11 +102,8 @@
 							<div class="card-body">
 								<div class="col-md-6 offset-md-4">
 									<form class="form-inline" action="" method="post">
-										<input type="hidden" name="${_csrf.parameterName}"
-											value="${_csrf.token}" /> <span
-											class="glyphicon glyphicon-search" style="margin-right: 5px"></span>
-										<input class="form-control mr-sm-2" type="text"
-											placeholder="상품명을 입력하세요">
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <span class="glyphicon glyphicon-search" style="margin-right: 5px"></span>
+										<input class="form-control mr-sm-2" type="text" placeholder="상품명을 입력하세요">
 										<button class="btn btn-success" type="submit">Search</button>
 									</form>
 									<br>

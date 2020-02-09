@@ -34,7 +34,7 @@ public class MainController {
     	model.addAttribute("products", products);
 		return "main";
 	}
-    @RequestMapping(value= {"/top", "/bottom", "/bag", "/Accesorie"}, method=RequestMethod.GET)
+    @RequestMapping(value= {"/top", "/bottom", "/bag", "/accesorie"}, method=RequestMethod.GET)
     public String veiwProductType(HttpServletRequest request, Model model) {
     	String type = request.getServletPath().substring(1);   	
     	List<Product> products = proRepo.printProductsByType(type);
