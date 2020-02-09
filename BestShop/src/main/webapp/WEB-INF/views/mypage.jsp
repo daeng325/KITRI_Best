@@ -77,9 +77,9 @@
 			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
 			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bags">Bags &
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bag">Bags &
 					Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/acce">Accesories</a>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/Accesorie">Accesories</a>
 			</li>
 		</ul>
 		</nav>

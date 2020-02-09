@@ -77,13 +77,14 @@
 	</div>
 	<div class="container-fluid">
 		<ul class="nav justify-content-center">
-			<li class="nav-item"><a class="nav-link" href="top">Top</a></li>
-			<li class="nav-item"><a class="nav-link" href="bottom">Bottom</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="bags">Bags &
-					Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="acce">Accesories</a>
-			</li>
+            <li class="nav-item">
+				<a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
+			<li class="nav-item">
+				<a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a></li>
+			<li class="nav-item">
+				<a class="nav-link" href="<% request.getContextPath(); %>/bag">Bags & Shoes</a></li>
+			<li class="nav-item">
+				<a class="nav-link" href="<% request.getContextPath(); %>/Accesorie">Accesories</a></li>
 		</ul>
 	</div>
 	<br>
