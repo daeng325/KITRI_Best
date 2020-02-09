@@ -79,9 +79,9 @@
 		<h1 class="text-center">${type }</h1>
 		<div class="container-fluid">
 			<ul class="nav justify-content-end">
-				<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/${fn:toLowerCase(type)}">신상품순</a></li>
-				<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/${fn:toLowerCase(type)}">낮은가격순</a></li>
-				<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/${fn:toLowerCase(type)}">높은가격순</a></li>
+				<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/${fn:toLowerCase(type)}_new">신상품순</a></li>
+				<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/${fn:toLowerCase(type)}_low">낮은가격순</a></li>
+				<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/${fn:toLowerCase(type)}_high">높은가격순</a></li>
 			</ul>
 		</div>
 		<br> <br>

@@ -1,8 +1,6 @@
 package com.kitri.shop.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -45,6 +43,47 @@ public class MainController {
     	}
 	
     	model.addAttribute("products",products);
+    	model.addAttribute("type",type.toUpperCase());
+    	return "productPage";
+    }
+    
+    @RequestMapping(value= {"/top_*", "/bottom_*", "/accesorie_*", "/bags & shoes_*"}, method=RequestMethod.GET)
+    public String viewProductSorted(HttpServletRequest request, Model model) {
+    	int idx = request.getServletPath().indexOf('_');
+    	String type = request.getServletPath().substring(1, idx);
+    	String sorted = request.getServletPath().substring(idx+1);
+    	List<Product> products;
+    	if(sorted.equals("new")) {
+    		if(type.contains("bags")) {
+    			products = proRepo.printOrderByTime("bag", "shoes");
+    		}
+    		else {
+    			products = proRepo.printOrderByTime(type, type);
+    		}
+    		model.addAttribute("products",products);
+    	}
+    	else if(sorted.equals("low")) {
+    		if(type.contains("bags")) {
+    			products = proRepo.printOrderByLowPrice("bag", "shoes");
+    		}
+    		else {
+    			products = proRepo.printOrderByLowPrice(type, type);
+    		}
+    		model.addAttribute("products",products);
+    	}
+    	else if(sorted.equals("high")) {
+    		if(type.contains("bags")) {
+    			products = proRepo.printOrderByHighPrice("bag", "shoes");
+    		}
+    		else {
+    			products = proRepo.printOrderByHighPrice(type, type);
+    		}
+    		model.addAttribute("products",products);
+    	}
+  	
+    	if(type.contains("bags")) {
+    		type="Bags & Shoes";
+    	}   	
     	model.addAttribute("type",type.toUpperCase());
     	return "productPage";
     }

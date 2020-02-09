@@ -18,12 +18,12 @@ public interface ProductRepository extends CrudRepository<Product, String>{
 	@Query("SELECT p FROM Product p WHERE type=?1")
 	List<Product> printProductsByType(String type);
 	
-	@Query("SELECT p FROM Product p ORDER BY createTime DESC")
-	List<Product> printOrderByTime();
+	@Query("SELECT p FROM Product p WHERE type=?1 OR type=?2 ORDER BY createTime DESC")
+	List<Product> printOrderByTime(String type1, String type2);
 	
-	@Query("SELECT p FROM Product p ORDER BY price ASC")
-	List<Product> printOrderByLowPrice();
+	@Query("SELECT p FROM Product p WHERE type=?1 OR type=?2 ORDER BY price ASC")
+	List<Product> printOrderByLowPrice(String type1, String type2);
 	
-	@Query("SELECT p FROM Product p ORDER BY price DESC")
-	List<Product> printOrderByHighPrice();	
+	@Query("SELECT p FROM Product p WHERE type=?1 OR type=?2 ORDER BY price DESC")
+	List<Product> printOrderByHighPrice(String type1, String type2);	
 }
