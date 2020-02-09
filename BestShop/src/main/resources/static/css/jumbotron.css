@@ -1,0 +1,6 @@
+.jumbotron{
+	background-image : url('./jpg/woman.jpg');
+	background-size : cover;
+	color : white;
+	font-size : 40px;
+}

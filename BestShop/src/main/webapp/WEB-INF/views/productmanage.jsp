@@ -8,18 +8,13 @@
 <meta name="viewport" content="width=device-width" , initial-scale="1">
 <title>Beautycloset</title>
 <link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
-	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 
 <link rel="icon" href="Favicon.png">
 
@@ -53,17 +48,17 @@
 </style>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="main">Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="login">Login</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="join">Join</a></li>
-			<li class="nav-item"><a class="nav-link" href="mypage">Mypage</a>
-			</li>
+			<li class="nav-item"><a class="nav-link"
+				href="<% request.getContextPath(); %>/main">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="main">Admin</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="<% request.getContextPath(); %>/logout">logout</a></li>
 		</ul>
-		<form class="form-inline" action="" method="post">
+		<form class="form-inline"
+			action="<% request.getContextPath(); %>/product/search" method="post">
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" /> <input class="form-control mr-sm-2"
-				type="text" placeholder="Search" autofocus>
+				type="text" placeholder="Search" name="search">
 			<button class="btn btn-success" type="submit">Search</button>
 		</form>
 	</nav>
@@ -75,24 +70,17 @@
 		</div>
 	</div>
 	<div class="container-fluid">
-			<ul class="nav justify-content-center">
-                <li class="nav-item">
-					<a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
-				<li class="nav-item">
-					<a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a></li>
-				<li class="nav-item">
-					<a class="nav-link" href="<% request.getContextPath(); %>/bag">Bags & Shoes</a></li>
-				<li class="nav-item">
-					<a class="nav-link" href="<% request.getContextPath(); %>/accesorie">Accesories</a></li>
-			</ul>
+		<ul class="nav justify-content-center">
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bag">Bags &
+					Shoes</a></li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/accesorie">Accesories</a>
+			</li>
+		</ul>
 		</nav>
-		<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
-			<div class="container">
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				</div>
-			</div>
-		</nav>
-		<br>
+	</div>
 		<main class="login-form">
 			<div class="cotainer">
 				<div class="row justify-content-center">
@@ -140,6 +128,6 @@
 			</div>
 		</footer>
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-		<script src="./js/bootstrap.js"></script>
+		<script src="../js/bootstrap.js"></script>
 </body>
 </html>
