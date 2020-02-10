@@ -68,7 +68,7 @@ public class ProductController {
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public String searchProduct(@RequestParam("search") String search_name, RedirectAttributes redirect) throws Exception{
 		
-		List<Product> products = proRepo.findByName(search_name);
+		List<Product> products = proRepo.selectProductByName(search_name);
 		redirect.addFlashAttribute("product", products);
 		return "redirect:/";
 	}

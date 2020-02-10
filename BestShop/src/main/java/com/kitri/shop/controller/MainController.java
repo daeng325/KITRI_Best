@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kitri.shop.db.domain.Product;
 import com.kitri.shop.db.repository.ProductRepository;
+import com.kitri.shop.db.service.ProductPageService;
 
 @Controller
 public class MainController {
 	
 	@Autowired
 	ProductRepository proRepo;
+	@Autowired
+	ProductPageService proSer;
 
     @RequestMapping("/")
     public String root_test(Model model) throws Exception{
@@ -36,7 +39,7 @@ public class MainController {
     public String veiwProductType(HttpServletRequest request, Model model) {
     	String type = request.getServletPath().substring(1);   	
     	List<Product> products = proRepo.printProductsByType(type);
-
+    	
     	if(type.equals("bag")) {
     		products.addAll(proRepo.printProductsByType("shoes"));
     		type = "Bags & Shoes";
@@ -48,44 +51,23 @@ public class MainController {
     }
     
     @RequestMapping(value= {"/top_*", "/bottom_*", "/accesorie_*", "/bags & shoes_*"}, method=RequestMethod.GET)
-    public String viewProductSorted(HttpServletRequest request, Model model) {
-    	int idx = request.getServletPath().indexOf('_');
-    	String type = request.getServletPath().substring(1, idx);
-    	String sorted = request.getServletPath().substring(idx+1);
-    	List<Product> products;
-    	if(sorted.equals("new")) {
-    		if(type.contains("bags")) {
-    			products = proRepo.printOrderByTime("bag", "shoes");
-    		}
-    		else {
-    			products = proRepo.printOrderByTime(type, type);
-    		}
-    		model.addAttribute("products",products);
-    	}
-    	else if(sorted.equals("low")) {
-    		if(type.contains("bags")) {
-    			products = proRepo.printOrderByLowPrice("bag", "shoes");
-    		}
-    		else {
-    			products = proRepo.printOrderByLowPrice(type, type);
-    		}
-    		model.addAttribute("products",products);
-    	}
-    	else if(sorted.equals("high")) {
-    		if(type.contains("bags")) {
-    			products = proRepo.printOrderByHighPrice("bag", "shoes");
-    		}
-    		else {
-    			products = proRepo.printOrderByHighPrice(type, type);
-    		}
-    		model.addAttribute("products",products);
-    	}
-  	
+    public String viewProductSorted(HttpServletRequest request, Model model) {  	
+    	
+    	String type = request.getServletPath().substring(1, request.getServletPath().indexOf('_'));
+    	List<Product> products = proSer.selectSortProducts(request.getServletPath());
+		
     	if(type.contains("bags")) {
     		type="Bags & Shoes";
-    	}   	
-    	model.addAttribute("type",type.toUpperCase());
+    	}
+
+    	model.addAttribute("products",products);
+    	model.addAttribute("type", type);
     	return "productPage";
+    }
+    
+    @RequestMapping(value="/basket")
+    public String viewBasket() {
+    	return "buycomplete";
     }
 
 }
