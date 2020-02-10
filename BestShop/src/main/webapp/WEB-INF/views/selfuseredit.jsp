@@ -4,52 +4,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" , initial-scale="1">
-<title>Beautycloset</title>
-<link rel="stylesheet" href="./css/bootstrap.css">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
-	rel="stylesheet" type="text/css">
-
-
-<link rel="stylesheet" href="css/style.css">
-
-
-<link rel="icon" href="Favicon.png">
-
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" , initial-scale="1">
+		<style type="text/css">
+	.jumbotron {
+		background-image: url('./jpg/flower.jpg');
+		background-size: cover;
+		text-shadow: black 0.2px 0.2px 0.2px;
+		color: blue;
+		font-weight: bold;
+		opacity: 0.5;
+		filter: alpha(opacity = 50);
+	}
+	
+	.logo {
+		font-family: 'Segoe Print';
+		font-size: 100px;
+		margin-top: 100px;
+		margin-bottom: 100px;
+	}
+	
+	* a {
+		text-decoration: none;
+		color: black;
+	}
+	</style>
+	<title>Beautycloset</title>
+	<link rel="stylesheet" href="./css/bootstrap.css">
+	<link
+		href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+		rel="stylesheet" id="bootstrap-css">
+	<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
+		rel="stylesheet" type="text/css">
+	
+	
+	<link rel="stylesheet" href="css/style.css">
+	
+	
+	<link rel="icon" href="Favicon.png">
+	
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
-	<style type="text/css">
-.jumbotron {
-	background-image: url('./jpg/flower.jpg');
-	background-size: cover;
-	text-shadow: black 0.2px 0.2px 0.2px;
-	color: blue;
-	font-weight: bold;
-	opacity: 0.5;
-	filter: alpha(opacity = 50);
-}
 
-.logo {
-	font-family: 'Segoe Print';
-	font-size: 100px;
-	margin-top: 100px;
-	margin-bottom: 100px;
-}
-
-* a {
-	text-decoration: none;
-	color: black;
-}
-</style>
+	<script>
+		var msg = "${msg}";
+		if(msg == "Wrong Password"){
+			alert("잘못된 패스워드입니다.")
+		}
+		if(msg == "Same"){
+			alert("이전 패스워드와 변경할 패스워드가 같습니다.")
+		}
+		if(msg == "Check"){
+			alert("변경할 패스워드와 패스워드 확인란이 같지 않습니다.");
+		}
+	</script>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a></li>
@@ -154,12 +167,31 @@
 									</div>
 									<div class="form-group row">
 										<label for="password"
-											class="col-md-4 col-form-label text-md-right">패스워드</label>
+											class="col-md-4 col-form-label text-md-right">이전 패스워드</label>
+										<div class="col-md-6">
+											<input type="password" id="pre_pwd" class="form-control"
+												name="pre_pwd" required>
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<label for="password"
+											class="col-md-4 col-form-label text-md-right">변경할 패스워드</label>
 										<div class="col-md-6">
 											<input type="password" id="pwd" class="form-control"
 												name="pwd" required>
 										</div>
 									</div>
+									
+									<div class="form-group row">
+										<label for="password"
+											class="col-md-4 col-form-label text-md-right">패스워드 확인</label>
+										<div class="col-md-6">
+											<input type="password" id="chk_pwd" class="form-control"
+												name="chk_pwd" required>
+										</div>
+									</div>
+									
 									<div class="form-group row">
 										<label for="items"
 											class="col-md-4 col-form-label text-md-right">관심 아이템</label>
