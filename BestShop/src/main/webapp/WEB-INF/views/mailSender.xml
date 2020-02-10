@@ -1,0 +1,13 @@
+<!--naver-->
+	<bean id="mailSend" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com"/>
+		<property name="port" value="587" />
+		<property name="username" value="gorapaduk0000@gmail.com" />
+		<property name="password" value="titan0202" />
+		<property name="javaMailProperties">
+		<props>
+			<prop key="mail.smtp.auth">true</prop>
+			<prop key="mail.smtp.starttls.enable">true</prop>
+		</props>
+		</property>
+	</bean>

@@ -114,6 +114,32 @@
                                 <button class="btn btn-success" type="submit">Search</button>
                             </form>
                             <br>
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th></th>
+                                        <th>주문번호</th>
+                                        <th>상품번호</th>
+                                        <th>아이디</th>
+                                        <th>상품명</th>
+                                        <th>수량</th>
+                                        <th>상태</th>
+                                        <th>주문날짜</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" name="productchk" value="productchk"></td>
+                                        <td>${}</td>
+                                        <td>${}</td>
+                                        <td>${}</td>
+                                        <td>${}</td>
+                                        <td>${}</td>
+                                        <td>${}</td>
+                                        <td>${}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             <form class="form-inline" action="" method="post">
                             <span><button type="submit" class="btn btn-primary" value="edit" style="margin-left:15px;margin-right:10px" onclick="location.href='productedit'">수정</button></span>
                             <span><button type="submit" class="btn btn-primary" value="delete" style="margin-right:10px" onclick="">삭제</button></span>

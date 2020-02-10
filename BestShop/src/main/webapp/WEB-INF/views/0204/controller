@@ -1,0 +1,54 @@
+@Controller
+public class MemberController{
+	
+	@Inject
+	JavaMailSender mailSender;
+	MemberService memberservice;
+
+
+	private static final Logger logger=
+	LoggerFactory.getLogger(MemberController.class);
+	private static final String String = null;
+
+
+		@RequestMapping( value = "", method=RequestMethod.POST)
+		public ModelAndView mailSending(HttpServletRequest request, String e_mail, HttpServletResponse response_email) throws IOException {
+
+			Random a = new Random();
+			int randValue = (int)(a * 100000)
+
+			String setfrom = "gorapaduk0000@gmail.com";
+			String tomail = request.getParameter("email");
+			String title = "임시 비밀번호 메일 발송"
+			String content = 
+
+			System.getProperty("line.separator")+
+
+			"회원님의 임시 비밀번호는 +randValue+ 입니다"
+
+			+System.getProperty("line.separator")+
+
+			System.getProperty("line.separator")+
+
+			"아래 링크로 들어가서 로그인해 주시고 비밀번호를 꼭 변경해 주세요"
+
+			+System.getProperty("line.separator")+
+
+		};
+
+		try{
+			MimeMessage message = mailSender.createMimeMessage();
+			MimeMassageHelper messageHelper = new MimeMessageHelper(message, true, "utf-8");
+
+			messageHelper.setFrom(setfrom);
+			messageHelper.setTo(tomail);
+			messageHelper.setSubject(title);
+			messageHelper.setText(content);
+
+			mailSender.send(message);
+		}	catch (Exception e) {
+				System.out.println(e);
+		}
+
+		ModelAndView mv 
+}
