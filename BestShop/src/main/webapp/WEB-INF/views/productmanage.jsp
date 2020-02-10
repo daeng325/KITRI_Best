@@ -56,9 +56,8 @@
 		</ul>
 		<form class="form-inline"
 			action="<% request.getContextPath(); %>/product/search" method="post">
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" /> <input class="form-control mr-sm-2"
-				type="text" placeholder="Search" name="search">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
+			<input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
 			<button class="btn btn-success" type="submit">Search</button>
 		</form>
 	</nav>
@@ -72,12 +71,9 @@
 	<div class="container-fluid">
 		<ul class="nav justify-content-center">
 			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bag">Bags &
-					Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/accesorie">Accesories</a>
-			</li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a></li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bag">Bags & Shoes</a></li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/accesorie">Accesories</a></li>
 		</ul>
 		</nav>
 	</div>

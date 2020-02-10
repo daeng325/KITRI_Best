@@ -10,7 +10,7 @@ import com.kitri.shop.db.domain.Product;
 public interface ProductRepository extends CrudRepository<Product, String>{
 
 	@Query("SELECT p FROM Product p WHERE name LIKE %?1%")
-	List<Product> findByName(String search_name);
+	List<Product> selectProductByName(String search_name);
 	
 	@Query("SELECT p FROM Product p WHERE id=?1")
 	Product findProductDetail(long id);

@@ -65,8 +65,7 @@
 				</sec:authorize></li>
 
 		</ul>
-		<form class="form-inline"
-			action="search" method="post">
+		<form class="form-inline" action="search" method="post">
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" /> <input class="form-control mr-sm-2"
 				type="text" placeholder="Search" name="search">
@@ -92,6 +91,10 @@
 					<a class="nav-link" href="<% request.getContextPath(); %>/accesorie">Accesories</a></li>
 			</ul>
 		</nav>
+
+
+		<form>
+		
 		<div class="row">
 			<div class="col-md-7">
 				<img class="img" width="175" height="250" src='data:image/jpg;base64,${ products.image_thumbnail }' alt="${ products.name }">
@@ -111,20 +114,20 @@
 												<i class="fa fa-minus"></i>
 											</button>
 										</div>
-										<input type="number" id="qty_input"
-											class="form-control form-control-sm" value="1" min="1">
+										<input type="number" id="qty_input" name="count" class="form-control form-control-sm" value="1" min="1">
 										<div class="input-group-prepend">
 											<button class="btn btn-dark btn-sm" id="plus-btn">
 												<i class="fa fa-plus"></i>
 											</button>
 										</div>
+										
 									</div>
 								</div>
 							</div>
 							<div class="card-footer"></div>
 							<div class="col-sm-2"></div>
 							<p class="text-center">
-								<a class="btn btn-primary btn-lg" href="" role="button">주문하기</a>
+								<a class="btn btn-primary btn-lg" href="<% request.getContextPath(); %>/order?or=${products.id}" role="button">주문하기</a>
 							</p>
 							<div class="col-sm-1"></div>
 							<p class="text-center">
@@ -135,14 +138,13 @@
 				</div>
 			</div>
 		</div>
+		</form>
+
 	</div>
 	<ul class="nav nav-tabs nav-justified">
-		<li class="nav-item active"><a class="nav-link" data-toggle="tab"
-			href="#상품정보">상품정보</a></li>
-		<li class="nav-item"><a class="nav-link" data-toggle="tab"
-			href="#qna">Q & A</a></li>
-		<li class="nav-item"><a class="nav-link" data-toggle="tab"
-			href="#Review">Review</a></li>
+		<li class="nav-item active"><a class="nav-link" data-toggle="tab" href="#상품정보">상품정보</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#qna">Q & A</a></li>
+		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Review">Review</a></li>
 	</ul>
 	<div class="tab-content">
 
