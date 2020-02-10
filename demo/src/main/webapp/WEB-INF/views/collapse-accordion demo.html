@@ -1,0 +1,29 @@
+<div id = "accordion">
+	<div class = "card">
+		<div class = "card-header">
+			<a class="card-link" data-toggle="collapse" href="#collapseOne">
+				<table class="table-borderless">
+					<thead>
+						<tr>
+							<th>${reviews.u_id }</th>
+							<th>${reviews.createTime }</th>
+							<th>${reviews.id }</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="2">${reviews.content }</td>
+							<td>${reviews.image_1 }</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</a>
+		</div>
+	<div id = "collapseOne" class="collapse show" data-parent="#accordion">
+		<div class = "card-body">
+
+		</div>
+	</div>
+</div>

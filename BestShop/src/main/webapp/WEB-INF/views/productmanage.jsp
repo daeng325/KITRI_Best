@@ -118,25 +118,24 @@
                                 <thead class="thead-dark">
                                     <tr>
                                         <th></th>
-                                        <th>주문번호</th>
                                         <th>상품번호</th>
-                                        <th>아이디</th>
                                         <th>상품명</th>
-                                        <th>수량</th>
-                                        <th>상태</th>
-                                        <th>주문날짜</th>
+                                        <th>상품종류</th>
+                                        <th>가격</th>
+                                        <th>상품설명</th>
+                                        <th>업로드날짜</th>
                                     </tr>
                                 </thead>
+                                <c:forEach items="${products }" var="prod">
                                 <tbody>
                                     <tr>
                                         <td><input type="checkbox" name="productchk" value="productchk"></td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
+                                        <td>${prod.id }</td>
+                                        <td>${prod.name }</td>
+                                        <td>${prod.type }</td>
+                                        <td>${prod.price }</td>
+                                        <td>${prod.description }</td>
+                                        <td>${prod.createTime }</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -121,24 +121,24 @@
                                         <th>주문번호</th>
                                         <th>상품번호</th>
                                         <th>아이디</th>
-                                        <th>상품명</th>
                                         <th>수량</th>
                                         <th>상태</th>
                                         <th>주문날짜</th>
                                     </tr>
                                 </thead>
+                                <c:forEach items="${orders }" var="ord">
                                 <tbody>
                                     <tr>
                                         <td><input type="checkbox" name="orderchk" value="orderchk"></td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
+                                        <td>${ord.id }</td>
+                                        <td>${ord.p_id }</td>
+                                        <td>${ord.u_id }</td>
+                                        <td>${ord.count }</td>
+                                        <td>${ord.status }</td>
+                                        <td>${ord.createTime}</td>
                                     </tr>
                                 </tbody>
+                                </c:forEach>
                             </table>
                             <form class="form-inline" action="" method="post">
                             <span><button type="submit" class="btn btn-primary" value="edit">수정</button></span>

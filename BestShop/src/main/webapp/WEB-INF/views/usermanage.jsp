@@ -118,33 +118,33 @@
                                 <thead class="thead-dark">
                                     <tr>
                                         <th></th>
+                                        <th>아이디</th>
                                         <th>이름</th>
                                         <th>성별</th>
                                         <th>나이</th>
                                         <th>전화번호</th>
                                         <th>집 주소</th>
                                         <th>이메일 주소</th>
-                                        <th>아이디</th>
-                                        <th>패스워드</th>
-                                        <th>아이디</th>
                                         <th>관심 아이템</th>
+                                        <th>수신동의</th>
                                     </tr>
                                 </thead>
+                                <c:forEach items="${users }" var="user">
                                 <tbody>
                                     <tr>
                                         <td><input type="checkbox" name="productchk" value="productchk"></td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
-                                        <td>${}</td>
+                                        <td>${user.id }</td>
+                                        <td>${user.name }</td>
+                                        <td>${user.gender }</td>
+                                        <td>${user.age }</td>
+                                        <td>${user.phone }</td>
+                                        <td>${user.address }</td>
+                                        <td>${user.email }</td>
+                                        <td>${user.likeit }</td>
+                                        <td>${user.agree2}</td>
                                     </tr>
                                 </tbody>
+                                </c:forEach>
                             </table>
                             <form class="form-inline" action="" method="post">
                             <span><button type="submit" class="btn btn-primary" value="edit" style="margin-left:15px;margin-right:10px" onclick="location.href='useredit'">수정</button></span>

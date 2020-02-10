@@ -156,16 +156,26 @@
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
+							<th></th>
 							<th>이름</th>
 							<th>상품명</th>
 							<th>내용</th>
+							<th>상품종류</th>
 						</tr>
 					</thead>
+					<c:forEach items="${questions}" var="ques">
 					<tbody>
-
+						<tr>
+							<td><input type = "checkbox" name="q&achk" value="q&achk"></td>
+							<td>${ques.u_id }</td>
+							<td>${ques.p_id}</td>
+							<td>${ques.content }</td>
+							<td>${ques.type }</td>
+						</tr>
 					</tbody>
-				</table>
-
+					</c:forEach>
+					</table>
+					
 
 				<form action="" method="post">
 					<div class="row justify-content-center" style="margin-bottom: 50px">
@@ -173,7 +183,7 @@
 							onclick="location.href='q&aeditform'" style="margin-right: 10px">
 						<input type="button" class="btn btn-primary" value="추가"
 							onclick="location.href='q&auploadform'"
-							style="margin-right: 10px"> <input type="reset"
+							style="margin-right: 10px"> <input type="button"
 							class="btn btn-primary" value="삭제" onclick="">
 					</div>
 				</form>
@@ -206,18 +216,19 @@
 							<tr>
 								<td><input type="checkbox" name="reviewchk" value="${rev.id }"></td>
 								<td><a href="review/detail?id=${rev.id }">${rev.id }</a></td>
-								<td>${rev.id }</td>
+								<td>${rev.o_id }</td>
 								<td>${rev.content }</td>
+								<td>${rev.createTime }</td>
 							</tr>
 						</tbody>
 					</c:forEach>
 				</table>
 				</div>
 					<input type="button" class="btn btn-primary" value="수정"
-						onclick="location.href='review/edit'" >
+						onclick="location.href='review/edit'">
 					<input type="button" class="btn btn-primary" value="추가"
 						onclick="location.href='review/upload'">
-					<input type="reset" class="btn btn-primary" value="삭제" 
+					<input type="button" class="btn btn-primary" value="삭제" 
 						onclick="location.href='review/delete'">
 			</div>
 		</div>
