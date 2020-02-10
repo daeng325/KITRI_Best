@@ -6,49 +6,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" , initial-scale="1">
-<title>Beautycloset</title>
-<link rel="stylesheet" href="./css/bootstrap.css">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
-	rel="stylesheet" type="text/css">
-
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="icon" href="Favicon.png">
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" , initial-scale="1">
+	<style type="text/css">
+	.jumbotron {
+		background-image: url('./jpg/flower.jpg');
+		background-size: cover;
+		text-shadow: black 0.2px 0.2px 0.2px;
+		color: blue;
+		font-weight: bold;
+		opacity: 0.5;
+		filter: alpha(opacity = 50);
+	}
+	
+	.logo {
+		font-family: 'Segoe Print';
+		font-size: 100px;
+		margin-top: 100px;
+		margin-bottom: 100px;
+	}
+	
+	* a {
+		text-decoration: none;
+		color: black;
+	}
+	</style>
+	<title>Beautycloset</title>
+	<link rel="stylesheet" href="./css/bootstrap.css">
+	<link
+		href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+		rel="stylesheet" id="bootstrap-css">
+	<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
+		rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="css/style.css">
+	
+	<link rel="icon" href="Favicon.png">
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
-	<style type="text/css">
-.jumbotron {
-	background-image: url('./jpg/flower.jpg');
-	background-size: cover;
-	text-shadow: black 0.2px 0.2px 0.2px;
-	color: blue;
-	font-weight: bold;
-	opacity: 0.5;
-	filter: alpha(opacity = 50);
-}
+	<script>
+		var msg = "${msg}"
+		if(msg=="Duplicate"){
+			alert("이미 사용 중인 ID입니다.")
+		}
+		if(msg=="Fail"){
+			alert("비밀번호를 하나 이상의 알파벳,숫자,특수문자를 이용한 8글자 이상으로 설정해주세요.")
+		}
 
-.logo {
-	font-family: 'Segoe Print';
-	font-size: 100px;
-	margin-top: 100px;
-	margin-bottom: 100px;
-}
-
-* a {
-	text-decoration: none;
-	color: black;
-}
-</style>
+	</script>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link"
@@ -82,12 +92,12 @@
 	</div>
 	<div class="container-fluid">
 		<ul class="nav justify-content-center">
-			<li class="nav-item"><a class="nav-link" href="top">Top</a></li>
-			<li class="nav-item"><a class="nav-link" href="bottom">Bottom</a>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="bags">Bags &
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bag">Bags &
 					Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="acce">Accesories</a>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/accesorie">Accesories</a>
 			</li>
 		</ul>
 		</nav>
@@ -121,37 +131,94 @@
 											class="col-md-4 col-form-label text-md-right">이름</label>
 										<div class="col-md-6">
 											<input type="text" id="name" class="form-control" name="name"
-												required autofocus>
+												value="${member.name }"required autofocus>
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="sex" class="col-md-4 col-form-label text-md-right">성별</label>
 										<div class="col-md-6">
-											<input type="radio" name="gender" value="man" required>남자
-											<input type="radio" name="gender" value="woman" required>여자
+											<c:choose>
+												<c:when test="${member.gender eq 'man'}">
+													<input type="radio" name="gender" value="man" checked="checked" required>남자
+													<input type="radio" name="gender" value="woman" required>여자
+												</c:when>
+												<c:when test="${member.gender eq 'woman'}">
+													<input type="radio" name="gender" value="man" required>남자
+													<input type="radio" name="gender" value="woman" checked="checked" required>여자
+												</c:when>
+												<c:otherwise>
+													<input type="radio" name="gender" value="man" required>남자
+													<input type="radio" name="gender" value="woman" required>여자
+												</c:otherwise>
+											</c:choose>
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="age" class="col-md-4 col-form-label text-md-right">나이</label>
 										<div class="col-md-6">
 											<input type="text" id="age" class="form-control" name="age"
-												required>
+												value="${member.age }" required>
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="phonenum"
 											class="col-md-4 col-form-label text-md-right">전화번호</label>
 										<div class="col-md-6">
-											<input type="tel" id="phone" class="form-control"
-												name="phone" required>
+											<c:if test="${member.phone eq null}">
+												<input type="tel" id="phone" class="form-control"
+														name="phone" onKeyup="inputTelNumber(this);" maxlength="13" style="text-align:center;" required>
+											</c:if>
+											<c:if test="${member.gender ne null}">
+												<input type="tel" id="phone" class="form-control"
+														name="phone" maxlength="13" style="text-align:center;" value="${member.phone }" required>
+											</c:if>
+											
 										</div>
 									</div>
+									<script>
+									var autoHypenPhone = function(str){
+									      str = str.replace(/[^0-9]/g, '');
+									      var tmp = '';
+									      if( str.length < 4){
+									          return str;
+									      }else if(str.length < 7){
+									          tmp += str.substr(0, 3);
+									          tmp += '-';
+									          tmp += str.substr(3);
+									          return tmp;
+									      }else if(str.length < 11){
+									          tmp += str.substr(0, 3);
+									          tmp += '-';
+									          tmp += str.substr(3, 3);
+									          tmp += '-';
+									          tmp += str.substr(6);
+									          return tmp;
+									      }else{              
+									          tmp += str.substr(0, 3);
+									          tmp += '-';
+									          tmp += str.substr(3, 4);
+									          tmp += '-';
+									          tmp += str.substr(7);
+									          return tmp;
+									      }
+									  
+									      return str;
+									}
+
+
+									var phoneNum = document.getElementById('phone');
+
+									phoneNum.onkeyup = function(){
+									  console.log(this.value);
+									  this.value = autoHypenPhone( this.value ) ;  
+									}
+									</script>
 									<div class="form-group row">
 										<label for="address"
 											class="col-md-4 col-form-label text-md-right">집 주소</label>
 										<div class="col-md-6">
 											<input type="text" id="address" class="form-control"
-												name="address" required>
+												name="address" value="${member.address }" required>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -159,7 +226,7 @@
 											class="col-md-4 col-form-label text-md-right">이메일 주소</label>
 										<div class="col-md-6">
 											<input type="email" id="email" class="form-control"
-												name="email" required>
+												name="email" value="${member.email }" required>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -192,8 +259,20 @@
 										<label for="sex" class="col-md-4 col-form-label text-md-right">개인정보
 											제공에 동의합니까?</label>
 										<div class="col-md-6">
-											<input type="radio" name="agree" value="yes" required>예
-											<input type="radio" name="agree" value="no" required>아니오
+											<c:choose>
+												<c:when test="${member.agree eq 'yes'}">
+													<input type="radio" name="agree" value="yes" checked="checked" required>예
+													<input type="radio" name="agree" value="no" required>아니오
+												</c:when>
+												<c:when test="${member.agree eq 'no'}">
+													<input type="radio" name="agree" value="yes" required>예
+													<input type="radio" name="agree" value="no" checked="checked" required>아니오
+												</c:when>
+												<c:otherwise>
+													<input type="radio" name="agree" value="yes" required>예
+													<input type="radio" name="agree" value="no" required>아니오
+												</c:otherwise>
+											</c:choose>
 										</div>
 									</div>
 									<div class="form-group row">

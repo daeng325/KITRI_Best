@@ -79,9 +79,9 @@
 			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
 			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bags">Bags &
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bag">Bags &
 					Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/acce">Accesories</a>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/accesorie">Accesories</a>
 			</li>
 		</ul>
 		</nav>
@@ -149,6 +149,6 @@
 		</div>
 	</footer>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="./js/bootstrap.js"></script>
+	<script src="../js/bootstrap.js"></script>
 </body>
 </html>

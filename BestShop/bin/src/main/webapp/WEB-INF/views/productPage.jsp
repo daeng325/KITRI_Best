@@ -69,9 +69,8 @@
 			<li class="nav-item"><a class="nav-link" href="top">Top</a></li>
 			<li class="nav-item"><a class="nav-link" href="bottom">Bottom</a>
 			</li>
-			<li class="nav-item"><a class="nav-link" href="bags">Bags &
-					Shoes</a></li>
-			<li class="nav-item"><a class="nav-link" href="acce">Accesories</a>
+			<li class="nav-item"><a class="nav-link" href="bag">Bags & Shoes</a></li>
+			<li class="nav-item"><a class="nav-link" href="accesorie">Accesories</a>
 			</li>
 		</ul>
 		</nav>
@@ -79,19 +78,19 @@
 		<h1 class="text-center">${type }</h1>
 		<div class="container-fluid">
 			<ul class="nav justify-content-end">
-				<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/${fn:toLowerCase(type)}">신상품순</a></li>
-				<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/${fn:toLowerCase(type)}">낮은가격순</a></li>
-				<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/${fn:toLowerCase(type)}">높은가격순</a></li>
+				<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/${fn:toLowerCase(type)}_new">신상품순</a></li>
+				<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/${fn:toLowerCase(type)}_low">낮은가격순</a></li>
+				<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/${fn:toLowerCase(type)}_high">높은가격순</a></li>
 			</ul>
 		</div>
 		<br> <br>
 		<div class="row" align=center>
 			<c:forEach var="item" items="${products}">
 				<div class="col-md-3">
-					<a href="productDetail?id=${item.id }">
+					<a href="product/detail?num=${item.id }">
 						<img class="img" width="175" height="250" src='data:image/jpg;base64,${ item.image_thumbnail }' alt="${ item.name }">
 					</a>
-					<a href="productDetail?id=${item.id }"><p>${ item.name }</p>
+					<a href="product/detail?num=${item.id }"><p>${ item.name }</p>
 							<p>${ item.price }</p> 
 					</a>
 				</div>
