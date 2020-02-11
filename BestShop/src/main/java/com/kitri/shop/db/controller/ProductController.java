@@ -17,10 +17,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kitri.shop.db.domain.Product;
+import com.kitri.shop.db.domain.Question;
 import com.kitri.shop.db.domain.Review;
 import com.kitri.shop.db.repository.OrderRepository;
 import com.kitri.shop.db.repository.ProductRepository;
-import com.kitri.shop.db.repository.ReviewRepository;
+import com.kitri.shop.db.service.QuestionService;
 import com.kitri.shop.db.service.ReviewService;
 import com.kitri.shop.response.ApiResponseMessage;
 
@@ -34,6 +35,8 @@ public class ProductController {
 	ReviewService rService;
 	@Autowired
 	OrderRepository orderRepo;
+	@Autowired
+	QuestionService qService;
 	
 	@Secured("ROLE_ADMIN")
 	@RequestMapping(value="/upload", method=RequestMethod.GET)
@@ -87,9 +90,11 @@ public class ProductController {
 
 		
 		List<Review> reviews = rService.prouctsReviews(id);
+		List<Question> questions = qService.selectByPid(id);
 		
 		model.addAttribute("products",product);
 		model.addAttribute("reviews",reviews);
+		model.addAttribute("questions", questions);
 		
 		return "productDetail";
 	}

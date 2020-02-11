@@ -158,23 +158,29 @@
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
-							<th>이름</th>
-							<th>상품명</th>
-							<th>내용</th>
+							<th>작성자</th>
+							<th>제목</th>
+							<th>작성시간</th>
 						</tr>
 					</thead>
-					<tbody>
-
-					</tbody>
+					<c:forEach items="${questions }" var="question">
+						<tbody>
+							<tr>
+								<td><a href="<% request.getContextPath(); %>/question/detail?id=${question.id }">${question.u_id}</a></td>
+								<td><a href="<% request.getContextPath(); %>/question/detail?id=${question.id }">${question.title }</a></td>
+								<td><a href="<% request.getContextPath(); %>/question/detail?id=${question.id }">${question.createTime }</a></td>
+							</tr>
+						</tbody>
+					</c:forEach>
 				</table>
 
 
 				<form action="" method="post">
 					<div class="row justify-content-center" style="margin-bottom: 50px">
 						<input type="button" class="btn btn-primary" value="수정"
-							onclick="location.href='<% request.getContextPath(); %>/qna/update?num=${qna.id}'" style="margin-right: 10px">
+							onclick="location.href='<% request.getContextPath(); %>/question/update?num=${qna.id}'" style="margin-right: 10px">
 						<input type="button" class="btn btn-primary" value="추가"
-							onclick="location.href='<% request.getContextPath(); %>/qna/upload?num=${products.id}'" style="margin-right: 10px"> 
+							onclick="location.href='<% request.getContextPath(); %>/question/upload?num=${products.id}'" style="margin-right: 10px"> 
 						<input type="reset" class="btn btn-primary" value="삭제" onclick="">
 					</div>
 				</form>
