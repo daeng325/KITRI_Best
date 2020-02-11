@@ -3,14 +3,22 @@ package com.kitri.shop.db.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kitri.shop.db.domain.Review;
+import com.kitri.shop.db.domain.SecurityMember;
+import com.kitri.shop.db.repository.ProductRepository;
 import com.kitri.shop.db.repository.ReviewRepository;
+import com.kitri.shop.db.service.MemberService;
 
 
 @Controller
@@ -19,6 +27,41 @@ public class ReviewController {
 	
 	@Autowired
 	ReviewRepository revRepo;
+	@Autowired
+	ProductRepository proRepo;
+	@Autowired
+	MemberService mService;
+	
+	@Secured("ROLE_BASIC")
+	@GetMapping(value="upload")
+	public String uploadReviewPage(Model model, @RequestParam("num") long id, @AuthenticationPrincipal SecurityMember secMember) throws Exception {
+		model.addAttribute("product", proRepo.findProductDetail(id));
+		model.addAttribute("member", mService.findByUid(secMember.getUsername()).get());
+		return "reviewuploadform";
+	}
+	
+	
+	@PostMapping(value="complete")
+	public String uploadComplete() {
+
+		for(int i=0;i<5;i++)System.out.println();
+		//System.out.println(review==null);
+		for(int i=0;i<5;i++)System.out.println();
+		
+		return "redirect:/";
+	}
+	
+	@GetMapping(value="update")
+	public String editReveiwPage(Model model, @RequestParam("rev") long id) {
+		
+		return "reviewedit";
+	}
+	
+	@GetMapping("delete")
+	public String deleteReview() {
+		return "";
+	}
+	
 
 //	@RequestMapping(value="/reviewupload")
 //	public String viewUploadProduct(HttpSession session, HttpServletRequest request, Model model) throws IOException {
@@ -34,11 +77,11 @@ public class ReviewController {
 //		return "reviewuploadform";
 //	}
 	
-	@RequestMapping(value="/upload", method=RequestMethod.GET)
-	public String viewUploadReview(HttpSession session, @ModelAttribute Review review_obj, Model model) throws Exception{
-		revRepo.save(review_obj);
-		return "reviewuploadform";
-	}
+//	@RequestMapping(value="/upload", method=RequestMethod.GET)
+//	public String viewUploadReview(HttpSession session, @ModelAttribute Review review_obj, Model model) throws Exception{
+//		revRepo.save(review_obj);
+//		return "reviewuploadform";
+//	}
 	
 	
 	

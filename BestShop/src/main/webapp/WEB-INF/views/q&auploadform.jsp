@@ -71,7 +71,7 @@
 	<div class="container">
 		<div class="logo">
 			<h1 class="text-center">
-				<a href="main">Beautycloset</a>
+				<a href="<% request.getContextPath(); %>/main">Beautycloset</a>
 			</h1>
 		</div>
 	</div>
@@ -94,15 +94,16 @@
 	<div class="cotainer" style="margin-bottom: 50px">
 		<div class="row justify-content-center">
 			<div class="card">
+			
+			
 				<form action="" method="post">
-					<input type="hidden" name="${_csrf.parameterName}"
-						value="${_csrf.token}" />
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					<table class="table">
 						<tbody>
 							<tr>
 								<td>작성자</td>
 								<td>&nbsp;${ name }</td>
-								<!--DB에 있는 회원 이름이 표시되도록 ${}부분을 수정-->
+								<!--DB에 있는 회원 이름이 표시되도록 부분을 수정-->
 							</tr>
 							<tr>
 								<td>질문종류</td>
@@ -135,12 +136,19 @@
 						</tbody>
 					</table>
 					<div class="row justify-content-center" style="margin-bottom: 50px">
-						<input type="button" class="btn btn-primary" value="완료" onclick=""
-							style="margin-right: 10px"> <input type="button"
-							class="btn btn-primary" value="작성취소"
-							onclick="location.href='history.go(-1)'"
-							style="margin-right: 10px"> <input type="reset"
-							class="btn btn-primary" value="초기화">
+						<buttom type="submit" formaction="<% request.getContextPath(); %>/main" style="margin-right: 10px">완료</buttom>
+						<buttom type="submit" formaction="<% request.getContextPath(); %>" style="margin-right: 10px">취소</buttom>
+						
+						
+						<button type="submit" formaction="<% request.getContextPath(); %>/qna/complete">완료</button>
+						<button type="submit" formaction="<% request.getContextPath(); %>/main">취소</button>
+						
+						<!--
+						<input type="button" class="btn btn-primary" value="완료" onclick="location.href='이름'?id=값 넣어줘야함" style="margin-right: 10px"> 
+						<input type="button" class="btn btn-primary" value="작성취소" onclick="location.href='history.go(-1)'" style="margin-right: 10px"> 
+						-->
+						
+						<input type="reset" class="btn btn-primary" value="초기화">
 					</div>
 				</form>
 			</div>

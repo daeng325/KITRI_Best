@@ -39,8 +39,10 @@ public class OrderController {
 	
 	@RequestMapping(value="/purchase", method=RequestMethod.POST)
 	public String completeOrderPage(@ModelAttribute Order order, Model model) {
-		model.addAttribute("order",order);
-		return "purchase";
+		orderRepo.save(order);
+		// model.addAttribute("order",order);
+		// return "purchase";
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value="/complete", method = RequestMethod.POST)

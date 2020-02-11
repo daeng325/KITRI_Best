@@ -172,11 +172,10 @@
 				<form action="" method="post">
 					<div class="row justify-content-center" style="margin-bottom: 50px">
 						<input type="button" class="btn btn-primary" value="수정"
-							onclick="location.href='q&aeditform'" style="margin-right: 10px">
+							onclick="location.href='<% request.getContextPath(); %>/qna/update?num=${qna.id}'" style="margin-right: 10px">
 						<input type="button" class="btn btn-primary" value="추가"
-							onclick="location.href='q&auploadform'"
-							style="margin-right: 10px"> <input type="reset"
-							class="btn btn-primary" value="삭제" onclick="">
+							onclick="location.href='<% request.getContextPath(); %>/qna/upload?num=${products.id}'" style="margin-right: 10px"> 
+						<input type="reset" class="btn btn-primary" value="삭제" onclick="">
 					</div>
 				</form>
 			</div>
@@ -202,6 +201,7 @@
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
+							<th></th>
 							<th>이름</th>
 							<th>상품명</th>
 							<th>내용</th>
@@ -210,7 +210,8 @@
 					<c:forEach items="${reviews }" var="rev">
 						<tbody>
 							<tr>
-								<td><a href="review/detail?id=${rev.id }">${rev.id }</a></td>
+								<td><input type="checkbox" name="reviewchk" value="${rev.id}"></td>
+								<td><a href="<% request.getContextPath(); %>/review/detail?num=${rev.id }">${rev.id }</a></td>
 								<td>${rev.id }</td>
 								<td>${rev.content }</td>
 							</tr>
@@ -220,9 +221,9 @@
 
 				<div class="row justify-content-center" style="margin-bottom: 50px">
 					<input type="button" class="btn btn-primary" value="수정"
-						onclick="location.href='reviewedit'" style="margin-right: 10px">
+						onclick="location.href='<% request.getContextPath(); %>/review/update?num=${rev.id}'" style="margin-right: 10px">
 					<input type="button" class="btn btn-primary" value="추가"
-						onclick="location.href='review/upload'" style="margin-right: 10px">
+						onclick="location.href='<% request.getContextPath(); %>/review/upload?num=${products.id}'" style="margin-right: 10px">
 					<input type="reset" class="btn btn-primary" value="삭제" onclick="">
 				</div>
 

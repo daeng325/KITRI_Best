@@ -77,6 +77,7 @@
 		</ul>
 		</nav>
 	</div>
+	
 		<main class="login-form">
 			<div class="cotainer">
 				<div class="row justify-content-center">
@@ -85,20 +86,48 @@
 							<div class="card-header" text-align=center>상품 관리</div>
 							<div class="card-body">
 								<div class="col-md-6 offset-md-4">
-									<form class="form-inline" action="" method="post">
-										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <span class="glyphicon glyphicon-search" style="margin-right: 5px"></span>
-										<input class="form-control mr-sm-2" type="text" placeholder="상품명을 입력하세요">
-										<button class="btn btn-success" type="submit">Search</button>
-									</form>
-									<br>
-									<form class="form-inline" method="get">
-										<span><button type="submit" class="btn btn-primary" value="edit" style="margin-left: 5px; margin-right: 5px" formaction="<% request.getContextPath(); %>/product/update" >수정</button></span><br> 
-										<span><button type="submit" class="btn btn-primary" value="add"  style="margin-left: 5px" formaction="<% request.getContextPath(); %>/product/upload">추가</button></span>
-									</form>
-									<form class="" action ="<% request.getContextPath(); %>/product/delete" method="post">
-										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-										<span><button type="submit" class="btn btn-primary" value="delete">삭제</button></span> 
-									</form>
+
+                            <form class="form-inline" action="" method="post">
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <span class="glyphicon glyphicon-search" style="margin-right: 5px"></span>
+                                <span class="glyphicon glyphicon-search" style="margin-right:5px"></span>
+                                <input class="form-control mr-sm-2" type="text" placeholder="관리할 상품을 검색하세요">
+                                <button class="btn btn-success" type="submit">Search</button>
+                            </form> <br>
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th></th>
+                                        <th>상품번호</th>
+                                        <th>상품명</th>
+                                        <th>상품종류</th>
+                                        <th>가격</th>
+                                        <th>상품설명</th>
+                                        <th>업로드날짜</th>
+                                    </tr>
+                                </thead>
+                                <c:forEach items="${products }" var="prod">
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" name="productchk" value="productchk"></td>
+                                        <td>${prod.id }</td>
+                                        <td>${prod.name }</td>
+                                        <td>${prod.type }</td>
+                                        <td>${prod.price }</td>
+                                        <td>${prod.description }</td>
+                                        <td>${prod.createTime }</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
+
+
+
+
+
+
+
 								</div>
 							</div>
 						</div>

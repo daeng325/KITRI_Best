@@ -71,7 +71,7 @@
 	<div class="container">
 		<div class="logo">
 			<h1 class="text-center">
-				<a href="main">Beautycloset</a>
+				<a href="<% request.getContextPath(); %>/main">Beautycloset</a>
 			</h1>
 		</div>
 	</div>
@@ -94,9 +94,9 @@
 	<div class="cotainer" style="margin-bottom: 50px">
 		<div class="row justify-content-center">
 			<div class="card">
+			
 				<form action="" method="post">
-					<input type="hidden" name="${_csrf.parameterName}"
-						value="${_csrf.token}" />
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					<table class="table">
 						<tbody>
 							<tr>

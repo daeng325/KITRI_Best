@@ -17,7 +17,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kitri.shop.db.domain.Product;
+import com.kitri.shop.db.domain.Review;
 import com.kitri.shop.db.repository.ProductRepository;
+import com.kitri.shop.db.repository.ReviewRepository;
 import com.kitri.shop.response.ApiResponseMessage;
 
 @Controller
@@ -26,6 +28,8 @@ public class ProductController {
 
 	@Autowired
 	ProductRepository proRepo;
+	@Autowired
+	ReviewRepository reveiwRepo;
 	
 	@Secured("ROLE_ADMIN")
 	@RequestMapping(value="/upload", method=RequestMethod.GET)
@@ -77,7 +81,8 @@ public class ProductController {
 	public String detailProduct(@RequestParam("num") long id, Model model) throws Exception {
 		Product product = proRepo.findProductDetail(id);
 		model.addAttribute("products",product);
-		
+		//model.addAttribute("reviews",reviews);
+
 		String s1 = product.getImage();
 		String s2 = product.getImage_thumbnail();
 		
