@@ -18,8 +18,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kitri.shop.db.domain.Product;
 import com.kitri.shop.db.domain.Review;
+import com.kitri.shop.db.repository.OrderRepository;
 import com.kitri.shop.db.repository.ProductRepository;
 import com.kitri.shop.db.repository.ReviewRepository;
+import com.kitri.shop.db.service.ReviewService;
 import com.kitri.shop.response.ApiResponseMessage;
 
 @Controller
@@ -29,7 +31,9 @@ public class ProductController {
 	@Autowired
 	ProductRepository proRepo;
 	@Autowired
-	ReviewRepository reveiwRepo;
+	ReviewService rService;
+	@Autowired
+	OrderRepository orderRepo;
 	
 	@Secured("ROLE_ADMIN")
 	@RequestMapping(value="/upload", method=RequestMethod.GET)
@@ -80,18 +84,12 @@ public class ProductController {
 	@RequestMapping(value="/detail", method=RequestMethod.GET)
 	public String detailProduct(@RequestParam("num") long id, Model model) throws Exception {
 		Product product = proRepo.findProductDetail(id);
-		model.addAttribute("products",product);
-		//model.addAttribute("reviews",reviews);
 
-		String s1 = product.getImage();
-		String s2 = product.getImage_thumbnail();
 		
-		System.out.println(s1.length());
-		System.out.println(s2.length());
-		System.out.println(s1.equals(s2));
-		for(int i=0;i<5;i++) {
-			System.out.println();
-		}
+		List<Review> reviews = rService.prouctsReviews(id);
+		
+		model.addAttribute("products",product);
+		model.addAttribute("reviews",reviews);
 		
 		return "productDetail";
 	}

@@ -19,17 +19,17 @@ public class Order {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	private String u_id;
-	private int p_id;
+	private Long p_id;
 	private int count;
 
 	private String status;
 	private String ship_addr;
 	private String payment;
 
-	public Order(String u_id, int p_id, int count, String status, String ship_addr, String payment) {
+	public Order(String u_id, Long p_id, int count, String status, String ship_addr, String payment) {
 		this.u_id = u_id;
 		this.p_id = p_id;
 		this.count = count;

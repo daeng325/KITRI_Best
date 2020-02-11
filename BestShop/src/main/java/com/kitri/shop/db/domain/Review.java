@@ -7,12 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name="reviews")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Review {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -71,4 +73,21 @@ public class Review {
 		this.image_3 = image_3;
 	}
 	
+	public Review(Long o_id, String u_id, double rev_price, double rev_quality, double rev_ship,
+			double rev_agv, String title, String content, String ext, String image, String image_1, String image_2,
+			String image_3) {
+		this.o_id = o_id;
+		this.u_id = u_id;
+		this.rev_price = rev_price;
+		this.rev_quality = rev_quality;
+		this.rev_ship = rev_ship;
+		this.rev_agv = rev_agv;
+		this.title = title;
+		this.content = content;
+		this.ext = ext;
+		this.image = image;
+		this.image_1 = image_1;
+		this.image_2 = image_2;
+		this.image_3 = image_3;
+	}
 }
