@@ -1,10 +1,15 @@
 package com.kitri.shop.db.domain;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,6 +40,12 @@ public class Review {
 	private String image_1;
 	private String image_2;
 	private String image_3;
+	
+	@CreationTimestamp
+	private LocalDateTime createTime;
+	
+	@UpdateTimestamp
+	private LocalDateTime updateTime;
 
 	
 	public Review(Long o_id, String u_id, double rev_price, double rev_quality, double rev_ship, String title, String content, String image) {

@@ -1,5 +1,6 @@
 package com.kitri.shop.db.domain;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,11 +38,11 @@ public class Member {
 	private String agree;
 	private String agree2;
 	
-//	@CreationTimestamp
-//	private Date createTime;
-//	
-//	@UpdateTimestamp
-//	private Date updateTime;
+	@CreationTimestamp
+	private LocalDateTime createTime;
+	
+	@UpdateTimestamp
+	private LocalDateTime updateTime;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="id")
