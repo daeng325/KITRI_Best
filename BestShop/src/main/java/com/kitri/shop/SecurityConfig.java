@@ -3,8 +3,10 @@ package com.kitri.shop;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,6 +20,7 @@ import org.springframework.security.web.authentication.rememberme.JdbcTokenRepos
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import com.kitri.shop.db.service.CustomUserDetailsService;
+import com.navercorp.lucy.security.xss.servletfilter.XssEscapeServletFilter;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
@@ -69,6 +72,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		log.info("security config....................");
         http.authorizeRequests()
                 // 페이지 권한 설정
+        		.antMatchers(HttpMethod.OPTIONS, "/**").denyAll()
+        		.antMatchers(HttpMethod.PUT, "/**").denyAll()
+        		.antMatchers(HttpMethod.PATCH, "/**").denyAll()
+        		.antMatchers(HttpMethod.DELETE, "/**").denyAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/user/mypage").hasRole("BASIC")
                 .antMatchers("/order/**").hasRole("BASIC")
@@ -106,7 +113,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	    return new CustomLoginSuccessHandler("/"); //default로 이동할 url
 	}
 
-	
+	/*
+     * lucy-xss-filter
+     *  
+     * */
+    @Bean
+    public FilterRegistrationBean getFilterRegistrationBean(){
+        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+        registrationBean.setFilter(new XssEscapeServletFilter());
+        registrationBean.setOrder(1);
+        registrationBean.addUrlPatterns("/*");    //filter를 거칠 url patterns
+        return registrationBean;
+    }
 	
 //	private Filter ssoFilter() {
 //		  CompositeFilter filter = new CompositeFilter();
