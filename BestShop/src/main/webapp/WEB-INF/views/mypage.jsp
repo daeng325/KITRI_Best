@@ -75,7 +75,7 @@
 	<div class="container">
 		<div class="logo">
 			<h1 class="text-center">
-				<a href="main">Beautycloset</a>
+				<a href=<% request.getContextPath(); %>/"main">Beautycloset</a>
 			</h1>
 		</div>
 	</div>
@@ -120,8 +120,8 @@
 				<a href="selforderinfo"><img src="../icon/cart.png" class="rounded"
 					alt="주문내역" align="center" style="width: 100px; height: 100px"></a>
 				<div class="card-body">
-					<a href="selfuseredit"><h4 class="card-title"
-							style="text-align: center">주문내역</h4></a> <a href="selfuseredit"><p
+					<a href="orderedlist"><h4 class="card-title"
+							style="text-align: center">주문내역</h4></a> <a href="orderedlist"><p
 							class="card-text" style="text-align: center">
 							회원님의 주문내역을 <br>확인할 수 있습니다.
 						</p></a>

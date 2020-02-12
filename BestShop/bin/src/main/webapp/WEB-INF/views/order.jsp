@@ -188,7 +188,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" formaction="order/purchase?p=${product.id }">ddf</button>
+                            <button type="submit" formaction="order/purchase?p=${product.id }">주문하기</button>
 	<input type="button" class="btn btn-primary" value="결제하기" onclick="location.href='purchase'" style="margin-left:150px;margin-right:10px">
 <input type="button" class="btn btn-primary" value="계속 쇼핑하기" onclick="location.href='main'" style="margin-right:10px">
 </div>

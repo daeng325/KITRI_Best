@@ -1,5 +1,8 @@
 package com.kitri.shop.db.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kitri.shop.db.domain.Member;
+import com.kitri.shop.db.domain.*;
 import com.kitri.shop.db.domain.SecurityMember;
 import com.kitri.shop.db.repository.MemberRepository;
 import com.kitri.shop.db.service.MemberService;
@@ -82,6 +86,8 @@ public class MemberController {
 		return "selfuseredit";	
 	}
     
+
+    
     @RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String updateUser(@ModelAttribute Member member, @RequestParam("pre_pwd") String pre_pwd, @RequestParam("chk_pwd") String chk_pwd,RedirectAttributes rttr) throws Exception{
     	
@@ -114,6 +120,15 @@ public class MemberController {
     		return "redirect:/user/selfuserout";
     	}
     	return "redirect:/";
+    }
+    
+    @RequestMapping(value="/orderedlist", method = RequestMethod.GET)
+    public String userOrderList(@AuthenticationPrincipal SecurityMember secMember, Model model) throws Exception {
+    	Map<Order, Product> orders = mService.selectOrderByUid(secMember.getUsername());
+    	Member member = mService.findByUid(secMember.getUsername()).get();
+    	model.addAttribute("member", member);
+    	model.addAttribute("orders", orders);
+    	return "orderedlist";
     }
 }
 

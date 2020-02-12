@@ -9,7 +9,7 @@ import com.kitri.shop.db.domain.Product;
 import com.kitri.shop.db.repository.ProductRepository;
 
 @Service
-public class ProductPageService{
+public class ProductService{
 	@Autowired
 	ProductRepository proRepo;
 
@@ -54,6 +54,10 @@ public class ProductPageService{
 
 	public List<Product> selectProductsType(String type){
 		return proRepo.printProductsByType(type);
+	}
+	
+	public Product selectProductByPid(Long pid) {
+		return proRepo.findProductDetail(pid);
 	}
 
 }

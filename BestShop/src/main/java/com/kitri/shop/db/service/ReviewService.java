@@ -41,7 +41,7 @@ public class ReviewService {
 		
 		
 		// 해당 member의 구매 목록 가져옴
-		List<Order> orders = orderRepo.SelectUserOrders(member.getId().toString());
+		List<Order> orders = orderRepo.selectOrderByUid(member.getId().toString());
 		System.out.println(orders.size());
 		
 		// 구매 목록 없다면 리뷰 쓸 수 없음
@@ -61,7 +61,7 @@ public class ReviewService {
 			return mov;
 		}
 		// 현재 상품이 최신 구매한 상품이지만 이미 리뷰를 썼다면 쓸 수 없음
-		if(reviewRepo.selectReviewWithOid(order.getId()) != null) {
+		if(reviewRepo.selectReviewByOid(order.getId()) != null) {
 			mov.setViewName("redirect:/main");
 			return mov;			
 		}
@@ -82,7 +82,7 @@ public class ReviewService {
 		}
 		
 		for(int i=0;i<oders.size();i++) {
-			reviews.add(reviewRepo.selectReviewWithOid(oders.get(i).getId()));
+			reviews.add(reviewRepo.selectReviewByOid(oders.get(i).getId()));
 		}	
 		return reviews;
 	}
@@ -116,6 +116,16 @@ public class ReviewService {
 		review.setRev_agv((review.getRev_price() + review.getRev_quality() + review.getRev_ship())/3.0);
 		review.setExt(image.getOriginalFilename().substring(image.getOriginalFilename().lastIndexOf(".")+1));		
 		return review;
+	}
+
+	public void insertReview(Review review) {
+		reviewRepo.save(review);
+		
+	}
+
+	public boolean isExistReview(long oid) {
+		
+		return reviewRepo.selectReviewByOid(oid)!=null;
 	}
 	
 }

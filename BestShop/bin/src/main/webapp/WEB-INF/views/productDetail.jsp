@@ -155,28 +155,47 @@
 				<br>
 				<p style="text-align: center">상품 배송, 사이즈, 환불 등 다양한 질문에 대해 관리자가
 					친절하게 대답해 드립니다.</p>
+				
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
-							<th>이름</th>
-							<th>상품명</th>
-							<th>내용</th>
+							<th></th>
+							<th>작성자</th>
+							<th>제목</th>
+							<th>작성시간</th>
+							<th></th>
 						</tr>
 					</thead>
-					<tbody>
-
-					</tbody>
+					<c:forEach items="${questions }" var="question">
+					
+						<tbody>
+							<tr>
+							  <th><a data-toggle="collapse" href="#collapse1">${question.u_id }</a></th>
+				              <th></th>
+				              <th><a data-toggle="collapse" href="#collapse1">${question.title }</a></th>
+				              <th></th>
+				              <th><a data-toggle="collapse" href="#collapse1">${question.createTime }</a></th>
+				              <th></th>
+							</tr>
+							
+							<tr id="collapse1" class="panel-collapse collapse">
+								<td>
+									<c:if test="${question.image ne null}">
+										${question.image }
+									</c:if>
+									${question.content }
+								</td>
+							</tr>
+						</tbody>
+					</c:forEach>
 				</table>
-
-
 				<form action="" method="post">
 					<div class="row justify-content-center" style="margin-bottom: 50px">
 						<input type="button" class="btn btn-primary" value="수정"
-							onclick="location.href='q&aeditform'" style="margin-right: 10px">
+							onclick="location.href='<% request.getContextPath(); %>/question/update?num=${qna.id}'" style="margin-right: 10px">
 						<input type="button" class="btn btn-primary" value="추가"
-							onclick="location.href='q&auploadform'"
-							style="margin-right: 10px"> <input type="reset"
-							class="btn btn-primary" value="삭제" onclick="">
+							onclick="location.href='<% request.getContextPath(); %>/question/upload?num=${products.id}'" style="margin-right: 10px"> 
+						<input type="reset" class="btn btn-primary" value="삭제" onclick="">
 					</div>
 				</form>
 			</div>
@@ -202,6 +221,7 @@
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
+							<th></th>
 							<th>이름</th>
 							<th>상품명</th>
 							<th>내용</th>
@@ -210,7 +230,8 @@
 					<c:forEach items="${reviews }" var="rev">
 						<tbody>
 							<tr>
-								<td><a href="review/detail?id=${rev.id }">${rev.id }</a></td>
+								<td><input type="checkbox" name="reviewchk" value="${rev.id}"></td>
+								<td><a href="<% request.getContextPath(); %>/review/detail?num=${rev.id }">${rev.id }</a></td>
 								<td>${rev.id }</td>
 								<td>${rev.content }</td>
 							</tr>
@@ -220,14 +241,15 @@
 
 				<div class="row justify-content-center" style="margin-bottom: 50px">
 					<input type="button" class="btn btn-primary" value="수정"
-						onclick="location.href='reviewedit'" style="margin-right: 10px">
+						onclick="location.href='<% request.getContextPath(); %>/review/update?num=${rev.id}'" style="margin-right: 10px">
 					<input type="button" class="btn btn-primary" value="추가"
-						onclick="location.href='review/upload'" style="margin-right: 10px">
+						onclick="location.href='<% request.getContextPath(); %>/review/upload?num=${products.id}'" style="margin-right: 10px">
 					<input type="reset" class="btn btn-primary" value="삭제" onclick="">
 				</div>
 
 			</div>
 		</div>
+	</div>
 
 		<footer style="background-color: #000000; color: #FFFFFF">
 			<div class="container">

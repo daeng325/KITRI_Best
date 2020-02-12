@@ -13,6 +13,6 @@ public interface ReviewRepository extends CrudRepository<Review, Long>{
 	List<Review> selectAllReviews();
 	
 	@Query("SELECT r FROM Review r WHERE o_id = ?1")
-	Review selectReviewWithOid(long oid);
+	Review selectReviewByOid(long oid);
 	
 }

@@ -48,16 +48,17 @@
 </style>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="main">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a></li>
 			<li class="nav-item"><c:if test="${login eq null }">
-					<a class="nav-link" href="user/login">Login</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/login">Login</a>
 				</c:if> <c:if test="${login ne null }">
-					<a class="nav-link" href="user/logout">Logout</a>
-				</c:if></li>
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/logout">Logout</a>
+				</c:if>
+			</li>
 			<li class="nav-item"><c:if test="${login eq null }">
-					<a class="nav-link" href="user/join">Join</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/join">Join</a>
 				</c:if> <c:if test="${login ne null }">
-					<a class="nav-link" href="user/mypage">Mypage</a>
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/mypage">Mypage</a>
 				</c:if></li>
 		</ul>
 		<form class="form-inline"
@@ -71,7 +72,7 @@
 	<div class="container">
 		<div class="logo">
 			<h1 class="text-center">
-				<a href="main">Beautycloset</a>
+				<a href="<% request.getContextPath(); %>/main">Beautycloset</a>
 			</h1>
 		</div>
 	</div>
@@ -95,66 +96,57 @@
 		<div class="row justify-content-center">
 			<div class="card">
 
-				<form action="review/complete" method="post"
-					enctype="multipart/form-data">
-					<input type="hidden" name="${_csrf.parameterName}"
-						value="${_csrf.token}" />
+				<form action="complete" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+					<input type="hidden" name="o_id" value="${order.id }">
+					<input type="hidden" name="p_id" value="${product.id}">
+					<input type="hidden" name="u_id" value="${member.id}">
 					<table class="table">
 						<tbody>
 							<tr>
 								<td>상품명</td>
-								<td>${products.name }</td>
-								<input type="hidden" name="products" value="${products.id }">
+								<td>${product.name }</td>
 							</tr>
 
 							<tr>
 								<td>작성자</td>
 								<td>${member.name }</td>
-								<!--DB에 있는 회원 이름이 표시되도록 수정-->
 							</tr>
 							<tr>
 								<td>제목</td>
-								<td><input type="text" id="boardtitle" name="boardtitle"
+								<td><input type="text" id="title" name="title"
 									class="form-control" placeholder="제목을 입력하세요" autofocus required></td>
 							</tr>
 
 							<tr>
 								<td>가격 만족도</td>
-								<td><input type="radio" name="revprice" value="5.0">5
-									<input type="radio" name="revprice" value="4.0">4 <input
-									type="radio" name="revprice" value="3.0">3 <input
-									type="radio" name="revprice" value="2.0">2 <input
-									type="radio" name="revprice" value="1.0">1 <input
-									type="radio" name="revprice" value="0.0">0</td>
+								<td><input type="radio" name="rev_price" value=5.0>5
+									<input type="radio" name="rev_price" value=4.0>4 
+									<input type="radio" name="rev_price" value=3.0>3 
+									<input type="radio" name="rev_price" value=2.0>2 
+									<input type="radio" name="rev_price" value=1.0>1 
+									<input type="radio" name="rev_price" value=0.0>0</td>
 							</tr>
 
 							<tr>
 								<td>품질 만족도</td>
-								<td><input type="radio" name="revquality" value="5.0">5
-									<input type="radio" name="revquality" value="4.0">4 <input
-									type="radio" name="revquality" value="3.0">3 <input
-									type="radio" name="revquality" value="2.0">2 <input
-									type="radio" name="revquality" value="1.0">1 <input
-									type="radio" name="revquality" value="0.0">0</td>
+								<td><input type="radio" name="rev_quality" value=5.0>5
+									<input type="radio" name="rev_quality" value=4.0>4 
+									<input type="radio" name="rev_quality" value=3.0>3 
+									<input type="radio" name="rev_quality" value=2.0>2 
+									<input type="radio" name="rev_quality" value=1.0>1 
+									<input type="radio" name="rev_quality" value=0.0>0</td>
 							</tr>
 							<tr>
 								<td>가격 만족도</td>
-								<td><input type="radio" name="revship" value="5.0">5
-									<input type="radio" name="revship" value="4.0">4 <input
-									type="radio" name="revship" value="3.0">3 <input
-									type="radio" name="revship" value="2.0">2 <input
-									type="radio" name="revship" value="1.0">1 <input
-									type="radio" name="revship" value="0.0">0</td>
+								<td><input type="radio" name="rev_ship" value=5.0>5
+									<input type="radio" name="rev_ship" value=4.0>4 
+									<input type="radio" name="rev_ship" value=3.0>3 
+									<input type="radio" name="rev_ship" value=2.0>2 
+									<input type="radio" name="rev_ship" value=1.0>1 
+									<input type="radio" name="rev_ship" value=0.0>0</td>
 							</tr>
-							<tr>
-								<td>agv</td>
-								<td><input type="radio" name="revagv" value="5.0">5
-									<input type="radio" name="revagv" value="4.0">4 <input
-									type="radio" name="revagv" value="3.0">3 <input
-									type="radio" name="revagv" value="2.0">2 <input
-									type="radio" name="revagv" value="1.0">1 <input
-									type="radio" name="revagv" value="0.0">0</td>
-							</tr>
+
 
 							<tr>
 								<td>내용</td>
@@ -162,6 +154,22 @@
 										name="content" placeholder="내용을 입력하세요" class="form-control"
 										required></textarea></td>
 							</tr>
+							<tr>
+								<td>파일 업로드</td>
+								<td><input type="file" id="image0" name="image0" class="form-control"></td>
+							</tr>
+							<tr>
+								<td>파일2</td>
+								<td><input type="file" id="image1" name="image1" class="form-control" ></td>
+							</tr>
+							<tr>
+								<td>파일3</td>
+								<td><input type="file" id="image2" name="image2" class="form-control" ></td>
+							</tr>
+							<tr>
+								<td>파일4</td>
+								<td><input type="file" id="image3" name="image3" class="form-control" ></td>
+							</tr>		
 
 							<tr>
 								<td>작성날짜</td>
@@ -175,11 +183,7 @@
 								<!-- 현재 날짜가 자동으로 표시되도록 바꿈-->
 							</tr>
 
-							<tr>
-								<td>파일 업로드</td>
-								<td><input type="file" id="image" name="image"
-									value="파일 선택"></td>
-							</tr>
+					
 						</tbody>
 					</table>
 

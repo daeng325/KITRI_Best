@@ -1,6 +1,9 @@
 package com.kitri.shop.db.service;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,8 +14,11 @@ import org.springframework.stereotype.Service;
 
 import com.kitri.shop.db.domain.Member;
 import com.kitri.shop.db.domain.MemberRole;
+import com.kitri.shop.db.domain.*;
 import com.kitri.shop.db.domain.SecurityMember;
 import com.kitri.shop.db.repository.MemberRepository;
+import com.kitri.shop.db.repository.OrderRepository;
+import com.kitri.shop.db.repository.ProductRepository;
 
 @Service
 public class MemberService {
@@ -21,6 +27,11 @@ public class MemberService {
 	
 	@Autowired
 	PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	OrderRepository orderRepo;
+	@Autowired
+	ProductRepository proRepo;
 	
 	public Optional<Member> findByUid(String uid) throws Exception{
 		return memRepo.findById(uid);
@@ -78,5 +89,20 @@ public class MemberService {
 		else {
 			return "Wrong Password";
 		}
+	}
+	
+	public Map<Order,Product> selectOrderByUid(String u_id){
+		Map<Order, Product> OrderList = new HashMap<Order,Product>();
+		
+		List<Order> orders = orderRepo.selectOrderByUid(u_id);
+		for(int i=0;i<orders.size();i++) {
+			Product product = proRepo.findProductDetail(orderRepo.selectPid(orders.get(i).getId()));
+			OrderList.put(orders.get(i), product);
+			
+			for(int j=0;j<3;j++) System.out.println();
+			System.out.println(orders.get(i).getId() + " : " + product.getId());
+		}
+		
+		return OrderList;
 	}
 }

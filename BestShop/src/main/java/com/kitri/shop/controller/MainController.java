@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kitri.shop.db.domain.Product;
 import com.kitri.shop.db.repository.ProductRepository;
-import com.kitri.shop.db.service.ProductPageService;
+import com.kitri.shop.db.service.ProductService;
 
 @Controller
 public class MainController {
@@ -20,7 +20,7 @@ public class MainController {
 	@Autowired
 	ProductRepository proRepo;
 	@Autowired
-	ProductPageService proSer;
+	ProductService proSer;
 
     @RequestMapping("/")
     public String root_test(Model model) throws Exception{

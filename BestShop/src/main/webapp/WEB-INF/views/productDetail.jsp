@@ -221,32 +221,21 @@
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
-							<th></th>
-							<th>이름</th>
-							<th>상품명</th>
+							<th>제목</th>
+							<th>평점</th>
 							<th>내용</th>
 						</tr>
 					</thead>
 					<c:forEach items="${reviews }" var="rev">
 						<tbody>
 							<tr>
-								<td><input type="checkbox" name="reviewchk" value="${rev.id}"></td>
-								<td><a href="<% request.getContextPath(); %>/review/detail?num=${rev.id }">${rev.id }</a></td>
-								<td>${rev.id }</td>
+								<td><a href="<% request.getContextPath(); %>/review/detail?num=${rev.id }">${rev.title }</a></td>
+								<td>${rev.rev_agv }</td>
 								<td>${rev.content }</td>
 							</tr>
 						</tbody>
 					</c:forEach>
 				</table>
-
-				<div class="row justify-content-center" style="margin-bottom: 50px">
-					<input type="button" class="btn btn-primary" value="수정"
-						onclick="location.href='<% request.getContextPath(); %>/review/update?num=${rev.id}'" style="margin-right: 10px">
-					<input type="button" class="btn btn-primary" value="추가"
-						onclick="location.href='<% request.getContextPath(); %>/review/upload?num=${products.id}'" style="margin-right: 10px">
-					<input type="reset" class="btn btn-primary" value="삭제" onclick="">
-				</div>
-
 			</div>
 		</div>
 	</div>
