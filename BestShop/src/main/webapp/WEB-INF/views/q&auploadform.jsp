@@ -102,7 +102,7 @@
 			<div class="card">
 			
 			
-				<form action="" method="post">
+				<form action="" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					<input type="hidden" id="id" class="form-control" name="u_id" value="${member.id }"/>
 					<input type="hidden" id="id" class="form-control" name="p_id" value="${product.id }"/>
@@ -111,7 +111,6 @@
 							<tr>
 								<td>작성자</td>
 								<td>${ member.name }</td>
-								<!--DB에 있는 회원 이름이 표시되도록 부분을 수정-->
 							</tr>
 							<tr>
 								<td>질문종류</td>
@@ -133,7 +132,7 @@
 							</tr>
 							<tr>
 								<td>파일 업로드</td>
-								<td><input type="file" id="fileup" name="image"
+								<td><input type="file" id="fileup" name="image_file"
 									class="form-control"></td>
 							</tr>
 						</tbody>

@@ -4,48 +4,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" , initial-scale="1">
-<title>Beautycloset</title>
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
-<link rel="stylesheet" href="../css/style.css">
-
-<link rel="icon" href="Favicon.png">
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" , initial-scale="1">
+	<style type="text/css">
+		.jumbotron {
+			background-image: url('./jpg/flower.jpg');
+			background-size: cover;
+			text-shadow: black 0.2px 0.2px 0.2px;
+			color: blue;
+			font-weight: bold;
+			opacity: 0.5;
+			filter: alpha(opacity = 50);
+		}
+		
+		.logo {
+			font-family: 'Segoe Print';
+			font-size: 100px;
+			margin-top: 100px;
+			margin-bottom: 100px;
+		}
+		
+		* a {
+			text-decoration: none;
+			color: black;
+		}
+	</style>
+	<title>Beautycloset</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link
+		href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+		rel="stylesheet" id="bootstrap-css">
+	<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
+		rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="../css/style.css">
+	
+	<link rel="icon" href="Favicon.png">
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
-	<style type="text/css">
-.jumbotron {
-	background-image: url('./jpg/flower.jpg');
-	background-size: cover;
-	text-shadow: black 0.2px 0.2px 0.2px;
-	color: blue;
-	font-weight: bold;
-	opacity: 0.5;
-	filter: alpha(opacity = 50);
-}
-
-.logo {
-	font-family: 'Segoe Print';
-	font-size: 100px;
-	margin-top: 100px;
-	margin-bottom: 100px;
-}
-
-* a {
-	text-decoration: none;
-	color: black;
-}
-</style>
+	
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link"
@@ -84,52 +86,48 @@
 					<div class="col-md-6">
 						<div class="card">
 							<div class="card-header" text-align=center>상품 관리</div>
-							<div class="card-body">
-								<div class="col-md-6 offset-md-4">
-
-                            <form class="form-inline" action="" method="post">
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <span class="glyphicon glyphicon-search" style="margin-right: 5px"></span>
-                                <span class="glyphicon glyphicon-search" style="margin-right:5px"></span>
-                                <input class="form-control mr-sm-2" type="text" placeholder="관리할 상품을 검색하세요">
-                                <button class="btn btn-success" type="submit">Search</button>
-                            </form> <br>
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th></th>
-                                        <th>상품번호</th>
-                                        <th>상품명</th>
-                                        <th>상품종류</th>
-                                        <th>가격</th>
-                                        <th>상품설명</th>
-                                        <th>업로드날짜</th>
-                                    </tr>
-                                </thead>
-                                <c:forEach items="${products }" var="prod">
-                                <tbody>
-                                    <tr>
-                                        <td><input type="checkbox" name="productchk" value="productchk"></td>
-                                        <td>${prod.id }</td>
-                                        <td>${prod.name }</td>
-                                        <td>${prod.type }</td>
-                                        <td>${prod.price }</td>
-                                        <td>${prod.description }</td>
-                                        <td>${prod.createTime }</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-
-
-
-
-
-
-
-
-
+								<div class="card-body">
+									<div class="col-md-6 offset-md-4">
+			                            <form class="form-inline" action="" method="post">
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <span class="glyphicon glyphicon-search" style="margin-right: 5px"></span>
+			                                <span class="glyphicon glyphicon-search" style="margin-right:5px"></span>
+			                                <input class="form-control mr-sm-2" type="text" placeholder="관리할 상품을 검색하세요">
+			                                <button class="btn btn-success" type="submit">Search</button>
+			                            </form> <br>
+			                            <table class="table">
+			                                <thead class="thead-dark">
+			                                    <tr>
+			                                        <th></th>
+			                                        <th>상품번호</th>
+			                                        <th>상품명</th>
+			                                        <th>상품종류</th>
+			                                        <th>가격</th>
+			                                        <th>상품설명</th>
+			                                        <th>업로드날짜</th>
+			                                    </tr>
+			                                </thead>
+			                                <c:forEach items="${products }" var="prod">
+				                                <tbody>
+				                                    <tr>
+				                                        <td><input type="checkbox" name="productchk" value="productchk"></td>
+				                                        <td>${prod.id }</td>
+				                                        <td>${prod.name }</td>
+				                                        <td>${prod.type }</td>
+				                                        <td>${prod.price }</td>
+				                                        <td>${prod.description }</td>
+				                                        <%-- <td>${prod.createTime }</td> --%>
+				                                    </tr>
+				                                </tbody>
+			                                </c:forEach>
+			                            </table>
+			                            <form class="form-inline" action="" method="post">
+			                            <span><button type="submit" class="btn btn-primary" value="edit" style="margin-left:15px;margin-right:10px" onclick="location.href='productedit'">수정</button></span>
+			                            <span><button type="submit" class="btn btn-primary" value="delete" style="margin-right:10px" onclick="">삭제</button></span>
+			                            <span><button type="submit" class="btn btn-primary" value="add" onclick="location.href='productadd'">상품추가</button></span>
+			                            <br>
+			                            </form>
+									</div>
 								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -141,7 +139,7 @@
 				<div class="row">
 					<div class="col col-lg-6"
 						style="border: 1px solid black; text-align: left; font-family: 'ariel'">
-						Copyright &copy; 2020<br>KITRIì¹¨í´ëì20ê¸°ì°ë¦¬ì¡°ê°ì§±ì´ì¡°<br>All
+						Copyright &copy; 2020<br>KITRI침해대응20기우리조가짱이조<br>All
 						rights reserved
 					</div>
 					<div class="col-md auto"

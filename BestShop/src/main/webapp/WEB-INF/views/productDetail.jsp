@@ -155,26 +155,40 @@
 				<br>
 				<p style="text-align: center">상품 배송, 사이즈, 환불 등 다양한 질문에 대해 관리자가
 					친절하게 대답해 드립니다.</p>
+				
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
+							<th></th>
 							<th>작성자</th>
 							<th>제목</th>
 							<th>작성시간</th>
+							<th></th>
 						</tr>
 					</thead>
 					<c:forEach items="${questions }" var="question">
+					
 						<tbody>
 							<tr>
-								<td><a href="<% request.getContextPath(); %>/question/detail?id=${question.id }">${question.u_id}</a></td>
-								<td><a href="<% request.getContextPath(); %>/question/detail?id=${question.id }">${question.title }</a></td>
-								<td><a href="<% request.getContextPath(); %>/question/detail?id=${question.id }">${question.createTime }</a></td>
+							  <th><a data-toggle="collapse" href="#collapse1">${question.u_id }</a></th>
+				              <th></th>
+				              <th><a data-toggle="collapse" href="#collapse1">${question.title }</a></th>
+				              <th></th>
+				              <th><a data-toggle="collapse" href="#collapse1">${question.createTime }</a></th>
+				              <th></th>
+							</tr>
+							
+							<tr id="collapse1" class="panel-collapse collapse">
+								<td>
+									<c:if test="${question.image ne null}">
+										${question.image }
+									</c:if>
+									${question.content }
+								</td>
 							</tr>
 						</tbody>
 					</c:forEach>
 				</table>
-
-
 				<form action="" method="post">
 					<div class="row justify-content-center" style="margin-bottom: 50px">
 						<input type="button" class="btn btn-primary" value="수정"
@@ -235,6 +249,7 @@
 
 			</div>
 		</div>
+	</div>
 
 		<footer style="background-color: #000000; color: #FFFFFF">
 			<div class="container">

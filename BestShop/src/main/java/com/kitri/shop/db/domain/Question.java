@@ -1,5 +1,6 @@
 package com.kitri.shop.db.domain;
 
+import java.sql.Blob;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -32,7 +33,7 @@ public class Question {
 	private String content;
 	
 	private String ext;
-	private String image;
+	private byte[] image;
 	
 	@CreationTimestamp
 	private LocalDateTime createTime;

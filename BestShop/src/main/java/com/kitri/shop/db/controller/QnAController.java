@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kitri.shop.db.domain.Member;
 import com.kitri.shop.db.domain.Product;
@@ -51,7 +52,11 @@ public class QnAController {
 	}
 	
 	@RequestMapping(value="/upload", method=RequestMethod.POST)
-	public String uploadQuestion(@RequestParam("num") Long pid, @ModelAttribute Question question) throws Exception {
+	public String uploadQuestion(@RequestParam("num") Long pid, @RequestParam("image_file") MultipartFile image, @ModelAttribute Question question) throws Exception {
+		if(image != null) {
+			byte[] byteImage = org.apache.commons.codec.binary.Base64.encodeBase64(image.getBytes());
+			question.setImage(byteImage);
+		}
 		qService.insertQuestion(question);
 		return "redirect:/product/detail?num="+pid;
 	}
