@@ -100,7 +100,76 @@
     </div>
 </nav>
 <br>
-<main class="login-form">
+
+		<main class="login-form">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-9">
+						<div class="card">
+							<div class="card-header" text-align=center>상품 관리</div>
+								<div class="card-body">
+									<div class="col-md-6 offset-md-4">
+			                            <form class="form-inline" action="" method="post">
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <span class="glyphicon glyphicon-search" style="margin-right: 5px"></span>
+			                                <input class="form-control mr-sm-2" type="text" placeholder="관리할 상품을 검색하세요">
+			                                <button class="btn btn-success" type="submit">Search</button>
+			                            </form> <br>
+			                            </div>
+			                            </div>
+			                            <div class="container">
+			                            <div class="col-offset-md-1">
+			                            <table class="table">
+			                                <thead class="thead-dark">
+			                                    <tr>
+			                                        <th></th>
+                                        			<th>아이디</th>
+                                        			<th>이름</th>
+                                        			<th>성별</th>
+                                        			<th>나이</th>
+                                        			<th>전화번호</th>
+                                        			<th>집 주소</th>
+                                        			<th>이메일 주소</th>
+                                        			<th>관심 아이템</th>
+                                        			<th>수신동의</th>
+			                                    </tr>
+			                                </thead>
+			                                <c:forEach items="${products }" var="prod">
+				                                <tbody>
+				                                    <tr>
+				                                        <td><input type="checkbox" name="productchk" value="productchk"></td>
+                                        				<td>${user.id }</td>
+                                        				<td>${user.name }</td>
+                                        				<td>${user.gender }</td>
+                                        				<td>${user.age }</td>
+                                        				<td>${user.phone }</td>
+                                        				<td>${user.address }</td>
+                                        				<td>${user.email }</td>
+                                        				<td>${user.likeit }</td>
+                                        				<td>${user.agree2}</td>
+				                                    </tr>
+				                                </tbody>
+			                                </c:forEach>
+			                            </table>
+			                            </div>
+			                            </div>
+			                            <div class="container">
+			                            <div class="col-md-6 offset-md-4">
+			                            <form class="form-inline" action="" method="post">
+			                            <button type="submit" class="btn btn-primary" value="edit" style="margin-left:15px;margin-right:10px" onclick="location.href='<% request.getContextPath(); %>/admin/usermanage/useredit'">수정</button>
+			                            <button type="submit" class="btn btn-primary" value="delete" style="margin-right:10px" onclick="">삭제</button>
+			                            <button type="submit" class="btn btn-primary" value="add" onclick="location.href='<% request.getContextPath(); %>/admin/usermanage/useradd'">계정추가</button>
+			                            <br>
+			                            </form>
+			                            </div>
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>
+		</main>
+
+
+<!-- <main class="login-form">
     <div class="cotainer">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -158,7 +227,7 @@
             </div>
         </div>
     </div>
-</main>
+</main>-->
 <footer style="background-color: #000000; color:#FFFFFF">
             <div class="container" style="margin-top:100px">
                 <br>

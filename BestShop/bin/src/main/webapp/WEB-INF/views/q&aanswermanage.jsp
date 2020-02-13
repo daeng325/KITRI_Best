@@ -10,20 +10,6 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width", initial-scale="1">
-        <title>Beautycloset</title>
-        <link rel="stylesheet" href="./css/bootstrap.css">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
-        <link rel="stylesheet" href="css/style.css">
-
-        <link rel="icon" href="Favicon.png">
-
-    <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    </head>
-    <body>
         <style type="text/css">
             .jumbotron{
                 background-image: url('./jpg/flower.jpg');
@@ -49,6 +35,21 @@
 
 
         </style>
+        <title>Beautycloset</title>
+        <link rel="stylesheet" href="./css/bootstrap.css">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <link rel="icon" href="Favicon.png">
+
+    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    </head>
+    <body>
+       
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -92,6 +93,70 @@
         </nav>
 
 <main class="login-form">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-9">
+						<div class="card">
+							<div class="card-header" text-align=center>Q&A 관리</div>
+								<div class="card-body">
+									<div class="col-md-6 offset-md-4">
+			                            <form class="form-inline" action="" method="post">
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <span class="glyphicon glyphicon-search" style="margin-right: 5px"></span>
+			                                <span class="glyphicon glyphicon-search" style="margin-right:5px"></span>
+			                                <input class="form-control mr-sm-2" type="text" placeholder="질문의 키워드를 검색하세요">
+			                                <!-- 질문의 제목내에 포함되어 있는 주요 키워드와, 상품명을 통해 검색 가능 -->
+			                                <button class="btn btn-success" type="submit">Search</button>
+			                            </form> <br>
+			                            </div>
+			                            </div>
+			                            <div class="container">
+			                            <div class="col-offset-md-1">
+			                            <table class="table">
+			                                <thead class="thead-dark">
+			                                    <tr>
+			                                        <th></th>
+                          						    <th>작성자</th>
+                             						<th>질문종류</th>
+                               						<th>제목</th>
+                                 					<th>상품명</th>
+                                  					<th>내용</th>
+                                    				<th>내용</th>
+			                                    </tr>
+			                                </thead>
+			                                <c:forEach items="${products }" var="prod">
+				                                <tbody>
+				                                    <tr>
+				                                        <td><input type="checkbox" name="productchk" value="productchk"></td>
+				                                        <td>${prod.id }</td>
+				                                        <td>${prod.name }</td>
+				                                        <td>${prod.type }</td>
+				                                        <td>${prod.price }</td>
+				                                        <td>${prod.description }</td>
+				                                        <%-- <td>${prod.createTime }</td> --%>
+				                                    </tr>
+				                                </tbody>
+			                                </c:forEach>
+			                            </table>
+			                            </div>
+			                            </div>
+			                            <div class="container">
+			                            <div class="col-md-6 offset-md-4">
+			                            <form class="form-inline" action="" method="post">
+			                            <button type="submit" class="btn btn-primary" value="edit" style="margin-left:15px;margin-right:10px" onclick="location.href='productedit'">수정</button>
+			                            <button type="submit" class="btn btn-primary" value="delete" style="margin-right:10px" onclick="">삭제</button>
+			                            <button type="submit" class="btn btn-primary" value="add" onclick="location.href='productadd'">상품추가</button>
+			                            <br>
+			                            </form>
+			                            </div>
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>
+		</main>
+
+
+<!-- <main class="login-form">
     <div class="cotainer">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -114,18 +179,18 @@
                             <tbody>
                               <tr>
                                 <td><input type="radio" value="q&adelete" name="q&adelete"></td>
-                                <td>${}</td>
-                                <td>${}</td>
-                                <td>${}</td>
-                                <td>${}</td>
-                                <td>${}</td>
+                                <td>"${member.id}"</td>
+                                <td>${question.type}</td>
+                                <td>${quetion.title}</td>
+                                <td>${product.id}</td>
+                                <td>${question.content}</td>
                               </tr>
                             </tbody>
                         </table>
                         </form>
                         <form action="" method="post">
                         <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" onclick="location.href='q&aanswer'">
+                                <button type="submit" class="btn btn-primary" onclick="location.href='<%request.getContextPath();%>/admin/upload">
                                 답변달기</button>
                                 <button type="submit" class="btn btn-primary" onclick="">
                                 삭제</button>
@@ -149,4 +214,4 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="./js/bootstrap.js"></script>
     </body>
-</html>
+</html>-->

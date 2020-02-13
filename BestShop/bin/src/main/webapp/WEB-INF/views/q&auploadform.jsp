@@ -138,18 +138,8 @@
 						</tbody>
 					</table>
 					<div class="row justify-content-center" style="margin-bottom: 50px">
-						<%-- <buttom type="submit" formaction="<% request.getContextPath(); %>/question/upload" style="margin-right: 10px">완료</buttom>
-						<buttom type="submit" formaction="<% request.getContextPath(); %>" style="margin-right: 10px">취소</buttom>
-						
-						 --%>
-						<button type="submit" formaction="<% request.getContextPath(); %>/question/upload?num=${product.id}">완료</button>
-						<button type="submit" formaction="<% request.getContextPath(); %>/product/detail/?num=${product.id}">취소</button>
-						
-						<!--
-						<input type="button" class="btn btn-primary" value="완료" onclick="location.href='이름'?id=값 넣어줘야함" style="margin-right: 10px"> 
-						<input type="button" class="btn btn-primary" value="작성취소" onclick="location.href='history.go(-1)'" style="margin-right: 10px"> 
-						-->
-						
+						<input type="submit" class="btn btn-primary" value="완료" formaction="<% request.getContextPath(); %>/question/upload?num=${product.id}" style="margin-right: 10px">
+						<input type="button" class="btn btn-primary" value="작성취소" onclick="location.href='<%request.getContextPath(); %>/product/detail?num=${product.id }'" style="margin-right: 10px"> 
 						<input type="reset" class="btn btn-primary" value="초기화">
 					</div>
 				</form>

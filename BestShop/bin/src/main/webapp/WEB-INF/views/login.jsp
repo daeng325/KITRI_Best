@@ -72,31 +72,37 @@
 					<a class="nav-link" href="mypage">Mypage</a>
 				</sec:authorize>
 			</li>
-			
+		</ul>
+		</nav>
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="">Home</a></li>
+			<li class="nav-item">
+				<sec:authorize access="isAnonymous()">
+					<a class="nav-link" href="user/login">Login</a>
+				</sec:authorize> 
+				<sec:authorize access="isAuthenticated()">
+					<a class="nav-link" href="user/logout">Logout</a>
+				</sec:authorize>
+			</li>
+			<li class="nav-item">
+				<sec:authorize access="isAnonymous()">
+					<a class="nav-link" href="user/join">Join</a>
+				</sec:authorize> 
+				<sec:authorize access="isAuthenticated()">
+					<a class="nav-link" href="user/mypage">Mypage</a>
+				</sec:authorize>
+			</li>
 
 		</ul>
-		<form class="form-inline"
-			action="<% request.getContextPath(); %>/product/search" method="post">
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" /> <input class="form-control mr-sm-2"
-				type="text" placeholder="Search" name="search">
+		<form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			<input class="form-control mr-sm-2"	type="text" placeholder="Search" name="search">
 			<button class="btn btn-success" type="submit">Search</button>
 		</form>
 	</nav>
-	<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
-		<div class="container">
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			</div>
-		</div>
-	</nav>
-
+	<br>
 	<main class="login-form">
 		<div class="cotainer">
 			<div class="row justify-content-center">
@@ -166,6 +172,7 @@
 		</div>
 		</div>
 	</main>
+	<br>
 	<footer style="background-color: #000000; color: #FFFFFF">
 		<div class="container">
 			<br>
