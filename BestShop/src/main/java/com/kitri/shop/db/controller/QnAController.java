@@ -63,7 +63,11 @@ public class QnAController {
 	
 	@Secured("ROLE_BASIC")
 	@RequestMapping(value="/update", method=RequestMethod.GET)
-	public String viewUpdateQuestion() {
+	public String viewUpdateQuestion(@RequestParam("checked") List<Long> qid, Model model) {
+		System.out.println("--------------------=====================================");
+		System.out.println(qid);
+		System.out.println("--------------------=====================================");
+		model.addAttribute("checked", qid);
 		return "q&aeditform";
 	}
 	

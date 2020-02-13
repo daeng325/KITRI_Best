@@ -17,14 +17,24 @@ public class AdminController {
 	@Autowired
 	ProductRepository proRepo;
 
-	@RequestMapping("/")
+	@RequestMapping("")
 	public String adminPage() {
 		return "admin";
 	}
 	
-	@RequestMapping("/main")
-	public String returnAdminPage() {
-		return "admin";
+	@RequestMapping("/usermanage")
+    public String viewUserManage() throws Exception{
+    	return "usermanage";
+    }
+	
+	@RequestMapping("/manage")
+	public String viewAdminQnA() {
+		return "q&aanswermanage";
+	}
+	
+	@RequestMapping("/upload")
+	public String viewQnAUploadForm() {
+		return "q&aanswer";
 	}
 	
 	@RequestMapping("/productmanage")

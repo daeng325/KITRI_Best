@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width" , initial-scale="1">
+	<meta name="viewport" content="width=device-width" initial-scale="1">
 	<style type="text/css">
 		.jumbotron {
 			background-image: url('./jpg/flower.jpg');
@@ -121,6 +121,7 @@
 			                                </c:forEach>
 			                            </table>
 			                            <form class="form-inline" action="" method="post">
+			                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			                            <span><button type="submit" class="btn btn-primary" value="edit" style="margin-left:15px;margin-right:10px" onclick="location.href='productedit'">수정</button></span>
 			                            <span><button type="submit" class="btn btn-primary" value="delete" style="margin-right:10px" onclick="">삭제</button></span>
 			                            <span><button type="submit" class="btn btn-primary" value="add" onclick="location.href='productadd'">상품추가</button></span>

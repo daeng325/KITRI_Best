@@ -155,13 +155,17 @@
 				<br>
 				<p style="text-align: center">상품 배송, 사이즈, 환불 등 다양한 질문에 대해 관리자가
 					친절하게 대답해 드립니다.</p>
-				
+					
+				<form action="" method="post">
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
 							<th></th>
 							<th>작성자</th>
+							<th></th>
 							<th>제목</th>
+							<th></th>
 							<th>작성시간</th>
 							<th></th>
 						</tr>
@@ -170,6 +174,7 @@
 					
 						<tbody>
 							<tr>
+							  <th><input type="checkbox" name="checked" value="${question.id }"></th>
 							  <th><a data-toggle="collapse" href="#collapse1">${question.u_id }</a></th>
 				              <th></th>
 				              <th><a data-toggle="collapse" href="#collapse1">${question.title }</a></th>
@@ -189,10 +194,10 @@
 						</tbody>
 					</c:forEach>
 				</table>
-				<form action="" method="post">
+				
 					<div class="row justify-content-center" style="margin-bottom: 50px">
-						<input type="button" class="btn btn-primary" value="수정"
-							onclick="location.href='<% request.getContextPath(); %>/question/update?num=${qna.id}'" style="margin-right: 10px">
+						<input type="submit" class="btn btn-primary" value="수정" formaction="<% request.getContextPath(); %>/question/update" 
+						formmethod="get" style="margin-right: 10px">
 						<input type="button" class="btn btn-primary" value="추가"
 							onclick="location.href='<% request.getContextPath(); %>/question/upload?num=${products.id}'" style="margin-right: 10px"> 
 						<input type="reset" class="btn btn-primary" value="삭제" onclick="">

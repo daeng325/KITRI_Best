@@ -10,20 +10,6 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width", initial-scale="1">
-        <title>Beautycloset</title>
-        <link rel="stylesheet" href="./css/bootstrap.css">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
-        <link rel="stylesheet" href="css/style.css">
-
-        <link rel="icon" href="Favicon.png">
-
-    <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    </head>
-    <body>
         <style type="text/css">
             .jumbotron{
                 background-image: url('./jpg/flower.jpg');
@@ -49,6 +35,21 @@
 
 
         </style>
+        <title>Beautycloset</title>
+        <link rel="stylesheet" href="./css/bootstrap.css">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <link rel="icon" href="Favicon.png">
+
+    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    </head>
+    <body>
+       
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -114,18 +115,18 @@
                             <tbody>
                               <tr>
                                 <td><input type="radio" value="q&adelete" name="q&adelete"></td>
-                                <td>${}</td>
-                                <td>${}</td>
-                                <td>${}</td>
-                                <td>${}</td>
-                                <td>${}</td>
+                                <td>"${member.id}"</td>
+                                <td>${question.type}</td>
+                                <td>${quetion.title}</td>
+                                <td>${product.id}</td>
+                                <td>${question.content}</td>
                               </tr>
                             </tbody>
                         </table>
                         </form>
                         <form action="" method="post">
                         <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" onclick="location.href='q&aanswer'">
+                                <button type="submit" class="btn btn-primary" onclick="location.href='<%request.getContextPath();%>/admin/upload">
                                 답변달기</button>
                                 <button type="submit" class="btn btn-primary" onclick="">
                                 삭제</button>

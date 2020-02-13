@@ -95,35 +95,27 @@
 					<div class="card">
 						<div class="card-header" text-align=center>관리자 페이지</div>
 						<div class="card-body">
-							<form action="productmanage" method="post">
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							<form action="<%request.getContextPath(); %>/admin/productmanage" method="get">
 								<div class="col-md-6 offset-md-4">
-									<button type="submit" class="btn btn-primary"
-										onclick="location.href='productmanage'">상품관리</button>
+									<button type="submit" class="btn btn-primary">상품관리</button>
 								</div>
 							</form>
 							<br>
-							<form action="usermanage" method="post">
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							<form action="<%request.getContextPath(); %>/admin/usermanage" method="get">
 								<div class="col-md-6 offset-md-4">
-									<button type="submit" class="btn btn-primary"
-										onclick="location.href='usermanage'">계정관리</button>
+									<button type="submit" class="btn btn-primary">계정관리</button>
 								</div>
 							</form>
 							<br>
-							<form action="ordermanage" method="post">
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							<form action="<%request.getContextPath(); %>/admin/ordermanage" method="get">
 								<div class="col-md-6 offset-md-4">
-									<button type="submit" class="btn btn-primary"
-										onclick="location.href='ordermanage'">주문정보관리</button>
+									<button type="submit" class="btn btn-primary">주문정보관리</button>
 								</div>
 							</form>
 							<br>
-							<form action="q&aanswermanage" method="post">
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							<form action="<%request.getContextPath(); %>/admin/manage" method="get">
 								<div class="col-md-6 offset-md-4">
-									<button type="submit" class="btn btn-primary"
-										onclick="location.href='q&aanswermanage'">Q&A관리</button>
+									<button type="submit" class="btn btn-primary">Q&A관리</button>
 								</div>
 							</form>
 						</div>
