@@ -17,7 +17,7 @@ public class AdminController {
 	@Autowired
 	ProductRepository proRepo;
 
-	@RequestMapping("/")
+	@RequestMapping("")
 	public String adminPage() {
 		return "admin";
 	}
@@ -25,6 +25,21 @@ public class AdminController {
 	@RequestMapping("/main")
 	public String returnAdminPage() {
 		return "admin";
+	}
+	
+	@RequestMapping("/ordermanage")
+	public String orderManage() {
+		return "ordermanage";
+	}
+	
+	@RequestMapping("/questmanage")
+	public String qanswerManage() {
+		return "q&aanswermanage";
+	}
+	
+	@RequestMapping("/usermanage")
+	public String userManage() {
+		return "usermanage";
 	}
 	
 	@RequestMapping("/productmanage")
