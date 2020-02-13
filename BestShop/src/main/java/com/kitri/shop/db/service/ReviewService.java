@@ -127,5 +127,13 @@ public class ReviewService {
 		
 		return reviewRepo.selectReviewByOid(oid)!=null;
 	}
+
+	public Review selectReviewByOid(Long oid) {
+		return reviewRepo.selectReviewByOid(oid);
+	}
+
+	public Review selectReviewByRid(Long rid) {
+		return reviewRepo.selectReviewByRid(rid);
+	}
 	
 }

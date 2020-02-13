@@ -21,8 +21,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 	<style type="text/css">
 .jumbotron {
 	background-image: url('./jpg/flower.jpg');
@@ -46,6 +45,17 @@
 	color: black;
 }
 </style>
+
+</head>
+<body>
+	<script>
+		var msg = "${msg}"
+		if(msg=="Duplicate"){
+			alert("작성된 리뷰가 존재합니다. 수정 페이지로 이동합니다.")
+		}
+
+	</script>
+
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="main">Home</a></li>
@@ -71,7 +81,7 @@
 	<div class="container">
 		<div class="logo">
 			<h1 class="text-center">
-				<a href="main">Beautycloset</a>
+				<a href="<% request.getContextPath(); %>/main">Beautycloset</a>
 			</h1>
 		</div>
 	</div>
@@ -95,37 +105,83 @@
 		<div class="row justify-content-center">
 			<div class="card">
 				<form action="" method="post">
-					<input type="hidden" name="${_csrf.parameterName}"
-						value="${_csrf.token}" />
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					<table class="table">
 						<tbody>
 							<tr>
 								<td>작성자</td>
-								<td></td>
+								<td>${member.id }</td>
 								<!--DB에 있는 회원 이름이 표시되도록 부분을 수정-->
 							</tr>
 							<tr>
 								<td>제목</td>
 								<td><input type="text" id="boardtitle" name="boardtitle"
-									class="form-control" value="" autofocus required></td>
-								<!--제목에 해당하는 테이블 컬럼이 어떤것인지?-->
+									class="form-control" value="${review.title}" autofocus required></td>
 							</tr>
+							
+							<tr>
+								<td>가격 만족도</td>
+								<td><input type="radio" name="rev_price" value=5.0>5
+									<input type="radio" name="rev_price" value=4.0>4 
+									<input type="radio" name="rev_price" value=3.0>3 
+									<input type="radio" name="rev_price" value=2.0>2 
+									<input type="radio" name="rev_price" value=1.0>1 
+									<input type="radio" name="rev_price" value=0.0>0</td>
+							</tr>
+							<tr>
+								<td>품질 만족도</td>
+								<td><input type="radio" name="rev_quality" value=5.0>5
+									<input type="radio" name="rev_quality" value=4.0>4 
+									<input type="radio" name="rev_quality" value=3.0>3 
+									<input type="radio" name="rev_quality" value=2.0>2 
+									<input type="radio" name="rev_quality" value=1.0>1 
+									<input type="radio" name="rev_quality" value=0.0>0</td>
+							</tr>
+							<tr>
+								<td>가격 만족도</td>
+								<td><input type="radio" name="rev_ship" value=5.0>5
+									<input type="radio" name="rev_ship" value=4.0>4 
+									<input type="radio" name="rev_ship" value=3.0>3 
+									<input type="radio" name="rev_ship" value=2.0>2 
+									<input type="radio" name="rev_ship" value=1.0>1 
+									<input type="radio" name="rev_ship" value=0.0>0</td>
+							</tr>
+												
 							<tr>
 								<td>내용</td>
 								<td><textarea rows="10" cols="50"
-										value="${reviews.content}" class="form-control" required></textarea>
+										class="form-control" required>${review.content}</textarea>
 								</td>
 							</tr>
 							<tr>
 								<td>작성날짜</td>
-								<%-- <td><%= nowDate %></td> --%>
-								<!-- 현재 날짜가 자동으로 표시되도록 바꿈-->
-							</tr>
+								<td><script>
+										let today = new Date();   // 현재 날짜를 표시함(특정한 포맷 없이)
+										let year = today.getFullYear(); // 년도
+										let month = today.getMonth()  // 월
+										let date = today.getDate();  // 날짜
+										document.write(year + '-' + month + '-' + date) // 년-월-일 형식으로 표현
+									</script>
+								</td>
+							</tr>							
+							
 							<tr>
 								<td>파일 업로드</td>
-								<td><input type="file" id="image_1" name="image_1"
-									class="form-control"></td>
+								<td><input type="file" id="image0" name="image0" class="form-control">"${review.image }"</td>
 							</tr>
+							<tr>
+								<td>파일2</td>
+								<td><input type="file" id="image1" name="image1" class="form-control" ></td>
+							</tr>
+							<tr>
+								<td>파일3</td>
+								<td><input type="file" id="image2" name="image2" class="form-control" ></td>
+							</tr>
+							<tr>
+								<td>파일4</td>
+								<td><input type="file" id="image3" name="image3" class="form-control" ></td>
+							</tr>
+														
 						</tbody>
 					</table>
 					<div class="row justify-content-center" style="margin-bottom: 50px">

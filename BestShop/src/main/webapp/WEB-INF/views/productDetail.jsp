@@ -228,29 +228,37 @@
 					<thead class="thead-dark">
 						<tr>
 							<th>제목</th>
+							<th>작성자</th>
 							<th>평점</th>
 							<th>내용</th>
 						</tr>
 					</thead>
-					<c:forEach items="${reviews }" var="rev">
+					<c:forEach items="${reviews }" var="review">
+					
 						<tbody>
 							<tr>
-								<td><a href="<% request.getContextPath(); %>/review/detail?num=${rev.id }">${rev.title }</a></td>
-								<td>${rev.rev_agv }</td>
-								<td>${rev.content }</td>
+							<th><a data-toggle="collapse" href="#collapse1">${review.title }</a></th>
+							<th><a data-toggle="collapse" href="#collapse1">${review.u_id }</a></th>
+				              		<th><a data-toggle="collapse" href="#collapse1">${review.rev_agv }</a></th>
+				          			<th><a data-toggle="collapse" href="#collapse1">${review.createTime }</a></th>
+							</tr>
+							
+							<tr id="collapse1" class="panel-collapse collapse">
+								<td>
+									<c:if test="${review.image ne null}">
+									<img class="img" width="175" height="250" src='data:image/${review.ext};base64,${review.image}' alt="${review.title}">
+										<br>
+									</c:if>
+									가격 : ${review.rev_price}  <br>
+									품질 : ${review.rev_quality}  <br>
+ 									배송 : ${review.rev_ship}  <br>
+									내용 : ${review.content } <br>
+									시간 : ${review.createTime } <br>
+								</td>
 							</tr>
 						</tbody>
 					</c:forEach>
 				</table>
-				<form action="" method="post">
-					<div class="row justify-content-center" style="margin-bottom: 50px">
-						<input type="button" class="btn btn-primary" value="수정"
-							onclick="location.href='<% request.getContextPath(); %>/review/update?num=${rev.id}'" style="margin-right: 10px">
-						<input type="button" class="btn btn-primary" value="추가"
-							onclick="location.href='<% request.getContextPath(); %>/review/upload?num=${products.id}'" style="margin-right: 10px"> 
-						<input type="reset" class="btn btn-primary" value="삭제" onclick="">
-					</div>
-				</form>
 			</div>
 		</div>
 	</div>

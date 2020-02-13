@@ -94,7 +94,7 @@
 	
 	<form method="post">
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	<table class="table-dark" class="table-bordered">
+	<table class="table-bordered">
 		<thead>
 			<tr>
 				<th colspan = "3" rowspan = "4">이미지</th>
