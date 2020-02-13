@@ -27,7 +27,7 @@
         <div class="container">
             <div class="card" style="border: black 2px solid; margin-left:250px; margin-top:60px; width: 650px; height: 700px">
                 <div class="card-body">
-                    <img src="oops.png" alt="페이지오류" style="margin-top:30px; margin-left:100px; width:400px; height:400px;">
+                    <img src="/oops.png" alt="페이지오류" style="margin-top:30px; margin-left:100px; width:400px; height:400px;">
                     
                     <h3 style="text-align:center; text-decoration:bold; color:red; margin-top:30px;">
                         페이지에 문제가 있어 로딩하지 못하였습니다.<br>

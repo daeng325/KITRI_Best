@@ -47,10 +47,10 @@ public class AdminController {
 		return "q&aanswermanage";
 	}
 	
-	@RequestMapping("/usermanage")
-	public String userManage() {
-		return "usermanage";
-	}
+//	@RequestMapping("/usermanage")
+//	public String userManage() {
+//		return "usermanage";
+//	}
 	
 	@RequestMapping("/productmanage")
 	public String returnProductManagePage(Model model) {
