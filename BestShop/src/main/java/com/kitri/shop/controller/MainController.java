@@ -60,11 +60,11 @@ public class MainController {
     	List<Product> products = proSer.selectSortProducts(request.getServletPath());
 		
     	if(type.contains("bags")) {
-    		type="Bags & Shoes";
+    		type="BAGS & SHOES";
     	}
 
     	model.addAttribute("products",products);
-    	model.addAttribute("type", type);
+    	model.addAttribute("type", type.toUpperCase());
     	return "productPage";
     }
     

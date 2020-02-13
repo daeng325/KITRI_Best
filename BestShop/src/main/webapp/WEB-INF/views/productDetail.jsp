@@ -97,11 +97,11 @@
 		
 		<div class="row">
 			<div class="col-md-7">
-				<img class="img" width="175" height="250" src='data:image/jpg;base64,${ products.image_thumbnail }' alt="${ products.name }">
+				<img class="img" style="margin-left:270px; margin-top:30px" width="250" height="380" src='data:image/jpg;base64,${ products.image_thumbnail }' alt="${ products.name }">
 			</div>
-			<div class="col-md-4" style="margin-top: 40px">
+			<div class="col-md-4" style="margin-top: 40px;">
 				<div class="card">
-					<div class="card-header">${products.name}</div>
+					<div class="card-header" style="text-align:center">${products.name}</div>
 					<div class="card-body">
 						<div class="container mt-3">
 							<div class="row">
@@ -141,6 +141,7 @@
 		</form>
 
 	</div>
+	<br>
 	<ul class="nav nav-tabs nav-justified">
 		<li class="nav-item active"><a class="nav-link" data-toggle="tab" href="#상품정보">상품정보</a></li>
 		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#qna">Q & A</a></li>
@@ -241,6 +242,15 @@
 						</tbody>
 					</c:forEach>
 				</table>
+				<form action="" method="post">
+					<div class="row justify-content-center" style="margin-bottom: 50px">
+						<input type="button" class="btn btn-primary" value="수정"
+							onclick="location.href='<% request.getContextPath(); %>/review/update?num=${rev.id}'" style="margin-right: 10px">
+						<input type="button" class="btn btn-primary" value="추가"
+							onclick="location.href='<% request.getContextPath(); %>/review/upload?num=${products.id}'" style="margin-right: 10px"> 
+						<input type="reset" class="btn btn-primary" value="삭제" onclick="">
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

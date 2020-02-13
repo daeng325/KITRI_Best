@@ -95,25 +95,29 @@
 					<div class="card">
 						<div class="card-header" text-align=center>관리자 페이지</div>
 						<div class="card-body">
-							<form action="<%request.getContextPath(); %>/admin/productmanage" method="get">
+							<form action="<%request.getContextPath(); %>/admin/productmanage" method="post">
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<div class="col-md-6 offset-md-4">
 									<button type="submit" class="btn btn-primary">상품관리</button>
 								</div>
 							</form>
 							<br>
-							<form action="<%request.getContextPath(); %>/admin/usermanage" method="get">
+							<form action="<%request.getContextPath(); %>/admin/usermanage" method="post">
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<div class="col-md-6 offset-md-4">
 									<button type="submit" class="btn btn-primary">계정관리</button>
 								</div>
 							</form>
 							<br>
-							<form action="<%request.getContextPath(); %>/admin/ordermanage" method="get">
+							<form action="<%request.getContextPath(); %>/admin/ordermanage" method="post">
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<div class="col-md-6 offset-md-4">
 									<button type="submit" class="btn btn-primary">주문정보관리</button>
 								</div>
 							</form>
 							<br>
-							<form action="<%request.getContextPath(); %>/admin/manage" method="get">
+							<form action="<%request.getContextPath(); %>/admin/questmanage" method="post">
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 								<div class="col-md-6 offset-md-4">
 									<button type="submit" class="btn btn-primary">Q&A관리</button>
 								</div>

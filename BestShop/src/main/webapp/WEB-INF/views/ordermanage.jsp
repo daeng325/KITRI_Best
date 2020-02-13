@@ -1,8 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width", initial-scale="1">
+        <meta name="viewport" content="width=device-width" , initial-scale="1">
         <title>Beautycloset</title>
         <link rel="stylesheet" href="./css/bootstrap.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -85,13 +88,6 @@
 				</li>
             </ul>
         </nav>
-<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
-    <div class="container">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        </div>
-    </div>
-</nav>
-<br>
 <main class="login-form">
     <div class="cotainer">
         <div class="row justify-content-center">
@@ -102,12 +98,53 @@
                         <div class="col-md-6 offset-md-4">
                             <form class="form-inline" action="" method="post">
                                 <span class="glyphicon glyphicon-search" style="margin-right:5px"></span>
-                                <input class="form-control mr-sm-2" type="text" placeholder="회원이름이나 아이디, 또는 주문번호를 검색하세요" autofocus>
+                                <input class="form-control mr-sm-2" type="text" placeholder="관리할 주문정보를 입력하세요" autofocus>
                                 <button class="btn btn-success" type="submit">Search</button>
                             </form>
                             <br>
                             <form class="form-inline" action="" method="post">
-                            <span><button type="submit" class="btn btn-primary" value="delete">삭제</button></span>
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <span class="glyphicon glyphicon-search" style="margin-right: 5px"></span>
+			                                <input class="form-control mr-sm-2" type="text" placeholder="관리할 상품을 검색하세요">
+			                                <button class="btn btn-success" type="submit">Search</button>
+			                            </form> <br>
+			                            </div>
+			                            </div>
+			                            <div class="container">
+			                            <div class="col-offset-md-1">
+			                            <table class="table">
+			                                <thead class="thead-dark">
+			                                    <tr>
+			                                        <th></th>
+			                                        <th>상품번호</th>
+			                                        <th>회원아이디</th>
+			                                        <th>수량</th>
+			                                        <th>배송지주소</th>
+			                                        <th>배송상태</th>
+			                                        <th>결제상태</th>
+			                                        <th>주문날짜</th>
+			                                    </tr>
+			                                </thead>
+			                                <c:forEach items="${orders }" var="order">
+				                                <tbody>
+				                                    <tr>
+				                                        <td><input type="checkbox" name="productchk" value="productchk"></td>
+				                                        <td>${order.p_id }</td>
+				                                        <td>${order.u_id }</td>
+				                                        <td>${order.count }</td>
+				                                        <td>${order.ship_addr }</td>
+				                                        <td>${order.payment }</td>
+				                                        <!--<td>${order.create_time }</td>-->
+				                                    </tr>
+				                                </tbody>
+			                                </c:forEach>
+			                            </table>
+			                            </div>
+			                            </div>
+                            <form class="form-inline" action="" method="post">
+                            <span><button type="submit" style="margin-left:30px; margin-right:10px" class="btn btn-primary" value="delete">삭제</button></span>
+                            </form>
+                            <form class="form-inline" action="" method="post">
+                            <span><button type="submit" class="btn btn-primary" value="edit">수정</button></span>
                             <br>
                             </form>
                         </div>
@@ -121,7 +158,7 @@
             <div class="container" style="margin-top:100px">
                 <br>
                 <div class="row">
-                    <div class="col col-lg-6" style="border:1px solid black; text-align: left; font-family:'ariel'">Copyright &copy; 2020<br>KITRI침해대응20기우리조가짱이조<br>All rights reserved</div>
+                    <div class="col col-lg-6" style="border:1px solid black; text-align: left; font-family:'ariel'">Copyright &copy; 2020<br>KITRIì¹¨í´ëì20ê¸°ì°ë¦¬ì¡°ê°ì§±ì´ì¡°<br>All rights reserved</div>
                     <div class="col-md auto" style="border:1px solid black; text-align: left; font-family:'ariel'">Contact Us<br>tel : 010-4022-3241<br>e-mail : wsm91@naver.com</div>
                 </div>
             </div>

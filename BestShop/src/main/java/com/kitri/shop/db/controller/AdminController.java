@@ -37,6 +37,21 @@ public class AdminController {
 		return "q&aanswer";
 	}
 	
+	@RequestMapping("/ordermanage")
+	public String orderManage() {
+		return "ordermanage";
+	}
+	
+	@RequestMapping("/questmanage")
+	public String qanswerManage() {
+		return "q&aanswermanage";
+	}
+	
+	@RequestMapping("/usermanage")
+	public String userManage() {
+		return "usermanage";
+	}
+	
 	@RequestMapping("/productmanage")
 	public String returnProductManagePage(Model model) {
 		List<Product> products = proRepo.printAllProducts();
