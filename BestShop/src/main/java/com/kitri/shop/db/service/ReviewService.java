@@ -75,14 +75,15 @@ public class ReviewService {
 	
 	public List<Review> prouctsReviews(long p_id){
 		List<Review> reviews = new ArrayList<Review>();
-		List<Order> oders = orderRepo.returnOrderID(p_id);
+		List<Order> oders = orderRepo.selectOrder(p_id);
 		
 		if(oders.isEmpty()) {
 			return reviews;
 		}
 		
 		for(int i=0;i<oders.size();i++) {
-			reviews.add(reviewRepo.selectReviewByOid(oders.get(i).getId()));
+			if(selectReviewByOid(oders.get(i).getId()) != null)
+				reviews.add(reviewRepo.selectReviewByOid(oders.get(i).getId()));
 		}	
 		return reviews;
 	}

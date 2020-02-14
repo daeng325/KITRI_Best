@@ -14,7 +14,7 @@ public interface OrderRepository extends CrudRepository<Order,String>{
 	List<Order> selectOrderByUid(String userName);
 	
 	@Query("SELECT o FROM Order o WHERE p_id = ?1")
-	List<Order> returnOrderID(long p_ID);
+	List<Order> selectOrder(long p_ID);
 	
 	@Query("SELECT o FROM Order o WHERE id = ?1")
 	Order selectOrderByOid(Long oid);

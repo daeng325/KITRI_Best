@@ -98,6 +98,8 @@
          alert("본인이 작성한 문의사항만 수정이 가능합니다.")
       }
    </script>
+ 
+  
    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <ul class="navbar-nav">
          <li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a></li>
@@ -111,15 +113,18 @@
             </sec:authorize> <sec:authorize access="isAuthenticated()">
                <a class="nav-link" href="<% request.getContextPath(); %>/user/mypage">Mypage</a>
             </sec:authorize></li>
-
       </ul>
+      
+      
+      
       <form class="form-inline" action="search" method="post">
          <input type="hidden" name="${_csrf.parameterName}"
             value="${_csrf.token}" /> <input class="form-control mr-sm-2"
             type="text" placeholder="Search" name="search">
          <button class="btn btn-success" type="submit">Search</button>
       </form>
-   </nav>
+    </nav>
+    
    <div class="container">
       <div class="logo">
          <h1 class="text-center">
@@ -127,92 +132,7 @@
          </h1>
       </div>
    </div>
-   <div class="container-fluid">
-      <ul class="nav justify-content-center">
-	<style type="text/css">
-.jumbotron{
-				background-image: url('./jpg/flower.jpg');
-				background-size: cover;
-				text-shadow: black 0.2px 0.2px 0.2px;
-				color: blue;
-				font-weight: bold;
-				opacity: 0.5;
-				filter: alpha(opacity=50);
-			}
 
-			.logo{
-				font-family : 'Segoe Print';
-				font-size : 100px;
-				margin-top : 100px;
-				margin-bottom : 100px;
-			}
-
-			* a{
-				text-decoration: none;
-				color: black;
-			}
-
-			body {
-  				font-family: sans-serif;
-			}
-			.list {
-  				list-style: none;
- 			 	padding: 0;
-			}
-			details {
-  				transition: height 1s;
-  				width:1000px;
-  				margin-left:100px;
-  				text-align: center;
-			}
-			details:not([open]) {
- 			 	height: auto;
-			}
-			details[open] {
-			  	height: auto;
-			}
-			details > summary {
-			  	list-style: none;
-			  	padding: 10px;
-			  	margin: 0;
-  				border-top: 1px solid #ddd;
- 	 			background: #f4f4f4;
-  				cursor: pointer;
-  				display: block;
-			}
-			details > summary::-webkit-details-marker {
-  				display: none;
-			}
-</style>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a></li>
-			<li class="nav-item"><sec:authorize access="isAnonymous()">
-					<a class="nav-link" href="<% request.getContextPath(); %>/user/login">Login</a>
-				</sec:authorize> <sec:authorize access="isAuthenticated()">
-					<a class="nav-link" href="<% request.getContextPath(); %>/user/logout">Logout</a>
-				</sec:authorize></li>
-			<li class="nav-item"><sec:authorize access="isAnonymous()">
-					<a class="nav-link" href="<% request.getContextPath(); %>/user/join">Join</a>
-				</sec:authorize> <sec:authorize access="isAuthenticated()">
-					<a class="nav-link" href="<% request.getContextPath(); %>/user/mypage">Mypage</a>
-				</sec:authorize></li>
-
-		</ul>
-		<form class="form-inline" action="search" method="post">
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" /> <input class="form-control mr-sm-2"
-				type="text" placeholder="Search" name="search">
-			<button class="btn btn-success" type="submit">Search</button>
-		</form>
-	</nav>
-	<div class="container">
-		<div class="logo">
-			<h1 class="text-center">
-				<a href="<% request.getContextPath(); %>/main">Beautycloset</a>
-			</h1>
-		</div>
-	</div>
 	<div class="container-fluid">
 		<ul class="nav justify-content-center">
                 <li class="nav-item">
@@ -346,10 +266,7 @@
 
       <div class="tab-pane fade in active" id="상품정보">
          <br> ${products.description} <br> 가격 : ${products.price } <br>
-         <br>
-         <img class="img" width="175" height="250" src='data:image/jpg;base64,${ products.image_thumbnail }' alt="${ products.name }">
-         <br>
-         <img class="img" width="175" height="250" src='data:image/jpg;base64,${ products.image_detail }' alt="${ products.name }">
+         <img class="img"src='data:image/jpg;base64,${ products.image_detail }' alt="${ products.name }">
          <br>
       </div>
 
@@ -372,13 +289,13 @@
 					
 						<tbody>
 							<tr>
-							<th><a data-toggle="collapse" href="#collapse1">${review.title }</a></th>
-							<th><a data-toggle="collapse" href="#collapse1">${review.u_id }</a></th>
-				              		<th><a data-toggle="collapse" href="#collapse1">${review.rev_agv }</a></th>
-				          			<th><a data-toggle="collapse" href="#collapse1">test</a></th>
+							<th><a data-toggle="collapse" href="#collapse2">${review.title }</a></th>
+							<th><a data-toggle="collapse" href="#collapse2">${review.u_id }</a></th>
+				              		<th><a data-toggle="collapse" href="#collapse2">${review.rev_agv }</a></th>
+				          			<th><a data-toggle="collapse" href="#collapse2">${review.content }</a></th>
 							</tr>
 							
-							<tr id="collapse1" class="panel-collapse collapse">
+							<tr id="collapse2" class="panel-collapse collapse">
 								<td>
 									<c:if test="${review.image_1 ne null}">
 									<img class="img" width="80" height="120" src='data:image/${review.ext_1};base64,${review.image_1}' alt="${review.title}">   

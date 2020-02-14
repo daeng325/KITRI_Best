@@ -152,6 +152,7 @@
 		</tbody>
 	</table>
 <div class="row justify-content-center" style="margin-bottom:50px">
+
 <button type="submit" class="btn btn-primary" formaction="<% request.getContextPath(); %>/product/upload" style="margin-right:10px">완료</button>
 <button type="submit"  class="btn btn-primary" formaction="<% request.getContextPath(); %>admin/productmanage" style="margin-right:10px">취소</button>
 <input type="reset" class="btn btn-primary" value="초기화">

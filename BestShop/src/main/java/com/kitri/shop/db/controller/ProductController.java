@@ -78,9 +78,7 @@ public class ProductController {
 	
 	@RequestMapping(value="/detail", method=RequestMethod.GET)
 	public String detailProduct(@RequestParam("num") long id, Model model) throws Exception {
-		Product product = proRepo.findProductDetail(id);
-
-		
+		Product product = proRepo.findProductDetail(id);		
 		List<Review> reviews = rService.prouctsReviews(id);
 		List<Question> questions = qService.selectByPid(id);
 		
