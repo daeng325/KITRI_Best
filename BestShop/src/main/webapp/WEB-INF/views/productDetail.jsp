@@ -127,9 +127,6 @@
          </h1>
       </div>
    </div>
-   <div class="container-fluid">
-      <ul class="nav justify-content-center">
-
    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a></li>
@@ -303,47 +300,47 @@
             <br>
 
             <p style="text-align: center">상품에 대해 리뷰 올려주시면 적립금 드립니다.</p>
-				<table class="table">
-					<thead class="thead-dark">
-						<tr>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>평점</th>
-							<th>내용</th>
-						</tr>
-					</thead>
-					<c:forEach items="${reviews }" var="review">
-					
-						<tbody>
-							<tr>
-							<th><a data-toggle="collapse" href="#collapse1">${review.title }</a></th>
-							<th><a data-toggle="collapse" href="#collapse1">${review.u_id }</a></th>
-				              		<th><a data-toggle="collapse" href="#collapse1">${review.rev_agv }</a></th>
-				          			<th><a data-toggle="collapse" href="#collapse1">test</a></th>
-							</tr>
-							
-							<tr id="collapse1" class="panel-collapse collapse">
-								<td>
-									<c:if test="${review.image_1 ne null}">
-									<img class="img" width="80" height="120" src='data:image/${review.ext_1};base64,${review.image_1}' alt="${review.title}">   
-									</c:if>
-									<c:if test="${review.image_2 ne null}">
-									<img class="img" width="80" height="120" src='data:image/${review.ext_2};base64,${review.image_2}' alt="${review.title}">   
-									</c:if>
-									<c:if test="${review.image_3 ne null}">
-									<img class="img" width="80" height="120" src='data:image/${review.ext_3};base64,${review.image_3}' alt="${review.title}">
-									</c:if>
-									<br>
-									가격 : ${review.rev_price}  <br>
-									품질 : ${review.rev_quality}  <br>
- 									배송 : ${review.rev_ship}  <br>
-									내용 : ${review.content } <br>
-									시간 : ${review.createTime } <br>
-								</td>
-							</tr>
-						</tbody>
-					</c:forEach>
-				</table>
+            <table class="table">
+               <thead class="thead-dark">
+                  <tr>
+                     <th>제목</th>
+                     <th>작성자</th>
+                     <th>평점</th>
+                     <th>내용</th>
+                  </tr>
+               </thead>
+               <c:forEach items="${reviews }" var="review">
+               
+                  <tbody>
+                     <tr>
+                     <th><a data-toggle="collapse" href="#collapse1">${review.title }</a></th>
+                     <th><a data-toggle="collapse" href="#collapse1">${review.u_id }</a></th>
+                                <th><a data-toggle="collapse" href="#collapse1">${review.rev_agv }</a></th>
+                               <th><a data-toggle="collapse" href="#collapse1">test</a></th>
+                     </tr>
+                     
+                     <tr id="collapse1" class="panel-collapse collapse">
+                        <td>
+                           <c:if test="${review.image_1 ne null}">
+                           <img class="img" width="80" height="120" src='data:image/${review.ext_1};base64,${review.image_1}' alt="${review.title}">   
+                           </c:if>
+                           <c:if test="${review.image_2 ne null}">
+                           <img class="img" width="80" height="120" src='data:image/${review.ext_2};base64,${review.image_2}' alt="${review.title}">   
+                           </c:if>
+                           <c:if test="${review.image_3 ne null}">
+                           <img class="img" width="80" height="120" src='data:image/${review.ext_3};base64,${review.image_3}' alt="${review.title}">
+                           </c:if>
+                           <br>
+                           가격 : ${review.rev_price}  <br>
+                           품질 : ${review.rev_quality}  <br>
+                            배송 : ${review.rev_ship}  <br>
+                           내용 : ${review.content } <br>
+                           시간 : ${review.createTime } <br>
+                        </td>
+                     </tr>
+                  </tbody>
+               </c:forEach>
+            </table>
          </div>
       </div>
    </div>
