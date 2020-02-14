@@ -89,14 +89,9 @@ public class ReviewService {
 
 
 	
-	public Review setReview(Review review, MultipartFile image, MultipartFile image1, MultipartFile image2,
+	public Review setReview(Review review, MultipartFile image1, MultipartFile image2,
 			MultipartFile image3) throws IOException {		
 		
-		if(!image.isEmpty()) {
-			byte[] byteImage = org.apache.commons.codec.binary.Base64.encodeBase64(image.getBytes());
-			String encodedImage = new String(byteImage);
-			review.setImage(encodedImage);
-		}
 		if(!image1.isEmpty()) {
 			byte[] byteImage1 = org.apache.commons.codec.binary.Base64.encodeBase64(image1.getBytes());
 			String encodedImage1 = new String(byteImage1);
@@ -114,7 +109,9 @@ public class ReviewService {
 		}
 		
 		review.setRev_agv((review.getRev_price() + review.getRev_quality() + review.getRev_ship())/3.0);
-		review.setExt(image.getOriginalFilename().substring(image.getOriginalFilename().lastIndexOf(".")+1));		
+		review.setExt_1(image1.getOriginalFilename().substring(image1.getOriginalFilename().lastIndexOf(".")+1));
+		review.setExt_2(image2.getOriginalFilename().substring(image2.getOriginalFilename().lastIndexOf(".")+1));	
+		review.setExt_3(image3.getOriginalFilename().substring(image3.getOriginalFilename().lastIndexOf(".")+1));	
 		return review;
 	}
 
@@ -126,6 +123,14 @@ public class ReviewService {
 	public boolean isExistReview(long oid) {
 		
 		return reviewRepo.selectReviewByOid(oid)!=null;
+	}
+
+	public Review selectReviewByOid(Long oid) {
+		return reviewRepo.selectReviewByOid(oid);
+	}
+
+	public Review selectReviewByRid(Long rid) {
+		return reviewRepo.selectReviewByRid(rid);
 	}
 	
 }

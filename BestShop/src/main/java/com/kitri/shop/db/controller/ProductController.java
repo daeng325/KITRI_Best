@@ -50,25 +50,17 @@ public class ProductController {
 			@RequestParam("type") String type, @RequestParam("price") int price,
 			@RequestParam("description") String description, @RequestParam("image_thumbnail") MultipartFile image_thumbnail, 
 			@RequestParam("image_detail") MultipartFile image_detail, @RequestParam("count") int count,
-			@RequestParam("image") MultipartFile image, @RequestParam("status") String status) throws Exception {
+			@RequestParam("status") String status) throws Exception {
 
 		
 		byte[] byteThumbnailImage = org.apache.commons.codec.binary.Base64.encodeBase64(image_thumbnail.getBytes());
 		String encodedThumbnailImage = new String(byteThumbnailImage);
-
-		byte[] byteImage = org.apache.commons.codec.binary.Base64.encodeBase64(image.getBytes());
-		String encodedImage = new String(byteImage);
 		
 		byte[] byteDetailImage = org.apache.commons.codec.binary.Base64.encodeBase64(image_detail.getBytes());
 		String encodedDetailImage = new String(byteDetailImage);	
 		
-		Product product = new Product(name, type, price, description, encodedThumbnailImage, encodedDetailImage, count, encodedImage, status);
-		String s1 = product.getImage();
-		String s2 = product.getImage_thumbnail();
-		
-		System.out.println(s1.length());
-		System.out.println(s2.length());
-		System.out.println(s1.equals(s2));
+		Product product = new Product(name, type, price, description, encodedThumbnailImage, encodedDetailImage, count, status);
+
 		
 		proRepo.save(product);
 		return "redirect:/admin/productmanage";

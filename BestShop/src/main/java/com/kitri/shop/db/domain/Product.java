@@ -32,16 +32,14 @@ public class Product {
 	private String image_detail;
 	private int count;
 	private String status;
-	private String image;
 	
 	@CreationTimestamp
 	private LocalDateTime createTime;
 	
 	@UpdateTimestamp
 	private LocalDateTime updateTime;
-
 	
-	public Product(Long id, String name, String type, int price, String description, String image_thumbmail, String image_detail, int count, String image, String status) {
+	public Product(Long id, String name, String type, int price, String description, String image_thumbmail, String image_detail, int count, String status) {
 		this.id = id;
 		this.name = name;
 		this.type = type;
@@ -50,11 +48,10 @@ public class Product {
 		this.image_thumbnail = image_thumbmail;
 		this.image_detail = image_detail;
 		this.count = count;
-		this.image = image;
 		this.status = status;
 	}
 	
-	public Product(String name, String type, int price, String description, String image_thumbmail, String image_detail, int count, String image, String status) {
+	public Product(String name, String type, int price, String description, String image_thumbmail, String image_detail, int count, String status) {
 		this.name = name;
 		this.type = type;
 		this.price = price;
@@ -62,7 +59,6 @@ public class Product {
 		this.image_thumbnail = image_thumbmail;
 		this.image_detail = image_detail;
 		this.count = count;
-		this.image = image;
 		this.status = status;
 	}
 }

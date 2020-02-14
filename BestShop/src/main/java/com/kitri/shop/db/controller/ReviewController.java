@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kitri.shop.db.domain.Member;
@@ -24,7 +23,6 @@ import com.kitri.shop.db.domain.Order;
 import com.kitri.shop.db.domain.Product;
 import com.kitri.shop.db.domain.Review;
 import com.kitri.shop.db.domain.SecurityMember;
-import com.kitri.shop.db.repository.ReviewRepository;
 import com.kitri.shop.db.service.MemberService;
 import com.kitri.shop.db.service.OrderService;
 import com.kitri.shop.db.service.ProductService;
@@ -57,10 +55,12 @@ public class ReviewController {
 		Order order = oService.selectOrderByOid(oid);
 		Member member = mService.findByUid(secMember.getUsername()).get();
 		Product product = pService.selectProductByPid(order.getP_id());
+		Review review = revService.selectReviewByOid(oid);
 		
-		if(revService.isExistReview(oid)) {
-			rttr.addFlashAttribute("msg", "Duplicate");
-			return "redirect:/user/orderedlist";
+		if(revService.isExistReview(oid)) {			
+			rttr.addFlashAttribute("msg", "Duplicate").addFlashAttribute("member", member);
+			rttr.addFlashAttribute("review", review);
+			return "redirect:/review/update";
 		}
 		
 		model.addAttribute("order", order);
@@ -71,19 +71,18 @@ public class ReviewController {
 	
 	
 	@PostMapping(value="complete")
-	public String uploadComplete(@ModelAttribute Review review, @RequestParam("image0") MultipartFile image,
-								@RequestParam("image1") MultipartFile image1, @RequestParam("image2") MultipartFile image2
-								, @RequestParam("image3") MultipartFile image3, RedirectAttributes rttr) throws IOException {
+	public String uploadComplete(@ModelAttribute Review review, @RequestParam("image1") MultipartFile image1, 
+								@RequestParam("image2") MultipartFile image2, @RequestParam("image3") MultipartFile image3, 
+								RedirectAttributes rttr) throws IOException {
 		
-		review = revService.setReview(review, image, image1, image2, image3);		
+		review = revService.setReview(review, image1, image2, image3);		
 		revService.insertReview(review);
 		return "redirect:/";
 	}
 	
 	@GetMapping(value="update")
-	public String editReveiwPage(Model model, @RequestParam("rev") long id) {
-		
-		return "reviewedit";
+	public String editReveiwPage(@AuthenticationPrincipal SecurityMember secMember, Model model) throws Exception {
+		return "revieweditform";
 	}
 	
 	@GetMapping("delete")

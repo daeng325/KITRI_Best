@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width" , initial-scale="1">
+	<meta name="viewport" content="width=device-width" initial-scale="1">
 	<style type="text/css">
 		.jumbotron {
 			background-image: url('./jpg/flower.jpg');
@@ -27,6 +27,14 @@
 		* a {
 			text-decoration: none;
 			color: black;
+		}
+		
+		th{
+			white-space: nowrap;
+		}
+		
+		td{
+			white-space: nowrap;
 		}
 	</style>
 	<title>Beautycloset</title>
@@ -81,19 +89,22 @@
 	</div>
 	
 		<main class="login-form">
-			<div class="cotainer">
+			<div class="container">
 				<div class="row justify-content-center">
-					<div class="col-md-6">
+					<div class="col-md-9">
 						<div class="card">
 							<div class="card-header" text-align=center>상품 관리</div>
 								<div class="card-body">
 									<div class="col-md-6 offset-md-4">
 			                            <form class="form-inline" action="" method="post">
 										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <span class="glyphicon glyphicon-search" style="margin-right: 5px"></span>
-			                                <span class="glyphicon glyphicon-search" style="margin-right:5px"></span>
 			                                <input class="form-control mr-sm-2" type="text" placeholder="관리할 상품을 검색하세요">
 			                                <button class="btn btn-success" type="submit">Search</button>
 			                            </form> <br>
+			                            </div>
+			                            </div>
+			                            <div class="container">
+			                            <div class="col-offset-md-1">
 			                            <table class="table">
 			                                <thead class="thead-dark">
 			                                    <tr>
@@ -120,18 +131,23 @@
 				                                </tbody>
 			                                </c:forEach>
 			                            </table>
+			                            </div>
+			                            </div>
+			                            <div class="container">
+			                            <div class="col-md-6 offset-md-4">
 			                            <form class="form-inline" action="" method="post">
+			                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			                            <span><button type="submit" class="btn btn-primary" value="edit" style="margin-left:15px;margin-right:10px" onclick="location.href='productedit'">수정</button></span>
 			                            <span><button type="submit" class="btn btn-primary" value="delete" style="margin-right:10px" onclick="">삭제</button></span>
 			                            <span><button type="submit" class="btn btn-primary" value="add" onclick="location.href='productadd'">상품추가</button></span>
 			                            <br>
 			                            </form>
+			                            </div>
 									</div>
 								</div>
 						</div>
 					</div>
 				</div>
-			</div>
 		</main>
 		<footer style="background-color: #000000; color: #FFFFFF">
 			<div class="container" style="margin-top: 100px">

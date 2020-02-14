@@ -6,6 +6,24 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width" , initial-scale="1">
+	<title>Beautycloset</title>
+	<link rel="stylesheet" href="./css/bootstrap.css">
+	<link
+		href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+		rel="stylesheet" id="bootstrap-css">
+	<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
+		rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="css/style.css">
+	
+	<link rel="icon" href="Favicon.png">
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
 	<style type="text/css">
 		.jumbotron {
 			background-image: url('./jpg/flower.jpg');
@@ -29,25 +47,6 @@
 			color: black;
 		}
 		</style>
-	<title>Beautycloset</title>
-	<link rel="stylesheet" href="./css/bootstrap.css">
-	<link
-		href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-		rel="stylesheet" id="bootstrap-css">
-	<link rel="dns-prefetch" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
-		rel="stylesheet" type="text/css">
-	
-	<link rel="stylesheet" href="css/style.css">
-	
-	<link rel="icon" href="Favicon.png">
-	
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet"
-		href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-</head>
-<body>
-
 	<script>
 		var msg = "${msg}";
 		if (msg == "Updated"){
@@ -75,7 +74,7 @@
 	<div class="container">
 		<div class="logo">
 			<h1 class="text-center">
-				<a href="main">Beautycloset</a>
+				<a href=<% request.getContextPath(); %>/"main">Beautycloset</a>
 			</h1>
 		</div>
 	</div>
@@ -89,48 +88,27 @@
 			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/accesorie">Accesories</a>
 			</li>
 		</ul>
-		</nav>
-		<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
-			<div class="container">
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
 
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				</div>
-			</div>
-		</nav>
-		<span>
 			<h1 class="text-center">Mypage</h1>
-			<div class="card" style="width: 300px; height: 400px">
+			<table class="table-bordered" style="height:350px;margin-left:auto;margin-right:auto">
+<tbody>
+<tr>
+    <td><div class="card" style="width: 300px; height: 400px"><br>
 				<a href="selfuseredit"><img src="../icon/user.png" class="rounded"
-					alt="개인정보관리" style="width: 100px; height: 100px"></a>
-				<div class="card-body">
+					alt="개인정보관리" style="width: 100px; height: 100px; margin-left:100px;"></a>
+				<div class="card-body"><br>
 					<a href="selfuseredit"><h4 class="card-title"
 							style="text-align: center">개인정보관리</h4></a> <a href="selfuseredit"><p
 							class="card-text" style="text-align: center">
 							회원님의 개인정보를 <br>수정할 수 있습니다.
 						</p></a>
 				</div>
-			</div>
-			<div class="card" style="width: 300px; height: 400px">
-				<a href="selforderinfo"><img src="../icon/cart.png" class="rounded"
-					alt="주문내역" align="center" style="width: 100px; height: 100px"></a>
-				<div class="card-body">
-					<a href="selfuseredit"><h4 class="card-title"
-							style="text-align: center">주문내역</h4></a> <a href="selfuseredit"><p
-							class="card-text" style="text-align: center">
-							회원님의 주문내역을 <br>확인할 수 있습니다.
-						</p></a>
-				</div>
-			</div>
-			<div class="card" style="width: 300px; height: 400px">
+			</div></td>
+    <td></td>
+    <td><div class="card" style="width: 300px; height: 400px"><br>
 				<a href="selfuserbasket"><img src="../icon/money.jpg" class="rounded"
-					alt="장바구니" style="width: 100px; height: 100px"></a>
-				<div class="card-body">
+					alt="장바구니" style="width: 100px; height: 100px; margin-left:100px;"></a>
+				<div class="card-body"><br>
 					<a href="selfuseredit"><h4 class="card-title"
 							style="text-align: center">장바구니</h4></a> <a href="selfuseredit"><p
 							class="card-text" style="text-align: center">
@@ -138,18 +116,33 @@
 						</p></a>
 				</div>
 			</div>
-			<div class="card" style="width: 300px; height: 400px">
+		</td>
+    <td></td>
+    <td><div class="card" style="width: 300px; height: 400px"><br>
+				<a href="selforderinfo"><img src="../icon/cart.png" class="rounded"
+					alt="주문내역" align="center" style="width: 100px; height: 100px; margin-left:100px;"></a>
+				<div class="card-body"><br>
+					<a href="orderedlist"><h4 class="card-title"
+							style="text-align: center">주문내역</h4></a> <a href="orderedlist"><p							
+							class="card-text" style="text-align: center">
+							회원님의 주문내역을 <br>확인할 수 있습니다.</p></a></div></div></td>
+    <td></td>
+    <td>			<div class="card" style="width: 300px; height: 400px"><br>
 				<a href="selfuserout"><img src="../icon/delete.png" class="rounded"
-					alt="회원탈퇴" style="width: 100px; height: 100px"></a>
-				<div class="card-body">
+					alt="회원탈퇴" style="width: 100px; height: 100px; margin-left:100px;"></a>
+				<div class="card-body"><br>
 					<a href="selfuserout"><h4 class="card-title"
-							stylㄴe="text-align:center">회원탈퇴</h4></a> <a href="selfuserout"><p
+							style="text-align: center">회원탈퇴</h4></a> <a href="selfuserout"><p
 							class="card-text" style="text-align: center">
 							회원님의 탈퇴 및 개인정보 <br>삭제를 진행할 수 있습니다.
 						</p></a>
 				</div>
 			</div>
-		</span>
+		</td>
+</tr>
+</tbody>
+</table>
+</div>
 		<footer style="background-color: #000000; color: #FFFFFF">
 			<div class="container" style="margin-top: 100px">
 				<br>

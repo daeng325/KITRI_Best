@@ -123,11 +123,6 @@
 				</td>
 			</tr>
 			<tr>
-				<td>이미지</td>
-				<td><input type="file" id="image" name="image" class="form-control" required>
-				</td>
-			</tr>
-			<tr>
 				<td>수량</td>
 				<td><input type="number" id="count" name="count" class="form-control" placeholder="재고량 입력" required></td>
 			</tr>			

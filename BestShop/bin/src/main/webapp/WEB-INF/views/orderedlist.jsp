@@ -19,6 +19,13 @@
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	</head>
 	<body>
+		<script>
+		var msg = "${msg}"
+		if(msg=="Duplicate"){
+			alert("이미 작성 하셨습니다.")
+		}
+
+	</script>
 		<style type="text/css">
 			.jumbotron{
 				background-image: url('./jpg/flower.jpg');
@@ -43,78 +50,82 @@
 			}
 
 		</style>
-		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="main">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="login">Login</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="join">Join</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="mypage">Mypage</a>
-				</li>
-			</ul>
-			<form class="form-inline" action="" method="post">
-				<input class="form-control mr-sm-2" type="text" placeholder="Search">
-				<button class="btn btn-success" type="submit">Search</button>
-			</form>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link"
+				href="<% request.getContextPath(); %>/main">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="logout">Logout</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="mypage">Mypage</a>
+			</li>
+		</ul>
+		<form class="form-inline"
+			action="<% request.getContextPath(); %>/product/search" method="post">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			 <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
+			<button class="btn btn-success" type="submit">Search</button>
+		</form>
 		</nav>
 		<div class="container">
 			<div class="logo">
-				<h1 class = "text-center"><a href="main">Beautycloset</a></h1>
+				<h1 class="text-center">
+					<a href=<% request.getContextPath(); %>/"main">Beautycloset</a>
+				</h1>
 			</div>
 		</div>
 		<div class="container-fluid">
-			<ul class="nav justify-content-center">
-                <li class="nav-item">
-					<a class="nav-link" href="top">Top</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="bottom">Bottom</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="bags">Bags & Shoes</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="acce">Accesories</a>
-				</li>
-			</ul>
+		<ul class="nav justify-content-center">
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bottom">Bottom</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/bag">Bags &
+					Shoes</a></li>
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/accesorie">Accesories</a>
+			</li>
+		</ul>
 		</div>
 		<br>
 		<br>
 		<h2 style="text-align:center;text-decoration:bold">주문내역</h2>
-		<h3 style="text-align:center;text-decoration:bold;margin-bottom:50px">${users.id}님의 주문내역입니다</h3>
+		<h3 style="text-align:center;text-decoration:bold;margin-bottom:50px">${member.id}님의 주문내역입니다</h3>
 			<div class="container" style="margin-bottom:50px">
      <div class="row justify-content-center" style="border-bottom : 2px solid black">
 	<div class="card">
-		<form action="" method="post">
+	
+	<form method="post">
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	<table class="table-dark" class="table-bordered">
 		<thead>
 			<tr>
-				<th>이미지</th>
-				<th>상품번호</th>
-				<th>상품명</th>
-				<th>수량</th>
-				<th>주문날짜</th>
-				<th>배송상태</th>
-				<th>입금상태</th>
+				<th colspan = "3" rowspan = "4">이미지</th>
+				<th colspan = "3" rowspan = "4">상품번호</th>
+				<th colspan = "5" rowspan = "4">상품명</th>
+				<th colspan = "2" rowspan = "4">수량</th>
+				<th colspan = "2" rowspan = "4">주문날짜</th>
+				<th colspan = "2" rowspan = "4">배송상태</th>
+				<th colspan = "2" rowspan = "4">입금상태</th>
+				<th colspan = "2" rowspan = "4">리뷰</th>
 			</tr>
 		</thead>
+		<c:forEach  var="order" items="${orders}">
 		<tbody>
+			
 			<tr>
-				<td colspan = "3" rowspan = "4">${products.image}</td>
-				<td colspan = "3" rowspan = "4">${orders.p_id}</td>
-				<td colspan = "5" rowspan = "4">${products.name}</td>
-				<td colspan = "2" rowspan = "4">${products.count}<br><input type="number" id="qty_input" class="form-control form-control-sm" value="1" min="1"><br><button type="button" value="수량변경" class="btn btn-primary btn-xs" onclick=""></button></td><!--추후 order 테이블에 수량 컬럼 등록되면 수정-->
-				<td colspan = "2" rowspan = "4">${order.createTime}</td>
-				<td colspan = "2" rowspan = "4">${order.status}</td>
+				
+				<input type="hidden" name="order" value="${order.key}"/>
+				<input type="hidden" name="product" value="${order.value}"/>
+				<td colspan = "3" rowspan = "4"><img class="img" width="175" height="250" src='data:image/jpg;base64,${order.value.image_thumbnail}' alt="${order.value.name}"></td>
+				<td colspan = "3" rowspan = "4">${order.key.p_id}</td>
+				<td colspan = "5" rowspan = "4">${order.value.name}</td>
+				<td colspan = "2" rowspan = "4">${order.key.count}</td>
+				<td colspan = "2" rowspan = "4">${order.key.id}</td>
+				<td colspan = "2" rowspan = "4">${order.value.id}</td>
 				<td colspan = "2" rowspan = "4"><!--만약 입금이 되어있으면 입금완료라고 뜨고, 입금이 안되어있으면 입금바람이라고 뜸--></td>
+				<td colspan = "2" rowspan = "4"><a href="<% request.getContextPath(); %>/review/upload?num=${order.key.id}">작성</a></td>
 			</tr>
+			
 		</tbody>
+		</c:forEach>
 	</table>
 	<br>
 </form>

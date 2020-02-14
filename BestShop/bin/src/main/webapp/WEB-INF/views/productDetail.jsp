@@ -97,11 +97,11 @@
 		
 		<div class="row">
 			<div class="col-md-7">
-				<img class="img" width="175" height="250" src='data:image/jpg;base64,${ products.image_thumbnail }' alt="${ products.name }">
+				<img class="img" style="margin-left:270px; margin-top:30px" width="250" height="380" src='data:image/jpg;base64,${ products.image_thumbnail }' alt="${ products.name }">
 			</div>
-			<div class="col-md-4" style="margin-top: 40px">
+			<div class="col-md-4" style="margin-top: 40px;">
 				<div class="card">
-					<div class="card-header">${products.name}</div>
+					<div class="card-header" style="text-align:center">${products.name}</div>
 					<div class="card-body">
 						<div class="container mt-3">
 							<div class="row">
@@ -141,6 +141,7 @@
 		</form>
 
 	</div>
+	<br>
 	<ul class="nav nav-tabs nav-justified">
 		<li class="nav-item active"><a class="nav-link" data-toggle="tab" href="#상품정보">상품정보</a></li>
 		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#qna">Q & A</a></li>
@@ -155,13 +156,17 @@
 				<br>
 				<p style="text-align: center">상품 배송, 사이즈, 환불 등 다양한 질문에 대해 관리자가
 					친절하게 대답해 드립니다.</p>
-				
+					
+				<form action="" method="post">
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
 							<th></th>
 							<th>작성자</th>
+							<th></th>
 							<th>제목</th>
+							<th></th>
 							<th>작성시간</th>
 							<th></th>
 						</tr>
@@ -170,6 +175,7 @@
 					
 						<tbody>
 							<tr>
+							  <th><input type="checkbox" name="checked" value="${question.id }"></th>
 							  <th><a data-toggle="collapse" href="#collapse1">${question.u_id }</a></th>
 				              <th></th>
 				              <th><a data-toggle="collapse" href="#collapse1">${question.title }</a></th>
@@ -189,10 +195,10 @@
 						</tbody>
 					</c:forEach>
 				</table>
-				<form action="" method="post">
+				
 					<div class="row justify-content-center" style="margin-bottom: 50px">
-						<input type="button" class="btn btn-primary" value="수정"
-							onclick="location.href='<% request.getContextPath(); %>/question/update?num=${qna.id}'" style="margin-right: 10px">
+						<input type="submit" class="btn btn-primary" value="수정" formaction="<% request.getContextPath(); %>/question/update" 
+						formmethod="get" style="margin-right: 10px">
 						<input type="button" class="btn btn-primary" value="추가"
 							onclick="location.href='<% request.getContextPath(); %>/question/upload?num=${products.id}'" style="margin-right: 10px"> 
 						<input type="reset" class="btn btn-primary" value="삭제" onclick="">
@@ -221,32 +227,30 @@
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
-							<th></th>
-							<th>이름</th>
-							<th>상품명</th>
+							<th>제목</th>
+							<th>평점</th>
 							<th>내용</th>
 						</tr>
 					</thead>
 					<c:forEach items="${reviews }" var="rev">
 						<tbody>
 							<tr>
-								<td><input type="checkbox" name="reviewchk" value="${rev.id}"></td>
-								<td><a href="<% request.getContextPath(); %>/review/detail?num=${rev.id }">${rev.id }</a></td>
-								<td>${rev.id }</td>
+								<td><a href="<% request.getContextPath(); %>/review/detail?num=${rev.id }">${rev.title }</a></td>
+								<td>${rev.rev_agv }</td>
 								<td>${rev.content }</td>
 							</tr>
 						</tbody>
 					</c:forEach>
 				</table>
-
-				<div class="row justify-content-center" style="margin-bottom: 50px">
-					<input type="button" class="btn btn-primary" value="수정"
-						onclick="location.href='<% request.getContextPath(); %>/review/update?num=${rev.id}'" style="margin-right: 10px">
-					<input type="button" class="btn btn-primary" value="추가"
-						onclick="location.href='<% request.getContextPath(); %>/review/upload?num=${products.id}'" style="margin-right: 10px">
-					<input type="reset" class="btn btn-primary" value="삭제" onclick="">
-				</div>
-
+				<form action="" method="post">
+					<div class="row justify-content-center" style="margin-bottom: 50px">
+						<input type="button" class="btn btn-primary" value="수정"
+							onclick="location.href='<% request.getContextPath(); %>/review/update?num=${rev.id}'" style="margin-right: 10px">
+						<input type="button" class="btn btn-primary" value="추가"
+							onclick="location.href='<% request.getContextPath(); %>/review/upload?num=${products.id}'" style="margin-right: 10px"> 
+						<input type="reset" class="btn btn-primary" value="삭제" onclick="">
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
