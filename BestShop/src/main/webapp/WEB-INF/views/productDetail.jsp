@@ -234,30 +234,59 @@
 						</tr>
 					</thead>
 					<c:forEach items="${reviews }" var="review">
-					
-						<tbody>
-							<tr>
-							<th><a data-toggle="collapse" href="#collapse1">${review.title }</a></th>
-							<th><a data-toggle="collapse" href="#collapse1">${review.u_id }</a></th>
-				              		<th><a data-toggle="collapse" href="#collapse1">${review.rev_agv }</a></th>
-				          			<th><a data-toggle="collapse" href="#collapse1">${review.createTime }</a></th>
-							</tr>
-							
-							<tr id="collapse1" class="panel-collapse collapse">
-								<td>
-									<c:if test="${review.image ne null}">
-									<img class="img" width="175" height="250" src='data:image/${review.ext};base64,${review.image}' alt="${review.title}">
-										<br>
-									</c:if>
-									가격 : ${review.rev_price}  <br>
-									품질 : ${review.rev_quality}  <br>
- 									배송 : ${review.rev_ship}  <br>
-									내용 : ${review.content } <br>
-									시간 : ${review.createTime } <br>
-								</td>
-							</tr>
-						</tbody>
-					</c:forEach>
+    <ul class="list">
+      <li>
+        <details>
+          <summary class="desc">
+          	<span style="margin-right:80px;margin-left:120px">${review.u_id }</span>
+            <span style="margin-right:80px;">${review.title }</span>
+            <span style="margin-right:80px;">${review.rev_agv }</span>
+            <span style="margin-right:80px;">${review.createTime }</span>
+          </summary>
+			<table class="table-bordered" style="width:1000px; text-align:left">
+				<tbody>
+					<tr>
+					<td>상품</td>
+					<td><c:if test="${review.image ne null}">
+					<img class="img" width="175" height="250" src='data:image/${review.ext};base64,${review.image}' alt="${review.title}"></c:if></td>
+					</tr>
+					<td>가격</td>
+					<td>${review.rev_price}</td>
+					</tr>
+					<tr>
+					<td>품질</td>
+					<td>${review.rev_quality}</td>
+					</tr>
+ 					<tr>
+ 					<td>배송</td>
+ 					<td>${review.rev_ship}</td>
+ 					</tr>
+ 					<tr>
+ 					<td>작성날짜</td>
+					<td>${review.createTime }</td>
+					</tr>
+ 					<tr>
+					<td>내용</td>
+					<td>${review.content }</td>
+					</tr>				
+				</tbody>
+			</table>
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							관리자
+						</td>
+						<td>
+							<!--관리자의 댓글 다는 공간-->
+						</td>
+					</tr>
+			</table>
+          </div>
+        </details>
+      </li>
+      </ul>
+     </c:forEach>
 				</table>
 			</div>
 		</div>
