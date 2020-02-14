@@ -29,28 +29,60 @@
 </head>
 <body>
    <style type="text/css">
-      .jumbotron {
-         background-image: url('./jpg/flower.jpg');
-         background-size: cover;
-         text-shadow: black 0.2px 0.2px 0.2px;
-         color: blue;
-         font-weight: bold;
-         opacity: 0.5;
-         filter: alpha(opacity = 50);
-      }
+      .jumbotron{
+                  background-image: url('./jpg/flower.jpg');
+                  background-size: cover;
+                  text-shadow: black 0.2px 0.2px 0.2px;
+                  color: blue;
+                  font-weight: bold;
+                  opacity: 0.5;
+                  filter: alpha(opacity=50);
+               }
       
-      .logo {
-         font-family: 'Segoe Print';
-         font-size: 100px;
-         margin-top: 100px;
-         margin-bottom: 100px;
-      }
+               .logo{
+                  font-family : 'Segoe Print';
+                  font-size : 100px;
+                  margin-top : 100px;
+                  margin-bottom : 100px;
+               }
       
-      * a {
-         text-decoration: none;
-         color: black;
-      }
-   </style>
+               * a{
+                  text-decoration: none;
+                  color: black;
+               }
+      
+               body {
+                    font-family: sans-serif;
+               }
+               .list {
+                    list-style: none;
+                    padding: 0;
+               }
+               details {
+                    transition: height 1s;
+                    width:1000px;
+                    margin-left:100px;
+                    text-align: center;
+               }
+               details:not([open]) {
+                    height: auto;
+               }
+               details[open] {
+                    height: auto;
+               }
+               details > summary {
+                    list-style: none;
+                    padding: 10px;
+                    margin: 0;
+                    border-top: 1px solid #ddd;
+                    background: #f4f4f4;
+                    cursor: pointer;
+                    display: block;
+               }
+               details > summary::-webkit-details-marker {
+                    display: none;
+               }
+   </style>  
    <script>
       var msg = "${msg}";
       if(msg == "NotAllowed"){
@@ -97,6 +129,92 @@
    </div>
    <div class="container-fluid">
       <ul class="nav justify-content-center">
+	<style type="text/css">
+.jumbotron{
+				background-image: url('./jpg/flower.jpg');
+				background-size: cover;
+				text-shadow: black 0.2px 0.2px 0.2px;
+				color: blue;
+				font-weight: bold;
+				opacity: 0.5;
+				filter: alpha(opacity=50);
+			}
+
+			.logo{
+				font-family : 'Segoe Print';
+				font-size : 100px;
+				margin-top : 100px;
+				margin-bottom : 100px;
+			}
+
+			* a{
+				text-decoration: none;
+				color: black;
+			}
+
+			body {
+  				font-family: sans-serif;
+			}
+			.list {
+  				list-style: none;
+ 			 	padding: 0;
+			}
+			details {
+  				transition: height 1s;
+  				width:1000px;
+  				margin-left:100px;
+  				text-align: center;
+			}
+			details:not([open]) {
+ 			 	height: auto;
+			}
+			details[open] {
+			  	height: auto;
+			}
+			details > summary {
+			  	list-style: none;
+			  	padding: 10px;
+			  	margin: 0;
+  				border-top: 1px solid #ddd;
+ 	 			background: #f4f4f4;
+  				cursor: pointer;
+  				display: block;
+			}
+			details > summary::-webkit-details-marker {
+  				display: none;
+			}
+</style>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a></li>
+			<li class="nav-item"><sec:authorize access="isAnonymous()">
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/login">Login</a>
+				</sec:authorize> <sec:authorize access="isAuthenticated()">
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/logout">Logout</a>
+				</sec:authorize></li>
+			<li class="nav-item"><sec:authorize access="isAnonymous()">
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/join">Join</a>
+				</sec:authorize> <sec:authorize access="isAuthenticated()">
+					<a class="nav-link" href="<% request.getContextPath(); %>/user/mypage">Mypage</a>
+				</sec:authorize></li>
+
+		</ul>
+		<form class="form-inline" action="search" method="post">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" /> <input class="form-control mr-sm-2"
+				type="text" placeholder="Search" name="search">
+			<button class="btn btn-success" type="submit">Search</button>
+		</form>
+	</nav>
+	<div class="container">
+		<div class="logo">
+			<h1 class="text-center">
+				<a href="<% request.getContextPath(); %>/main">Beautycloset</a>
+			</h1>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<ul class="nav justify-content-center">
                 <li class="nav-item">
                <a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
             <li class="nav-item">
