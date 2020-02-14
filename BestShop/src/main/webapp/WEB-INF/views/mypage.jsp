@@ -74,7 +74,7 @@
 	<div class="container">
 		<div class="logo">
 			<h1 class="text-center">
-				<a href=<% request.getContextPath(); %>/"main">Beautycloset</a>
+				<a href="<% request.getContextPath(); %>/main">Beautycloset</a>
 			</h1>
 		</div>
 	</div>
@@ -106,12 +106,10 @@
 			</div></td>
     <td></td>
     <td><div class="card" style="width: 300px; height: 400px"><br>
-				<a href="selfuserbasket"><img src="../icon/money.jpg" class="rounded"
-					alt="장바구니" style="width: 100px; height: 100px; margin-left:100px;"></a>
+				<a href="selfuserbasket"><img src="../icon/money.jpg" class="rounded" alt="장바구니" style="width: 100px; height: 100px; margin-left:100px;"></a>
 				<div class="card-body"><br>
-					<a href="selfuseredit"><h4 class="card-title"
-							style="text-align: center">장바구니</h4></a> <a href="selfuseredit"><p
-							class="card-text" style="text-align: center">
+					<a href="selfuseredit"><h4 class="card-title" style="text-align: center">장바구니</h4></a> 
+					<a href="selfuseredit"><p class="card-text" style="text-align: center">
 							회원님의 장바구니에 담긴 <br>상품을 확인할 수 있습니다.
 						</p></a>
 				</div>
@@ -119,7 +117,7 @@
 		</td>
     <td></td>
     <td><div class="card" style="width: 300px; height: 400px"><br>
-				<a href="selforderinfo"><img src="../icon/cart.png" class="rounded"
+				<a href="orderedlist"><img src="../icon/cart.png" class="rounded"
 					alt="주문내역" align="center" style="width: 100px; height: 100px; margin-left:100px;"></a>
 				<div class="card-body"><br>
 					<a href="orderedlist"><h4 class="card-title"

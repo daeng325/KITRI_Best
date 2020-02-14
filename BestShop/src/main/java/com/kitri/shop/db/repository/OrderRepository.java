@@ -10,7 +10,7 @@ import com.kitri.shop.db.domain.Product;
 
 public interface OrderRepository extends CrudRepository<Order,String>{
 
-	@Query("SELECT o FROM Order o WHERE u_id = ?1 ORDER BY updateTime DESC")
+	@Query("SELECT o FROM Order o WHERE u_id = ?1 ORDER BY update_time DESC")
 	List<Order> selectOrderByUid(String userName);
 	
 	@Query("SELECT o FROM Order o WHERE p_id = ?1")
