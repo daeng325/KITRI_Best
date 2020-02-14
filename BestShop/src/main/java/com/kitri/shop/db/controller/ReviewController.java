@@ -71,11 +71,11 @@ public class ReviewController {
 	
 	
 	@PostMapping(value="complete")
-	public String uploadComplete(@ModelAttribute Review review, @RequestParam("image0") MultipartFile image,
-								@RequestParam("image1") MultipartFile image1, @RequestParam("image2") MultipartFile image2
-								, @RequestParam("image3") MultipartFile image3, RedirectAttributes rttr) throws IOException {
+	public String uploadComplete(@ModelAttribute Review review, @RequestParam("image1") MultipartFile image1, 
+								@RequestParam("image2") MultipartFile image2, @RequestParam("image3") MultipartFile image3, 
+								RedirectAttributes rttr) throws IOException {
 		
-		review = revService.setReview(review, image, image1, image2, image3);		
+		review = revService.setReview(review, image1, image2, image3);		
 		revService.insertReview(review);
 		return "redirect:/";
 	}

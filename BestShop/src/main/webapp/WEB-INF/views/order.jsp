@@ -100,7 +100,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<c:forEach var="image" items="${product.image}">
+				<c:forEach var="image" items="${product.image_thumbnail}">
 				<td colspan = "3" rowspan = "5">
 				<img class="img" width="175" height="250" src='data:image/jpg;base64,${ product.image_thumbnail }' alt="${ product.name }"></td>
 				</c:forEach>
@@ -188,9 +188,10 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" formaction="order/purchase?p=${product.id }">주문하기</button>
-	<input type="button" class="btn btn-primary" value="결제하기" onclick="location.href='purchase'" style="margin-left:150px;margin-right:10px">
-<input type="button" class="btn btn-primary" value="계속 쇼핑하기" onclick="location.href='main'" style="margin-right:10px">
+                            
+                         <input type="submit" class="btn btn-primary" value="주문하기" formaction="<% request.getContextPath(); %>/order/purchase?p=${product.id }" style="margin-right: 10px">
+						<input type="reset" class="btn btn-primary" value="계속 쇼핑하기">
+
 </div>
 </form>
 </div>
