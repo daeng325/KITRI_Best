@@ -5,51 +5,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" , initial-scale="1">
-<title>Beautycloset</title>
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-	integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
-	crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="../js/bootstrap.js"></script>
-<script src="../js/quantity.jquery.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" , initial-scale="1">
+	
+	<title>Beautycloset</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+		integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+		crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/quantity.jquery.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<style type="text/css">
-.jumbotron {
-	background-image: url('./jpg/flower.jpg');
-	background-size: cover;
-	text-shadow: black 0.2px 0.2px 0.2px;
-	color: blue;
-	font-weight: bold;
-	opacity: 0.5;
-	filter: alpha(opacity = 50);
-}
-
-.logo {
-	font-family: 'Segoe Print';
-	font-size: 100px;
-	margin-top: 100px;
-	margin-bottom: 100px;
-}
-
-* a {
-	text-decoration: none;
-	color: black;
-}
-</style>
+		.jumbotron {
+			background-image: url('./jpg/flower.jpg');
+			background-size: cover;
+			text-shadow: black 0.2px 0.2px 0.2px;
+			color: blue;
+			font-weight: bold;
+			opacity: 0.5;
+			filter: alpha(opacity = 50);
+		}
+		
+		.logo {
+			font-family: 'Segoe Print';
+			font-size: 100px;
+			margin-top: 100px;
+			margin-bottom: 100px;
+		}
+		
+		* a {
+			text-decoration: none;
+			color: black;
+		}
+	</style>
+	<script>
+		var msg = "${msg}";
+		if(msg == "NotAllowed"){
+			alert("본인이 작성한 문의만 삭제가 가능합니다.");
+		}
+		if(msg=="checkedNull"){
+			alert("수정할 문의사항을 선택해주세요.")
+		}
+		if(msg=="checkOne"){
+			alert("수정은 한 개씩만 가능합니다. 한 개 항목만 골라주세요.")
+		}
+		if(msg=="checkId"){
+			alert("본인이 작성한 문의사항만 수정이 가능합니다.")
+		}
+	</script>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a></li>
@@ -157,8 +173,9 @@
 				<p style="text-align: center">상품 배송, 사이즈, 환불 등 다양한 질문에 대해 관리자가
 					친절하게 대답해 드립니다.</p>
 					
-				<form action="" method="post">
+				<form>
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				<input type="hidden" name="num" value="${products.id }" />
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
@@ -175,7 +192,7 @@
 					
 						<tbody>
 							<tr>
-							  <th><input type="checkbox" name="checked" value="${question.id }"></th>
+							  <th><input type="checkbox" id="checked" name="checked" value="${question.id }"></th>
 							  <th><a data-toggle="collapse" href="#collapse1">${question.u_id }</a></th>
 				              <th></th>
 				              <th><a data-toggle="collapse" href="#collapse1">${question.title }</a></th>
@@ -187,7 +204,7 @@
 							<tr id="collapse1" class="panel-collapse collapse">
 								<td>
 									<c:if test="${question.image ne null}">
-										${question.image }
+										<img class="img" width="175" height="250" src='data:image/${question.ext };base64,${ question.image }'>
 									</c:if>
 									${question.content }
 								</td>
@@ -197,11 +214,12 @@
 				</table>
 				
 					<div class="row justify-content-center" style="margin-bottom: 50px">
-						<input type="submit" class="btn btn-primary" value="수정" formaction="<% request.getContextPath(); %>/question/update" 
-						formmethod="get" style="margin-right: 10px">
+						<input type="submit" class="btn btn-primary" value="수정" formmethod="get"
+							formaction="<% request.getContextPath(); %>/question/update" style="margin-right: 10px">
 						<input type="button" class="btn btn-primary" value="추가"
-							onclick="location.href='<% request.getContextPath(); %>/question/upload?num=${products.id}'" style="margin-right: 10px"> 
-						<input type="reset" class="btn btn-primary" value="삭제" onclick="">
+							onclick="location.href='<% request.getContextPath(); %>/question/upload?num=${products.id }'" style="margin-right: 10px"> 
+						<input type="submit" class="btn btn-primary" value="삭제" formmethod="post"
+							formaction="<% request.getContextPath(); %>/question/delete" style="margin-right: 10px">
 					</div>
 				</form>
 			</div>

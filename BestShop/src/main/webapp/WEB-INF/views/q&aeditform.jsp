@@ -101,13 +101,16 @@
 		<div class="row justify-content-center">
 			<div class="card">
 			
-				<form action="" method="post">
+				<form action="" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+					<input type="hidden" name="id" value="${question.id}" />
+					<input type="hidden" name="u_id" value="${question.u_id}" />
+					<input type="hidden" name="p_id" value="${question.p_id}" />
 					<table class="table">
 						<tbody>
 							<tr>
 								<td>작성자</td>
-								<td>${member.id}</td>
+								<td>${question.u_id}</td>
 							</tr>
 							<tr>
 								<td>질문종류</td>
@@ -125,8 +128,7 @@
 							</tr>
 							<tr>
 								<td>내용</td>
-								<td><textarea rows="10" cols="50"
-										value="${question.content}" class="form-control" required></textarea>
+								<td><textarea rows="10" cols="50" class="form-control" name="content" required>${question.content}</textarea>
 								</td>
 							</tr>
 							<tr>
@@ -141,10 +143,10 @@
 						</tbody>
 					</table>
 					<div class="row justify-content-center" style="margin-bottom: 50px">
-						<input type="button" class="btn btn-primary" value="완료" 
-							onclick="location.href='<% request.getContextPath(); %>/question/update?num=${qna.id}" style="margin-right: 10px"> 
+						<input type="submit" class="btn btn-primary" value="완료" 
+							formaction="<% request.getContextPath(); %>/question/update" style="margin-right: 10px"> 
 						<input type="button" class="btn btn-primary" value="수정취소"
-							onclick="location.href='history.go(-1)'" style="margin-right: 10px">
+							onclick="location.href='<% request.getContextPath(); %>/product/detail?num=${question.p_id}'" style="margin-right: 10px">
 					</div>
 				</form>
 			</div>

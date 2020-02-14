@@ -33,7 +33,7 @@ public class Question {
 	private String content;
 	
 	private String ext;
-	private byte[] image;
+	private String image;
 	
 	@CreationTimestamp
 	private LocalDateTime createTime;
