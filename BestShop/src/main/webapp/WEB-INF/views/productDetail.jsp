@@ -28,27 +28,59 @@
 </head>
 <body>
 	<style type="text/css">
-.jumbotron {
-	background-image: url('./jpg/flower.jpg');
-	background-size: cover;
-	text-shadow: black 0.2px 0.2px 0.2px;
-	color: blue;
-	font-weight: bold;
-	opacity: 0.5;
-	filter: alpha(opacity = 50);
-}
+.jumbotron{
+				background-image: url('./jpg/flower.jpg');
+				background-size: cover;
+				text-shadow: black 0.2px 0.2px 0.2px;
+				color: blue;
+				font-weight: bold;
+				opacity: 0.5;
+				filter: alpha(opacity=50);
+			}
 
-.logo {
-	font-family: 'Segoe Print';
-	font-size: 100px;
-	margin-top: 100px;
-	margin-bottom: 100px;
-}
+			.logo{
+				font-family : 'Segoe Print';
+				font-size : 100px;
+				margin-top : 100px;
+				margin-bottom : 100px;
+			}
 
-* a {
-	text-decoration: none;
-	color: black;
-}
+			* a{
+				text-decoration: none;
+				color: black;
+			}
+
+			body {
+  				font-family: sans-serif;
+			}
+			.list {
+  				list-style: none;
+ 			 	padding: 0;
+			}
+			details {
+  				transition: height 1s;
+  				width:1000px;
+  				margin-left:100px;
+  				text-align: center;
+			}
+			details:not([open]) {
+ 			 	height: auto;
+			}
+			details[open] {
+			  	height: auto;
+			}
+			details > summary {
+			  	list-style: none;
+			  	padding: 10px;
+			  	margin: 0;
+  				border-top: 1px solid #ddd;
+ 	 			background: #f4f4f4;
+  				cursor: pointer;
+  				display: block;
+			}
+			details > summary::-webkit-details-marker {
+  				display: none;
+			}
 </style>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<ul class="navbar-nav">
