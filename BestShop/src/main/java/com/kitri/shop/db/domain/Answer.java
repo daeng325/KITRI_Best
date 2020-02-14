@@ -1,6 +1,5 @@
 package com.kitri.shop.db.domain;
 
-import java.sql.Blob;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -17,27 +16,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="questions")
+@Table(name="answers")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Question {
+public class Answer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
-	private String u_id;
-	private Long p_id;
-
+	private String id;
+	private Long q_id;
 	private String type;
-	private String title;
 	private String content;
-	
-	private String ext;
-	private String image;
 	
 	@CreationTimestamp
 	private LocalDateTime createTime;
 	
 	@UpdateTimestamp
 	private LocalDateTime updateTime;
+	
 }

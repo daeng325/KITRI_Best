@@ -98,8 +98,6 @@
          alert("본인이 작성한 문의사항만 수정이 가능합니다.")
       }
    </script>
- 
-  
    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <ul class="navbar-nav">
          <li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/main">Home</a></li>
@@ -113,18 +111,15 @@
             </sec:authorize> <sec:authorize access="isAuthenticated()">
                <a class="nav-link" href="<% request.getContextPath(); %>/user/mypage">Mypage</a>
             </sec:authorize></li>
+
       </ul>
-      
-      
-      
       <form class="form-inline" action="search" method="post">
          <input type="hidden" name="${_csrf.parameterName}"
             value="${_csrf.token}" /> <input class="form-control mr-sm-2"
             type="text" placeholder="Search" name="search">
          <button class="btn btn-success" type="submit">Search</button>
       </form>
-    </nav>
-    
+   </nav>
    <div class="container">
       <div class="logo">
          <h1 class="text-center">
@@ -132,9 +127,9 @@
          </h1>
       </div>
    </div>
-
-	<div class="container-fluid">
-		<ul class="nav justify-content-center">
+   
+   <div class="container-fluid">
+      <ul class="nav justify-content-center">
                 <li class="nav-item">
                <a class="nav-link" href="<% request.getContextPath(); %>/top">Top</a></li>
             <li class="nav-item">
@@ -241,8 +236,9 @@
                      <tr id="collapse1" class="panel-collapse collapse">
                         <td>
                            <c:if test="${question.image ne null}">
-                              ${question.image }
+                              <img class="img" width="175" height="250" src='data:image/${question.ext };base64,${ question.image }'>
                            </c:if>
+                           <br>
                            ${question.content }
                         </td>
                      </tr>
@@ -253,8 +249,6 @@
                <div class="row justify-content-center" style="margin-bottom: 50px">
                   <input type="submit" class="btn btn-primary" value="수정" formmethod="get"
                      formaction="<% request.getContextPath(); %>/question/update" style="margin-right: 10px">
-                  <%-- <input type="submit" class="btn btn-primary" value="수정" 
-                     onclick="location.href='<% request.getContextPath(); %>/question/update?num=${products.id}'" style="margin-right: 10px"> --%>
                   <input type="button" class="btn btn-primary" value="추가"
                      onclick="location.href='<% request.getContextPath(); %>/question/upload?num=${products.id }'" style="margin-right: 10px"> 
                   <input type="submit" class="btn btn-primary" value="삭제" formmethod="post"
@@ -266,7 +260,10 @@
 
       <div class="tab-pane fade in active" id="상품정보">
          <br> ${products.description} <br> 가격 : ${products.price } <br>
-         <img class="img"src='data:image/jpg;base64,${ products.image_detail }' alt="${ products.name }">
+         <br>
+         <img class="img" width="175" height="250" src='data:image/jpg;base64,${ products.image_thumbnail }' alt="${ products.name }">
+         <br>
+         <img class="img" width="175" height="250" src='data:image/jpg;base64,${ products.image_detail }' alt="${ products.name }">
          <br>
       </div>
 
@@ -276,47 +273,47 @@
             <br>
 
             <p style="text-align: center">상품에 대해 리뷰 올려주시면 적립금 드립니다.</p>
-				<table class="table">
-					<thead class="thead-dark">
-						<tr>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>평점</th>
-							<th>내용</th>
-						</tr>
-					</thead>
-					<c:forEach items="${reviews }" var="review">
-					
-						<tbody>
-							<tr>
-							<th><a data-toggle="collapse" href="#collapse2">${review.title }</a></th>
-							<th><a data-toggle="collapse" href="#collapse2">${review.u_id }</a></th>
-				              		<th><a data-toggle="collapse" href="#collapse2">${review.rev_agv }</a></th>
-				          			<th><a data-toggle="collapse" href="#collapse2">${review.content }</a></th>
-							</tr>
-							
-							<tr id="collapse2" class="panel-collapse collapse">
-								<td>
-									<c:if test="${review.image_1 ne null}">
-									<img class="img" width="80" height="120" src='data:image/${review.ext_1};base64,${review.image_1}' alt="${review.title}">   
-									</c:if>
-									<c:if test="${review.image_2 ne null}">
-									<img class="img" width="80" height="120" src='data:image/${review.ext_2};base64,${review.image_2}' alt="${review.title}">   
-									</c:if>
-									<c:if test="${review.image_3 ne null}">
-									<img class="img" width="80" height="120" src='data:image/${review.ext_3};base64,${review.image_3}' alt="${review.title}">
-									</c:if>
-									<br>
-									가격 : ${review.rev_price}  <br>
-									품질 : ${review.rev_quality}  <br>
- 									배송 : ${review.rev_ship}  <br>
-									내용 : ${review.content } <br>
-									시간 : ${review.createTime } <br>
-								</td>
-							</tr>
-						</tbody>
-					</c:forEach>
-				</table>
+            <table class="table">
+               <thead class="thead-dark">
+                  <tr>
+                     <th>제목</th>
+                     <th>작성자</th>
+                     <th>평점</th>
+                     <th>내용</th>
+                  </tr>
+               </thead>
+               <c:forEach items="${reviews }" var="review">
+               
+                  <tbody>
+                     <tr>
+                      <th><a data-toggle="collapse" href="#collapse1">${review.title }</a></th>
+                     <th><a data-toggle="collapse" href="#collapse1">${review.u_id }</a></th>
+                        <th><a data-toggle="collapse" href="#collapse1">${review.rev_agv }</a></th>
+                        <th><a data-toggle="collapse" href="#collapse1">${review.content }</a></th>
+                     </tr>
+                     
+                     <tr id="collapse1" class="panel-collapse collapse">
+                        <td>
+                           <c:if test="${review.image_1 ne null}">
+                           <img class="img" width="80" height="120" src='data:image/${review.ext_1};base64,${review.image_1}' alt="${review.title}">   
+                           </c:if>
+                           <c:if test="${review.image_2 ne null}">
+                           <img class="img" width="80" height="120" src='data:image/${review.ext_2};base64,${review.image_2}' alt="${review.title}">   
+                           </c:if>
+                           <c:if test="${review.image_3 ne null}">
+                           <img class="img" width="80" height="120" src='data:image/${review.ext_3};base64,${review.image_3}' alt="${review.title}">
+                           </c:if>
+                           <br>
+                                          가격 : ${review.rev_price}  <br>
+                                          품질 : ${review.rev_quality}  <br>
+                                           배송 : ${review.rev_ship}  <br>
+                                          내용 : ${review.content } <br>
+                                          시간 : ${review.createTime } <br>
+                        </td>
+                     </tr>
+                  </tbody>
+               </c:forEach>
+            </table>
          </div>
       </div>
    </div>

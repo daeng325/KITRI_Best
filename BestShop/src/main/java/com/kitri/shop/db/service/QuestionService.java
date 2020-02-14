@@ -38,4 +38,17 @@ public class QuestionService {
 		qRepo.save(question);
 	}
 	
+	public void updateQuestion(Question question) throws Exception{
+		qRepo.updateQuestion(question);
+	}
+	
+	public boolean deleteQuestion(Long qid, String uid) throws Exception{
+		// 본인이 작성한 것만 수정 가능
+		if(!uid.equals(qRepo.findById(qid).get().getU_id())){
+			return false;
+		}
+		qRepo.deleteById(qid);
+		return true;
+	}
+	
 }
