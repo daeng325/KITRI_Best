@@ -1,53 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="true" scan="true">
-    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
-    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+<configuration scan="true" scanPeriod="30 seconds">
 
-    <property name="LOGS_ABSOLUTE_PATH" value="./logs" />
-    <property name="FILE_NAME" value="collectionServer" />
- 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <Pattern>%d{HH:mm} %-5level %logger{36} - %msg%n</Pattern>
-        </layout>
-    </appender>
-    
-    <appender name="SAMPLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n</pattern>
-        </encoder>
-    </appender>  
-    
-    <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOGS_ABSOLUTE_PATH}/logback.log</file>
-        <encoder>
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n</pattern>
-        </encoder>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOGS_ABSOLUTE_PATH}/logback_%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <!-- or whenever the file size reaches 100MB -->
-                <maxFileSize>100MB</maxFileSize>
-                <!-- kb, mb, gb -->
-            </timeBasedFileNamingAndTriggeringPolicy>
-            <maxHistory>30</maxHistory>
-        </rollingPolicy>
-    </appender>
-    
-    
-    
-    
-    
-    
-    <logger name="com.apress.spring" level="DEBUG">
-        <appender-ref ref="SAMPLE" />
-    </logger>
-    <logger name="com.apress.spring.jeongpro" level="INFO">
-        <appender-ref ref="ROLLING" />
-    </logger>
-    <root level="INFO">
-        <appender-ref ref="STDOUT" />
-        <appender-ref ref="ROLLING"/>
-    </root>
+   <!-- Spring Boot의 logback 설정은 유지하면서 확장 -->
+   <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
+   <!-- 로그 저장 할 위치 -->
+   <property name="LOG_DIR" value="logback/" />
+
+   <appender name="dailyRollingFileAppender"
+           class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <prudent>true</prudent>
+      <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+         <jsonGeneratorDecorator class="com.kitri.shop.logback.PrettyPrintingDecorator"/>
+         <jsonFactoryDecorator class="com.kitri.shop.logback.ISO8601DateDecorator"/>
+      </encoder>
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+         <fileNamePattern>${LOG_DIR}kbn.%d{yyyy-MM-dd}.json</fileNamePattern>
+         <maxHistory>30</maxHistory> <!-- 30일 전 까지의 로그만 저장 -->
+      </rollingPolicy>
+      <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+         <level>INFO</level>
+      </filter>
+   </appender>
+
+   <logger name="org.springframework.web" level="INFO"/>
+   <logger name="org.thymeleaf" level="INFO"/>-
+   <logger name="org.hibernate.SQL" level="INFO"/>
+   <logger name="org.quartz.core" level="INFO"/>
+   <logger name="org.h2.server.web" level="INFO"/>
+
+   <logger name="jdbc" level="OFF" />
+   <logger name="jdbc.sqlonly" level="OFF"/>
+   <logger name="jdbc.sqltiming" level="DEBUG"/>
+   <logger name="jdbc.audit" level="OFF"/>
+   <logger name="jdbc.resultset" level="OFF"/>
+   <logger name="jdbc.resultsettable" level="DEBUG"/>
+   <logger name="jdbc.connection" level="OFF"/>
+
+   <root level="INFO">
+      <appender-ref ref="dailyRollingFileAppender" />
+   </root>
 </configuration>
