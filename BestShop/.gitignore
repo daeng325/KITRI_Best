@@ -30,3 +30,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### logs ###
+/logs/
+/logback/
+/LOG_PATH_IS_UNDEFINED/
