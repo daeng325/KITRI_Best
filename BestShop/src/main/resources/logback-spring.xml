@@ -1,32 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
+<configuration scan="true" scanPeriod="30 seconds">
 
-    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
-    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
-    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+   <!-- Spring Boot의 logback 설정은 유지하면서 확장 -->
+   <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
-    <property name="FILE_LOG_PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%logger{36}:%L] ### %msg%n"/>
-    <property name="CONSOLE_LOG_PATTERN" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+   <!-- 로그 저장 할 위치 -->
+   <property name="LOG_DIR" value="logback/" />
 
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <Pattern>${CONSOLE_LOG_PATTERN}</Pattern>
-        </encoder>
-    </appender>
+   <appender name="dailyRollingFileAppender"
+           class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <prudent>true</prudent>
+      <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+         <jsonGeneratorDecorator class="com.kitri.shop.logback.PrettyPrintingDecorator"/>
+         <jsonFactoryDecorator class="com.kitri.shop.logback.ISO8601DateDecorator"/>
+      </encoder>
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+         <fileNamePattern>${LOG_DIR}kbn.%d{yyyy-MM-dd}.json</fileNamePattern>
+         <maxHistory>30</maxHistory> <!-- 30일 전 까지의 로그만 저장 -->
+      </rollingPolicy>
+      <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+         <level>INFO</level>
+      </filter>
+   </appender>
+   
+   <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+    <destination>127.0.0.1:4560</destination>
+    <encoder class="net.logstash.logback.encoder.LogstashEncoder"></encoder>
+   </appender>
 
-    <appender name="STASH" class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <file>logback/spring.log</file>
-            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <fileNamePattern>logback/spring-%d{yyyy-MM-dd}.log</fileNamePattern>
-                <maxHistory>7</maxHistory>
-            </rollingPolicy> 
-            <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
-    </appender>
 
+   <logger name="org.springframework.web" level="INFO"/>
+   <logger name="org.thymeleaf" level="INFO"/>-
+   <logger name="org.hibernate.SQL" level="INFO"/>
+   <logger name="org.quartz.core" level="INFO"/>
+   <logger name="org.h2.server.web" level="INFO"/>
 
-    <root level="INFO">
-        <appender-ref ref="console"/>
-        <appender-ref ref="STASH" />
-    </root>
+   <logger name="jdbc" level="OFF" />
+   <logger name="jdbc.sqlonly" level="OFF"/>
+   <logger name="jdbc.sqltiming" level="DEBUG"/>
+   <logger name="jdbc.audit" level="OFF"/>
+   <logger name="jdbc.resultset" level="OFF"/>
+   <logger name="jdbc.resultsettable" level="DEBUG"/>
+   <logger name="jdbc.connection" level="OFF"/>
 
+   <root level="INFO">
+      <appender-ref ref="dailyRollingFileAppender" />
+      <appender-ref ref="LOGSTASH"/>
+   </root>
 </configuration>
