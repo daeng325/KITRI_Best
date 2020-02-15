@@ -5,24 +5,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" , initial-scale="1">
-<title>Beautycloset</title>
-<link rel="stylesheet" href="./css/bootstrap.css">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
-	rel="stylesheet" type="text/css">
-
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="icon" href="Favicon.png">
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" , initial-scale="1">
+	<title>Beautycloset</title>
+	<link rel="stylesheet" href="./css/bootstrap.css">
+	<link
+		href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+		rel="stylesheet" id="bootstrap-css">
+	<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
+		rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="css/style.css">
+	
+	<link rel="icon" href="Favicon.png">
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
 	<script>
@@ -32,30 +32,29 @@
 		}
 	</script>
 	<style type="text/css">
-.jumbotron {
-	background-image: url('./jpg/flower.jpg');
-	background-size: cover;
-	text-shadow: black 0.2px 0.2px 0.2px;
-	color: blue;
-	font-weight: bold;
-	opacity: 0.5;
-	filter: alpha(opacity = 50);
-}
-.logo {
-	font-family: 'Segoe Print';
-	font-size: 100px;
-	margin-top: 100px;
-	margin-bottom: 100px;
-}
-* a {
-	text-decoration: none;
-	color: black;
-}
-</style>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-
+		.jumbotron {
+			background-image: url('./jpg/flower.jpg');
+			background-size: cover;
+			text-shadow: black 0.2px 0.2px 0.2px;
+			color: blue;
+			font-weight: bold;
+			opacity: 0.5;
+			filter: alpha(opacity = 50);
+		}
+		.logo {
+			font-family: 'Segoe Print';
+			font-size: 100px;
+			margin-top: 100px;
+			margin-bottom: 100px;
+		}
+		* a {
+			text-decoration: none;
+			color: black;
+		}
+	</style>
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="<% request.getContextPath(); %>/">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="<%request.getContextPath();%>/">Home</a></li>
 			<li class="nav-item">
 				<sec:authorize access="isAnonymous()">
 					<a class="nav-link" href="login">Login</a>
@@ -72,27 +71,6 @@
 					<a class="nav-link" href="mypage">Mypage</a>
 				</sec:authorize>
 			</li>
-		</ul>
-		</nav>
-		<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="">Home</a></li>
-			<li class="nav-item">
-				<sec:authorize access="isAnonymous()">
-					<a class="nav-link" href="user/login">Login</a>
-				</sec:authorize> 
-				<sec:authorize access="isAuthenticated()">
-					<a class="nav-link" href="user/logout">Logout</a>
-				</sec:authorize>
-			</li>
-			<li class="nav-item">
-				<sec:authorize access="isAnonymous()">
-					<a class="nav-link" href="user/join">Join</a>
-				</sec:authorize> 
-				<sec:authorize access="isAuthenticated()">
-					<a class="nav-link" href="user/mypage">Mypage</a>
-				</sec:authorize>
-			</li>
 
 		</ul>
 		<form class="form-inline" action="<% request.getContextPath(); %>/product/search" method="post">
@@ -102,6 +80,10 @@
 		</form>
 	</nav>
 
+	<br>
+	<br>
+	<br>
+	<br>
 	<br>
 	<main class="login-form">
 		<div class="cotainer">
