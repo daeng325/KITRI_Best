@@ -18,7 +18,8 @@ MariaDB 10.2
 > (Mirror Korea, Republic Of - [Daum Kakao Corp.])
 
 #### Eclipse STS 설치
-Eclipse Marketplace에서 STS 검색하면 맨 위에 나오는 **Spring Tools 3 Add-On for Spring Tools 4**  다운로드
+Eclipse Marketplace에서 STS 검색하면 맨 위에 나오는 **Spring Tools 3 Add-On for Spring Tools 4** 
+** Spring Tools 4 (aka Spring Tool Suite 4) 4.5.1RELEASE** 다운로드
 
 #### MariaDB 설치
 [MariaDB 10.2 version 설치](https://downloads.mariadb.org/mariadb/10.2.31/)
@@ -36,7 +37,10 @@ MariaDB 10.2.31 Stable 의 64bit msi 파일 다운로드
 > 설치 후 이클립스 재부팅 후 Maven Update 필요 
 
 #### HeidiSQL
-HeidiSQL을 실행 후 [파일]-> [SQL 파일 실행] 클릭 후 BestShop/DB/backup/에 있는 best_shop_backup0219.sql 파일 선택 후 실행 
+MySQL Client 
+> create database best_shop
+HeidiSQL을 실행 후 best_shop 데이터베이스 선택
+ [파일]-> [SQL 파일 실행] 클릭 후 BestShop/DB/backup/에 있는 best_shop_backup0219.sql 파일 선택 후 실행 
 
 #### keystore 생성 
 [Spring Boot HTTPS 설정 참고 사이트 ](https://cheese10yun.github.io/spring-https/)
