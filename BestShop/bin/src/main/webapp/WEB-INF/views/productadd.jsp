@@ -123,11 +123,6 @@
 				</td>
 			</tr>
 			<tr>
-				<td>이미지</td>
-				<td><input type="file" id="image" name="image" class="form-control" required>
-				</td>
-			</tr>
-			<tr>
 				<td>수량</td>
 				<td><input type="number" id="count" name="count" class="form-control" placeholder="재고량 입력" required></td>
 			</tr>			
@@ -157,6 +152,7 @@
 		</tbody>
 	</table>
 <div class="row justify-content-center" style="margin-bottom:50px">
+
 <button type="submit" class="btn btn-primary" formaction="<% request.getContextPath(); %>/product/upload" style="margin-right:10px">완료</button>
 <button type="submit"  class="btn btn-primary" formaction="<% request.getContextPath(); %>admin/productmanage" style="margin-right:10px">취소</button>
 <input type="reset" class="btn btn-primary" value="초기화">

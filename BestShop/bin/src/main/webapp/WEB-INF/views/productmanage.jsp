@@ -139,7 +139,8 @@
 			                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			                            <span><button type="submit" class="btn btn-primary" value="edit" style="margin-left:15px;margin-right:10px" onclick="location.href='productedit'">수정</button></span>
 			                            <span><button type="submit" class="btn btn-primary" value="delete" style="margin-right:10px" onclick="">삭제</button></span>
-			                            <span><button type="submit" class="btn btn-primary" value="add" onclick="location.href='productadd'">상품추가</button></span>
+			                            <span><input type="button" class="btn btn-primary" value="추가"
+                     onclick="location.href='<% request.getContextPath(); %>/product/upload'" style="margin-right: 10px"></span>
 			                            <br>
 			                            </form>
 			                            </div>

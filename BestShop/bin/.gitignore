@@ -30,3 +30,14 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### logs ###
+/logs/
+/logback/
+/LOG_PATH_IS_UNDEFINED/
+/.gitignore
+/.mvn/
+/mvnw
+/mvnw.cmd
+/pom.xml
+/src/

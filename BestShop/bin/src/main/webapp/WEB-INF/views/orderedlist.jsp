@@ -94,7 +94,7 @@
 	
 	<form method="post">
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	<table class="table-dark" class="table-bordered">
+	<table class="table-bordered">
 		<thead>
 			<tr>
 				<th colspan = "3" rowspan = "4">이미지</th>
@@ -118,9 +118,9 @@
 				<td colspan = "3" rowspan = "4">${order.key.p_id}</td>
 				<td colspan = "5" rowspan = "4">${order.value.name}</td>
 				<td colspan = "2" rowspan = "4">${order.key.count}</td>
-				<td colspan = "2" rowspan = "4">${order.key.id}</td>
-				<td colspan = "2" rowspan = "4">${order.value.id}</td>
-				<td colspan = "2" rowspan = "4"><!--만약 입금이 되어있으면 입금완료라고 뜨고, 입금이 안되어있으면 입금바람이라고 뜸--></td>
+				<td colspan = "2" rowspan = "4">${order.key.createTime}</td>
+				<td colspan = "2" rowspan = "4">${order.key.status}</td>
+				<td colspan = "2" rowspan = "4">입금<!--만약 입금이 되어있으면 입금완료라고 뜨고, 입금이 안되어있으면 입금바람이라고 뜸--></td>
 				<td colspan = "2" rowspan = "4"><a href="<% request.getContextPath(); %>/review/upload?num=${order.key.id}">작성</a></td>
 			</tr>
 			

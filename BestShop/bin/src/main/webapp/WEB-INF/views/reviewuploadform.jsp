@@ -155,32 +155,27 @@
 										required></textarea></td>
 							</tr>
 							<tr>
-								<td>파일 업로드</td>
-								<td><input type="file" id="image0" name="image0" class="form-control"></td>
-							</tr>
-							<tr>
-								<td>파일2</td>
+								<td>파일1</td>
 								<td><input type="file" id="image1" name="image1" class="form-control" ></td>
 							</tr>
 							<tr>
-								<td>파일3</td>
+								<td>파일2</td>
 								<td><input type="file" id="image2" name="image2" class="form-control" ></td>
 							</tr>
 							<tr>
-								<td>파일4</td>
+								<td>파일3</td>
 								<td><input type="file" id="image3" name="image3" class="form-control" ></td>
 							</tr>		
 
 							<tr>
 								<td>작성날짜</td>
 								<td><script>
-					let today = new Date();   // 현재 날짜를 표시함(특정한 포맷 없이)
-					let year = today.getFullYear(); // 년도
-					let month = today.getMonth()  // 월
-					let date = today.getDate();  // 날짜
-					document.write(year + '-' + month + '-' + date) // 년-월-일 형식으로 표현
+								let today = new Date();   // 현재 날짜를 표시함(특정한 포맷 없이)
+								let year = today.getFullYear(); // 년도
+								let month = today.getMonth()  // 월
+								let date = today.getDate();  // 날짜
+								document.write(year + '-' + month + '-' + date) // 년-월-일 형식으로 표현
 					</script></td>
-								<!-- 현재 날짜가 자동으로 표시되도록 바꿈-->
 							</tr>
 
 					
